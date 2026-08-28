@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .summary-cards-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 16px;
 }
 
@@ -302,6 +302,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: var(--navy-900);
     font-family: var(--font-heading);
+}
+
+.summary-subtext {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--slate-400);
+    margin-top: 3px;
+    letter-spacing: -0.01em;
 }
 
 .itinerary-timeline-section {
