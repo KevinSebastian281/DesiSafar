@@ -209,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.header-container {
+.page-header-section .header-container {
     max-width: 800px;
     margin: 0 auto;
 }

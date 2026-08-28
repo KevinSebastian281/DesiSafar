@@ -7,30 +7,67 @@
     <title>Your Travel Itinerary - Manali Trip | DesiSfar</title>
     <meta name="description"
         content="5 Days / 4 Nights personalized travel itinerary for Manali, Himachal Pradesh with DesiSfar. Plan your journey, budget, and daily activities.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Shared Navbar Stylesheet -->
+    <link rel="stylesheet" href="navbar.css">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles4.css">
 </head>
 
 <body>
 
-    <header id="header" class="site-header">
-        <div class="nav-container">
-            <a href="index.html" class="brand-logo-link" aria-label="DesiSfar Home">
-                <img src="logo.png" alt="DesiSfar - Explore India" class="site-logo-img" height="150">
-            </a>
-
-            <nav class="main-navigation" aria-label="Primary Navigation">
-                <ul class="nav-links">
-                    <li><a href="index.html" class="nav-item">Home</a></li>
-                    <li><a href="index.html#features" class="nav-item">Explore</a></li>
-                    <li><a href="index.html#sample-yatras" class="nav-item">Destinations</a></li>
-                    <li><a href="index4.html" class="nav-item active">Itinerary</a></li>
-                    <li><a href="index.html#comparison" class="nav-item">About</a></li>
-                </ul>
-            </nav>
-
-            <div class="nav-action">
-                <a href="#cta" class="btn btn-primary">Plan a Trip</a>
+    <!-- Top Navigation Header -->
+    <header class="app-header" id="appHeader">
+        <div class="header-container">
+            <div class="brand-wrapper">
+                <a href="../page 1/index.html" class="brand-link" aria-label="DesiSafar Home">
+                    <img src="logo.png" alt="DesiSafar Logo" class="brand-logo" id="brandLogo">
+                </a>
+                <a href="../preference/preference.html" class="back-link" aria-label="Return to preferences page">
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Back</span>
+                </a>
             </div>
+
+            <!-- Trip Progress Stepper -->
+            <nav class="trip-progress-nav" aria-label="Trip Planning Stages">
+                <ol class="progress-steps">
+                    <li class="step-item step-done">
+                        <a href="../destinations_page/assets/destinations/destinations.html" class="step-link">
+                            <span class="step-num">01</span>
+                            <span class="step-label">DESTINATIONS</span>
+                        </a>
+                    </li>
+                    <li class="step-item step-done">
+                        <a href="../preference/preference.html" class="step-link">
+                            <span class="step-num">02</span>
+                            <span class="step-label">PREFERENCES</span>
+                        </a>
+                    </li>
+                    <li class="step-item step-active" aria-current="step">
+                        <a href="index4.html" class="step-link">
+                            <span class="step-num">03</span>
+                            <span class="step-label">ITINERARY</span>
+                        </a>
+                    </li>
+                    <li class="step-item step-upcoming">
+                        <a href="../budget/budget.html" class="step-link">
+                            <span class="step-num">04</span>
+                            <span class="step-label">BUDGET</span>
+                        </a>
+                    </li>
+                </ol>
+            </nav>
         </div>
     </header>
 
@@ -327,7 +364,7 @@
         <section id="cta" class="bottom-cta-section">
             <div class="cta-container">
                 <h2 class="cta-title">Ready for your adventure?</h2>
-                <a href="index.html" class="btn btn-primary">Explore More Destinations</a>
+                <a href="../budget/budget.html" class="btn btn-primary">View Detailed Budget &amp; Split (Page 5) &rarr;</a>
             </div>
         </section>
 
@@ -336,28 +373,28 @@
     <footer id="footer" class="site-footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="logo.png" alt="DesiSfar" class="footer-logo" height="150">
+                <img src="logo.png" alt="DesiSafar" class="footer-logo" height="60">
                 <p class="footer-description">
-                    DesiSfar helps you discover and explore authentic India with smart, stress-free itineraries.
+                    DesiSafar helps you discover and explore authentic India with smart, stress-free itineraries.
                 </p>
             </div>
 
             <nav class="footer-nav" aria-label="Footer Navigation">
                 <ul class="footer-nav-list">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../page 1/index.html">Home</a></li>
                     <li><span aria-hidden="true" class="separator">|</span></li>
-                    <li><a href="index.html#features">Explore</a></li>
+                    <li><a href="../destinations_page/assets/destinations/destinations.html">Destinations</a></li>
+                    <li><span aria-hidden="true" class="separator">|</span></li>
+                    <li><a href="../preference/preference.html">Preferences</a></li>
                     <li><span aria-hidden="true" class="separator">|</span></li>
                     <li><a href="index4.html">Itinerary</a></li>
                     <li><span aria-hidden="true" class="separator">|</span></li>
-                    <li><a href="index.html#comparison">About</a></li>
-                    <li><span aria-hidden="true" class="separator">|</span></li>
-                    <li><a href="mailto:contact@desisafar.com">Contact</a></li>
+                    <li><a href="../budget/budget.html">Budget</a></li>
                 </ul>
             </nav>
 
             <div class="footer-bottom">
-                <p class="copyright">&copy; 2026 DesiSfar. All rights reserved.</p>
+                <p class="copyright">&copy; 2026 DesiSafar. All rights reserved.</p>
             </div>
         </div>
     </footer>

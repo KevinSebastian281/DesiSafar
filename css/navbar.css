@@ -1,0 +1,251 @@
+/* ==========================================================================
+   DESISAFAR — SHARED PRODUCT NAVBAR (PAGES 2–5)
+   Design System: Standardized Travel-Tech Stepper Navigation
+   ========================================================================== */
+
+:root {
+  --ds-nav-height: 72px;
+  --ds-nav-bg: rgba(255, 255, 255, 0.95);
+  --ds-nav-border: #e2e8f0;
+  --ds-navy-950: #060e18;
+  --ds-navy-900: #0a1626;
+  --ds-navy-800: #112338;
+  --ds-navy-100: #e8eef6;
+  --ds-terracotta: #df6924;
+  --ds-terracotta-hover: #c95717;
+  --ds-terracotta-soft: #fff8f5;
+  --ds-text-main: #0f172a;
+  --ds-text-secondary: #334155;
+  --ds-text-muted: #64748b;
+  --ds-surface-subtle: #f1f5f9;
+  --ds-radius-sm: 8px;
+  --ds-radius-full: 9999px;
+  --ds-shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+/* Header Container */
+.app-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--ds-nav-height);
+  background: var(--ds-nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--ds-nav-border);
+  box-shadow: var(--ds-shadow-nav);
+}
+
+.app-header .header-container {
+  max-width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Left Brand & Back Link */
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 150px;
+  max-height: 150px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.15s ease;
+}
+
+.brand-link:hover .brand-logo {
+  transform: scale(1.02);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ds-text-secondary);
+  padding: 6px 14px;
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-surface-subtle);
+  border: 1px solid var(--ds-nav-border);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.back-link:hover {
+  background: var(--ds-navy-100);
+  color: var(--ds-navy-800);
+  border-color: #cbd5e1;
+}
+
+.back-link .icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* Center/Right Stepper Navigation */
+.trip-progress-nav {
+  display: flex;
+  align-items: center;
+}
+
+.progress-steps {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+}
+
+.step-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ds-text-muted);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: var(--ds-radius-sm);
+  transition: all 0.15s ease;
+}
+
+.step-num {
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--ds-surface-subtle);
+  color: var(--ds-text-muted);
+  transition: all 0.15s ease;
+  display: inline-block;
+  line-height: 1.3;
+}
+
+/* Step Hover */
+.step-link:hover {
+  color: var(--ds-navy-900);
+}
+
+.step-link:hover .step-num {
+  background: var(--ds-navy-100);
+  color: var(--ds-navy-800);
+}
+
+/* Completed Step (01/02/03 when passed) */
+.step-item.step-done .step-link {
+  color: var(--ds-text-secondary);
+}
+
+.step-item.step-done .step-num {
+  background: var(--ds-navy-100);
+  color: var(--ds-navy-800);
+}
+
+/* Active Step */
+.step-item.step-active .step-link {
+  color: var(--ds-terracotta);
+  font-weight: 800;
+}
+
+.step-item.step-active .step-num {
+  background: var(--ds-terracotta);
+  color: #ffffff;
+}
+
+/* Upcoming Step */
+.step-item.step-upcoming .step-link,
+.step-item.step-disabled .step-link {
+  opacity: 0.5;
+}
+
+.step-item.step-upcoming .step-link:hover,
+.step-item.step-disabled .step-link:hover {
+  opacity: 0.85;
+  color: var(--ds-text-secondary);
+}
+
+/* Header Extra Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-ghost-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ds-text-muted);
+  padding: 6px 12px;
+  border-radius: var(--ds-radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.btn-ghost-sm:hover {
+  color: var(--ds-navy-800);
+  background: var(--ds-surface-subtle);
+  border-color: var(--ds-nav-border);
+}
+
+.btn-ghost-sm .icon-sm {
+  width: 14px;
+  height: 14px;
+}
+
+/* Responsive Navigation */
+@media (max-width: 992px) {
+  .progress-steps {
+    gap: 12px;
+  }
+
+  .step-link {
+    font-size: 0.75rem;
+    gap: 6px;
+    padding: 4px 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header .header-container {
+    padding: 0 16px;
+  }
+
+  .progress-steps {
+    display: none;
+  }
+}

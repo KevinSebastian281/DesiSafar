@@ -14,6 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Shared Navbar Stylesheet -->
+  <link rel="stylesheet" href="navbar.css">
+
   <!-- Main Stylesheet (Pure CSS) -->
   <link rel="stylesheet" href="budget.css">
 </head>
@@ -30,7 +33,7 @@
           <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
           </svg>
-          <span>Back to Itinerary</span>
+          <span>Back</span>
         </a>
       </div>
 
@@ -38,20 +41,28 @@
       <nav class="trip-progress-nav" aria-label="Trip Planning Stages">
         <ol class="progress-steps">
           <li class="step-item step-done">
-            <span class="step-num">01</span>
-            <span class="step-label">DESTINATIONS</span>
+            <a href="../destinations_page/assets/destinations/destinations.html" class="step-link">
+              <span class="step-num">01</span>
+              <span class="step-label">DESTINATIONS</span>
+            </a>
           </li>
           <li class="step-item step-done">
-            <span class="step-num">02</span>
-            <span class="step-label">PREFERENCES</span>
+            <a href="../preference/preference.html" class="step-link">
+              <span class="step-num">02</span>
+              <span class="step-label">PREFERENCES</span>
+            </a>
           </li>
           <li class="step-item step-done">
-            <span class="step-num">03</span>
-            <span class="step-label">ITINERARY</span>
+            <a href="../page 4/index4.html" class="step-link">
+              <span class="step-num">03</span>
+              <span class="step-label">ITINERARY</span>
+            </a>
           </li>
           <li class="step-item step-active" aria-current="step">
-            <span class="step-num">04</span>
-            <span class="step-label">BUDGET</span>
+            <a href="budget.html" class="step-link">
+              <span class="step-num">04</span>
+              <span class="step-label">BUDGET</span>
+            </a>
           </li>
         </ol>
       </nav>
