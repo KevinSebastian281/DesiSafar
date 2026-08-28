@@ -159,7 +159,8 @@ textarea {
 }
 
 .brand-logo {
-  height: 150git gipx;
+  height: 150px;
+  max-height: 150px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -526,89 +527,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   9. Range Sliders (Travel Pace & Activity Level)
-   -------------------------------------------------------------------------- */
-.slider-container {
-  background: var(--surface-subtle);
-  border-radius: var(--radius-lg);
-  padding: 20px 24px;
-}
-
-.slider-labels-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-}
-
-.styled-range-input {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 8px;
-  border-radius: var(--radius-full);
-  background: #cbd5e1;
-  outline: none;
-  cursor: pointer;
-  transition: background var(--trans-fast);
-}
-
-.styled-range-input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: var(--radius-full);
-  background: var(--terracotta-500);
-  border: 3px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(223, 105, 36, 0.4);
-  cursor: grab;
-  transition: transform var(--trans-fast), background var(--trans-fast);
-}
-
-.styled-range-input::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-  background: var(--terracotta-600);
-}
-
-.styled-range-input::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  border-radius: var(--radius-full);
-  background: var(--terracotta-500);
-  border: 3px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(223, 105, 36, 0.4);
-  cursor: grab;
-}
-
-.slider-state-caption {
-  margin-top: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.875rem;
-}
-
-.state-badge {
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: var(--terracotta-500);
-  color: var(--text-inverse);
-  padding: 3px 8px;
-  border-radius: var(--radius-xs);
-}
-
-.state-desc {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
-/* --------------------------------------------------------------------------
-   10. Budget Style Cards (Section 4)
+   9. Budget Style Cards (Section 3)
    -------------------------------------------------------------------------- */
 .budget-cards-grid {
   display: grid;
@@ -628,7 +547,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   11. Compact Radio Options (Accommodation & Transport)
+   10. Compact Radio Options (Accommodation)
    -------------------------------------------------------------------------- */
 .pill-options-row {
   display: flex;
@@ -676,7 +595,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   12. Food & Crowd Preference Modules
+   11. Food Preference Modules (Section 5)
    -------------------------------------------------------------------------- */
 .food-subgroup {
   margin-top: 18px;
@@ -693,140 +612,8 @@ textarea {
   margin-bottom: 10px;
 }
 
-.crowd-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
 /* --------------------------------------------------------------------------
-   13. Special Requirements Checklist
-   -------------------------------------------------------------------------- */
-.checklist-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.check-item-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--surface-subtle);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 12px 16px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: all var(--trans-fast);
-}
-
-.check-item-label:hover {
-  background: var(--surface-white);
-  border-color: var(--border-subtle);
-  color: var(--navy-800);
-}
-
-.custom-checkbox-box {
-  width: 20px;
-  height: 20px;
-  border-radius: var(--radius-xs);
-  border: 1.5px solid #94a3b8;
-  background: var(--surface-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: transparent;
-  transition: all var(--trans-fast);
-  flex-shrink: 0;
-}
-
-.sr-only-input:checked+.check-item-label {
-  background: var(--surface-white);
-  border-color: var(--terracotta-500);
-  color: var(--navy-800);
-  font-weight: 600;
-}
-
-.sr-only-input:checked+.check-item-label .custom-checkbox-box {
-  background: var(--terracotta-500);
-  border-color: var(--terracotta-500);
-  color: var(--text-inverse);
-}
-
-/* --------------------------------------------------------------------------
-   14. Trip Personality Feature Showcase Card
-   -------------------------------------------------------------------------- */
-.personality-card {
-  position: relative;
-  background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
-  border-radius: var(--radius-xl);
-  padding: 32px;
-  color: var(--text-inverse);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.personality-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 300px;
-  height: 300px;
-  border-radius: var(--radius-full);
-  background: radial-gradient(circle, rgba(223, 105, 36, 0.25) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.personality-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--terracotta-400);
-  margin-bottom: 8px;
-}
-
-.personality-title {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-.personality-desc {
-  font-size: 0.9375rem;
-  color: var(--navy-100);
-  line-height: 1.6;
-  max-width: 540px;
-  margin-bottom: 20px;
-}
-
-.personality-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.personality-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(4px);
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* --------------------------------------------------------------------------
-   15. Right Column: Sticky Trip Summary Card
+   12. Right Column: Sticky Trip Summary Card
    -------------------------------------------------------------------------- */
 .summary-column {
   position: sticky;
@@ -982,7 +769,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   16. Bottom Global Actions Row
+   13. Bottom Global Actions Row
    -------------------------------------------------------------------------- */
 .bottom-actions-bar {
   display: flex;
@@ -994,7 +781,7 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   17. Responsive Breakpoints
+   14. Responsive Breakpoints
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .preferences-workspace-grid {
@@ -1047,14 +834,6 @@ textarea {
   }
 
   .cards-grid-4 {
-    grid-template-columns: 1fr;
-  }
-
-  .crowd-cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .checklist-grid {
     grid-template-columns: 1fr;
   }
 
