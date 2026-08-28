@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesiSafar - Modern Visual India Trip & Itinerary Planner</title>
+    <meta name="description"
+        content="Plan your dream India trip in minutes with DesiSafar. Day-by-day visual itineraries, Vande Bharat train routes, ₹ Kharcha splitting, and curated local gems.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header id="header" class="site-header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#hero" class="brand-logo-link" aria-label="DesiSafar Home">
+                    <img src="logo.png" alt="DesiSafar - Explore India" class="site-logo-img" height="150">
+                </a>
+
+                <nav class="nav-menu" aria-label="Primary Navigation">
+                    <ul class="nav-list">
+                        <li><a href="#features" class="nav-link">Features</a></li>
+                        <li><a href="#planner-studio" class="nav-link has-badge">Itinerary Studio <span
+                                    class="nav-tag">Live</span></a></li>
+                        <li><a href="#sample-yatras" class="nav-link">Sample Yatras</a></li>
+                        <li><a href="#comparison" class="nav-link">Why Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-cta-wrapper">
+                    <a href="#cta" class="btn btn-primary">Start Planning Free</a>
+
+                    <button class="mobile-menu-btn" aria-label="Open Mobile Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-backdrop-glow" aria-hidden="true"></div>
+
+            <div class="container">
+                <div class="hero-header">
+                    <div class="hero-pill-badge">
+                        <span class="badge badge-saffron">
+                            ✨ The All-in-One India Trip Planner
+                        </span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Plan your dream India trip in <span class="gradient-text">minutes, not days.</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        The visual itinerary builder tailored for Incredible India. Map routes, organize day-by-day
+                        stops, track expenses in ₹ with friends, and discover authentic hidden gems.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#planner-studio" class="btn btn-primary btn-lg">
+                            Create Free Itinerary
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#sample-yatras" class="btn btn-outline btn-lg">
+                            Explore Sample Yatras
+                        </a>
+                    </div>
+                </div>
+
+                <div id="planner-studio" class="planner-showcase-container">
+                    <div class="planner-window">
+
+                        <div class="planner-window-topbar">
+                            <div class="window-dots" aria-hidden="true">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+
+                            <div class="trip-meta-title">
+                                <span>🧳 Trip: Golden Triangle &amp; Taj Sunrise</span>
+                                <span class="trip-badge">4 Days · 3 Cities</span>
+                            </div>
+
+                            <div class="trip-collaborators">
+                                <div class="avatar-stack" aria-label="Collaborating friends">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
+                                        alt="Ananya">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                                        alt="Rohan">
+                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=80&q=80"
+                                        alt="Emily">
+                                </div>
+                                <span class="invite-tag">+ Share via WhatsApp</span>
+                            </div>
+                        </div>
+
+                        <div class="planner-workspace-grid">
+
+                            <div class="workspace-col col-timeline">
+                                <div class="col-header">
+                                    <span class="col-title">
+                                        🗓️ Day Itinerary
+                                    </span>
+                                    <span class="badge badge-emerald">Agra Day 2</span>
+                                </div>
+
+                                <div class="day-tab-selector">
+                                    <span class="day-tab">Day 1: Delhi</span>
+                                    <span class="day-tab active">Day 2: Agra</span>
+                                    <span class="day-tab">Day 3: Jaipur</span>
+                                </div>
+
+                                <div class="timeline-feed">
+
+                                    <article class="timeline-card">
+                                        <div class="card-top-row">
+                                            <span class="stop-time-badge">05:45 AM</span>
+                                            <div class="stop-details">
+                                                <h4 class="stop-title">Taj Mahal Sunrise Entry</h4>
+                                                <p class="stop-desc">East Gate entrance for best morning golden hour
+                                                    photos &amp; lower queues.</p>
+                                                <span class="stop-tag">✨ Heritage Must-See</span>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <div class="transit-connector">
+                                        🛺 15 min E-Rickshaw · ₹60
+                                    </div>
+
+                                    <article class="timeline-card">
+                                        <div class="card-top-row">
+                                            <span class="stop-time-badge">10:30 AM</span>
+                                            <div class="stop-details">
+                                                <h4 class="stop-title">Agra Fort &amp; Jahangir Mahal</h4>
+                                                <p class="stop-desc">Mughal architectural masterwork overlooking the
+                                                    Yamuna river.</p>
+                                                <span class="stop-tag">🏰 Monument Tour</span>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <div class="transit-connector">
+                                        🚶 5 min walk
+                                    </div>
+
+                                    <article class="timeline-card">
+                                        <div class="card-top-row">
+                                            <span class="stop-time-badge">01:15 PM</span>
+                                            <div class="stop-details">
+                                                <h4 class="stop-title">Pinch of Spice Restaurant</h4>
+                                                <p class="stop-desc">Legendary Mughlai Dal Makhani &amp; Garlic Naan
+                                                    lunch.</p>
+                                                <span class="stop-tag">🍛 Local Food Gem</span>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                </div>
+                            </div>
+
+                            <div class="workspace-col col-utilities">
+                                <div class="col-header">
+                                    <span class="col-title">
+                                        ⚡ Transit &amp; Kharcha
+                                    </span>
+                                    <span class="badge badge-saffron">Smart Hub</span>
+                                </div>
+
+                                <div class="center-studio-cards">
+
+                                    <div class="studio-info-card">
+                                        <span class="card-tagline">🚄 Connected Express Route</span>
+                                        <div class="train-route-box">
+                                            <div class="train-header">
+                                                <span>Vande Bharat #20172</span>
+                                                <span>1h 40m · AC Chair</span>
+                                            </div>
+                                            <div class="train-stations">
+                                                <span>New Delhi (NDLS)</span>
+                                                <span>&rarr;</span>
+                                                <span>Agra Cantt (AGC)</span>
+                                            </div>
+                                            <div class="train-timing">
+                                                Dep: 06:00 AM · Arr: 07:40 AM · ₹1,120/seat
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="studio-info-card">
+                                        <span class="card-tagline">💸 Live Trip Budget &amp; Split</span>
+                                        <div class="kharcha-metric">
+                                            <span class="kharcha-total">₹14,200</span>
+                                            <span class="kharcha-split">(₹4,733 / person)</span>
+                                        </div>
+                                        <div class="kharcha-bars">
+                                            <div class="kharcha-bar-item">
+                                                <span>🏨 Stays (2 Nights)</span>
+                                                <strong>₹8,400</strong>
+                                            </div>
+                                            <div class="kharcha-bar-item">
+                                                <span>🚂 Vande Bharat &amp; Cabs</span>
+                                                <strong>₹3,600</strong>
+                                            </div>
+                                            <div class="kharcha-bar-item">
+                                                <span>🍛 Food &amp; Chai</span>
+                                                <strong>₹2,200</strong>
+                                            </div>
+                                        </div>
+                                        <div class="upi-settled-badge">
+                                            ✅ All split equally via UPI with 3 buddies
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="workspace-col col-map">
+                                <div class="col-header">
+                                    <span class="col-title">
+                                        🗺️ Live Route Map
+                                    </span>
+                                    <span class="badge badge-outline">230 km Tracked</span>
+                                </div>
+
+                                <div class="map-canvas-card">
+                                    <div class="map-overlay-layer">
+                                        <div class="map-live-pill">
+                                            <span class="live-pulse"></span> Day 2 Active Route
+                                        </div>
+
+                                        <div class="map-pinned-stops">
+                                            <div class="pinned-stop-item">
+                                                <span>📍 1. Taj Mahal East Gate</span>
+                                                <span>05:45 AM</span>
+                                            </div>
+                                            <div class="pinned-stop-item">
+                                                <span>📍 2. Agra Fort Courtyard</span>
+                                                <span>10:30 AM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chai-recommendation">
+                                    <div class="chai-header">
+                                        ☕ Desi Hidden Gem Tip
+                                    </div>
+                                    <p class="chai-desc">
+                                        Try the famous Kulhad Chai &amp; Bedmi Puri at <strong>Deviram Sweets</strong>
+                                        near Pratap Pura (₹40 only).
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="features" class="section-wrapper">
+            <div class="container">
+
+                <div class="section-header-center">
+                    <div class="section-tag">
+                        <span class="badge badge-saffron">Tailored for India Travel</span>
+                    </div>
+                    <h2 class="section-title">Everything you need for seamless Indian journeys</h2>
+                    <p class="section-desc">
+                        Generic travel apps don't understand Indian trains, auto fares, temple timings, or UPI kharcha.
+                        DesiSafar is built specifically for how we travel in India.
+                    </p>
+                </div>
+
+                <div class="features-grid-3x2">
+
+                    <article class="feature-card-modern">
+                        <div class="feature-icon-container icon-saffron" aria-hidden="true">
+                            🗓️
+                        </div>
+                        <h3 class="feature-title-modern">Visual Day-by-Day Timelines</h3>
+                        <p class="feature-text-modern">
+                            Organize your itinerary effortlessly into morning, afternoon, and evening slots with live
+                            opening hours, prayer/aarti reminders, and crowd-safe timings.
+                        </p>
+                        <span class="feature-meta-pill">Auto-timed routes &rarr;</span>
+                    </article>
+
+                    <article class="feature-card-modern">
+                        <div class="feature-icon-container icon-navy" aria-hidden="true">
+                            🚄
+                        </div>
+                        <h3 class="feature-title-modern">Integrated Indian Transit</h3>
+                        <p class="feature-text-modern">
+                            Search Vande Bharat routes, sleeper trains, metro connections, and realistic auto-rickshaw
+                            fare estimates without opening five different apps.
+                        </p>
+                        <span class="feature-meta-pill">Live PNR &amp; route links &rarr;</span>
+                    </article>
+
+                    <article class="feature-card-modern">
+                        <div class="feature-icon-container icon-emerald" aria-hidden="true">
+                            💸
+                        </div>
+                        <h3 class="feature-title-modern">Desi Kharcha &amp; UPI Splitter</h3>
+                        <p class="feature-text-modern">
+                            Track every rupee spent across dhabas, hotels, and tickets. Split bills instantly with your
+                            group and settle up with one-click UPI links.
+                        </p>
+                        <span class="feature-meta-pill">No spreadsheets required &rarr;</span>
+                    </article>
+
+                    <article class="feature-card-modern">
+                        <div class="feature-icon-container icon-amber" aria-hidden="true">
+                            ☕
+                        </div>
+                        <h3 class="feature-title-modern">Verified Local Gems &amp; Dhabas</h3>
+                        <p class="feature-text-modern">
+                            Discover authentic highway dhabas, secret chai tapris, secluded ghats, and heritage trails
+                            vetted by trusted local explorers.
+                        </p>
+                        <span class="feature-meta-pill">Locally curated picks &rarr;</span>
+                    </article>
+
+                    <article class="feature-card-modern">
+                        <div class="feature-icon-container icon-saffron" aria-hidden="true">
+                            👥
+                        </div>
+                        <h3 class="feature-title-modern">Real-Time WhatsApp Collab</h3>
+                        <p class="feature-text-modern">
+                            Share your trip link with family or friends. Everyone can vote on places, suggest stops, and
+                            stay updated in real time.
+                        </p>
+                        <span class="feature-meta-pill">Seamless group sync &rarr;</span>
+                    </article>
+
+                    <article class="feature-card-modern">
+                        <div class="feature-icon-container icon-navy" aria-hidden="true">
+                            📴
+                        </div>
+                        <h3 class="feature-title-modern">Offline Travel Passports</h3>
+                        <p class="feature-text-modern">
+                            Never worry about patchy remote network in Spiti or Munnar. Download your entire day
+                            itinerary, maps, and tickets with one tap.
+                        </p>
+                        <span class="feature-meta-pill">100% offline access &rarr;</span>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="sample-yatras" class="section-wrapper yatras-section">
+            <div class="container">
+
+                <div class="section-header-center">
+                    <div class="section-tag">
+                        <span class="badge badge-emerald">Ready-to-Clone Yatras</span>
+                    </div>
+                    <h2 class="section-title">Popular pre-built itineraries you can customize</h2>
+                    <p class="section-desc">
+                        Skip hours of research. Clone these tried-and-tested Indian itineraries with verified routes,
+                        curated stays, and local tips.
+                    </p>
+                </div>
+
+                <div class="yatras-grid">
+
+                    <article class="yatra-card">
+                        <div class="yatra-media-box">
+                            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=600&q=80"
+                                alt="Royal Rajasthan palace" class="yatra-img">
+                            <span class="yatra-duration-pill">7 Days · 3 Cities</span>
+                        </div>
+                        <div class="yatra-body">
+                            <span class="yatra-region">North India</span>
+                            <h3 class="yatra-title">Royal Rajasthan Heritage Trail</h3>
+                            <p class="yatra-highlights">Jaipur Forts, Jodhpur Blue City, Udaipur Lake Palace sunset, and
+                                authentic Rajasthani Thali spots.</p>
+                            <div class="yatra-footer-row">
+                                <span class="yatra-cost">Est. ₹18,500 <span>/person</span></span>
+                                <a href="#planner-studio" class="yatra-btn">Customize &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="yatra-card">
+                        <div class="yatra-media-box">
+                            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80"
+                                alt="Kerala backwaters houseboat" class="yatra-img">
+                            <span class="yatra-duration-pill">5 Days · 3 Cities</span>
+                        </div>
+                        <div class="yatra-body">
+                            <span class="yatra-region">South India</span>
+                            <h3 class="yatra-title">Kerala Backwaters &amp; Mist Trails</h3>
+                            <p class="yatra-highlights">Munnar tea plantations, Alleppey serene houseboat cruise, spice
+                                trails, and Ayurvedic wellness.</p>
+                            <div class="yatra-footer-row">
+                                <span class="yatra-cost">Est. ₹14,200 <span>/person</span></span>
+                                <a href="#planner-studio" class="yatra-btn">Customize &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="yatra-card">
+                        <div class="yatra-media-box">
+                            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=600&q=80"
+                                alt="Goa beach and palm trees" class="yatra-img">
+                            <span class="yatra-duration-pill">4 Days · 2 Regions</span>
+                        </div>
+                        <div class="yatra-body">
+                            <span class="yatra-region">West Coast</span>
+                            <h3 class="yatra-title">Goa Beyond Beaches &amp; Cafes</h3>
+                            <p class="yatra-highlights">Fontainhas Latin Quarter walk, secret South Goa coves,
+                                Portuguese heritage homes, and seafood.</p>
+                            <div class="yatra-footer-row">
+                                <span class="yatra-cost">Est. ₹9,800 <span>/person</span></span>
+                                <a href="#planner-studio" class="yatra-btn">Customize &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="yatra-card">
+                        <div class="yatra-media-box">
+                            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=600&q=80"
+                                alt="Himachal snowy mountains" class="yatra-img">
+                            <span class="yatra-duration-pill">6 Days · Mountains</span>
+                        </div>
+                        <div class="yatra-body">
+                            <span class="yatra-region">Himalayas</span>
+                            <h3 class="yatra-title">Himachal &amp; Spiti Explorer</h3>
+                            <p class="yatra-highlights">High altitude passes, ancient Key Monastery, stargazing in Kaza,
+                                and local homestay culture.</p>
+                            <div class="yatra-footer-row">
+                                <span class="yatra-cost">Est. ₹16,000 <span>/person</span></span>
+                                <a href="#planner-studio" class="yatra-btn">Customize &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="comparison" class="section-wrapper">
+            <div class="container">
+
+                <div class="section-header-center">
+                    <div class="section-tag">
+                        <span class="badge badge-navy">Clear Advantage</span>
+                    </div>
+                    <h2 class="section-title">Say goodbye to chaotic Excel sheets</h2>
+                    <p class="section-desc">
+                        See why modern travelers choose DesiSafar over messy spreadsheets, 15 open browser tabs, and
+                        rigid agency packages.
+                    </p>
+                </div>
+
+                <div class="comparison-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Travel Planning Feature</th>
+                                <th class="highlight-col">✨ DesiSafar</th>
+                                <th>📊 Excel / Sheets</th>
+                                <th>🗺️ Rigid Tour Packages</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="feature-name-col">Visual Day-by-Day Timeline</td>
+                                <td class="highlight-col"><span class="check-icon">✓</span> Interactive &amp; Beautiful
+                                </td>
+                                <td><span class="cross-icon">✗</span> Plain messy rows</td>
+                                <td><span class="cross-icon">✗</span> Fixed inflexible timings</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name-col">Indian Trains &amp; Vande Bharat Route Finder</td>
+                                <td class="highlight-col"><span class="check-icon">✓</span> Built-in with timings</td>
+                                <td><span class="cross-icon">✗</span> Manual IRCTC lookup</td>
+                                <td><span class="cross-icon">✗</span> Forced tour buses</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name-col">Automatic ₹ Kharcha &amp; UPI Split</td>
+                                <td class="highlight-col"><span class="check-icon">✓</span> Instant with 1-click UPI
+                                </td>
+                                <td><span class="cross-icon">✗</span> Complex formulas</td>
+                                <td><span class="cross-icon">✗</span> Hidden agency commissions</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name-col">Curated Highway Dhabas &amp; Local Secrets</td>
+                                <td class="highlight-col"><span class="check-icon">✓</span> Verified local tips</td>
+                                <td><span class="cross-icon">✗</span> None</td>
+                                <td><span class="cross-icon">✗</span> Commercial tourist traps</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name-col">100% Offline Access to Tickets &amp; Stops</td>
+                                <td class="highlight-col"><span class="check-icon">✓</span> 1-tap offline mode</td>
+                                <td><span class="cross-icon">✗</span> Unreliable without net</td>
+                                <td><span class="cross-icon">✗</span> Paper printouts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="cta" class="cta-banner-section">
+            <div class="container">
+                <div class="cta-banner-box">
+                    <div class="cta-glow-circle" aria-hidden="true"></div>
+                    <div class="cta-banner-content">
+                        <h2 class="cta-banner-title">
+                            Ready to craft your next unforgettable Indian journey?
+                        </h2>
+                        <p class="cta-banner-desc">
+                            Build smarter, stress-free itineraries with DesiSafar. Free forever for solo trips and group adventures.
+                        </p>
+                        <div class="cta-banner-actions">
+                            <a href="#planner-studio" class="btn btn-primary btn-lg">
+                                Start Planning Free
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                            <a href="#sample-yatras" class="btn btn-secondary btn-lg">
+                                View Pre-Made Yatras
+                            </a>
+                        </div>
+                        <p class="cta-guarantee-text">
+                            🔒 No credit card required · Instant setup · Export to PDF &amp; WhatsApp
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="site-footer">
+        <div class="container">
+
+            <div class="footer-top-grid">
+
+                <div class="footer-brand-col">
+                    <a href="#hero" class="footer-logo-link" aria-label="DesiSafar Home">
+                        <img src="logo-white.svg" alt="DesiSafar" class="footer-logo-img" width="170" height="45">
+                    </a>
+                    <p class="footer-brand-desc">
+                        The visual trip and itinerary planning platform designed specifically for discovering the rich
+                        culture, scenic landscapes, and vibrant spirit of India.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://instagram.com" class="social-circle" aria-label="Instagram">📷</a>
+                        <a href="https://twitter.com" class="social-circle" aria-label="Twitter / X">🐦</a>
+                        <a href="https://youtube.com" class="social-circle" aria-label="YouTube">▶️</a>
+                        <a href="https://facebook.com" class="social-circle" aria-label="Facebook">📘</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Trip Planner</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#planner-studio">Visual Itinerary Studio</a></li>
+                        <li><a href="#features">Vande Bharat Routes</a></li>
+                        <li><a href="#features">₹ Kharcha &amp; UPI Splitter</a></li>
+                        <li><a href="#features">Offline Travel Passport</a></li>
+                        <li><a href="#sample-yatras">Pre-Made Itineraries</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Explore Regions</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#sample-yatras">Rajasthan &amp; Golden Triangle</a></li>
+                        <li><a href="#sample-yatras">Kerala &amp; Western Ghats</a></li>
+                        <li><a href="#sample-yatras">Goa &amp; Konkan Coast</a></li>
+                        <li><a href="#sample-yatras">Himachal &amp; Spiti Valleys</a></li>
+                        <li><a href="#sample-yatras">Northeast Seven Sisters</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">DesiSafar</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#comparison">Why DesiSafar</a></li>
+                        <li><a href="mailto:namaste@desisafar.com">Contact Support</a></li>
+                        <li><a href="#hero">Privacy Policy</a></li>
+                        <li><a href="#hero">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 DesiSafar Technologies Pvt. Ltd. All rights reserved. Made with ❤️ for Incredible India.
+                </p>
+                <p>Namaste from Lovely Professional University</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
