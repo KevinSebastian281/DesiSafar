@@ -85,9 +85,7 @@
                 <img src="{{ dest.image_url }}" alt="{{ dest.name }}" class="card-img" loading="lazy">
                 <div class="card-image-overlay"></div>
                 <span class="card-state-pill">{{ dest.state }}</span>
-                {% if is_selected %}
-                  <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
-                {% endif %}
+                <span class="card-type-badge" title="Type of place: {{ dest.primary_category_display }}">{{ dest.primary_category_display }}</span>
               </div>
               <div class="card-content">
                 <div class="card-header-row">
