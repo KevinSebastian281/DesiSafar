@@ -105,7 +105,7 @@
 
           <div class="cards-grid-4">
             <label class="custom-card-label">
-              <input type="checkbox" name="vibe" value="adventure" class="sr-only-input" checked>
+              <input type="checkbox" name="vibe" value="adventure" class="sr-only-input">
               <div class="pref-card">
                 <div class="card-top-row">
                   <span class="pref-icon">🧗</span>
@@ -177,7 +177,7 @@
             </label>
 
             <label class="custom-card-label">
-              <input type="checkbox" name="vibe" value="foodie" class="sr-only-input" checked>
+              <input type="checkbox" name="vibe" value="foodie" class="sr-only-input">
               <div class="pref-card">
                 <div class="card-top-row">
                   <span class="pref-icon">🍛</span>
@@ -189,7 +189,7 @@
             </label>
 
             <label class="custom-card-label">
-              <input type="checkbox" name="vibe" value="explorer" class="sr-only-input" checked>
+              <input type="checkbox" name="vibe" value="explorer" class="sr-only-input">
               <div class="pref-card">
                 <div class="card-top-row">
                   <span class="pref-icon">🧭</span>
@@ -213,7 +213,7 @@
 
           <div class="chips-wrap">
             <label class="chip-label">
-              <input type="checkbox" name="interest" value="beaches" class="sr-only-input" checked>
+              <input type="checkbox" name="interest" value="beaches" class="sr-only-input">
               <span class="pref-chip">🏖️ Beaches</span>
             </label>
             <label class="chip-label">
@@ -221,7 +221,7 @@
               <span class="pref-chip">🏔️ Mountains</span>
             </label>
             <label class="chip-label">
-              <input type="checkbox" name="interest" value="nature" class="sr-only-input" checked>
+              <input type="checkbox" name="interest" value="nature" class="sr-only-input">
               <span class="pref-chip">🌿 Nature</span>
             </label>
             <label class="chip-label">
@@ -233,15 +233,15 @@
               <span class="pref-chip">🛍️ Shopping</span>
             </label>
             <label class="chip-label">
-              <input type="checkbox" name="interest" value="food" class="sr-only-input" checked>
+              <input type="checkbox" name="interest" value="food" class="sr-only-input">
               <span class="pref-chip">🍛 Local Food</span>
             </label>
             <label class="chip-label">
-              <input type="checkbox" name="interest" value="photography" class="sr-only-input" checked>
+              <input type="checkbox" name="interest" value="photography" class="sr-only-input">
               <span class="pref-chip">📸 Photography</span>
             </label>
             <label class="chip-label">
-              <input type="checkbox" name="interest" value="adventure" class="sr-only-input" checked>
+              <input type="checkbox" name="interest" value="adventure" class="sr-only-input">
               <span class="pref-chip">🧗 Adventure</span>
             </label>
             <label class="chip-label">
@@ -249,7 +249,7 @@
               <span class="pref-chip">🍸 Nightlife</span>
             </label>
             <label class="chip-label">
-              <input type="checkbox" name="interest" value="cafes" class="sr-only-input" checked>
+              <input type="checkbox" name="interest" value="cafes" class="sr-only-input">
               <span class="pref-chip">☕ Cafés</span>
             </label>
             <label class="chip-label">
@@ -450,28 +450,6 @@
               </div>
             </label>
           </div>
-
-          <div class="food-subgroup">
-            <h4 class="subgroup-title">Dining Experiences</h4>
-            <div class="chips-wrap">
-              <label class="chip-label">
-                <input type="checkbox" name="dining" value="local_food" class="sr-only-input" checked>
-                <span class="pref-chip">🍛 Local Food</span>
-              </label>
-              <label class="chip-label">
-                <input type="checkbox" name="dining" value="street_food" class="sr-only-input" checked>
-                <span class="pref-chip">🍢 Street Food</span>
-              </label>
-              <label class="chip-label">
-                <input type="checkbox" name="dining" value="fine_dining" class="sr-only-input">
-                <span class="pref-chip">🍷 Fine Dining</span>
-              </label>
-              <label class="chip-label">
-                <input type="checkbox" name="dining" value="cafes" class="sr-only-input" checked>
-                <span class="pref-chip">☕ Cafés</span>
-              </label>
-            </div>
-          </div>
         </section>
 
         <div class="bottom-actions-bar">
@@ -516,7 +494,7 @@
             <div class="snapshot-items-list">
               <div class="snapshot-row">
                 <span class="snapshot-prop">Vibe</span>
-                <span class="snapshot-tag" id="snapshotVibe">Adventure & Explorer</span>
+                <span class="snapshot-tag" id="snapshotVibe">None Selected</span>
               </div>
               <div class="snapshot-row">
                 <span class="snapshot-prop">Budget</span>
@@ -650,11 +628,6 @@
         const selectedStay = stayEl ? stayEl.value : "3_star";
         const stayMult = stayMultipliers[selectedStay] || 1.0;
 
-        const diningChecked = Array.from(document.querySelectorAll('input[name="dining"]:checked')).map(el => el.value);
-        let diningMult = 1.0;
-        if (diningChecked.includes("fine_dining")) diningMult += 0.12;
-        if (diningChecked.includes("street_food")) diningMult -= 0.04;
-
         const budgetEl = document.querySelector('input[name="budget"]:checked');
         const selectedBudget = budgetEl ? budgetEl.value : "standard";
 
@@ -669,7 +642,7 @@
         Object.keys(tierMultipliers).forEach(tierCode => {
           const tierMult = tierMultipliers[tierCode];
           const compMult = (tierMult * 0.6) + (stayMult * 0.4);
-          const rawTotal = avgBaseRate * totalDays * travellers * compMult * diningMult;
+          const rawTotal = avgBaseRate * totalDays * travellers * compMult;
           const tCost = Math.max(5000, Math.round(rawTotal / 100) * 100);
           const tLower = Math.round((tCost * 0.88) / 100) * 100;
           const tUpper = Math.round((tCost * 1.15) / 100) * 100;
@@ -696,7 +669,7 @@
           if (vibeChecked.length > 0) {
             snapVibe.textContent = vibeChecked.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(" & ");
           } else {
-            snapVibe.textContent = "Explorer";
+            snapVibe.textContent = "None Selected";
           }
         }
 
@@ -722,7 +695,7 @@
       }
 
       document.addEventListener("change", function(e) {
-        if (e.target && (e.target.name === "budget" || e.target.name === "stay" || e.target.name === "diet" || e.target.name === "dining" || e.target.name === "vibe" || e.target.name === "interest")) {
+        if (e.target && (e.target.name === "budget" || e.target.name === "stay" || e.target.name === "diet" || e.target.name === "vibe" || e.target.name === "interest")) {
           updateLiveEstimates();
         }
       });
@@ -748,7 +721,6 @@
 
           const vibes = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(function(el) { return el.value; });
           const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(function(el) { return el.value; });
-          const dining = Array.from(document.querySelectorAll('input[name="dining"]:checked')).map(function(el) { return el.value; });
 
           try {
             localStorage.setItem("desisafar_preferences", JSON.stringify({
@@ -757,7 +729,7 @@
               diet: diet,
               vibes: vibes,
               interests: interests,
-              dining: dining
+              dining: []
             }));
           } catch(err) {}
 

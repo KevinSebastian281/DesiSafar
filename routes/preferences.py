@@ -11,12 +11,12 @@ preferences_bp = Blueprint("preferences", __name__, url_prefix="/preferences")
 
 def get_default_preferences():
     return {
-        "vibes": ["adventure", "foodie", "explorer"],
-        "interests": ["beaches", "nature", "food", "photography", "adventure", "cafes"],
+        "vibes": [],
+        "interests": [],
         "budget_tier": "standard",
         "stay_type": "3_star",
         "diet": "no_preference",
-        "dining": ["local_food", "street_food", "cafes"],
+        "dining": [],
     }
 
 
@@ -36,12 +36,12 @@ def preferences_view():
         return redirect(url_for("destinations.list_destinations"))
 
     if request.method == "POST":
-        vibes = request.form.getlist("vibe") or ["adventure", "explorer"]
-        interests = request.form.getlist("interest") or ["nature", "food", "photography"]
+        vibes = request.form.getlist("vibe")
+        interests = request.form.getlist("interest")
         budget_tier = request.form.get("budget", "standard").strip()
         stay_type = request.form.get("stay", "3_star").strip()
         diet = request.form.get("diet", "no_preference").strip()
-        dining = request.form.getlist("dining") or ["local_food", "cafes"]
+        dining = request.form.getlist("dining")
 
         session["preferences"] = {
             "vibes": vibes,

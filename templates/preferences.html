@@ -219,24 +219,6 @@
             </label>
           {% endfor %}
         </div>
-
-        <div class="food-subgroup">
-          <h4 class="subgroup-title">Dining Experiences</h4>
-          <div class="chips-wrap">
-            {% set dining_options = [
-              ('local_food', '🍛 Local Food'),
-              ('street_food', '🍢 Street Food'),
-              ('fine_dining', '🍷 Fine Dining'),
-              ('cafes', '☕ Cafés')
-            ] %}
-            {% for code, label in dining_options %}
-              <label class="chip-label">
-                <input type="checkbox" name="dining" value="{{ code }}" class="sr-only-input" {% if code in preferences.dining %}checked{% endif %}>
-                <span class="pref-chip">{{ label }}</span>
-              </label>
-            {% endfor %}
-          </div>
-        </div>
       </section>
 
       <div class="bottom-actions-bar">
@@ -290,7 +272,7 @@
           <div class="snapshot-items-list">
             <div class="snapshot-row">
               <span class="snapshot-prop">Vibe</span>
-              <span class="snapshot-tag" id="snapshotVibe">{% if preferences.vibes %}{{ preferences.vibes|join(' & ')|title }}{% else %}Explorer{% endif %}</span>
+              <span class="snapshot-tag" id="snapshotVibe">{% if preferences.vibes %}{{ preferences.vibes|join(' & ')|title }}{% else %}None Selected{% endif %}</span>
             </div>
             <div class="snapshot-row">
               <span class="snapshot-prop">Budget</span>
@@ -377,17 +359,11 @@
       const selectedStay = stayEl ? stayEl.value : "3_star";
       const stayMult = stayMultipliers[selectedStay] || 1.0;
 
-      // 2. Selected dining options
-      const diningChecked = Array.from(document.querySelectorAll('input[name="dining"]:checked')).map(el => el.value);
-      let diningMult = 1.0;
-      if (diningChecked.includes("fine_dining")) diningMult += 0.12;
-      if (diningChecked.includes("street_food")) diningMult -= 0.04;
-
-      // 3. Selected budget tier
+      // 2. Selected budget tier
       const budgetEl = document.querySelector('input[name="budget"]:checked');
       const selectedBudget = budgetEl ? budgetEl.value : "standard";
 
-      // 4. Selected diet and vibes
+      // 3. Selected diet and vibes
       const dietEl = document.querySelector('input[name="diet"]:checked');
       const selectedDiet = dietEl ? dietEl.value : "no_preference";
 
@@ -400,7 +376,7 @@
       Object.keys(tierMultipliers).forEach(tierCode => {
         const tierMult = tierMultipliers[tierCode];
         const compMult = (tierMult * 0.6) + (stayMult * 0.4);
-        const rawTotal = avgBaseRate * totalDays * travellers * compMult * diningMult;
+        const rawTotal = avgBaseRate * totalDays * travellers * compMult;
         const tCost = Math.max(5000, Math.round(rawTotal / 100) * 100);
         const tLower = Math.round((tCost * 0.88) / 100) * 100;
         const tUpper = Math.round((tCost * 1.15) / 100) * 100;
@@ -428,7 +404,7 @@
         if (vibeChecked.length > 0) {
           snapVibe.textContent = vibeChecked.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(" & ");
         } else {
-          snapVibe.textContent = "Explorer";
+          snapVibe.textContent = "None Selected";
         }
       }
 
@@ -462,7 +438,7 @@
 
     // Event listeners
     document.addEventListener("change", function(e) {
-      if (e.target && (e.target.name === "budget" || e.target.name === "stay" || e.target.name === "diet" || e.target.name === "dining" || e.target.name === "vibe" || e.target.name === "interest")) {
+      if (e.target && (e.target.name === "budget" || e.target.name === "stay" || e.target.name === "diet" || e.target.name === "vibe" || e.target.name === "interest")) {
         updateLiveEstimates();
       }
     });

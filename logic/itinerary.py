@@ -93,7 +93,7 @@ def generate_itinerary(selected_slugs, preferences=None, trip_details=None):
     start_location = trip_details.get("start_location", "").strip()
 
     # Extract preferences
-    vibes = preferences.get("vibes", ["adventure", "foodie", "explorer"])
+    vibes = preferences.get("vibes", [])
     interests = preferences.get("interests", ["beaches", "nature", "food", "photography"])
     budget_tier = preferences.get("budget_tier", "standard")
     stay_type = preferences.get("stay_type", "3_star")

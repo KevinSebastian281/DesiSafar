@@ -456,3 +456,50 @@ def test_navbar_step_locking(client):
     assert 'href="/preferences' in html
 
 
+def test_travel_vibe_empty_by_default(client):
+    """Verify that in the travel vibe section, nothing is selected by default."""
+    client.get("/reset")
+    client.post("/destinations/toggle", data={"slug": "goa"})
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
+
+    res = client.get("/preferences")
+    assert res.status_code == 200
+    html = res.get_data(as_text=True)
+
+    # All vibe checkboxes should NOT have checked attribute
+    vibe_checked_matches = re.findall(r'<input[^>]*name="vibe"[^>]*checked', html, re.IGNORECASE)
+    assert len(vibe_checked_matches) == 0, f"Found checked vibes by default: {vibe_checked_matches}"
+
+    # Snapshot vibe should display None Selected
+    assert "None Selected" in html
+
+    # Session vibes should be empty list by default
+    with client.session_transaction() as sess:
+        assert sess.get("preferences", {}).get("vibes") == []
+
+
+def test_interests_deselected_and_dining_section_removed(client):
+    """Verify that all experience interests are deselected by default and dining section is removed."""
+    client.get("/reset")
+    client.post("/destinations/toggle", data={"slug": "goa"})
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
+
+    res = client.get("/preferences")
+    assert res.status_code == 200
+    html = res.get_data(as_text=True)
+
+    # 1. Experience interests (name="interest") should have NO checked attributes
+    interest_checked_matches = re.findall(r'<input[^>]*name="interest"[^>]*checked', html, re.IGNORECASE)
+    assert len(interest_checked_matches) == 0, f"Found checked interests by default: {interest_checked_matches}"
+
+    # 2. Dining section and dining inputs should NOT exist in preferences HTML
+    assert "Dining Experiences" not in html
+    assert 'name="dining"' not in html
+
+    # 3. Default preferences in session should have empty interests
+    with client.session_transaction() as sess:
+        assert sess.get("preferences", {}).get("interests") == []
+
+
+
+

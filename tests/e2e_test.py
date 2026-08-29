@@ -108,8 +108,7 @@ def run_e2e_flow():
         "interest": ["beaches", "food", "cafes", "photography"],
         "budget": "premium",
         "stay": "4_star",
-        "diet": "vegetarian",
-        "dining": ["local_food", "street_food", "cafes"]
+        "diet": "vegetarian"
     }, allow_redirects=True)
     assert res.status_code == 200
     assert "Your Travel Itinerary" in res.text
