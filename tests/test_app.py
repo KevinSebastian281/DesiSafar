@@ -301,3 +301,32 @@ def test_navbar_step_locking(client):
     res = client.get('/destinations')
     html = res.get_data(as_text=True)
     assert 'href="/preferences' in html
+
+
+def test_travel_vibe_empty_by_default(client):
+    client.get('/reset')
+    client.post('/destinations/toggle', data={'slug': 'goa'})
+    client.post('/destinations/update_trip', data={'departure_date': '2026-11-01', 'travellers': '4'})
+    res = client.get('/preferences')
+    assert res.status_code == 200
+    html = res.get_data(as_text=True)
+    vibe_checked_matches = re.findall(r'<input[^>]*name="vibe"[^>]*checked', html, re.IGNORECASE)
+    assert len(vibe_checked_matches) == 0
+    assert 'None Selected' in html
+    with client.session_transaction() as sess:
+        assert sess.get('preferences', {}).get('vibes') == []
+
+def test_interests_deselected_and_dining_section_removed(client):
+    client.get('/reset')
+    client.post('/destinations/toggle', data={'slug': 'goa'})
+    client.post('/destinations/update_trip', data={'departure_date': '2026-11-01', 'travellers': '4'})
+    res = client.get('/preferences')
+    assert res.status_code == 200
+    html = res.get_data(as_text=True)
+    interest_checked_matches = re.findall(r'<input[^>]*name="interest"[^>]*checked', html, re.IGNORECASE)
+    assert len(interest_checked_matches) == 0
+    assert 'Dining Experiences' not in html
+    assert 'name="dining"' not in html
+    with client.session_transaction() as sess:
+        assert sess.get('preferences', {}).get('interests') == []
+

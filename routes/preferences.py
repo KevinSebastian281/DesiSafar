@@ -4,7 +4,7 @@ from logic.itinerary import parse_dates_and_duration
 preferences_bp = Blueprint('preferences', __name__, url_prefix='/preferences')
 
 def get_default_preferences():
-    return {'vibes': ['adventure', 'foodie', 'explorer'], 'interests': ['beaches', 'nature', 'food', 'photography', 'adventure', 'cafes'], 'budget_tier': 'standard', 'stay_type': '3_star', 'diet': 'no_preference', 'dining': ['local_food', 'street_food', 'cafes']}
+    return {'vibes': [], 'interests': [], 'budget_tier': 'standard', 'stay_type': '3_star', 'diet': 'no_preference', 'dining': []}
 
 @preferences_bp.route('', methods=['GET', 'POST'])
 @preferences_bp.route('/', methods=['GET', 'POST'])
@@ -19,12 +19,12 @@ def preferences_view():
         flash('Please select a trip start date before setting preferences.', 'warning')
         return redirect(url_for('destinations.list_destinations'))
     if request.method == 'POST':
-        vibes = request.form.getlist('vibe') or ['adventure', 'explorer']
-        interests = request.form.getlist('interest') or ['nature', 'food', 'photography']
+        vibes = request.form.getlist('vibe')
+        interests = request.form.getlist('interest')
         budget_tier = request.form.get('budget', 'standard').strip()
         stay_type = request.form.get('stay', '3_star').strip()
         diet = request.form.get('diet', 'no_preference').strip()
-        dining = request.form.getlist('dining') or ['local_food', 'cafes']
+        dining = request.form.getlist('dining')
         session['preferences'] = {'vibes': vibes, 'interests': interests, 'budget_tier': budget_tier, 'stay_type': stay_type, 'diet': diet, 'dining': dining}
         session.modified = True
         flash('Preferences saved! Your personalized itinerary has been crafted.', 'success')

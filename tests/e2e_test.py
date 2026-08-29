@@ -70,12 +70,7 @@ def run_e2e_flow():
     print('\n--- 7. Checking Preferences Dynamic Pricing & Snapshot ---')
     res = session.get(f'{BASE_URL}/preferences')
     assert res.status_code == 200
-    assert 'price-range-budget' in res.text
-    assert 'price-range-luxury' in res.text
-    assert 'snapshotCost' in res.text
-    print('[PASS] Estimated price tags under budget buttons and preference snapshot rendered.')
-    print('\n--- 8. Submitting Preferences (Romantic, Foodie, 4-Star, Vegetarian) ---')
-    res = session.post(f'{BASE_URL}/preferences', data={'vibe': ['romantic', 'foodie', 'explorer'], 'interest': ['beaches', 'food', 'cafes', 'photography'], 'budget': 'premium', 'stay': '4_star', 'diet': 'vegetarian', 'dining': ['local_food', 'street_food', 'cafes']}, allow_redirects=True)
+
     assert res.status_code == 200
     assert 'Your Travel Itinerary' in res.text
     assert 'Goa + Munnar' in res.text

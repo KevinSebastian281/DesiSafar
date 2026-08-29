@@ -67,14 +67,14 @@ def generate_itinerary(selected_slugs, preferences=None, trip_details=None, modi
     return_str = trip_details.get('return_date', '')
     travellers = max(1, int(trip_details.get('travellers', 4)))
     start_location = trip_details.get('start_location', '').strip()
-    vibes = preferences.get('vibes', ['adventure', 'foodie', 'explorer'])
-    interests = preferences.get('interests', ['beaches', 'nature', 'food', 'photography'])
+    vibes = preferences.get('vibes', [])
+    interests = preferences.get('interests', [])
     budget_tier = preferences.get('budget_tier', 'standard').lower()
     if budget_tier == 'standard':
         budget_tier = 'comfort'
     stay_type = preferences.get('stay_type', '3_star')
     diet = preferences.get('diet', 'no_preference')
-    dining = preferences.get('dining', ['local_food', 'street_food', 'cafes'])
+    dining = preferences.get('dining', [])
     dest_objects = []
     for slug in selected_slugs:
         d = get_destination_by_slug(slug)
