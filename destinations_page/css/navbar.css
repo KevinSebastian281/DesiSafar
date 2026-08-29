@@ -171,15 +171,31 @@
   color: #ffffff;
 }
 
-.step-item.step-upcoming .step-link,
-.step-item.step-disabled .step-link {
-  opacity: 0.5;
+.step-item.step-upcoming .step-link {
+  opacity: 0.6;
 }
 
-.step-item.step-upcoming .step-link:hover,
-.step-item.step-disabled .step-link:hover {
-  opacity: 0.85;
-  color: var(--ds-text-secondary);
+.step-item.step-disabled .step-link,
+.step-link.step-link-disabled,
+span.step-link-disabled {
+  opacity: 0.4;
+  cursor: not-allowed !important;
+  user-select: none;
+}
+
+.step-item.step-disabled .step-link:hover,
+.step-link.step-link-disabled:hover,
+span.step-link-disabled:hover {
+  opacity: 0.4;
+  color: var(--ds-text-muted) !important;
+  cursor: not-allowed !important;
+}
+
+.step-item.step-disabled .step-link:hover .step-num,
+.step-link.step-link-disabled:hover .step-num,
+span.step-link-disabled:hover .step-num {
+  background: var(--ds-surface-subtle) !important;
+  color: var(--ds-text-muted) !important;
 }
 
 .header-actions {

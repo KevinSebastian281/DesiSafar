@@ -47,20 +47,20 @@
               <span class="step-label">DESTINATIONS</span>
             </a>
           </li>
-          <li class="step-item step-upcoming">
-            <a href="../../../preference/preference.html" class="step-link">
+          <li class="step-item step-upcoming step-disabled" id="navStepItem2">
+            <a href="../../../preference/preference.html" class="step-link step-link-disabled" id="navStep2Link" aria-disabled="true" title="Pick at least 1 destination and a departure date to unlock">
               <span class="step-num">02</span>
               <span class="step-label">PREFERENCES</span>
             </a>
           </li>
-          <li class="step-item step-upcoming">
-            <a href="../../../page 4/index4.html" class="step-link">
+          <li class="step-item step-upcoming step-disabled" id="navStepItem3">
+            <a href="../../../page 4/index4.html" class="step-link step-link-disabled" id="navStep3Link" aria-disabled="true" title="Complete preferences to unlock">
               <span class="step-num">03</span>
               <span class="step-label">ITINERARY</span>
             </a>
           </li>
-          <li class="step-item step-upcoming">
-            <a href="../../../budget/budget.html" class="step-link">
+          <li class="step-item step-upcoming step-disabled" id="navStepItem4">
+            <a href="../../../budget/budget.html" class="step-link step-link-disabled" id="navStep4Link" aria-disabled="true" title="Complete preferences to unlock">
               <span class="step-num">04</span>
               <span class="step-label">BUDGET</span>
             </a>
@@ -960,9 +960,10 @@
                 <label for="departureDateInput" class="form-label">
                   <span class="label-icon">📅</span>
                   <span>Departure Date</span>
+                  <span class="required-star">*</span>
                 </label>
                 <input type="date" id="departureDateInput" name="departure_date" class="form-input date-input"
-                  value="" placeholder="YYYY-MM-DD">
+                  value="" placeholder="YYYY-MM-DD" required>
               </div>
 
               <div class="form-group" id="returnGroup">
@@ -3054,6 +3055,22 @@
         updateStartingHubsDropdown();
         updateDuration();
         updateLiveSummary();
+
+        // Update Top Navigation Bar step state
+        const navStepItem2 = document.getElementById("navStepItem2");
+        const navStep2Link = document.getElementById("navStep2Link");
+        if (navStepItem2 && navStep2Link) {
+          const isReady = selectedIds.length > 0 && departureDateInput && departureDateInput.value && departureDateInput.value.trim();
+          if (isReady) {
+            navStepItem2.classList.remove("step-disabled");
+            navStep2Link.classList.remove("step-link-disabled");
+            navStep2Link.removeAttribute("aria-disabled");
+          } else {
+            navStepItem2.classList.add("step-disabled");
+            navStep2Link.classList.add("step-link-disabled");
+            navStep2Link.setAttribute("aria-disabled", "true");
+          }
+        }
       }
 
       function updateLiveSummary() {
@@ -3122,6 +3139,7 @@
         try {
           localStorage.removeItem("desisafar_selected_destinations");
           localStorage.removeItem("desisafar_start_city");
+          localStorage.removeItem("desisafar_departure_date");
           localStorage.removeItem("desisafar_travellers");
         } catch (err) { }
         renderSelectedDestinations();
@@ -3129,6 +3147,56 @@
 
       if (resetBtn) resetBtn.addEventListener("click", resetSelections);
       if (resetTopBtn) resetTopBtn.addEventListener("click", resetSelections);
+
+      // Date input changes should update navbar lock state
+      if (departureDateInput) {
+        departureDateInput.addEventListener("input", renderSelectedDestinations);
+        departureDateInput.addEventListener("change", renderSelectedDestinations);
+      }
+
+      // Top Navbar Links Validation
+      const navStep2Link = document.getElementById("navStep2Link");
+      if (navStep2Link) {
+        navStep2Link.addEventListener("click", function (e) {
+          if (selectedIds.length === 0) {
+            e.preventDefault();
+            alert("Please select at least 1 destination before proceeding to preferences.");
+            return;
+          }
+          if (!departureDateInput || !departureDateInput.value || !departureDateInput.value.trim()) {
+            e.preventDefault();
+            alert("Please select a trip start date before proceeding to preferences.");
+            if (departureDateInput) departureDateInput.focus();
+            return;
+          }
+          try {
+            localStorage.setItem("desisafar_selected_destinations", JSON.stringify(selectedIds));
+            localStorage.setItem("desisafar_start_city", startLocationInput ? startLocationInput.value : "");
+            localStorage.setItem("desisafar_departure_date", departureDateInput.value);
+            localStorage.setItem("desisafar_travellers", travellersInput ? travellersInput.value : "4");
+          } catch (err) { }
+        });
+      }
+
+      const navStep3Link = document.getElementById("navStep3Link");
+      if (navStep3Link) {
+        navStep3Link.addEventListener("click", function (e) {
+          if (selectedIds.length === 0 || !departureDateInput || !departureDateInput.value || !departureDateInput.value.trim()) {
+            e.preventDefault();
+            alert("Please select destinations and a trip start date first.");
+          }
+        });
+      }
+
+      const navStep4Link = document.getElementById("navStep4Link");
+      if (navStep4Link) {
+        navStep4Link.addEventListener("click", function (e) {
+          if (selectedIds.length === 0 || !departureDateInput || !departureDateInput.value || !departureDateInput.value.trim()) {
+            e.preventDefault();
+            alert("Please select destinations and a trip start date first.");
+          }
+        });
+      }
 
       // Continue Button
       if (continueBtn) {
@@ -3138,12 +3206,18 @@
             alert("Please select at least 1 destination before continuing.");
             return;
           }
+          if (!departureDateInput || !departureDateInput.value || !departureDateInput.value.trim()) {
+            alert("Please select a trip start date before continuing.");
+            if (departureDateInput) departureDateInput.focus();
+            return;
+          }
           const form = document.getElementById("tripConfigForm");
           if (form) {
             // Store selections in localStorage
             try {
               localStorage.setItem("desisafar_selected_destinations", JSON.stringify(selectedIds));
               localStorage.setItem("desisafar_start_city", startLocationInput ? startLocationInput.value : "");
+              localStorage.setItem("desisafar_departure_date", departureDateInput ? departureDateInput.value : "");
               localStorage.setItem("desisafar_travellers", travellersInput ? travellersInput.value : "4");
             } catch (err) { }
             form.submit();

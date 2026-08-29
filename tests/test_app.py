@@ -134,6 +134,7 @@ def test_no_literal_none_in_rendered_html(client):
     client.get("/reset")
     client.post("/destinations/toggle", data={"slug": "varanasi"})
     client.post("/destinations/toggle", data={"slug": "ooty"})
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
     client.post("/preferences", data={"budget": "standard"})
 
     routes = ["/destinations", "/itinerary", "/budget"]
@@ -151,6 +152,7 @@ def test_itinerary_and_budget_stays_integration(client):
     client.get("/reset")
     client.post("/destinations/toggle", data={"slug": "goa"})
     client.post("/destinations/toggle", data={"slug": "munnar"})
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
     client.post("/preferences", data={"budget": "premium", "stay": "4_star", "diet": "vegetarian"})
 
     # Step 3 Itinerary
@@ -242,25 +244,56 @@ def test_destination_remove(client):
 
 
 def test_step_guards(client):
-    """Verify step guards redirect when prerequisites are missing."""
+    """Verify step guards redirect when destinations or start date are missing."""
     client.get("/reset")
     with client.session_transaction() as sess:
         sess["selected_destinations"] = []
+        sess["trip_details"]["departure_date"] = ""
 
     # Attempting to access /preferences with 0 destinations should redirect to /destinations
     res = client.get("/preferences", follow_redirects=False)
     assert res.status_code == 302
     assert "/destinations" in res.headers["Location"]
 
+    # Attempting to access /preferences with 1 destination but NO start date should redirect
+    client.post("/destinations/toggle", data={"slug": "goa"})
+    res = client.get("/preferences", follow_redirects=False)
+    assert res.status_code == 302
+    assert "/destinations" in res.headers["Location"]
+
+    # Posting update_trip with destinations but NO start date should redirect to /destinations
+    res = client.post("/destinations/update_trip", data={"departure_date": "", "travellers": "4"}, follow_redirects=False)
+    assert res.status_code == 302
+    assert "/destinations" in res.headers["Location"]
+
     # Attempting to access /itinerary with 0 destinations should redirect
+    client.get("/reset")
+    res = client.get("/itinerary", follow_redirects=False)
+    assert res.status_code == 302
+    assert "/destinations" in res.headers["Location"]
+
+    # Attempting to access /itinerary with destinations but NO start date should redirect
+    client.post("/destinations/toggle", data={"slug": "goa"})
     res = client.get("/itinerary", follow_redirects=False)
     assert res.status_code == 302
     assert "/destinations" in res.headers["Location"]
 
     # Attempting to access /budget with 0 destinations should redirect
+    client.get("/reset")
     res = client.get("/budget", follow_redirects=False)
     assert res.status_code == 302
     assert "/destinations" in res.headers["Location"]
+
+    # Attempting to access /budget with destinations but NO start date should redirect
+    client.post("/destinations/toggle", data={"slug": "goa"})
+    res = client.get("/budget", follow_redirects=False)
+    assert res.status_code == 302
+    assert "/destinations" in res.headers["Location"]
+
+    # When both destination and start date are set, accessing /preferences should succeed (200 OK)
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
+    res = client.get("/preferences", follow_redirects=False)
+    assert res.status_code == 200
 
 
 def test_preferences_submission_and_itinerary(client):
@@ -268,6 +301,7 @@ def test_preferences_submission_and_itinerary(client):
     client.get("/reset")
     client.post("/destinations/toggle", data={"slug": "goa"})
     client.post("/destinations/toggle", data={"slug": "munnar"})
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
 
     pref_data = {
         "vibe": ["romantic", "foodie"],
@@ -358,6 +392,7 @@ def test_preferences_price_estimates_and_snapshot_rendering(client):
     client.get("/reset")
     client.post("/destinations/toggle", data={"slug": "goa"})
     client.post("/destinations/toggle", data={"slug": "munnar"})
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
 
     res = client.get("/preferences")
     assert res.status_code == 200
@@ -385,6 +420,7 @@ def test_zero_inline_event_handlers_audit(client):
 
     client.get("/reset")
     client.post("/destinations/toggle", data={"slug": "goa"})
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
     client.post("/preferences", data={"budget": "standard"})
 
     for route in routes:
@@ -394,4 +430,29 @@ def test_zero_inline_event_handlers_audit(client):
         # Check for forbidden inline handlers (onclick, onchange, onmouseover, etc.)
         inline_handlers = re.findall(r'\son[a-z]+\s*=', html, re.IGNORECASE)
         assert not inline_handlers, f"Forbidden inline event handler {inline_handlers} found in route {route}!"
+
+
+def test_navbar_step_locking(client):
+    """Verify that navbar disables steps when prerequisites are not met."""
+    # 1. On empty / reset state: Step 2, 3, 4 should not have active href links
+    client.get("/reset")
+    res = client.get("/destinations")
+    html = res.get_data(as_text=True)
+    assert 'href="/preferences' not in html
+    assert 'href="/itinerary' not in html
+    assert 'href="/budget' not in html
+    assert "step-link-disabled" in html
+
+    # 2. Add destination but no start date: Step 2 should still remain locked
+    client.post("/destinations/toggle", data={"slug": "goa"})
+    res = client.get("/destinations")
+    html = res.get_data(as_text=True)
+    assert 'href="/preferences' not in html
+
+    # 3. Add destination AND start date: Step 2 becomes unlocked in navbar
+    client.post("/destinations/update_trip", data={"departure_date": "2026-11-01", "travellers": "4"})
+    res = client.get("/destinations")
+    html = res.get_data(as_text=True)
+    assert 'href="/preferences' in html
+
 

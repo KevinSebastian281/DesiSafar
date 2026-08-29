@@ -572,12 +572,15 @@
 
       try {
         const storedDests = localStorage.getItem("desisafar_selected_destinations");
-        if (storedDests) {
-          const parsed = JSON.parse(storedDests);
-          if (Array.isArray(parsed) && parsed.length > 0) {
-            destNames = parsed.map(s => destTitleMap[String(s).toLowerCase()] || (String(s).charAt(0).toUpperCase() + String(s).slice(1)));
-          }
+        const storedDate = localStorage.getItem("desisafar_departure_date");
+        const parsedDests = storedDests ? JSON.parse(storedDests) : [];
+        if (!parsedDests || !Array.isArray(parsedDests) || parsedDests.length === 0 || !storedDate || !storedDate.trim()) {
+          alert("Please select at least 1 destination and a departure date before accessing preferences.");
+          window.location.href = "../destinations_page/assets/destinations/destinations.html";
+          return;
         }
+        destNames = parsedDests.map(s => destTitleMap[String(s).toLowerCase()] || (String(s).charAt(0).toUpperCase() + String(s).slice(1)));
+
         const storedCity = localStorage.getItem("desisafar_start_city");
         if (storedCity && storedCity.trim()) startLocation = storedCity.trim();
 

@@ -61,6 +61,23 @@ def run_e2e_flow():
     assert "Kochi (Cochin Airport), Kerala" in res.text or "Ernakulam Junction, Kerala" in res.text
     print("[PASS] 2 destinations added and dynamic nearby transit hubs verified in datalist.")
 
+    print("\n--- 5b. Verifying Access to /preferences is Blocked Without Start Date ---")
+    res_blocked = session.get(f"{BASE_URL}/preferences", allow_redirects=True)
+    assert res_blocked.status_code == 200
+    assert "Please select a trip start date before setting preferences." in res_blocked.text
+    assert "Where do you want to go?" in res_blocked.text
+    print("[PASS] Blocked direct navigation to preferences without start date verified.")
+
+    res_empty_post = session.post(f"{BASE_URL}/destinations/update_trip", data={
+        "start_location": "Indiranagar, Bengaluru",
+        "departure_date": "",
+        "travellers": "3"
+    }, allow_redirects=True)
+    assert res_empty_post.status_code == 200
+    assert "Please select a trip start date to continue to preferences." in res_empty_post.text
+    assert "Where do you want to go?" in res_empty_post.text
+    print("[PASS] Blocked empty start date form submission verified.")
+
     print("\n--- 6. Auto-Calculating Return Date based on Places Selected ---")
     res = session.post(f"{BASE_URL}/destinations/update_trip", data={
         "start_location": "Indiranagar, Bengaluru",

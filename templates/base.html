@@ -84,6 +84,14 @@
         {% endblock %}
       </div>
 
+      {% set selected_slugs = session.get('selected_destinations', []) %}
+      {% set trip_details = session.get('trip_details', {}) %}
+      {% set has_destinations = (selected_slugs|length) > 0 %}
+      {% set has_departure_date = trip_details.get('departure_date') and (trip_details.get('departure_date')|trim|length > 0) %}
+      {% set step2_unlocked = has_destinations and has_departure_date %}
+      {% set step3_unlocked = step2_unlocked and session.get('preferences') %}
+      {% set step4_unlocked = step3_unlocked %}
+
       <nav class="trip-progress-nav" aria-label="Trip Planning Stages">
         <ol class="progress-steps">
           <li class="step-item {% if current_step == 1 %}step-active{% elif current_step > 1 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 1 %}aria-current="step"{% endif %}>
@@ -92,23 +100,44 @@
               <span class="step-label">DESTINATIONS</span>
             </a>
           </li>
-          <li class="step-item {% if current_step == 2 %}step-active{% elif current_step > 2 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 2 %}aria-current="step"{% endif %}>
-            <a href="{{ url_for('preferences.preferences_view') }}" class="step-link">
-              <span class="step-num">02</span>
-              <span class="step-label">PREFERENCES</span>
-            </a>
+          <li class="step-item {% if current_step == 2 %}step-active{% elif current_step > 2 %}step-done{% elif not step2_unlocked %}step-upcoming step-disabled{% else %}step-upcoming{% endif %}" {% if current_step == 2 %}aria-current="step"{% endif %}>
+            {% if step2_unlocked or current_step >= 2 %}
+              <a href="{{ url_for('preferences.preferences_view') }}" class="step-link">
+                <span class="step-num">02</span>
+                <span class="step-label">PREFERENCES</span>
+              </a>
+            {% else %}
+              <span class="step-link step-link-disabled" title="Pick at least 1 destination and a departure date to unlock preferences" aria-disabled="true">
+                <span class="step-num">02</span>
+                <span class="step-label">PREFERENCES</span>
+              </span>
+            {% endif %}
           </li>
-          <li class="step-item {% if current_step == 3 %}step-active{% elif current_step > 3 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 3 %}aria-current="step"{% endif %}>
-            <a href="{{ url_for('itinerary.itinerary_view') }}" class="step-link">
-              <span class="step-num">03</span>
-              <span class="step-label">ITINERARY</span>
-            </a>
+          <li class="step-item {% if current_step == 3 %}step-active{% elif current_step > 3 %}step-done{% elif not step3_unlocked %}step-upcoming step-disabled{% else %}step-upcoming{% endif %}" {% if current_step == 3 %}aria-current="step"{% endif %}>
+            {% if step3_unlocked or current_step >= 3 %}
+              <a href="{{ url_for('itinerary.itinerary_view') }}" class="step-link">
+                <span class="step-num">03</span>
+                <span class="step-label">ITINERARY</span>
+              </a>
+            {% else %}
+              <span class="step-link step-link-disabled" title="Complete preferences to unlock itinerary" aria-disabled="true">
+                <span class="step-num">03</span>
+                <span class="step-label">ITINERARY</span>
+              </span>
+            {% endif %}
           </li>
-          <li class="step-item {% if current_step == 4 %}step-active{% elif current_step > 4 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 4 %}aria-current="step"{% endif %}>
-            <a href="{{ url_for('budget.budget_view') }}" class="step-link">
-              <span class="step-num">04</span>
-              <span class="step-label">BUDGET</span>
-            </a>
+          <li class="step-item {% if current_step == 4 %}step-active{% elif current_step > 4 %}step-done{% elif not step4_unlocked %}step-upcoming step-disabled{% else %}step-upcoming{% endif %}" {% if current_step == 4 %}aria-current="step"{% endif %}>
+            {% if step4_unlocked or current_step >= 4 %}
+              <a href="{{ url_for('budget.budget_view') }}" class="step-link">
+                <span class="step-num">04</span>
+                <span class="step-label">BUDGET</span>
+              </a>
+            {% else %}
+              <span class="step-link step-link-disabled" title="Complete preferences to unlock budget" aria-disabled="true">
+                <span class="step-num">04</span>
+                <span class="step-label">BUDGET</span>
+              </span>
+            {% endif %}
           </li>
         </ol>
       </nav>

@@ -17,12 +17,16 @@ def budget_view():
         flash("Please select your destinations first to view budget.", "warning")
         return redirect(url_for("destinations.list_destinations"))
 
+    trip_details = session.get("trip_details", {})
+    departure_date = trip_details.get("departure_date", "").strip() if isinstance(trip_details, dict) else ""
+    if not departure_date:
+        flash("Please select a trip start date first.", "warning")
+        return redirect(url_for("destinations.list_destinations"))
+
     preferences = session.get("preferences")
     if not preferences:
         flash("Please set your travel preferences first.", "info")
         return redirect(url_for("preferences.preferences_view"))
-
-    trip_details = session.get("trip_details", {})
 
     budget_data = calculate_budget(
         selected_slugs=selected_slugs,

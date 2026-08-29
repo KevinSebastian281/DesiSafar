@@ -201,4 +201,8 @@ def update_trip_details():
         flash("Please select at least 1 destination to continue to preferences.", "warning")
         return redirect(url_for("destinations.list_destinations"))
 
+    if not departure_date:
+        flash("Please select a trip start date to continue to preferences.", "warning")
+        return redirect(url_for("destinations.list_destinations"))
+
     return redirect(url_for("preferences.preferences_view"))
