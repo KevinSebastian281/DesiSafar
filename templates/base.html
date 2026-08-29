@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}DesiSafar — Modern Visual India Trip & Itinerary Planner{% endblock %}</title>
+  <meta name="description" content="{% block description %}Plan your dream India trip in minutes with DesiSafar. Day-by-day visual itineraries, train routes, ₹ Kharcha splitting, and curated local gems.{% endblock %}">
+  
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+  {% block head %}{% endblock %}
+
+  <style>
+    /* Server-rendered Flash Alerts (Zero-JS) */
+    .flash-container {
+      max-width: 1400px;
+      margin: 16px auto 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+    .flash-alert {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(17, 35, 56, 0.08);
+      animation: flashSlideDown 0.3s ease-out;
+    }
+    .flash-info {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+    }
+    .flash-warning {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+    .flash-success {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+    .flash-alert-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .flash-alert-icon {
+      font-size: 1.1rem;
+    }
+    @keyframes flashSlideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+  {% block header %}
+  <!-- Wizard App Header -->
+  <header class="app-header" id="appHeader">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <a href="{{ url_for('main.index') }}" class="brand-link" aria-label="DesiSafar Home">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" alt="DesiSafar Logo" class="brand-logo" id="brandLogo">
+        </a>
+        {% block back_link %}
+        <a href="{{ url_for('main.index') }}" class="back-link" aria-label="Return to home">
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+          </svg>
+          <span>Back</span>
+        </a>
+        {% endblock %}
+      </div>
+
+      <nav class="trip-progress-nav" aria-label="Trip Planning Stages">
+        <ol class="progress-steps">
+          <li class="step-item {% if current_step == 1 %}step-active{% elif current_step > 1 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 1 %}aria-current="step"{% endif %}>
+            <a href="{{ url_for('destinations.list_destinations') }}" class="step-link">
+              <span class="step-num">01</span>
+              <span class="step-label">DESTINATIONS</span>
+            </a>
+          </li>
+          <li class="step-item {% if current_step == 2 %}step-active{% elif current_step > 2 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 2 %}aria-current="step"{% endif %}>
+            <a href="{{ url_for('preferences.preferences_view') }}" class="step-link">
+              <span class="step-num">02</span>
+              <span class="step-label">PREFERENCES</span>
+            </a>
+          </li>
+          <li class="step-item {% if current_step == 3 %}step-active{% elif current_step > 3 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 3 %}aria-current="step"{% endif %}>
+            <a href="{{ url_for('itinerary.itinerary_view') }}" class="step-link">
+              <span class="step-num">03</span>
+              <span class="step-label">ITINERARY</span>
+            </a>
+          </li>
+          <li class="step-item {% if current_step == 4 %}step-active{% elif current_step > 4 %}step-done{% else %}step-upcoming{% endif %}" {% if current_step == 4 %}aria-current="step"{% endif %}>
+            <a href="{{ url_for('budget.budget_view') }}" class="step-link">
+              <span class="step-num">04</span>
+              <span class="step-label">BUDGET</span>
+            </a>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="header-actions">
+        <a href="{{ url_for('main.reset_session') }}" class="btn-ghost-sm" title="Reset trip selections">
+          <svg class="icon-sm" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clip-rule="evenodd" />
+          </svg>
+          <span>Reset</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  {% endblock %}
+
+  <!-- Flash Messages Banner -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-container">
+        {% for category, message in messages %}
+          <div class="flash-alert flash-{{ category if category in ['info', 'warning', 'success'] else 'info' }}" role="alert">
+            <div class="flash-alert-content">
+              <span class="flash-alert-icon">
+                {% if category == 'warning' %}⚠️{% elif category == 'success' %}✓{% else %}💡{% endif %}
+              </span>
+              <span>{{ message }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+
+  {% block modals %}{% endblock %}
+
+  {% block footer_content %}{% endblock %}
+
+</body>
+</html>

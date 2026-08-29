@@ -1,0 +1,458 @@
+{% extends "base.html" %}
+
+{% set current_step = 2 %}
+
+{% block title %}DesiSafar — Trip Preferences & Travel Style{% endblock %}
+{% block description %}Personalize your Indian journey with DesiSafar. Choose your travel vibe, budget, accommodation, and food preferences.{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/preference.css') }}">
+{% endblock %}
+
+{% block back_link %}
+<a href="{{ url_for('destinations.list_destinations') }}" class="back-link" aria-label="Return to destination selection">
+  <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+  </svg>
+  <span>Back</span>
+</a>
+{% endblock %}
+
+{% block content %}
+<main class="main-layout" id="mainContent">
+
+  <div class="trip-context-banner" role="region" aria-label="Current Trip Route">
+    <div class="trip-context-left">
+      <span class="context-tag-badge">Selected Route</span>
+      <span class="context-route-title">
+        {% for dest in selected_dest_objects %}
+          <span>{{ dest.name }}</span>
+          {% if not loop.last %}<span class="context-dot-divider">+</span>{% endif %}
+        {% endfor %}
+      </span>
+      <div class="context-meta-group">
+        <span>📅 {{ dates_range_display }} ({{ computed_days }} Days)</span>
+        <span class="context-dot-divider">•</span>
+        <span>👥 {{ trip_details.travellers }} Travellers</span>
+        <span class="context-dot-divider">•</span>
+        <span>📍 From {{ trip_details.start_location }}</span>
+      </div>
+    </div>
+    <a href="{{ url_for('destinations.list_destinations') }}" class="context-edit-link">
+      <span>Edit destinations</span>
+      <span>✎</span>
+    </a>
+  </div>
+
+  <section class="hero-section">
+    <h1 class="hero-heading">What kind of trip are you imagining?</h1>
+    <p class="hero-subtitle">Tell us how you like to travel and we'll shape the journey around you.</p>
+  </section>
+
+  <div class="preferences-workspace-grid">
+
+    <form class="preferences-form-column" id="preferencesForm" action="{{ url_for('preferences.preferences_view') }}" method="POST">
+
+      <section class="pref-section" id="sectionTravelStyle">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span>✨</span>
+            <span>What's your travel vibe?</span>
+          </h2>
+          <p class="section-subtitle">Pick the vibes that best define your ideal vacation style.</p>
+        </div>
+
+        <div class="cards-grid-4">
+          {% set vibes_list = [
+            ('adventure', '🧗', 'Adventure', 'Trekking, outdoor experiences and excitement.'),
+            ('relaxed', '🧘', 'Relaxed', 'Slow mornings, scenic places and downtime.'),
+            ('romantic', '🌅', 'Romantic', 'Sunsets, cafés and intimate experiences.'),
+            ('family', '👨‍👩‍👧‍👦', 'Family', 'Comfortable and family-friendly experiences.'),
+            ('culture', '🏛️', 'Culture', 'History, heritage and local traditions.'),
+            ('nightlife', '🍸', 'Nightlife', 'Entertainment, evenings and social experiences.'),
+            ('foodie', '🍛', 'Foodie', 'Local cuisine, markets and cafés.'),
+            ('explorer', '🧭', 'Explorer', 'Hidden gems, photography and discovery.')
+          ] %}
+          {% for code, icon, title, desc in vibes_list %}
+            <label class="custom-card-label">
+              <input type="checkbox" name="vibe" value="{{ code }}" class="sr-only-input" {% if code in preferences.vibes %}checked{% endif %}>
+              <div class="pref-card">
+                <div class="card-top-row">
+                  <span class="pref-icon">{{ icon }}</span>
+                  <span class="check-indicator" aria-hidden="true">✓</span>
+                </div>
+                <h3 class="pref-card-title">{{ title }}</h3>
+                <p class="pref-card-desc">{{ desc }}</p>
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="pref-section" id="sectionInterests">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span>🎯</span>
+            <span>What do you want to experience?</span>
+          </h2>
+          <p class="section-subtitle">Select the activities and sights you look forward to most.</p>
+        </div>
+
+        <div class="chips-wrap">
+          {% set interests_list = [
+            ('beaches', '🏖️ Beaches'),
+            ('mountains', '🏔️ Mountains'),
+            ('nature', '🌿 Nature'),
+            ('history', '🏛️ History'),
+            ('shopping', '🛍️ Shopping'),
+            ('food', '🍛 Local Food'),
+            ('photography', '📸 Photography'),
+            ('adventure', '🧗 Adventure'),
+            ('nightlife', '🍸 Nightlife'),
+            ('cafes', '☕ Cafés'),
+            ('art', '🎨 Art'),
+            ('wellness', '🧘 Wellness'),
+            ('wildlife', '🐅 Wildlife'),
+            ('culture', '🪔 Local Culture')
+          ] %}
+          {% for code, label in interests_list %}
+            <label class="chip-label">
+              <input type="checkbox" name="interest" value="{{ code }}" class="sr-only-input" {% if code in preferences.interests %}checked{% endif %}>
+              <span class="pref-chip">{{ label }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="pref-section" id="sectionBudget">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span>💳</span>
+            <span>What kind of trip fits your budget?</span>
+          </h2>
+          <p class="section-subtitle">Select a general spending tier for stays, dining, and transit.</p>
+        </div>
+
+        <div class="budget-cards-grid">
+          {% set budget_tiers = [
+            ('budget', '🏷️', 'Budget-Friendly', 'Focus on value and affordable choices.'),
+            ('standard', '⭐', 'Standard', 'A balanced travel experience.'),
+            ('premium', '✨', 'Premium', 'More comfort and flexibility.'),
+            ('luxury', '💎', 'Luxury', 'Premium stays and experiences.')
+          ] %}
+          {% for code, icon, title, desc in budget_tiers %}
+            <label class="custom-card-label">
+              <input type="radio" name="budget" value="{{ code }}" class="sr-only-input" {% if preferences.budget_tier == code %}checked{% endif %}>
+              <div class="pref-card budget-card">
+                <div class="card-top-row">
+                  <span class="pref-icon budget-icon">{{ icon }}</span>
+                  <span class="check-indicator" aria-hidden="true">✓</span>
+                </div>
+                <h3 class="pref-card-title">{{ title }}</h3>
+                <p class="pref-card-desc">{{ desc }}</p>
+                <div class="budget-card-price-tag" style="margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border-light); width: 100%; text-align: left;">
+                  <span class="budget-price-range" id="price-range-{{ code }}" style="display: block; font-size: 0.8125rem; font-weight: 800; color: var(--navy-900); letter-spacing: -0.01em;">
+                    ~ ₹{{ tier_estimates[code].lower_display }} – ₹{{ tier_estimates[code].upper_display }}
+                  </span>
+                  <span class="budget-price-person" id="price-person-{{ code }}" style="display: block; font-size: 0.6875rem; color: var(--text-muted); font-weight: 600; margin-top: 1px;">
+                    ₹{{ tier_estimates[code].per_person_display }} / person
+                  </span>
+                </div>
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="pref-section" id="sectionAccommodation">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span>🏨</span>
+            <span>Where would you like to stay?</span>
+          </h2>
+          <p class="section-subtitle">Choose your preferred lodging category.</p>
+        </div>
+
+        <div class="pill-options-row">
+          {% set stays = [
+            ('hostel', '🛏️', 'Hostel'),
+            ('budget_hotel', '🏢', 'Budget Hotel'),
+            ('3_star', '🌟', '3-Star'),
+            ('4_star', '⭐', '4-Star'),
+            ('5_star', '👑', '5-Star')
+          ] %}
+          {% for code, icon, label in stays %}
+            <label class="option-pill-label">
+              <input type="radio" name="stay" value="{{ code }}" class="sr-only-input" {% if preferences.stay_type == code %}checked{% endif %}>
+              <div class="pref-option-pill">
+                <span>{{ icon }}</span>
+                <span>{{ label }}</span>
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="pref-section" id="sectionFood">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span>🍽️</span>
+            <span>Any food preferences?</span>
+          </h2>
+          <p class="section-subtitle">We will customize restaurant and street food recommendations accordingly.</p>
+        </div>
+
+        <div class="pill-options-row">
+          {% set diets = [
+            ('no_preference', '🍽️', 'No Preference'),
+            ('vegetarian', '🥗', 'Vegetarian'),
+            ('non_vegetarian', '🍗', 'Non-Vegetarian'),
+            ('vegan', '🌱', 'Vegan')
+          ] %}
+          {% for code, icon, label in diets %}
+            <label class="option-pill-label">
+              <input type="radio" name="diet" value="{{ code }}" class="sr-only-input" {% if preferences.diet == code %}checked{% endif %}>
+              <div class="pref-option-pill">
+                <span>{{ icon }}</span>
+                <span>{{ label }}</span>
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+
+        <div class="food-subgroup">
+          <h4 class="subgroup-title">Dining Experiences</h4>
+          <div class="chips-wrap">
+            {% set dining_options = [
+              ('local_food', '🍛 Local Food'),
+              ('street_food', '🍢 Street Food'),
+              ('fine_dining', '🍷 Fine Dining'),
+              ('cafes', '☕ Cafés')
+            ] %}
+            {% for code, label in dining_options %}
+              <label class="chip-label">
+                <input type="checkbox" name="dining" value="{{ code }}" class="sr-only-input" {% if code in preferences.dining %}checked{% endif %}>
+                <span class="pref-chip">{{ label }}</span>
+              </label>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-actions-bar">
+        <a href="{{ url_for('destinations.list_destinations') }}" class="back-link">
+          <span>← Back to Destinations</span>
+        </a>
+        <button type="submit" class="btn-generate-cta" style="border: none; cursor: pointer;">
+          <span>Generate My Itinerary ✨</span>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Sticky Summary Aside -->
+    <aside class="summary-column" aria-label="Your Journey Summary">
+      <div class="sticky-summary-card">
+        
+        <div class="summary-header">
+          <h2 class="summary-title">Your Trip</h2>
+          <span class="summary-badge">Step 2 of 4</span>
+        </div>
+
+        <div class="summary-destinations-block">
+          <h3 class="summary-route-name">
+            {% for dest in selected_dest_objects %}
+              {{ dest.name }}{% if not loop.last %} + {% endif %}
+            {% endfor %}
+          </h3>
+          <div class="summary-details-list">
+            <div class="summary-detail-row">
+              <span class="detail-label">Dates</span>
+              <span class="detail-val">{{ dates_range_display }} ({{ computed_days }} Days)</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="detail-label">Travellers</span>
+              <span class="detail-val">{{ trip_details.travellers }} Travellers</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="detail-label">Route Origin</span>
+              <span class="detail-val">{{ trip_details.start_location if trip_details.start_location else 'Flexible / Custom' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="preferences-snapshot-block">
+          <div class="snapshot-heading">Preference Snapshot</div>
+          <div class="snapshot-items-list">
+            <div class="snapshot-row">
+              <span class="snapshot-prop">Vibe</span>
+              <span class="snapshot-tag" id="snapshotVibe">{% if preferences.vibes %}{{ preferences.vibes|join(' & ')|title }}{% else %}Explorer{% endif %}</span>
+            </div>
+            <div class="snapshot-row">
+              <span class="snapshot-prop">Budget</span>
+              <span class="snapshot-tag" id="snapshotBudget">{{ preferences.budget_tier|capitalize }}</span>
+            </div>
+            <div class="snapshot-row">
+              <span class="snapshot-prop">Stay</span>
+              <span class="snapshot-tag" id="snapshotStay">{{ preferences.stay_type|replace('_', ' ')|title }}</span>
+            </div>
+            <div class="snapshot-row">
+              <span class="snapshot-prop">Diet</span>
+              <span class="snapshot-tag" id="snapshotDiet">{{ preferences.diet|replace('_', ' ')|title }}</span>
+            </div>
+            <div class="snapshot-row" style="background: rgba(255, 90, 31, 0.08); padding: 8px 10px; border-radius: var(--radius-md); margin-top: 4px;">
+              <span class="snapshot-prop" style="font-weight: 700; color: var(--navy-900);">Est. Trip Cost</span>
+              <span class="snapshot-tag" id="snapshotCost" style="font-weight: 800; color: #ff5a1f; background: #fff;">
+                ₹{{ current_estimate.total_display }} (₹{{ current_estimate.per_person_display }}/p)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" form="preferencesForm" class="btn-generate-cta" style="width: 100%; border: none; cursor: pointer; text-align: center; justify-content: center;">
+          <span>Generate Itinerary ✨</span>
+        </button>
+
+        <a href="{{ url_for('destinations.list_destinations') }}" class="btn-back-secondary">
+          ← Back to Destinations
+        </a>
+
+      </div>
+    </aside>
+
+  </div>
+
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const avgBaseRate = {{ avg_base_rate|round(2) }};
+    const totalDays = {{ computed_days }};
+    const travellers = {{ travellers }};
+
+    const stayMultipliers = {
+      "hostel": 0.7,
+      "budget_hotel": 0.85,
+      "3_star": 1.0,
+      "4_star": 1.4,
+      "5_star": 2.2
+    };
+
+    const tierMultipliers = {
+      "budget": 0.75,
+      "standard": 1.0,
+      "premium": 1.35,
+      "luxury": 2.1
+    };
+
+    const tierTitles = {
+      "budget": "Budget-Friendly",
+      "standard": "Standard",
+      "premium": "Premium",
+      "luxury": "Luxury"
+    };
+
+    const stayTitles = {
+      "hostel": "Hostel",
+      "budget_hotel": "Budget Hotel",
+      "3_star": "3-Star",
+      "4_star": "4-Star",
+      "5_star": "5-Star"
+    };
+
+    const dietTitles = {
+      "no_preference": "No Preference",
+      "vegetarian": "Vegetarian",
+      "non_vegetarian": "Non-Vegetarian",
+      "vegan": "Vegan"
+    };
+
+    function updateLiveEstimates() {
+      // 1. Selected stay
+      const stayEl = document.querySelector('input[name="stay"]:checked');
+      const selectedStay = stayEl ? stayEl.value : "3_star";
+      const stayMult = stayMultipliers[selectedStay] || 1.0;
+
+      // 2. Selected dining options
+      const diningChecked = Array.from(document.querySelectorAll('input[name="dining"]:checked')).map(el => el.value);
+      let diningMult = 1.0;
+      if (diningChecked.includes("fine_dining")) diningMult += 0.12;
+      if (diningChecked.includes("street_food")) diningMult -= 0.04;
+
+      // 3. Selected budget tier
+      const budgetEl = document.querySelector('input[name="budget"]:checked');
+      const selectedBudget = budgetEl ? budgetEl.value : "standard";
+
+      // 4. Selected diet and vibes
+      const dietEl = document.querySelector('input[name="diet"]:checked');
+      const selectedDiet = dietEl ? dietEl.value : "no_preference";
+
+      const vibeChecked = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(el => el.value);
+
+      let currentTierTotal = 0;
+      let currentTierPerson = 0;
+
+      // Update price tag under all 4 budget cards
+      Object.keys(tierMultipliers).forEach(tierCode => {
+        const tierMult = tierMultipliers[tierCode];
+        const compMult = (tierMult * 0.6) + (stayMult * 0.4);
+        const rawTotal = avgBaseRate * totalDays * travellers * compMult * diningMult;
+        const tCost = Math.max(5000, Math.round(rawTotal / 100) * 100);
+        const tLower = Math.round((tCost * 0.88) / 100) * 100;
+        const tUpper = Math.round((tCost * 1.15) / 100) * 100;
+        const tPerson = Math.round(tCost / travellers);
+
+        if (tierCode === selectedBudget) {
+          currentTierTotal = tCost;
+          currentTierPerson = tPerson;
+        }
+
+        const rangeEl = document.getElementById("price-range-" + tierCode);
+        const personEl = document.getElementById("price-person-" + tierCode);
+
+        if (rangeEl) {
+          rangeEl.textContent = `~ ₹${tLower.toLocaleString('en-IN')} – ₹${tUpper.toLocaleString('en-IN')}`;
+        }
+        if (personEl) {
+          personEl.textContent = `₹${tPerson.toLocaleString('en-IN')} / person`;
+        }
+      });
+
+      // Update Preference Snapshot elements in the sidebar
+      const snapVibe = document.getElementById("snapshotVibe");
+      if (snapVibe) {
+        if (vibeChecked.length > 0) {
+          snapVibe.textContent = vibeChecked.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(" & ");
+        } else {
+          snapVibe.textContent = "Explorer";
+        }
+      }
+
+      const snapBudget = document.getElementById("snapshotBudget");
+      if (snapBudget) {
+        snapBudget.textContent = tierTitles[selectedBudget] || "Standard";
+      }
+
+      const snapStay = document.getElementById("snapshotStay");
+      if (snapStay) {
+        snapStay.textContent = stayTitles[selectedStay] || "3-Star";
+      }
+
+      const snapDiet = document.getElementById("snapshotDiet");
+      if (snapDiet) {
+        snapDiet.textContent = dietTitles[selectedDiet] || "No Preference";
+      }
+
+      const snapCost = document.getElementById("snapshotCost");
+      if (snapCost) {
+        snapCost.textContent = `₹${currentTierTotal.toLocaleString('en-IN')} (₹${currentTierPerson.toLocaleString('en-IN')}/p)`;
+      }
+    }
+
+    const form = document.getElementById("preferencesForm");
+    if (form) {
+      form.addEventListener("change", updateLiveEstimates);
+    }
+  });
+</script>
+{% endblock %}

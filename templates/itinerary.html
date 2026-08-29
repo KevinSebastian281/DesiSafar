@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+
+{% set current_step = 3 %}
+
+{% block title %}Your Travel Itinerary — {{ summary.destinations_display }} | DesiSafar{% endblock %}
+{% block description %}{{ summary.duration_display }} personalized travel itinerary for {{ summary.destinations_display }} with DesiSafar. Plan your journey, budget, and daily activities.{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles4.css') }}">
+{% endblock %}
+
+{% block back_link %}
+<a href="{{ url_for('preferences.preferences_view') }}" class="back-link" aria-label="Return to preferences page">
+  <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+  </svg>
+  <span>Back</span>
+</a>
+{% endblock %}
+
+{% block content %}
+<main>
+
+  <section id="page-header" class="page-header-section">
+    <div class="header-container">
+      <h1 class="page-title">Your Travel Itinerary</h1>
+      <p class="page-subtitle">
+        Custom-tailored for <strong>{{ summary.destinations_display }}</strong> across {{ summary.duration_display }} from {{ summary.start_location }}.
+      </p>
+    </div>
+  </section>
+
+  <section id="trip-summary" class="trip-summary-section" aria-labelledby="summary-heading">
+    <div class="summary-container">
+      <h2 id="summary-heading" class="section-title">Trip Summary</h2>
+
+      <div class="summary-cards-grid">
+        <div class="summary-card">
+          <span class="summary-icon">📍</span>
+          <div class="summary-info">
+            <span class="summary-label">Destination(s)</span>
+            <strong class="summary-value">{{ summary.destinations_display }}</strong>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-icon">📅</span>
+          <div class="summary-info">
+            <span class="summary-label">Duration</span>
+            <strong class="summary-value">{{ summary.duration_display }}</strong>
+            <span class="summary-subtext">{{ summary.dates_range_display }}</span>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-icon">👥</span>
+          <div class="summary-info">
+            <span class="summary-label">Travelers</span>
+            <strong class="summary-value">{{ summary.travelers_display }}</strong>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-icon">💰</span>
+          <div class="summary-info">
+            <span class="summary-label">Estimated Budget</span>
+            <strong class="summary-value">{{ summary.estimated_budget_display }}</strong>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-icon">🎒</span>
+          <div class="summary-info">
+            <span class="summary-label">Trip Style</span>
+            <strong class="summary-value">{{ summary.trip_style_display }}</strong>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-icon">🍲</span>
+          <div class="summary-info">
+            <span class="summary-label">Food Preference</span>
+            <strong class="summary-value">{{ summary.food_display }}</strong>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-icon">🏨</span>
+          <div class="summary-info">
+            <span class="summary-label">Hotel Type</span>
+            <strong class="summary-value">{{ summary.hotel_display }}</strong>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-icon">✨</span>
+          <div class="summary-info">
+            <span class="summary-label">Experience Type</span>
+            <strong class="summary-value">{{ summary.experience_display }}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="itinerary" class="itinerary-timeline-section" aria-labelledby="itinerary-heading">
+    <div class="itinerary-container">
+      <h2 id="itinerary-heading" class="section-title">Day-by-Day Itinerary</h2>
+
+      <div class="itinerary-days-list">
+        {% for day in days %}
+          <article class="day-card">
+            <header class="day-card-header">
+              <span class="day-badge">Day {{ day.day_num }}</span>
+              <span class="day-date">Day {{ day.day_num }} · {{ day.date_str }}</span>
+              <span class="day-location">📍 {{ day.location_label }}</span>
+            </header>
+
+            <div class="day-card-body">
+              <h3 class="day-title">{{ day.day_title }}</h3>
+              <ul class="activity-list">
+                {% for act in day.activities %}
+                  <li class="activity-item">
+                    <span class="activity-time">{{ act.time }}</span>
+                    <span class="activity-text">{{ act.text }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+
+              {% if day.suggested_stay or day.suggested_restaurant %}
+                <div class="day-places-recommendations" style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--slate-200); display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
+                  
+                  {% if day.suggested_stay %}
+                    <div class="place-recommendation-box" style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 12px 14px;">
+                      <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+                        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.05em;">🏨 Suggested Stay</span>
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ {{ day.suggested_stay.rating }}</span>
+                      </div>
+                      <strong style="font-size: 0.875rem; color: var(--navy-900); display: block; margin-bottom: 2px;">{{ day.suggested_stay.name }}</strong>
+                      <span style="font-size: 0.8125rem; color: var(--slate-500); display: flex; align-items: center; gap: 4px;">📍 {{ day.suggested_stay.area }}</span>
+                      {% if day.suggested_stay.phone %}
+                        <div style="margin-top: 6px;">
+                          <a href="tel:{{ day.suggested_stay.phone }}" style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 600; color: var(--primary-saffron); text-decoration: none;">
+                            <span>📞 Call: {{ day.suggested_stay.phone }}</span>
+                          </a>
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                  {% if day.suggested_restaurant %}
+                    <div class="place-recommendation-box" style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 12px 14px;">
+                      <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+                        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.05em;">🍽️ Suggested Dining</span>
+                        <div style="display: inline-flex; align-items: center; gap: 4px;">
+                          {% if day.suggested_restaurant.price_level %}
+                            <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #d1fae5; padding: 2px 6px; border-radius: 9999px;">
+                              {% for _ in range(day.suggested_restaurant.price_level) %}₹{% endfor %}
+                            </span>
+                          {% endif %}
+                          <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ {{ day.suggested_restaurant.rating }}</span>
+                        </div>
+                      </div>
+                      <strong style="font-size: 0.875rem; color: var(--navy-900); display: block; margin-bottom: 2px;">{{ day.suggested_restaurant.name }}</strong>
+                      <span style="font-size: 0.8125rem; color: var(--slate-500); display: flex; align-items: center; gap: 4px;">📍 {{ day.suggested_restaurant.area }}</span>
+                      {% if day.suggested_restaurant.phone %}
+                        <div style="margin-top: 6px;">
+                          <a href="tel:{{ day.suggested_restaurant.phone }}" style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 600; color: var(--primary-saffron); text-decoration: none;">
+                            <span>📞 Call: {{ day.suggested_restaurant.phone }}</span>
+                          </a>
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                </div>
+              {% endif %}
+
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="trip-budget" class="trip-budget-section" aria-labelledby="budget-heading">
+    <div class="budget-container">
+      <h2 id="budget-heading" class="section-title">Trip Budget Overview</h2>
+
+      <div class="budget-card">
+        <ul class="budget-list">
+          <li class="budget-item">
+            <span class="budget-category">🏨 Stays &amp; Accommodation</span>
+            <span class="budget-cost">~39% of total</span>
+          </li>
+          <li class="budget-item">
+            <span class="budget-category">🚗 Transportation &amp; Transfers</span>
+            <span class="budget-cost">~19% of total</span>
+          </li>
+          <li class="budget-item">
+            <span class="budget-category">🍲 Food &amp; Highway Dhabas</span>
+            <span class="budget-cost">~16% of total</span>
+          </li>
+          <li class="budget-item">
+            <span class="budget-category">🎟️ Activities &amp; Entry Passes</span>
+            <span class="budget-cost">~15% of total</span>
+          </li>
+        </ul>
+
+        <div class="budget-total-row">
+          <strong class="total-label">Estimated Total Group Cost:</strong>
+          <strong class="total-amount">{{ summary.estimated_budget_display }}</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" class="bottom-cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Ready for your adventure?</h2>
+      <a href="{{ url_for('budget.budget_view') }}" class="btn btn-primary">View Detailed Budget &amp; Split (Page 4) &rarr;</a>
+    </div>
+  </section>
+
+</main>
+{% endblock %}
