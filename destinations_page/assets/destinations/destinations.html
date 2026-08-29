@@ -69,7 +69,7 @@
       </nav>
 
       <div class="header-actions">
-        <a href="destinations.html" class="btn-ghost-sm" title="Reset trip selections">
+        <a href="destinations.html" class="btn-ghost-sm" id="resetSelectionsTopBtn" title="Reset trip selections">
           <svg class="icon-sm" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd"
               d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
@@ -100,7 +100,7 @@
                 clip-rule="evenodd" />
             </svg>
             <input type="text" id="destinationSearchInput" class="search-input"
-              placeholder="Search cities, destinations or places (e.g., Goa, Kerala, Mountains)..." autocomplete="off"
+              placeholder="Search cities or destinations (e.g., Delhi, Goa, Munnar, Andaman, Kolkata)..." autocomplete="off"
               aria-label="Search destinations">
           </div>
         </div>
@@ -109,6 +109,9 @@
           <div class="category-chips-scroll" id="categoryChipsScroll">
             <input type="radio" name="categoryFilter" id="filter-all" class="filter-radio" checked>
             <label for="filter-all" class="filter-chip">All Destinations</label>
+
+            <input type="radio" name="categoryFilter" id="filter-cities" class="filter-radio">
+            <label for="filter-cities" class="filter-chip">🏙️ Cities</label>
 
             <input type="radio" name="categoryFilter" id="filter-beaches" class="filter-radio">
             <label for="filter-beaches" class="filter-chip">🏖️ Beaches</label>
@@ -121,9 +124,6 @@
 
             <input type="radio" name="categoryFilter" id="filter-heritage" class="filter-radio">
             <label for="filter-heritage" class="filter-chip">🏛️ Heritage</label>
-
-            <input type="radio" name="categoryFilter" id="filter-cities" class="filter-radio">
-            <label for="filter-cities" class="filter-chip">🏙️ Cities</label>
 
             <input type="radio" name="categoryFilter" id="filter-adventure" class="filter-radio">
             <label for="filter-adventure" class="filter-chip">🧗 Adventure</label>
@@ -144,120 +144,64 @@
         <div class="explorer-header">
           <div class="explorer-title-group">
             <h2 class="section-heading">Destination Explorer</h2>
-            <span class="results-count" id="resultsCountBadge">16 curated destinations</span>
+            <span class="results-count" id="resultsCountBadge">22 curated destinations</span>
           </div>
           <span class="selection-helper">Pick up to 5 destinations for your route</span>
         </div>
 
         <div class="destinations-grid" id="destinationsGrid">
 
-          <article class="destination-card is-selected" data-id="goa" data-category="beaches adventure food">
+          <!-- 1. Delhi -->
+          <article class="destination-card" data-id="delhi" data-name="Delhi" data-state="Delhi NCR" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80" data-category="cities heritage food">
             <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80"
-                alt="Goa coastline and beaches" class="card-img" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80"
+                alt="Delhi Red Fort and India Gate" class="card-img" loading="lazy">
               <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Goa</span>
+              <span class="card-state-pill">Delhi NCR</span>
               <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
             </div>
             <div class="card-content">
               <div class="card-header-row">
-                <h3 class="card-title">Goa</h3>
-                <span class="card-category-indicator">🏖️ Beaches</span>
+                <h3 class="card-title">Delhi</h3>
+                <span class="card-category-indicator">🏙️ Cities</span>
               </div>
-              <p class="card-desc">Sun-drenched coastal haven renowned for its golden beaches, Portuguese heritage
-                architecture, and beach shacks.</p>
+              <p class="card-desc">India's historic capital blending Mughal grandeur at Red Fort & Humayun's Tomb with buzzing Chandni Chowk street food.</p>
               <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Nov – Mar</span>
-                <span class="tag-pill">⏱️ 3–5 Days</span>
+                <span class="tag-pill">🌤️ Oct – Mar</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
               </div>
               <div class="card-actions-row">
-                <a href="#modal-goa" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add is-added" aria-label="Goa is in trip">
-                  <span class="btn-check">✓</span>
-                  <span>Added</span>
+                <a href="#modal-delhi" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Delhi to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
                 </button>
               </div>
             </div>
           </article>
 
-          <article class="destination-card is-selected" data-id="munnar" data-category="mountains nature food">
+          <!-- 2. Agra -->
+          <article class="destination-card" data-id="agra" data-name="Agra" data-state="Uttar Pradesh" data-duration="1–2 Days" data-img="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80" data-category="heritage cities food">
             <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80"
-                alt="Munnar rolling green tea hills" class="card-img" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80"
+                alt="Agra Taj Mahal sunrise" class="card-img" loading="lazy">
               <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Kerala</span>
+              <span class="card-state-pill">Uttar Pradesh</span>
               <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
             </div>
             <div class="card-content">
               <div class="card-header-row">
-                <h3 class="card-title">Munnar</h3>
-                <span class="card-category-indicator">🏔️ Mountains</span>
-              </div>
-              <p class="card-desc">Rolling emerald tea plantations, mist-covered valleys, and aromatic spice gardens
-                nestled in the Western Ghats.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Sep – May</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-munnar" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add is-added" aria-label="Munnar is in trip">
-                  <span class="btn-check">✓</span>
-                  <span>Added</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="manali" data-category="mountains adventure nature">
-            <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80"
-                alt="Manali snow mountain peaks" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Himachal Pradesh</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Manali</h3>
-                <span class="card-category-indicator">🏔️ Mountains</span>
-              </div>
-              <p class="card-desc">Premier mountain hub along the Beas River offering alpine snow views, paragliding,
-                river rafting, and cafe culture.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Oct – Jun</span>
-                <span class="tag-pill">⏱️ 3–4 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-manali" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Manali to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="jaipur" data-category="heritage cities food">
-            <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80"
-                alt="Jaipur Pink City Palace" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Rajasthan</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Jaipur</h3>
+                <h3 class="card-title">Agra</h3>
                 <span class="card-category-indicator">🏛️ Heritage</span>
               </div>
-              <p class="card-desc">The magnificent Pink City of royal palaces, grand hill forts, vibrant craft bazaars,
-                and regal Rajasthani cuisine.</p>
+              <p class="card-desc">Home to the magnificent ivory-white marble Taj Mahal, majestic Agra Fort, and historic Mughlai culinary traditions.</p>
               <div class="card-meta-row">
                 <span class="tag-pill">🌤️ Oct – Mar</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
+                <span class="tag-pill">⏱️ 1–2 Days</span>
               </div>
               <div class="card-actions-row">
-                <a href="#modal-jaipur" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Jaipur to trip">
+                <a href="#modal-agra" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Agra to trip">
                   <span class="btn-icon">+</span>
                   <span>Add</span>
                 </button>
@@ -265,55 +209,57 @@
             </div>
           </article>
 
-          <article class="destination-card" data-id="kashmir" data-category="mountains nature spiritual">
+          <!-- 3. Bangalore -->
+          <article class="destination-card" data-id="bangalore" data-name="Bangalore" data-state="Karnataka" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80" data-category="cities nature food">
             <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=80"
-                alt="Kashmir Dal Lake Shikara" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Jammu & Kashmir</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Kashmir (Srinagar)</h3>
-                <span class="card-category-indicator">🏔️ Mountains</span>
-              </div>
-              <p class="card-desc">Paradise on Earth featuring tranquil Dal Lake shikara rides, snow-kissed Himalayan
-                peaks, and Mughal gardens.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Apr – Oct</span>
-                <span class="tag-pill">⏱️ 4–6 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-kashmir" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Kashmir to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="gokarna" data-category="beaches spiritual nature">
-            <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
-                alt="Gokarna cliffside beach" class="card-img" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80"
+                alt="Bangalore Vidhana Soudha and skyline" class="card-img" loading="lazy">
               <div class="card-image-overlay"></div>
               <span class="card-state-pill">Karnataka</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
             </div>
             <div class="card-content">
               <div class="card-header-row">
-                <h3 class="card-title">Gokarna</h3>
-                <span class="card-category-indicator">🏖️ Beaches</span>
+                <h3 class="card-title">Bangalore (Bengaluru)</h3>
+                <span class="card-category-indicator">🏙️ Cities</span>
               </div>
-              <p class="card-desc">A tranquil coastal pilgrimage town bordered by pristine untouched beaches like Om
-                Beach surrounded by cliffside walking trails.</p>
+              <p class="card-desc">The vibrant Garden City and tech hub, celebrated for lush Cubbon Park, iconic craft microbreweries, and filter coffee cafes.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Sep – Mar</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-bangalore" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Bangalore to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Chandigarh -->
+          <article class="destination-card" data-id="chandigarh" data-name="Chandigarh" data-state="Punjab & Haryana" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1699888585535-104a9a029fa0?auto=format&fit=crop&w=800&q=80" data-category="cities nature heritage">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1699888585535-104a9a029fa0?auto=format&fit=crop&w=800&q=80"
+                alt="Chandigarh Rock Garden and architecture" class="card-img" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1614687345016-9183348d8f35?auto=format&fit=crop&w=800&q=80';">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Punjab & Haryana</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Chandigarh</h3>
+                <span class="card-category-indicator">🏙️ Cities</span>
+              </div>
+              <p class="card-desc">India's master-planned City Beautiful, featuring Le Corbusier architecture, Nek Chand's Rock Garden, and serene Sukhna Lake.</p>
               <div class="card-meta-row">
                 <span class="tag-pill">🌤️ Oct – Mar</span>
                 <span class="tag-pill">⏱️ 2–3 Days</span>
               </div>
               <div class="card-actions-row">
-                <a href="#modal-gokarna" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Gokarna to trip">
+                <a href="#modal-chandigarh" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Chandigarh to trip">
                   <span class="btn-icon">+</span>
                   <span>Add</span>
                 </button>
@@ -321,160 +267,21 @@
             </div>
           </article>
 
-          <article class="destination-card" data-id="ooty" data-category="mountains nature heritage">
-            <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
-                alt="Ooty Nilgiri tea estates" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Tamil Nadu</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Ooty</h3>
-                <span class="card-category-indicator">🏔️ Mountains</span>
-              </div>
-              <p class="card-desc">Queen of Hill Stations set in the blue Nilgiri Mountains, famed for heritage toy
-                train rides and eucalyptus-scented breezes.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Oct – Jun</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-ooty" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Ooty to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="hampi" data-category="heritage adventure spiritual">
-            <div class="card-image-wrap">
-              <img src="https://www.holidaymonk.com/wp-content/uploads/2020/10/Vastuchitra_Stone-Chariot-Hampi.jpg"
-                alt="Hampi ancient stone chariot" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Karnataka</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Hampi</h3>
-                <span class="card-category-indicator">🏛️ Heritage</span>
-              </div>
-              <p class="card-desc">Surreal UNESCO World Heritage site with boulder-strewn landscapes, majestic
-                14th-century ruins, and riverside cafes.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Oct – Mar</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-hampi" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Hampi to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="rishikesh" data-category="adventure spiritual nature">
-            <div class="card-image-wrap">
-              <img src="https://imgcld.yatra.com/ytimages/image/upload/v1486015791/Rishikesh_overview.jpg"
-                alt="Rishikesh Ganga River suspension bridge" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Uttarakhand</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Rishikesh</h3>
-                <span class="card-category-indicator">🧗 Adventure</span>
-              </div>
-              <p class="card-desc">Yoga Capital of the World where the emerald Ganga flows from the Himalayas, offering
-                white-water rafting and Ganga Aarti.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Sep – May</span>
-                <span class="tag-pill">⏱️ 2–4 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-rishikesh" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Rishikesh to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="udaipur" data-category="heritage nature food">
-            <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80"
-                alt="Udaipur Lake Pichola Palace" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Rajasthan</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Udaipur</h3>
-                <span class="card-category-indicator">🏛️ Heritage</span>
-              </div>
-              <p class="card-desc">The City of Lakes with gleaming marble palaces, romantic boat cruises on Lake
-                Pichola, and rooftop sunset dining.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Oct – Mar</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-udaipur" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Udaipur to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="varkala" data-category="beaches nature spiritual">
-            <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1621682372775-533449e550ed?auto=format&fit=crop&w=800&q=80"
-                alt="Varkala red cliff coastline" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Kerala</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Varkala</h3>
-                <span class="card-category-indicator">🏖️ Beaches</span>
-              </div>
-              <p class="card-desc">Dramatic red laterite cliffs towering over the Arabian Sea, bohemian cliffside cafes,
-                and natural mineral springs.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Nov – Mar</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-varkala" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Varkala to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="coorg" data-category="nature mountains food">
+          <!-- 5. Coorg -->
+          <article class="destination-card" data-id="coorg" data-name="Coorg (Kodagu)" data-state="Karnataka" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80" data-category="nature mountains food">
             <div class="card-image-wrap">
               <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80"
                 alt="Coorg lush coffee plantation" class="card-img" loading="lazy">
               <div class="card-image-overlay"></div>
               <span class="card-state-pill">Karnataka</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
             </div>
             <div class="card-content">
               <div class="card-header-row">
                 <h3 class="card-title">Coorg (Kodagu)</h3>
                 <span class="card-category-indicator">🌿 Nature</span>
               </div>
-              <p class="card-desc">The Scotland of India, known for fragrant coffee and spice estates, lush rainforests,
-                misty peaks, and cascading waterfalls.</p>
+              <p class="card-desc">The Scotland of India, known for fragrant coffee and spice estates, lush rainforests, misty peaks, and cascading waterfalls.</p>
               <div class="card-meta-row">
                 <span class="tag-pill">🌤️ Oct – Apr</span>
                 <span class="tag-pill">⏱️ 2–3 Days</span>
@@ -489,20 +296,282 @@
             </div>
           </article>
 
-          <article class="destination-card" data-id="pondicherry" data-category="beaches heritage food">
+          <!-- 6. Goa -->
+          <article class="destination-card is-selected" data-id="goa" data-name="Goa" data-state="Goa • Coastal Belt" data-duration="3–5 Days" data-img="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80" data-category="beaches adventure food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80"
+                alt="Goa coastline and beaches" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Goa</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Goa</h3>
+                <span class="card-category-indicator">🏖️ Beaches</span>
+              </div>
+              <p class="card-desc">Sun-drenched coastal haven renowned for its golden beaches, Portuguese heritage architecture, vibrant shacks, and water sports.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Nov – Mar</span>
+                <span class="tag-pill">⏱️ 3–5 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-goa" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add is-added" aria-label="Goa is in trip">
+                  <span class="btn-check">✓</span>
+                  <span>Added</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Jaipur -->
+          <article class="destination-card" data-id="jaipur" data-name="Jaipur" data-state="Rajasthan" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80" data-category="heritage cities food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80"
+                alt="Jaipur Pink City Palace" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Rajasthan</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Jaipur</h3>
+                <span class="card-category-indicator">🏛️ Heritage</span>
+              </div>
+              <p class="card-desc">The magnificent Pink City of royal palaces, grand hill forts, vibrant craft bazaars, and regal Rajasthani cuisine.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Mar</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-jaipur" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Jaipur to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Jodhpur -->
+          <article class="destination-card" data-id="jodhpur" data-name="Jodhpur" data-state="Rajasthan" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" data-category="heritage cities food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80"
+                alt="Jodhpur Mehrangarh Fort Blue City" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Rajasthan</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Jodhpur</h3>
+                <span class="card-category-indicator">🏛️ Heritage</span>
+              </div>
+              <p class="card-desc">The iconic Blue City crowned by the colossal Mehrangarh Fort, marble Jaswant Thada, and rich Marwari hospitality.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Mar</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-jodhpur" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Jodhpur to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. Kerala -->
+          <article class="destination-card" data-id="kerala" data-name="Kerala (Backwaters)" data-state="Kerala" data-duration="4–6 Days" data-img="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80" data-category="nature beaches food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80"
+                alt="Kerala Backwaters Houseboat" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Kerala</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Kerala (Backwaters & Coast)</h3>
+                <span class="card-category-indicator">🌴 Nature</span>
+              </div>
+              <p class="card-desc">God's Own Country, offering tranquil palm-fringed backwater houseboats in Alleppey, Fort Kochi Chinese nets, and Ayurvedic bliss.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Sep – Mar</span>
+                <span class="tag-pill">⏱️ 4–6 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-kerala" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Kerala to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10. Mahabaleshwar -->
+          <article class="destination-card" data-id="mahabaleshwar" data-name="Mahabaleshwar" data-state="Maharashtra" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=800&q=80" data-category="mountains nature food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=800&q=80"
+                alt="Mahabaleshwar Western Ghats viewpoints" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Maharashtra</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Mahabaleshwar</h3>
+                <span class="card-category-indicator">🏔️ Mountains</span>
+              </div>
+              <p class="card-desc">Charming hill station in the Sahyadri ranges famous for sweet strawberry farms, Arthur's Seat viewpoints, and Venna Lake boating.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Jun</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-mahabaleshwar" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Mahabaleshwar to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11. Munnar -->
+          <article class="destination-card is-selected" data-id="munnar" data-name="Munnar" data-state="Kerala • Western Ghats" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80" data-category="mountains nature food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80"
+                alt="Munnar rolling green tea hills" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Kerala</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Munnar</h3>
+                <span class="card-category-indicator">🏔️ Mountains</span>
+              </div>
+              <p class="card-desc">Rolling emerald tea plantations, mist-covered valleys, and aromatic spice gardens nestled in the Western Ghats.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Sep – May</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-munnar" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add is-added" aria-label="Munnar is in trip">
+                  <span class="btn-check">✓</span>
+                  <span>Added</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 12. Mussoorie -->
+          <article class="destination-card" data-id="mussoorie" data-name="Mussoorie" data-state="Uttarakhand" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1609864817415-37cb42eb5551?auto=format&fit=crop&w=800&q=80" data-category="mountains nature adventure">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1609864817415-37cb42eb5551?auto=format&fit=crop&w=800&q=80"
+                alt="Mussoorie Queen of the Hills" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Uttarakhand</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Mussoorie</h3>
+                <span class="card-category-indicator">🏔️ Mountains</span>
+              </div>
+              <p class="card-desc">The Queen of the Hills offering dramatic views of the Doon Valley, Kempty Falls, vintage Mall Road, and George Everest peak.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Mar – Jun & Sep – Nov</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-mussoorie" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Mussoorie to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 13. Mysore -->
+          <article class="destination-card" data-id="mysore" data-name="Mysore (Mysuru)" data-state="Karnataka" data-duration="1–2 Days" data-img="https://images.unsplash.com/photo-1600100397608-f010f4441580?auto=format&fit=crop&w=800&q=80" data-category="heritage cities food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1600100397608-f010f4441580?auto=format&fit=crop&w=800&q=80"
+                alt="Mysore Palace illuminated at night" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Karnataka</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Mysore (Mysuru)</h3>
+                <span class="card-category-indicator">🏛️ Heritage</span>
+              </div>
+              <p class="card-desc">City of Palaces, renowned for the dazzlingly illuminated Mysore Palace, Chamundeshwari Temple, Mysore Pak, and silk weaving.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Mar</span>
+                <span class="tag-pill">⏱️ 1–2 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-mysore" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Mysore to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 14. Ooty -->
+          <article class="destination-card" data-id="ooty" data-name="Ooty" data-state="Tamil Nadu" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" data-category="mountains nature heritage">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+                alt="Ooty Nilgiri tea estates" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Tamil Nadu</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Ooty</h3>
+                <span class="card-category-indicator">🏔️ Mountains</span>
+              </div>
+              <p class="card-desc">Queen of Hill Stations in the Nilgiri Mountains, famed for heritage toy train rides, botanical gardens, and eucalyptus breezes.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Jun</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-ooty" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Ooty to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 15. Pondicherry -->
+          <article class="destination-card" data-id="pondicherry" data-name="Pondicherry" data-state="Puducherry" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80" data-category="beaches heritage food">
             <div class="card-image-wrap">
               <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
                 alt="Pondicherry French Quarter villa" class="card-img" loading="lazy">
               <div class="card-image-overlay"></div>
               <span class="card-state-pill">Puducherry</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
             </div>
             <div class="card-content">
               <div class="card-header-row">
                 <h3 class="card-title">Pondicherry</h3>
                 <span class="card-category-indicator">🏖️ Beaches</span>
               </div>
-              <p class="card-desc">Charming coastal town blending yellow French colonial villas, bougainvillea streets,
-                chic bakeries, and Auroville.</p>
+              <p class="card-desc">A charming coastal town blending mustard-yellow French colonial villas, bougainvillea streets, chic cafes, and Auroville.</p>
               <div class="card-meta-row">
                 <span class="tag-pill">🌤️ Oct – Mar</span>
                 <span class="tag-pill">⏱️ 2–3 Days</span>
@@ -517,20 +586,166 @@
             </div>
           </article>
 
-          <article class="destination-card" data-id="mumbai" data-category="cities food heritage">
+          <!-- 16. Pune -->
+          <article class="destination-card" data-id="pune" data-name="Pune" data-state="Maharashtra" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80" data-category="cities heritage food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80"
+                alt="Pune Shaniwar Wada and cityscape" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Maharashtra</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Pune</h3>
+                <span class="card-category-indicator">🏙️ Cities</span>
+              </div>
+              <p class="card-desc">The cultural capital of Maharashtra, featuring the historic Shaniwar Wada, Aga Khan Palace, Sinhagad Fort, and vibrant student cafes.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Jul – Feb</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-pune" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Pune to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 17. Rishikesh -->
+          <article class="destination-card" data-id="rishikesh" data-name="Rishikesh" data-state="Uttarakhand" data-duration="2–4 Days" data-img="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80" data-category="adventure spiritual nature">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80"
+                alt="Rishikesh Ganga River suspension bridge" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Uttarakhand</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Rishikesh</h3>
+                <span class="card-category-indicator">🧗 Adventure</span>
+              </div>
+              <p class="card-desc">Yoga Capital of the World along the turquoise emerald Ganga, famous for white-water rafting, cliff jumping, and Parmarth Ganga Aarti.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Sep – May</span>
+                <span class="tag-pill">⏱️ 2–4 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-rishikesh" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Rishikesh to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 18. Udaipur -->
+          <article class="destination-card" data-id="udaipur" data-name="Udaipur" data-state="Rajasthan" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80" data-category="heritage nature food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80"
+                alt="Udaipur Lake Pichola Palace" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Rajasthan</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Udaipur</h3>
+                <span class="card-category-indicator">🏛️ Heritage</span>
+              </div>
+              <p class="card-desc">The romantic City of Lakes with gleaming marble palaces, sunset boat cruises on Lake Pichola, and rooftop dining.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Mar</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-udaipur" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Udaipur to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 19. Varanasi -->
+          <article class="destination-card" data-id="varanasi" data-name="Varanasi" data-state="Uttar Pradesh" data-duration="2–3 Days" data-img="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80" data-category="spiritual heritage food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80"
+                alt="Varanasi Ganga Ghats Evening Aarti" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">Uttar Pradesh</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Varanasi</h3>
+                <span class="card-category-indicator">🪔 Spiritual</span>
+              </div>
+              <p class="card-desc">One of the world's oldest living cities on the sacred Ganges, famous for ancient ghats, evocative evening aartis, and Banarasi silk.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Mar</span>
+                <span class="tag-pill">⏱️ 2–3 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-varanasi" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Varanasi to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 20. Kolkata -->
+          <article class="destination-card" data-id="kolkata" data-name="Kolkata" data-state="West Bengal" data-duration="2–4 Days" data-img="https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=800&q=80" data-category="cities heritage food">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=800&q=80"
+                alt="Kolkata Victoria Memorial and Howrah Bridge" class="card-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+              <span class="card-state-pill">West Bengal</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">Kolkata</h3>
+                <span class="card-category-indicator">🏙️ Cities</span>
+              </div>
+              <p class="card-desc">The cultural City of Joy with grand British colonial landmarks like Victoria Memorial, the iconic Howrah Bridge, and legendary street sweets.</p>
+              <div class="card-meta-row">
+                <span class="tag-pill">🌤️ Oct – Mar</span>
+                <span class="tag-pill">⏱️ 2–4 Days</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="#modal-kolkata" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Kolkata to trip">
+                  <span class="btn-icon">+</span>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 21. Mumbai -->
+          <article class="destination-card" data-id="mumbai" data-name="Mumbai" data-state="Maharashtra" data-duration="2–4 Days" data-img="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80" data-category="cities food heritage">
             <div class="card-image-wrap">
               <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80"
                 alt="Mumbai Gateway of India Marine Drive" class="card-img" loading="lazy">
               <div class="card-image-overlay"></div>
               <span class="card-state-pill">Maharashtra</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
             </div>
             <div class="card-content">
               <div class="card-header-row">
                 <h3 class="card-title">Mumbai</h3>
                 <span class="card-category-indicator">🏙️ Cities</span>
               </div>
-              <p class="card-desc">India's dynamic maximum city featuring iconic colonial architecture, Marine Drive
-                promenades, and legendary street food.</p>
+              <p class="card-desc">India's dynamic maximum city featuring iconic colonial architecture, Marine Drive sunset promenades, Bollywood, and street food.</p>
               <div class="card-meta-row">
                 <span class="tag-pill">🌤️ Nov – Feb</span>
                 <span class="tag-pill">⏱️ 2–4 Days</span>
@@ -545,55 +760,28 @@
             </div>
           </article>
 
-          <article class="destination-card" data-id="hyderabad" data-category="cities food heritage">
+          <!-- 22. Andaman & Nicobar -->
+          <article class="destination-card" data-id="andaman-nicobar" data-name="Andaman & Nicobar" data-state="Andaman & Nicobar Islands" data-duration="4–7 Days" data-img="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80" data-category="beaches adventure nature">
             <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=800&q=80"
-                alt="Hyderabad Charminar Monument" class="card-img" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80"
+                alt="Andaman Radhanagar Beach and coral waters" class="card-img" loading="lazy">
               <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Telangana</span>
+              <span class="card-state-pill">Andaman & Nicobar</span>
+              <span class="card-selected-badge" title="Added to your journey">✓ In Trip</span>
             </div>
             <div class="card-content">
               <div class="card-header-row">
-                <h3 class="card-title">Hyderabad</h3>
-                <span class="card-category-indicator">🏙️ Cities</span>
+                <h3 class="card-title">Andaman & Nicobar</h3>
+                <span class="card-category-indicator">🏖️ Beaches</span>
               </div>
-              <p class="card-desc">City of Pearls and Nizams, where centuries-old historical monuments like Charminar
-                meet world-famous Biryani.</p>
+              <p class="card-desc">Pristine tropical paradise with crystal-clear turquoise waters, white sand Radhanagar Beach, scuba diving among coral reefs, and historic Cellular Jail.</p>
               <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Oct – Mar</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
+                <span class="tag-pill">🌤️ Oct – May</span>
+                <span class="tag-pill">⏱️ 4–7 Days</span>
               </div>
               <div class="card-actions-row">
-                <a href="#modal-hyderabad" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Hyderabad to trip">
-                  <span class="btn-icon">+</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="destination-card" data-id="varanasi" data-category="spiritual heritage food">
-            <div class="card-image-wrap">
-              <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80"
-                alt="Varanasi Ganga Ghats Evening Aarti" class="card-img" loading="lazy">
-              <div class="card-image-overlay"></div>
-              <span class="card-state-pill">Uttar Pradesh</span>
-            </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="card-title">Varanasi</h3>
-                <span class="card-category-indicator">🪔 Spiritual</span>
-              </div>
-              <p class="card-desc">One of the world's oldest living cities on the sacred Ganges, famous for ancient
-                ghats, evocative evening aartis, and silk weaving.</p>
-              <div class="card-meta-row">
-                <span class="tag-pill">🌤️ Oct – Mar</span>
-                <span class="tag-pill">⏱️ 2–3 Days</span>
-              </div>
-              <div class="card-actions-row">
-                <a href="#modal-varanasi" class="card-btn-view">View Details</a>
-                <button type="button" class="card-btn-add" aria-label="Add Varanasi to trip">
+                <a href="#modal-andaman-nicobar" class="card-btn-view">View Details</a>
+                <button type="button" class="card-btn-add" aria-label="Add Andaman & Nicobar to trip">
                   <span class="btn-icon">+</span>
                   <span>Add</span>
                 </button>
@@ -615,7 +803,7 @@
             <span class="destination-limit-badge" id="destCountBadge">2 / 5 Selected</span>
           </div>
 
-          <form class="trip-config-form" action="../../../preference/preference.html" method="GET">
+          <form class="trip-config-form" id="tripConfigForm" action="../../../preference/preference.html" method="GET">
 
             <div class="form-group" id="startLocationGroup">
               <label for="startLocationInput" class="form-label">
@@ -625,20 +813,20 @@
               </label>
               <div class="input-with-autocomplete">
                 <input type="text" id="startLocationInput" name="start_location" class="form-input"
-                  placeholder="Type or pick starting city..." list="startingCitiesList" value="Kochi, Kerala" required>
+                  placeholder="Type or pick starting city..." list="startingCitiesList" value="Delhi, NCR" required>
                 <datalist id="startingCitiesList">
-                  <option value="Kochi, Kerala">Airport / Port Hub</option>
-                  <option value="Bengaluru, Karnataka">Major Airport / Rail</option>
-                  <option value="Mumbai, Maharashtra">Major Airport / Central</option>
                   <option value="Delhi, NCR">Major Airport / Hub</option>
+                  <option value="Mumbai, Maharashtra">Major Airport / Central</option>
+                  <option value="Bengaluru, Karnataka">Major Airport / Rail</option>
+                  <option value="Kochi, Kerala">Airport / Port Hub</option>
+                  <option value="Kolkata, West Bengal">Major Airport / Rail</option>
                   <option value="Chennai, Tamil Nadu">Airport / Coastal Rail</option>
                   <option value="Hyderabad, Telangana">Major Airport / Rail</option>
-                  <option value="Kolkata, West Bengal">Major Airport / Rail</option>
                   <option value="Pune, Maharashtra">Airport / Expressway</option>
-                  <option value="Ahmedabad, Gujarat">Airport / Rail Hub</option>
-                  <option value="Goa (Dabolim/Mopa), Goa">Airport Hub</option>
                   <option value="Jaipur, Rajasthan">Airport / Heritage Hub</option>
                   <option value="Chandigarh, Punjab/Haryana">Northern Gateway</option>
+                  <option value="Goa (Dabolim/Mopa), Goa">Airport Hub</option>
+                  <option value="Port Blair, Andaman">Island Airport Hub</option>
                 </datalist>
               </div>
               <small class="field-hint">Native suggestions for major Indian airport & rail transit hubs.</small>
@@ -657,46 +845,12 @@
                 </div>
                 <div class="hub-info">
                   <span class="hub-type">STARTING HUB</span>
-                  <span class="hub-name" id="displayStartCity">Kochi, Kerala</span>
+                  <span class="hub-name" id="displayStartCity">Delhi, NCR</span>
                 </div>
               </div>
 
               <div class="selected-destinations-list" id="selectedDestinationsList">
-
-                <div class="selected-dest-item">
-                  <div class="dest-item-drag-handle" title="Route order">
-                    <span class="order-seq-num">1</span>
-                  </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=120&q=80"
-                    alt="Munnar" class="dest-item-thumb">
-                  <div class="dest-item-info">
-                    <div class="dest-item-title-row">
-                      <h4 class="dest-item-name">Munnar</h4>
-                      <span class="dest-item-stay">2–3 Days</span>
-                    </div>
-                    <span class="dest-item-state">Kerala • Western Ghats</span>
-                  </div>
-                  <a href="#modal-munnar" class="dest-item-info-btn" title="View details">ℹ</a>
-                </div>
-
-                <div class="selected-dest-item">
-                  <div class="dest-item-drag-handle" title="Route order">
-                    <span class="order-seq-num">2</span>
-                  </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=120&q=80"
-                    alt="Goa" class="dest-item-thumb">
-                  <div class="dest-item-info">
-                    <div class="dest-item-title-row">
-                      <h4 class="dest-item-name">Goa</h4>
-                      <span class="dest-item-stay">3–5 Days</span>
-                    </div>
-                    <span class="dest-item-state">Goa • Coastal Belt</span>
-                  </div>
-                  <a href="#modal-goa" class="dest-item-info-btn" title="View details">ℹ</a>
-                </div>
-
+                <!-- Dynamically populated by JS -->
               </div>
             </div>
 
@@ -743,33 +897,32 @@
 
             <div class="smart-advisory-banner" id="smartAdvisoryBanner" role="note" style="display: flex;">
               <span class="advisory-icon">💡</span>
-              <div class="advisory-text">
-                <strong>Optimal Route Pace:</strong> 2 destinations is ideal for a 7-day trip. Allows scenic transit via
-                coastal Western Ghats.
+              <div class="advisory-text" id="advisoryText">
+                <strong>Optimal Route Pace:</strong> 2 destinations is ideal for a 7-day trip. Allows comfortable scenic transit.
               </div>
             </div>
 
             <div class="route-summary-box" id="routeSummaryBox">
               <div class="summary-stat">
-                <span class="stat-number">2</span>
+                <span class="stat-number" id="summaryDestCount">2</span>
                 <span class="stat-label">Destinations</span>
               </div>
               <div class="summary-divider"></div>
               <div class="summary-stat">
-                <span class="stat-number">7</span>
+                <span class="stat-number" id="summaryDaysCount">7</span>
                 <span class="stat-label">Days</span>
               </div>
               <div class="summary-divider"></div>
               <div class="summary-stat">
-                <span class="stat-number">4</span>
+                <span class="stat-number" id="summaryTravellerCount">4</span>
                 <span class="stat-label">Travellers</span>
               </div>
             </div>
 
             <div class="panel-footer-actions">
-              <a href="destinations.html" class="btn-link-subtle">
+              <button type="button" id="resetTripSelectionsBtn" class="btn-link-subtle">
                 Reset trip selections
-              </a>
+              </button>
             </div>
 
           </form>
@@ -785,118 +938,58 @@
       <div class="trip-live-summary">
         <div class="summary-badge-pill" id="liveSummaryPill">
           <span class="pulse-indicator"></span>
-          <span class="summary-headline">2 destinations · 7 days (Oct 15 – 22) · 4 travellers</span>
+          <span class="summary-headline" id="stickySummaryHeadline">2 destinations · 7 days (Oct 15 – 22) · 4 travellers</span>
         </div>
         <span class="summary-subtext">Next: Customise your travel pace & preferences</span>
       </div>
 
       <div class="action-buttons-group">
-        <a href="../../../preference/preference.html" class="btn-primary-cta"
-          id="continueToPreferencesBtn">
+        <button type="button" class="btn-primary-cta" id="continueToPreferencesBtn">
           <span>Continue to Preferences</span>
           <svg class="cta-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd"
               d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
               clip-rule="evenodd" />
           </svg>
-        </a>
+        </button>
       </div>
     </div>
   </footer>
 
-  <div class="modal-backdrop" id="modal-goa">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80"
-          alt="Goa" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Goa, India</span>
-          <h2 class="modal-title">Goa</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🏖️ Beaches</span>
-          <span class="tag-pill">🧗 Adventure</span>
-          <span class="tag-pill">🍛 Food</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">Sun-drenched coastal haven renowned for its golden beaches, Portuguese heritage
-            architecture, vibrant beach shacks, and exhilarating water sports.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Nov – Mar</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">3 – 5 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Coastal & Lively</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">Sunset at Anjuna & Palolem Beaches</li>
-            <li class="highlight-item">Heritage Latin Quarter walk in Fontainhas</li>
-            <li class="highlight-item">Authentic Goan fish curry & beach shacks</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>✓ Selected in Trip</span></a>
-      </div>
-    </div>
-  </div>
+  <!-- ========================================== -->
+  <!-- 22 DESTINATION MODALS                      -->
+  <!-- ========================================== -->
 
-  <div class="modal-backdrop" id="modal-munnar">
+  <!-- 1. Modal Delhi -->
+  <div class="modal-backdrop" id="modal-delhi">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
       <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
       <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80"
-          alt="Munnar" class="modal-hero-img">
+        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80"
+          alt="Delhi" class="modal-hero-img">
         <div class="modal-image-gradient"></div>
         <div class="modal-image-meta">
-          <span class="modal-state-badge">Kerala, India</span>
-          <h2 class="modal-title">Munnar</h2>
+          <span class="modal-state-badge">Delhi NCR, India</span>
+          <h2 class="modal-title">Delhi</h2>
         </div>
       </div>
       <div class="modal-body-content">
         <div class="modal-categories">
-          <span class="tag-pill">🏔️ Mountains</span>
-          <span class="tag-pill">🌿 Nature</span>
+          <span class="tag-pill">🏙️ Cities</span>
+          <span class="tag-pill">🏛️ Heritage</span>
           <span class="tag-pill">🍛 Food</span>
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">Rolling emerald tea plantations, mist-covered valleys, and aromatic spice gardens
-            nestled high in the Western Ghats of God's Own Country.</p>
+          <p class="modal-description">India's vibrant capital seamlessly blends centuries of Mughal imperial heritage at the Red Fort and Humayun's Tomb with wide Lutyens' boulevards and unforgettable culinary streets.</p>
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
             <span class="insight-icon">🌤️</span>
             <div>
               <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Sep – May</span>
+              <span class="insight-value">Oct – Mar</span>
             </div>
           </div>
           <div class="insight-box">
@@ -910,100 +1003,38 @@
             <span class="insight-icon">✨</span>
             <div>
               <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Serene & Refreshing</span>
+              <span class="insight-value">Historic & Lively</span>
             </div>
           </div>
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">Top Experiences</h3>
           <ul class="modal-highlights-list">
-            <li class="highlight-item">Kolukkumalai Sunrise over tea estates</li>
-            <li class="highlight-item">Eravikulam National Park & Nilgiri Tahr</li>
-            <li class="highlight-item">Cardamom & spice plantation walks</li>
+            <li class="highlight-item">Red Fort, Qutub Minar & Humayun's Tomb UNESCO trail</li>
+            <li class="highlight-item">Chandni Chowk rickshaw ride & Paranthe Wali Gali</li>
+            <li class="highlight-item">Evening light walk around India Gate & Kartavya Path</li>
           </ul>
         </div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>✓ Selected in Trip</span></a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="delhi"><span>+ Add to Trip</span></button>
       </div>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="modal-manali">
+  <!-- 2. Modal Agra -->
+  <div class="modal-backdrop" id="modal-agra">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
       <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
       <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80"
-          alt="Manali" class="modal-hero-img">
+        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80"
+          alt="Agra" class="modal-hero-img">
         <div class="modal-image-gradient"></div>
         <div class="modal-image-meta">
-          <span class="modal-state-badge">Himachal Pradesh, India</span>
-          <h2 class="modal-title">Manali</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🏔️ Mountains</span>
-          <span class="tag-pill">🧗 Adventure</span>
-          <span class="tag-pill">🌿 Nature</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">Nestled along the Beas River, Manali is India's premier mountain hub offering
-            alpine snow views, paragliding, river rafting, and cafe culture.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Oct – Jun</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">3 – 4 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Alpine & Adventurous</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">Solang Valley & Atal Tunnel excursion</li>
-            <li class="highlight-item">Old Manali bohemian cafes & live music</li>
-            <li class="highlight-item">Jogini Waterfall pine forest trek</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-jaipur">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80"
-          alt="Jaipur" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Rajasthan, India</span>
-          <h2 class="modal-title">Jaipur</h2>
+          <span class="modal-state-badge">Uttar Pradesh, India</span>
+          <h2 class="modal-title">Agra</h2>
         </div>
       </div>
       <div class="modal-body-content">
@@ -1014,8 +1045,7 @@
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">The magnificent Pink City of royal palaces, grand hill forts, vibrant bazaars
-            filled with handicrafts, and regal Rajasthani gastronomy.</p>
+          <p class="modal-description">The jewel of India's Golden Triangle, celebrated globally for the white marble Taj Mahal, colossal Agra Fort, Fatehpur Sikri, and rich royal Mughlai cuisine.</p>
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
@@ -1029,371 +1059,119 @@
             <span class="insight-icon">⏱️</span>
             <div>
               <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 3 Days</span>
+              <span class="insight-value">1 – 2 Days</span>
             </div>
           </div>
           <div class="insight-box">
             <span class="insight-icon">✨</span>
             <div>
               <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Regal & Historic</span>
+              <span class="insight-value">Regal & Timeless</span>
             </div>
           </div>
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">Top Experiences</h3>
           <ul class="modal-highlights-list">
-            <li class="highlight-item">Amber Fort panoramic sunset view</li>
-            <li class="highlight-item">Hawa Mahal intricate facade photography</li>
-            <li class="highlight-item">Authentic Dal Baati Churma dining</li>
+            <li class="highlight-item">Sunrise viewing of the Taj Mahal from Mehtab Bagh</li>
+            <li class="highlight-item">Grand red sandstone pavilions of Agra Fort</li>
+            <li class="highlight-item">Tasting authentic Agra Petha and Mughlai kebabs</li>
           </ul>
         </div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="agra"><span>+ Add to Trip</span></button>
       </div>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="modal-kashmir">
+  <!-- 3. Modal Bangalore -->
+  <div class="modal-backdrop" id="modal-bangalore">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
       <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
       <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=80"
-          alt="Kashmir" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Jammu & Kashmir, India</span>
-          <h2 class="modal-title">Kashmir (Srinagar)</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🏔️ Mountains</span>
-          <span class="tag-pill">🌿 Nature</span>
-          <span class="tag-pill">🪔 Spiritual</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">Paradise on Earth featuring tranquil Dal Lake shikara rides, snow-kissed
-            Himalayan peaks, Mughal gardens, and warm hospitality.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Apr – Oct</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">4 – 6 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Enchanting & Scenic</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">Traditional houseboat stay on Dal Lake</li>
-            <li class="highlight-item">Gulmarg Gondola & snow meadows</li>
-            <li class="highlight-item">Pahalgam Betaab Valley walks</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-gokarna">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
-          alt="Gokarna" class="modal-hero-img">
+        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80"
+          alt="Bangalore" class="modal-hero-img">
         <div class="modal-image-gradient"></div>
         <div class="modal-image-meta">
           <span class="modal-state-badge">Karnataka, India</span>
-          <h2 class="modal-title">Gokarna</h2>
+          <h2 class="modal-title">Bangalore (Bengaluru)</h2>
         </div>
       </div>
       <div class="modal-body-content">
         <div class="modal-categories">
-          <span class="tag-pill">🏖️ Beaches</span>
-          <span class="tag-pill">🪔 Spiritual</span>
-          <span class="tag-pill">🌿 Nature</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">A tranquil coastal pilgrimage town bordered by pristine untouched beaches like Om
-            Beach and Kudle Beach, surrounded by cliffside walking trails.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Oct – Mar</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 3 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Rustic & Peaceful</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">Scenic 5-Beach coastal cliff trek</li>
-            <li class="highlight-item">Sunset yoga at Kudle Beach</li>
-            <li class="highlight-item">Ancient Mahabaleshwar Temple visit</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-ooty">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Ooty"
-          class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Tamil Nadu, India</span>
-          <h2 class="modal-title">Ooty</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🏔️ Mountains</span>
-          <span class="tag-pill">🌿 Nature</span>
-          <span class="tag-pill">🏛️ Heritage</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">Queen of Hill Stations set in the blue Nilgiri Mountains, famed for heritage toy
-            train rides, botanical gardens, and eucalyptus-scented breezes.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Oct – Jun</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 3 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Colonial & Breezy</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">UNESCO Nilgiri Mountain Toy Train</li>
-            <li class="highlight-item">Doddabetta Peak 360-degree viewpoint</li>
-            <li class="highlight-item">Homemade chocolate sampling & tea factory</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-hampi">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1600100397608-f010f4439c27?auto=format&fit=crop&w=800&q=80"
-          alt="Hampi" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Karnataka, India</span>
-          <h2 class="modal-title">Hampi</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🏛️ Heritage</span>
-          <span class="tag-pill">🧗 Adventure</span>
-          <span class="tag-pill">🪔 Spiritual</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">A surreal open-air museum and UNESCO World Heritage site with boulder-strewn
-            landscapes, majestic 14th-century Vijayanagara ruins, and riverside cafes.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Oct – Mar</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 3 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Ancient & Mystical</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">Virupaksha & Vijaya Vittala stone chariot</li>
-            <li class="highlight-item">Matanga Hill sunrise boulder climb</li>
-            <li class="highlight-item">Sanapur Lake coracle boat ride</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-rishikesh">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1545638344-1f9bf2108c2d?auto=format&fit=crop&w=800&q=80"
-          alt="Rishikesh" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Uttarakhand, India</span>
-          <h2 class="modal-title">Rishikesh</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🧗 Adventure</span>
-          <span class="tag-pill">🪔 Spiritual</span>
-          <span class="tag-pill">🌿 Nature</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">The Yoga Capital of the World where the emerald Ganga flows out of the Himalayas,
-            offering thrilling white-water rafting, serene ashrams, and Ganga Aarti.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Sep – May</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 4 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Spiritual & Thrilling</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">White water rafting on the holy Ganges</li>
-            <li class="highlight-item">Evening Ganga Aarti at Triveni Ghat</li>
-            <li class="highlight-item">The Beatles Ashram murals & meditation</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-udaipur">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80"
-          alt="Udaipur" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Rajasthan, India</span>
-          <h2 class="modal-title">Udaipur</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🏙️ Cities</span>
           <span class="tag-pill">🌿 Nature</span>
           <span class="tag-pill">🍛 Food</span>
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">The City of Lakes with gleaming marble palaces, romantic boat cruises on Lake
-            Pichola, rooftop sunset dining, and rich Mewari folklore.</p>
+          <p class="modal-description">India's Silicon Valley and Garden City, famous for pleasant year-round weather, sprawling botanical gardens, buzzing microbrewery culture, and legendary South Indian breakfast institutions.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Sep – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Modern & Green</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Lalbagh Glass House & Cubbon Park bamboo walk</li>
+            <li class="highlight-item">Indiranagar & Koramangala craft breweries trail</li>
+            <li class="highlight-item">Crispy butter masala dosas at Vidyarthi Bhavan or CTR</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="bangalore"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Modal Chandigarh -->
+  <div class="modal-backdrop" id="modal-chandigarh">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1699888585535-104a9a029fa0?auto=format&fit=crop&w=800&q=80"
+          alt="Chandigarh" class="modal-hero-img" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1614687345016-9183348d8f35?auto=format&fit=crop&w=800&q=80';">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Punjab & Haryana, India</span>
+          <h2 class="modal-title">Chandigarh</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏙️ Cities</span>
+          <span class="tag-pill">🌿 Nature</span>
+          <span class="tag-pill">🏛️ Heritage</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">India's first planned modernist city designed by Le Corbusier, renowned for its broad tree-lined avenues, iconic Rock Garden, serene Sukhna Lake, and rich Punjabi hospitality.</p>
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
@@ -1414,89 +1192,27 @@
             <span class="insight-icon">✨</span>
             <div>
               <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Romantic & Regal</span>
+              <span class="insight-value">Clean & Orderly</span>
             </div>
           </div>
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">Top Experiences</h3>
           <ul class="modal-highlights-list">
-            <li class="highlight-item">Grand City Palace complex tour</li>
-            <li class="highlight-item">Sunset boat cruise around Jag Mandir</li>
-            <li class="highlight-item">Rooftop dining with Lake Pichola vistas</li>
+            <li class="highlight-item">Nek Chand's visionary recycled Rock Garden</li>
+            <li class="highlight-item">Sunset boating & jogging around Sukhna Lake</li>
+            <li class="highlight-item">Zakir Hussain Rose Garden & Capitol Complex UNESCO tour</li>
           </ul>
         </div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="chandigarh"><span>+ Add to Trip</span></button>
       </div>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="modal-varkala">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1621682372775-533449e550ed?auto=format&fit=crop&w=800&q=80"
-          alt="Varkala" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Kerala, India</span>
-          <h2 class="modal-title">Varkala</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🏖️ Beaches</span>
-          <span class="tag-pill">🌿 Nature</span>
-          <span class="tag-pill">🪔 Spiritual</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">Dramatic red laterite cliffs towering over the Arabian Sea, bohemian cliffside
-            cafes, natural mineral springs, and golden beach breaks.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Nov – Mar</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 3 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Bohemian & Relaxed</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">North Cliff sunset cafes & seafood</li>
-            <li class="highlight-item">Papanasam Beach mineral water baths</li>
-            <li class="highlight-item">Surfing & ayurvedic rejuvenation</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
-
+  <!-- 5. Modal Coorg -->
   <div class="modal-backdrop" id="modal-coorg">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
@@ -1518,8 +1234,7 @@
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">The Scotland of India, known for fragrant coffee and spice plantations, lush
-            rainforests, misty peaks, cascading waterfalls, and distinct Kodava cuisine.</p>
+          <p class="modal-description">The Scotland of India, known for fragrant coffee and spice plantations, lush rainforests, misty peaks, cascading waterfalls, and distinct Kodava cuisine.</p>
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
@@ -1555,11 +1270,579 @@
       </div>
       <div class="modal-footer">
         <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="coorg"><span>+ Add to Trip</span></button>
       </div>
     </div>
   </div>
 
+  <!-- 6. Modal Goa -->
+  <div class="modal-backdrop" id="modal-goa">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80"
+          alt="Goa" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Goa, India</span>
+          <h2 class="modal-title">Goa</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏖️ Beaches</span>
+          <span class="tag-pill">🧗 Adventure</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">Sun-drenched coastal haven renowned for its golden beaches, Portuguese heritage architecture, vibrant beach shacks, and exhilarating water sports.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Nov – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">3 – 5 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Coastal & Lively</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Sunset at Anjuna, Palolem & Cola Beach lagoon</li>
+            <li class="highlight-item">Heritage Latin Quarter walk in Fontainhas, Panaji</li>
+            <li class="highlight-item">Authentic Goan fish curry, cafreal & beachside music</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="goa"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Modal Jaipur -->
+  <div class="modal-backdrop" id="modal-jaipur">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80"
+          alt="Jaipur" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Rajasthan, India</span>
+          <h2 class="modal-title">Jaipur</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🏙️ Cities</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">The magnificent Pink City of royal palaces, grand hill forts, vibrant craft bazaars, and regal Rajasthani cuisine.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Royal & Regal</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Amber Fort elephant ramparts & mirror palace</li>
+            <li class="highlight-item">Hawa Mahal & City Palace museum</li>
+            <li class="highlight-item">Sunset point at Nahargarh Fort overlooking the city</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="jaipur"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Modal Jodhpur -->
+  <div class="modal-backdrop" id="modal-jodhpur">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80"
+          alt="Jodhpur" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Rajasthan, India</span>
+          <h2 class="modal-title">Jodhpur</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🏙️ Cities</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">The legendary Blue City of Rajasthan, dominated by the colossal Mehrangarh Fort towering over indigo-painted havelis and vibrant spice markets.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Dramatic & Indigo</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Mehrangarh Fort ramparts & Flying Fox zipline</li>
+            <li class="highlight-item">Blue city walking tour through Navchokiya</li>
+            <li class="highlight-item">Jaswant Thada cenotaphs & Umaid Bhawan Palace</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="jodhpur"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Modal Kerala -->
+  <div class="modal-backdrop" id="modal-kerala">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80"
+          alt="Kerala" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Kerala, India</span>
+          <h2 class="modal-title">Kerala (Backwaters & Coast)</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🌴 Nature</span>
+          <span class="tag-pill">🏖️ Beaches</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">God's Own Country, famed for serene palm-fringed backwater lagoons in Alleppey, Fort Kochi's historic Chinese fishing nets, Kathakali dance, and Ayurvedic wellness.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Sep – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">4 – 6 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Peaceful & Tropical</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Overnight luxury houseboat stay on Alleppey backwaters</li>
+            <li class="highlight-item">Fort Kochi Chinese fishing nets & Mattancherry art cafes</li>
+            <li class="highlight-item">Authentic banana leaf Sadhya & Kerala Ayurvedic spa</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="kerala"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. Modal Mahabaleshwar -->
+  <div class="modal-backdrop" id="modal-mahabaleshwar">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=800&q=80"
+          alt="Mahabaleshwar" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Maharashtra, India</span>
+          <h2 class="modal-title">Mahabaleshwar</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏔️ Mountains</span>
+          <span class="tag-pill">🌿 Nature</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">A scenic hill retreat nestled in the Western Ghats of Maharashtra, famous for lush strawberry valleys, Arthur's Seat viewpoints, Venna Lake boating, and Pratapgad Fort.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Jun</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Refreshing & Scenic</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Fresh organic strawberries with cream at Mapro Garden</li>
+            <li class="highlight-item">Panoramic canyon views from Arthur's Seat & Kate's Point</li>
+            <li class="highlight-item">Evening boat ride on serene Venna Lake</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="mahabaleshwar"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. Modal Munnar -->
+  <div class="modal-backdrop" id="modal-munnar">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80"
+          alt="Munnar" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Kerala, India</span>
+          <h2 class="modal-title">Munnar</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏔️ Mountains</span>
+          <span class="tag-pill">🌿 Nature</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">Rolling emerald tea plantations, mist-covered valleys, and aromatic spice gardens nestled high in the Western Ghats of God's Own Country.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Sep – May</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Serene & Refreshing</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Kolukkumalai Sunrise over tea estates</li>
+            <li class="highlight-item">Eravikulam National Park & Nilgiri Tahr</li>
+            <li class="highlight-item">Cardamom & spice plantation walks</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="munnar"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. Modal Mussoorie -->
+  <div class="modal-backdrop" id="modal-mussoorie">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1609864817415-37cb42eb5551?auto=format&fit=crop&w=800&q=80"
+          alt="Mussoorie" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Uttarakhand, India</span>
+          <h2 class="modal-title">Mussoorie</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏔️ Mountains</span>
+          <span class="tag-pill">🌿 Nature</span>
+          <span class="tag-pill">🧗 Adventure</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">The picturesque Queen of the Hills in the Garhwal Himalayas, famed for vintage colonial architecture, Kempty Falls, Mall Road promenades, and stunning Doon Valley vistas.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Mar – Jun & Sep – Nov</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Alpine & Colonial</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Sunset viewpoint at George Everest Peak</li>
+            <li class="highlight-item">Landour Bakehouse & vintage Sisters Bazaar walk</li>
+            <li class="highlight-item">Gun Hill ropeway ride & Kempty Falls cascade</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="mussoorie"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. Modal Mysore -->
+  <div class="modal-backdrop" id="modal-mysore">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1600100397608-f010f4441580?auto=format&fit=crop&w=800&q=80"
+          alt="Mysore" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Karnataka, India</span>
+          <h2 class="modal-title">Mysore (Mysuru)</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🏙️ Cities</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">The cultural capital of Karnataka and City of Palaces, famed for the grand Indo-Saracenic Mysore Palace, Chamundi Hills, silk weaving, sandalwood, and melt-in-mouth Mysore Pak.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">1 – 2 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Regal & Cultural</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Sunday evening 100,000-bulb illumination of Mysore Palace</li>
+            <li class="highlight-item">Chamundeshwari Temple & panoramic Chamundi Hill views</li>
+            <li class="highlight-item">Devaraja Market spice walk & Guru Sweet Mart Mysore Pak</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="mysore"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. Modal Ooty -->
+  <div class="modal-backdrop" id="modal-ooty">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+          alt="Ooty" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Tamil Nadu, India</span>
+          <h2 class="modal-title">Ooty</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏔️ Mountains</span>
+          <span class="tag-pill">🌿 Nature</span>
+          <span class="tag-pill">🏛️ Heritage</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">Queen of Hill Stations set in the blue Nilgiri Mountains, famed for heritage toy train rides, botanical gardens, tea factories, and eucalyptus-scented breezes.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Jun</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Crisp & Nostalgic</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">UNESCO Nilgiri Mountain Toy Train journey</li>
+            <li class="highlight-item">Doddabetta Peak & Pykara Lake waterfalls</li>
+            <li class="highlight-item">Botanical Gardens & handmade chocolate shopping</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="ooty"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. Modal Pondicherry -->
   <div class="modal-backdrop" id="modal-pondicherry">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
@@ -1581,8 +1864,7 @@
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">A charming coastal union territory blending mustard-yellow French colonial
-            villas, bougainvillea-lined streets, chic bakeries, and spiritual experimental township Auroville.</p>
+          <p class="modal-description">A charming coastal union territory blending mustard-yellow French colonial villas, bougainvillea-lined streets, chic bakeries, and spiritual experimental township Auroville.</p>
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
@@ -1612,17 +1894,333 @@
           <ul class="modal-highlights-list">
             <li class="highlight-item">Bicycle tour through White Town French Quarter</li>
             <li class="highlight-item">Auroville Matrimandir inner meditation</li>
-            <li class="highlight-item">Croissants & coffee at French cafes</li>
+            <li class="highlight-item">Croissants & artisan coffee at seaside cafes</li>
           </ul>
         </div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="pondicherry"><span>+ Add to Trip</span></button>
       </div>
     </div>
   </div>
 
+  <!-- 16. Modal Pune -->
+  <div class="modal-backdrop" id="modal-pune">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80"
+          alt="Pune" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Maharashtra, India</span>
+          <h2 class="modal-title">Pune</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏙️ Cities</span>
+          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">The cultural capital of Maharashtra and the Oxford of the East, boasting Maratha fortresses, grand palaces, tree-shaded cafes, and lush surrounding trekking peaks.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Jul – Feb</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Energetic & Historic</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Shaniwar Wada 18th-century Maratha fortress tour</li>
+            <li class="highlight-item">Sinhagad Fort trek with authentic Kanda Bhaji & Pitla Bhakri</li>
+            <li class="highlight-item">Aga Khan Palace & Koregaon Park cafe trail</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="pune"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17. Modal Rishikesh -->
+  <div class="modal-backdrop" id="modal-rishikesh">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80"
+          alt="Rishikesh" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Uttarakhand, India</span>
+          <h2 class="modal-title">Rishikesh</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🧗 Adventure</span>
+          <span class="tag-pill">🪔 Spiritual</span>
+          <span class="tag-pill">🌿 Nature</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">Yoga Capital of the World along the emerald Ganga, famous for white-water rafting, cliff jumping, Himalayan foothills, and the divine Parmarth Niketan Ganga Aarti.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Sep – May</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 4 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Spiritual & Thrilling</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">White-water rafting on Ganga rapids & cliff jumping</li>
+            <li class="highlight-item">Evening Parmarth Niketan & Triveni Ghat Ganga Aarti</li>
+            <li class="highlight-item">Beatles Ashram (Chaurasi Kutia) & Laxman Jhula cafes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="rishikesh"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 18. Modal Udaipur -->
+  <div class="modal-backdrop" id="modal-udaipur">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80"
+          alt="Udaipur" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Rajasthan, India</span>
+          <h2 class="modal-title">Udaipur</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🌿 Nature</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">The romantic City of Lakes with gleaming marble palaces, sunset boat cruises on Lake Pichola, rooftop lakefront dining, and the grand Mewar City Palace.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Romantic & Regal</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Lake Pichola boat cruise around Jag Mandir Island</li>
+            <li class="highlight-item">City Palace museum balconies & peacock courtyards</li>
+            <li class="highlight-item">Dharohar folk dance show at Bagore Ki Haveli</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="udaipur"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 19. Modal Varanasi -->
+  <div class="modal-backdrop" id="modal-varanasi">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80"
+          alt="Varanasi" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">Uttar Pradesh, India</span>
+          <h2 class="modal-title">Varanasi</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🪔 Spiritual</span>
+          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">One of the world's oldest continuously inhabited cities on the sacred Ganges, celebrated for ancient ghats, evocative evening aartis, and rich Banarasi silk weaving.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 3 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Spiritual & Timeless</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Sunrise wooden boat ride along the Ganga ghats</li>
+            <li class="highlight-item">Grand Dashashwamedh Ghat evening Maha Aarti</li>
+            <li class="highlight-item">Old city alleyway food trail (Kachori Sabzi & Malaiyo)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="varanasi"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 20. Modal Kolkata -->
+  <div class="modal-backdrop" id="modal-kolkata">
+    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
+    <div class="modal-card">
+      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <div class="modal-image-container">
+        <img src="https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=800&q=80"
+          alt="Kolkata" class="modal-hero-img">
+        <div class="modal-image-gradient"></div>
+        <div class="modal-image-meta">
+          <span class="modal-state-badge">West Bengal, India</span>
+          <h2 class="modal-title">Kolkata</h2>
+        </div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-categories">
+          <span class="tag-pill">🏙️ Cities</span>
+          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🍛 Food</span>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">About this Destination</h3>
+          <p class="modal-description">The cultural City of Joy with grand British colonial landmarks like Victoria Memorial, the iconic Howrah Bridge, vintage yellow taxis, tramways, and legendary Bengali sweets.</p>
+        </div>
+        <div class="modal-insights-grid">
+          <div class="insight-box">
+            <span class="insight-icon">🌤️</span>
+            <div>
+              <span class="insight-label">Best Time to Visit</span>
+              <span class="insight-value">Oct – Mar</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">⏱️</span>
+            <div>
+              <span class="insight-label">Suggested Duration</span>
+              <span class="insight-value">2 – 4 Days</span>
+            </div>
+          </div>
+          <div class="insight-box">
+            <span class="insight-icon">✨</span>
+            <div>
+              <span class="insight-label">Vibe & Style</span>
+              <span class="insight-value">Intellectual & Vintage</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Top Experiences</h3>
+          <ul class="modal-highlights-list">
+            <li class="highlight-item">Victoria Memorial gardens & marble art galleries</li>
+            <li class="highlight-item">Iconic Howrah Bridge walk & Kumartuli clay idol lane</li>
+            <li class="highlight-item">Park Street culinary trail & authentic Rosogolla / Mishti Doi</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn-secondary">Close</a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="kolkata"><span>+ Add to Trip</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 21. Modal Mumbai -->
   <div class="modal-backdrop" id="modal-mumbai">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
@@ -1644,8 +2242,7 @@
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">India's dynamic maximum city featuring iconic colonial architecture, Marine Drive
-            sunset promenades, Bollywood culture, and legendary street food.</p>
+          <p class="modal-description">India's dynamic maximum city featuring iconic colonial architecture, Marine Drive sunset promenades, Bollywood glamour, and legendary street food culture.</p>
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
@@ -1674,144 +2271,382 @@
           <h3 class="modal-section-title">Top Experiences</h3>
           <ul class="modal-highlights-list">
             <li class="highlight-item">Sunset stroll along Marine Drive Queen's Necklace</li>
-            <li class="highlight-item">Gateway of India & Colaba art district</li>
-            <li class="highlight-item">Chowpatty street food & Irani cafe breakfast</li>
+            <li class="highlight-item">Gateway of India & Colaba art heritage district</li>
+            <li class="highlight-item">Chowpatty street food & iconic Irani cafe breakfast</li>
           </ul>
         </div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="mumbai"><span>+ Add to Trip</span></button>
       </div>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="modal-hyderabad">
+  <!-- 22. Modal Andaman & Nicobar -->
+  <div class="modal-backdrop" id="modal-andaman-nicobar">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
       <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
       <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=800&q=80"
-          alt="Hyderabad" class="modal-hero-img">
+        <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80"
+          alt="Andaman & Nicobar" class="modal-hero-img">
         <div class="modal-image-gradient"></div>
         <div class="modal-image-meta">
-          <span class="modal-state-badge">Telangana, India</span>
-          <h2 class="modal-title">Hyderabad</h2>
+          <span class="modal-state-badge">Andaman & Nicobar Islands</span>
+          <h2 class="modal-title">Andaman & Nicobar</h2>
         </div>
       </div>
       <div class="modal-body-content">
         <div class="modal-categories">
-          <span class="tag-pill">🏙️ Cities</span>
-          <span class="tag-pill">🍛 Food</span>
-          <span class="tag-pill">🏛️ Heritage</span>
+          <span class="tag-pill">🏖️ Beaches</span>
+          <span class="tag-pill">🧗 Adventure</span>
+          <span class="tag-pill">🌿 Nature</span>
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">City of Pearls and Nizams, where centuries-old historical monuments like
-            Charminar seamlessly meet cutting-edge modern tech hubs and world-famous Biryani.</p>
+          <p class="modal-description">Pristine tropical paradise featuring crystal-clear turquoise waters, the world-renowned white sands of Radhanagar Beach, vibrant coral reef scuba diving, and historic Cellular Jail.</p>
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
             <span class="insight-icon">🌤️</span>
             <div>
               <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Oct – Mar</span>
+              <span class="insight-value">Oct – May</span>
             </div>
           </div>
           <div class="insight-box">
             <span class="insight-icon">⏱️</span>
             <div>
               <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 3 Days</span>
+              <span class="insight-value">4 – 7 Days</span>
             </div>
           </div>
           <div class="insight-box">
             <span class="insight-icon">✨</span>
             <div>
               <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Heritage & Culinary</span>
+              <span class="insight-value">Exotic & Tropical</span>
             </div>
           </div>
         </div>
         <div class="modal-section">
           <h3 class="modal-section-title">Top Experiences</h3>
           <ul class="modal-highlights-list">
-            <li class="highlight-item">Charminar heritage walk & Laad Bazaar</li>
-            <li class="highlight-item">Golconda Fort sound and light show</li>
-            <li class="highlight-item">World-renowned Hyderabadi Dum Biryani feast</li>
+            <li class="highlight-item">Sunset barefoot walk at Radhanagar Beach, Havelock</li>
+            <li class="highlight-item">Scuba diving & snorkeling among vibrant coral at Elephant Beach</li>
+            <li class="highlight-item">Cellular Jail Light & Sound memorial show in Port Blair</li>
           </ul>
         </div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
+        <button type="button" class="btn-primary-cta modal-add-btn" data-target-id="andaman-nicobar"><span>+ Add to Trip</span></button>
       </div>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="modal-varanasi">
-    <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
-    <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
-      <div class="modal-image-container">
-        <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80"
-          alt="Varanasi" class="modal-hero-img">
-        <div class="modal-image-gradient"></div>
-        <div class="modal-image-meta">
-          <span class="modal-state-badge">Uttar Pradesh, India</span>
-          <h2 class="modal-title">Varanasi</h2>
-        </div>
-      </div>
-      <div class="modal-body-content">
-        <div class="modal-categories">
-          <span class="tag-pill">🪔 Spiritual</span>
-          <span class="tag-pill">🏛️ Heritage</span>
-          <span class="tag-pill">🍛 Food</span>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">About this Destination</h3>
-          <p class="modal-description">One of the world's oldest living cities on the banks of the sacred Ganges, famous
-            for ancient ghats, evocative evening aartis, and rich silk weaving heritage.</p>
-        </div>
-        <div class="modal-insights-grid">
-          <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
-            <div>
-              <span class="insight-label">Best Time to Visit</span>
-              <span class="insight-value">Oct – Mar</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
-            <div>
-              <span class="insight-label">Suggested Duration</span>
-              <span class="insight-value">2 – 3 Days</span>
-            </div>
-          </div>
-          <div class="insight-box">
-            <span class="insight-icon">✨</span>
-            <div>
-              <span class="insight-label">Vibe & Style</span>
-              <span class="insight-value">Spiritual & Timeless</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-section">
-          <h3 class="modal-section-title">Top Experiences</h3>
-          <ul class="modal-highlights-list">
-            <li class="highlight-item">Sunrise boat ride along the Ganga ghats</li>
-            <li class="highlight-item">Grand Dashashwamedh Ghat Ganga Aarti</li>
-            <li class="highlight-item">Old city alleyway food and silk trail</li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn-secondary">Close</a>
-        <a href="#" class="btn-primary-cta"><span>+ Add to Trip</span></a>
-      </div>
-    </div>
-  </div>
+  <!-- Interactive JavaScript Engine for 22 Destinations -->
+  <script>
+    (function () {
+      // Destination state registry
+      const allCards = Array.from(document.querySelectorAll(".destination-card"));
+      const selectedListContainer = document.getElementById("selectedDestinationsList");
+      const destCountBadge = document.getElementById("destCountBadge");
+      const summaryDestCount = document.getElementById("summaryDestCount");
+      const liveSummaryPill = document.getElementById("stickySummaryHeadline");
+      const resultsCountBadge = document.getElementById("resultsCountBadge");
+      const searchInput = document.getElementById("destinationSearchInput");
+      const startLocationInput = document.getElementById("startLocationInput");
+      const displayStartCity = document.getElementById("displayStartCity");
+      const departureDateInput = document.getElementById("departureDateInput");
+      const returnDateInput = document.getElementById("returnDateInput");
+      const durationText = document.getElementById("durationText");
+      const summaryDaysCount = document.getElementById("summaryDaysCount");
+      const travellersInput = document.getElementById("travellersInput");
+      const summaryTravellerCount = document.getElementById("summaryTravellerCount");
+      const advisoryText = document.getElementById("advisoryText");
+      const resetBtn = document.getElementById("resetTripSelectionsBtn");
+      const resetTopBtn = document.getElementById("resetSelectionsTopBtn");
+      const continueBtn = document.getElementById("continueToPreferencesBtn");
 
+      let selectedIds = ["goa", "munnar"];
+
+      // Update Starting Hub display
+      if (startLocationInput && displayStartCity) {
+        startLocationInput.addEventListener("input", function () {
+          displayStartCity.textContent = this.value.trim() || "Select Start City";
+        });
+      }
+
+      // Update Dates and duration calculations
+      function updateDuration() {
+        if (!departureDateInput || !returnDateInput) return;
+        const d1 = new Date(departureDateInput.value);
+        const d2 = new Date(returnDateInput.value);
+        if (!isNaN(d1) && !isNaN(d2) && d2 >= d1) {
+          const diffDays = Math.max(1, Math.round((d2 - d1) / (1000 * 60 * 60 * 24)));
+          if (durationText) durationText.textContent = `${diffDays} days · ${Math.max(0, diffDays - 1)} nights`;
+          if (summaryDaysCount) summaryDaysCount.textContent = diffDays;
+          updateLiveSummary();
+        }
+      }
+
+      if (departureDateInput) departureDateInput.addEventListener("change", updateDuration);
+      if (returnDateInput) returnDateInput.addEventListener("change", updateDuration);
+
+      if (travellersInput) {
+        travellersInput.addEventListener("input", function () {
+          const val = Math.max(1, parseInt(this.value, 10) || 1);
+          if (summaryTravellerCount) summaryTravellerCount.textContent = val;
+          updateLiveSummary();
+        });
+      }
+
+      // Live search filter
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase().trim();
+          let visibleCount = 0;
+
+          allCards.forEach(card => {
+            const name = (card.getAttribute("data-name") || "").toLowerCase();
+            const state = (card.getAttribute("data-state") || "").toLowerCase();
+            const desc = card.querySelector(".card-desc") ? card.querySelector(".card-desc").textContent.toLowerCase() : "";
+            const cat = (card.getAttribute("data-category") || "").toLowerCase();
+
+            if (!query || name.includes(query) || state.includes(query) || desc.includes(query) || cat.includes(query)) {
+              card.style.display = "";
+              visibleCount++;
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          if (resultsCountBadge) {
+            resultsCountBadge.textContent = query
+              ? `${visibleCount} destinations found`
+              : `22 curated destinations`;
+          }
+        });
+      }
+
+      // Category chips filter
+      const categoryRadios = document.querySelectorAll('input[name="categoryFilter"]');
+      categoryRadios.forEach(radio => {
+        radio.addEventListener("change", function () {
+          const filterId = this.id.replace("filter-", "");
+          let visibleCount = 0;
+
+          allCards.forEach(card => {
+            const categories = (card.getAttribute("data-category") || "").split(" ");
+            if (filterId === "all" || categories.includes(filterId)) {
+              card.style.display = "";
+              visibleCount++;
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          if (resultsCountBadge) {
+            resultsCountBadge.textContent = filterId === "all"
+              ? `22 curated destinations`
+              : `${visibleCount} destinations in ${filterId}`;
+          }
+        });
+      });
+
+      // Synchronize UI with selected destinations
+      function renderSelectedDestinations() {
+        allCards.forEach(card => {
+          const id = card.getAttribute("data-id");
+          const addBtn = card.querySelector(".card-btn-add");
+          if (selectedIds.includes(id)) {
+            card.classList.add("is-selected");
+            if (addBtn) {
+              addBtn.classList.add("is-added");
+              addBtn.innerHTML = '<span class="btn-check">✓</span><span>Added</span>';
+              addBtn.setAttribute("aria-label", `${id} is in trip`);
+            }
+          } else {
+            card.classList.remove("is-selected");
+            if (addBtn) {
+              addBtn.classList.remove("is-added");
+              addBtn.innerHTML = '<span class="btn-icon">+</span><span>Add</span>';
+              addBtn.setAttribute("aria-label", `Add ${id} to trip`);
+            }
+          }
+        });
+
+        // Update modal buttons
+        document.querySelectorAll(".modal-add-btn").forEach(btn => {
+          const targetId = btn.getAttribute("data-target-id");
+          if (selectedIds.includes(targetId)) {
+            btn.classList.add("is-added");
+            btn.innerHTML = '<span>✓ In Your Trip</span>';
+          } else {
+            btn.classList.remove("is-added");
+            btn.innerHTML = '<span>+ Add to Trip</span>';
+          }
+        });
+
+        // Update badges
+        const count = selectedIds.length;
+        if (destCountBadge) destCountBadge.textContent = `${count} / 5 Selected`;
+        if (summaryDestCount) summaryDestCount.textContent = count;
+
+        // Render right list items
+        if (selectedListContainer) {
+          if (count === 0) {
+            selectedListContainer.innerHTML = `
+              <div class="empty-selection-placeholder" style="padding: 24px 16px; text-align: center; color: var(--text-muted); background: var(--surface-subtle); border-radius: var(--radius-md); border: 1.5px dashed var(--border-subtle);">
+                <span style="font-size: 1.5rem; display: block; margin-bottom: 6px;">🗺️</span>
+                <strong style="font-size: 0.875rem; color: var(--navy-800); display: block;">No destinations selected</strong>
+                <span style="font-size: 0.8125rem;">Click '+ Add' on any destination card to build your custom itinerary.</span>
+              </div>
+            `;
+          } else {
+            selectedListContainer.innerHTML = selectedIds.map((id, index) => {
+              const card = document.querySelector(`.destination-card[data-id="${id}"]`);
+              if (!card) return "";
+              const name = card.getAttribute("data-name") || id;
+              const state = card.getAttribute("data-state") || "";
+              const duration = card.getAttribute("data-duration") || "2–3 Days";
+              const img = card.getAttribute("data-img") || "";
+
+              return `
+                <div class="selected-dest-item" data-dest-id="${id}">
+                  <div class="dest-item-drag-handle" title="Route order">
+                    <span class="order-seq-num">${index + 1}</span>
+                  </div>
+                  <img src="${img}" alt="${name}" class="dest-item-thumb">
+                  <div class="dest-item-info">
+                    <div class="dest-item-title-row">
+                      <h4 class="dest-item-name">${name}</h4>
+                      <span class="dest-item-stay">${duration}</span>
+                    </div>
+                    <span class="dest-item-state">${state}</span>
+                  </div>
+                  <button type="button" class="dest-item-remove-btn" data-remove-id="${id}" title="Remove from route" style="border:none;background:transparent;cursor:pointer;color:var(--text-light);padding:4px;font-size:1.125rem;line-height:1;margin-left:4px;transition:color 0.2s;">✕</button>
+                  <a href="#modal-${id}" class="dest-item-info-btn" title="View details">ℹ</a>
+                </div>
+              `;
+            }).join("");
+
+            // Attach remove button listeners
+            selectedListContainer.querySelectorAll(".dest-item-remove-btn").forEach(btn => {
+              btn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                const removeId = this.getAttribute("data-remove-id");
+                toggleDestination(removeId);
+              });
+            });
+          }
+        }
+
+        // Update smart advisory banner
+        if (advisoryText) {
+          if (count <= 1) {
+            advisoryText.innerHTML = `<strong>Quick Getaway:</strong> Perfect for a focused ${summaryDaysCount ? summaryDaysCount.textContent : '7'}-day exploration of local gems and culture.`;
+          } else if (count === 2 || count === 3) {
+            advisoryText.innerHTML = `<strong>Optimal Route Pace:</strong> ${count} destinations is ideal for a ${summaryDaysCount ? summaryDaysCount.textContent : '7'}-day journey with comfortable scenic transit.`;
+          } else {
+            advisoryText.innerHTML = `<strong>Grand Expedition:</strong> ${count} destinations selected! We'll optimize high-speed rail and flights for a seamless route.`;
+          }
+        }
+
+        updateLiveSummary();
+      }
+
+      function updateLiveSummary() {
+        if (!liveSummaryPill) return;
+        const count = selectedIds.length;
+        const days = summaryDaysCount ? summaryDaysCount.textContent : "7";
+        const travellers = travellersInput ? travellersInput.value : "4";
+        liveSummaryPill.textContent = `${count} destination${count === 1 ? '' : 's'} · ${days} days · ${travellers} travellers`;
+      }
+
+      function toggleDestination(id) {
+        const index = selectedIds.indexOf(id);
+        if (index > -1) {
+          selectedIds.splice(index, 1);
+        } else {
+          if (selectedIds.length >= 5) {
+            alert("You can select up to 5 destinations for a single custom journey. Please remove one destination to add another.");
+            return;
+          }
+          selectedIds.push(id);
+        }
+        renderSelectedDestinations();
+      }
+
+      // Card Add button clicks
+      allCards.forEach(card => {
+        const id = card.getAttribute("data-id");
+        const addBtn = card.querySelector(".card-btn-add");
+        if (addBtn) {
+          addBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDestination(id);
+          });
+        }
+      });
+
+      // Modal Add button clicks
+      document.querySelectorAll(".modal-add-btn").forEach(btn => {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("data-target-id");
+          if (targetId) {
+            toggleDestination(targetId);
+          }
+        });
+      });
+
+      // Reset buttons
+      function resetSelections(e) {
+        if (e) e.preventDefault();
+        selectedIds = ["goa", "munnar"];
+        if (searchInput) searchInput.value = "";
+        const allRadio = document.getElementById("filter-all");
+        if (allRadio) allRadio.checked = true;
+        allCards.forEach(card => card.style.display = "");
+        if (resultsCountBadge) resultsCountBadge.textContent = "22 curated destinations";
+        renderSelectedDestinations();
+      }
+
+      if (resetBtn) resetBtn.addEventListener("click", resetSelections);
+      if (resetTopBtn) resetTopBtn.addEventListener("click", resetSelections);
+
+      // Continue Button
+      if (continueBtn) {
+        continueBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (selectedIds.length === 0) {
+            alert("Please select at least 1 destination before continuing.");
+            return;
+          }
+          const form = document.getElementById("tripConfigForm");
+          if (form) {
+            // Store selections in localStorage
+            try {
+              localStorage.setItem("desisafar_selected_destinations", JSON.stringify(selectedIds));
+              localStorage.setItem("desisafar_start_city", startLocationInput ? startLocationInput.value : "Delhi, NCR");
+              localStorage.setItem("desisafar_travellers", travellersInput ? travellersInput.value : "4");
+            } catch (err) { }
+            form.submit();
+          } else {
+            window.location.href = "../../../preference/preference.html";
+          }
+        });
+      }
+
+      // Initial Render
+      renderSelectedDestinations();
+      updateDuration();
+    })();
+  </script>
 </body>
 
 </html>
