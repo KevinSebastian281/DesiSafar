@@ -524,23 +524,30 @@
   <script>
     (function initStaticPreferences() {
       
-      let destNames = ["Goa", "Gokarna"];
+      let destNames = ["Jaipur", "Jodhpur", "Udaipur"];
       let totalDays = 6;
-      let travellers = 4;
-      let startLocation = "Flexible / Custom";
+      let travellers = 2;
+      let startLocation = "Delhi (DEL)";
+      let departureDateStr = "";
+      let returnDateStr = "";
       let avgBaseRate = 3200;
 
       const destTitleMap = {
-        "goa": "Goa", "munnar": "Munnar", "manali": "Manali", "jaipur": "Jaipur",
-        "kashmir": "Kashmir", "gokarna": "Gokarna", "ooty": "Ooty", "hampi": "Hampi",
-        "rishikesh": "Rishikesh", "udaipur": "Udaipur", "varkala": "Varkala", "coorg": "Coorg",
-        "pondicherry": "Pondicherry", "mumbai": "Mumbai", "hyderabad": "Hyderabad", "varanasi": "Varanasi"
+        "jaipur": "Jaipur", "jodhpur": "Jodhpur", "udaipur": "Udaipur", "kerala": "Kerala Backwaters",
+        "munnar": "Munnar", "goa": "Goa", "chandigarh": "Chandigarh", "mussoorie": "Mussoorie",
+        "rishikesh": "Rishikesh", "kolkata": "Kolkata", "varanasi": "Varanasi", "mumbai": "Mumbai",
+        "delhi": "Delhi", "agra": "Agra", "pune": "Pune", "mahabaleshwar": "Mahabaleshwar",
+        "bangalore": "Bangalore", "mysore": "Mysore", "coorg": "Coorg", "ooty": "Ooty",
+        "pondicherry": "Pondicherry", "andaman-nicobar": "Andaman & Nicobar", "gokarna": "Gokarna",
+        "manali": "Manali", "kashmir": "Kashmir", "hampi": "Hampi", "varkala": "Varkala", "hyderabad": "Hyderabad"
       };
 
       try {
         const storedDests = localStorage.getItem("desisafar_selected_destinations");
         const storedDate = localStorage.getItem("desisafar_departure_date");
+        const storedRetDate = localStorage.getItem("desisafar_return_date");
         const parsedDests = storedDests ? JSON.parse(storedDests) : [];
+        
         if (!parsedDests || !Array.isArray(parsedDests) || parsedDests.length === 0 || !storedDate || !storedDate.trim()) {
           alert("Please select at least 1 destination and a departure date before accessing preferences.");
           window.location.href = "../destinations_page/assets/destinations/destinations.html";
@@ -548,11 +555,14 @@
         }
         destNames = parsedDests.map(s => destTitleMap[String(s).toLowerCase()] || (String(s).charAt(0).toUpperCase() + String(s).slice(1)));
 
+        departureDateStr = storedDate;
+        if (storedRetDate) returnDateStr = storedRetDate;
+
         const storedCity = localStorage.getItem("desisafar_start_city");
         if (storedCity && storedCity.trim()) startLocation = storedCity.trim();
 
         const storedTrav = localStorage.getItem("desisafar_travellers");
-        if (storedTrav) travellers = parseInt(storedTrav) || 4;
+        if (storedTrav) travellers = parseInt(storedTrav) || 2;
 
         const storedDetails = localStorage.getItem("desisafar_trip_details");
         if (storedDetails) {
@@ -560,9 +570,26 @@
           if (d.travellers) travellers = parseInt(d.travellers) || travellers;
           if (d.start_location) startLocation = d.start_location;
           if (d.total_days) totalDays = parseInt(d.total_days) || totalDays;
+          if (d.departure_date) departureDateStr = d.departure_date;
+          if (d.return_date) returnDateStr = d.return_date;
         }
       } catch (e) {
         console.warn("Could not read localStorage:", e);
+      }
+
+      // Update banner header
+      const contextRouteTitle = document.querySelector(".context-route-title");
+      if (contextRouteTitle && destNames.length > 0) {
+        contextRouteTitle.innerHTML = destNames.map((name, i) => `<span>${name}</span>${i < destNames.length - 1 ? ' <span class="context-dot-divider">+</span> ' : ''}`).join('');
+      }
+
+      const contextMetaGroup = document.querySelector(".context-meta-group");
+      if (contextMetaGroup) {
+        let dateText = departureDateStr ? `${departureDateStr}` : "Upcoming";
+        if (departureDateStr && returnDateStr) {
+          dateText = `${departureDateStr} to ${returnDateStr}`;
+        }
+        contextMetaGroup.innerHTML = `<span> ${dateText} (${totalDays} Days)</span><span class="context-dot-divider">•</span><span> ${travellers} Traveller${travellers === 1 ? '' : 's'}</span>`;
       }
 
       const routeEl = document.getElementById("summaryRouteName");
@@ -573,6 +600,42 @@
 
       const origEl = document.getElementById("summaryOrigin");
       if (origEl) origEl.textContent = startLocation;
+
+      // Pre-select preferences if previously saved
+      try {
+        const storedPref = localStorage.getItem("desisafar_preferences");
+        if (storedPref) {
+          const p = JSON.parse(storedPref);
+          if (p.budget_tier) {
+            const bEl = document.querySelector(`input[name="budget"][value="${p.budget_tier}"]`);
+            if (bEl) bEl.checked = true;
+          }
+          if (p.stay_type) {
+            const sEl = document.querySelector(`input[name="stay"][value="${p.stay_type}"]`);
+            if (sEl) sEl.checked = true;
+          }
+          if (p.diet) {
+            const dEl = document.querySelector(`input[name="diet"][value="${p.diet}"]`);
+            if (dEl) dEl.checked = true;
+          }
+          if (Array.isArray(p.vibes) && p.vibes.length > 0) {
+            document.querySelectorAll('input[name="vibe"]').forEach(el => el.checked = false);
+            p.vibes.forEach(v => {
+              const vEl = document.querySelector(`input[name="vibe"][value="${v}"]`);
+              if (vEl) vEl.checked = true;
+            });
+          }
+          if (Array.isArray(p.interests) && p.interests.length > 0) {
+            document.querySelectorAll('input[name="interest"]').forEach(el => el.checked = false);
+            p.interests.forEach(i => {
+              const iEl = document.querySelector(`input[name="interest"][value="${i}"]`);
+              if (iEl) iEl.checked = true;
+            });
+          }
+        }
+      } catch (e) {
+        console.warn("Could not pre-select preferences:", e);
+      }
 
       const stayMultipliers = {
         "hostel": 0.7,

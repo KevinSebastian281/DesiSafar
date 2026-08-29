@@ -1364,6 +1364,15 @@ h6 {
     transform: translateY(-2px);
 }
 
+.social-circle svg {
+    display: block;
+    transition: transform var(--transition-fast);
+}
+
+.social-circle:hover svg {
+    transform: scale(1.1);
+}
+
 .footer-heading {
     font-size: 1rem;
     font-weight: 700;

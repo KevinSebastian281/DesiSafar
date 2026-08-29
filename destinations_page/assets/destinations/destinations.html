@@ -2732,9 +2732,62 @@
 
       let selectedIds = [];
 
+      // Pre-fill from URL params or localStorage
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const destsParam = urlParams.get("dests");
+        const startParam = urlParams.get("start");
+        const depParam = urlParams.get("dep");
+        const retParam = urlParams.get("ret");
+        const travParam = urlParams.get("travellers");
+
+        if (destsParam) {
+          selectedIds = destsParam.split(",").map(s => s.trim().toLowerCase()).filter(Boolean);
+        } else {
+          const stored = localStorage.getItem("desisafar_selected_destinations");
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              selectedIds = parsed.map(s => String(s).trim().toLowerCase()).filter(Boolean);
+            }
+          }
+        }
+
+        const initialStart = startParam || localStorage.getItem("desisafar_start_city");
+        if (initialStart && startLocationInput) {
+          startLocationInput.value = initialStart;
+          if (displayStartCity) displayStartCity.textContent = initialStart;
+        }
+
+        const initialDep = depParam || localStorage.getItem("desisafar_departure_date");
+        if (initialDep && departureDateInput) {
+          departureDateInput.value = initialDep;
+        } else if (selectedIds.length > 0 && departureDateInput && !departureDateInput.value) {
+          const dt = new Date();
+          dt.setDate(dt.getDate() + 7);
+          departureDateInput.value = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}-${String(dt.getDate()).padStart(2, '0')}`;
+        }
+
+        const initialRet = retParam || localStorage.getItem("desisafar_return_date");
+        if (initialRet && returnDateInput) {
+          returnDateInput.value = initialRet;
+        }
+
+        const initialTrav = travParam || localStorage.getItem("desisafar_travellers");
+        if (initialTrav && travellersInput) {
+          travellersInput.value = initialTrav;
+          if (summaryTravellerCount) summaryTravellerCount.textContent = initialTrav;
+        }
+      } catch (e) {
+        console.warn("Failed to load initial yatra preferences:", e);
+      }
+
       if (startLocationInput && displayStartCity) {
         startLocationInput.addEventListener("input", function () {
           displayStartCity.textContent = this.value.trim() || "Flexible / Select Starting Point";
+          try {
+            localStorage.setItem("desisafar_start_city", this.value.trim());
+          } catch(e) {}
         });
       }
 
@@ -3052,6 +3105,29 @@
         });
       });
 
+      function syncTripStateToStorage() {
+        try {
+          localStorage.setItem("desisafar_selected_destinations", JSON.stringify(selectedIds));
+          localStorage.setItem("desisafar_start_city", startLocationInput ? startLocationInput.value : "");
+          localStorage.setItem("desisafar_departure_date", departureDateInput ? departureDateInput.value : "");
+          localStorage.setItem("desisafar_return_date", returnDateInput ? returnDateInput.value : "");
+          const travCount = travellersInput ? travellersInput.value : "2";
+          localStorage.setItem("desisafar_travellers", travCount);
+
+          const daysCount = summaryDaysCount ? parseInt(summaryDaysCount.textContent, 10) : 5;
+          localStorage.setItem("desisafar_trip_details", JSON.stringify({
+            start_location: startLocationInput ? startLocationInput.value : "",
+            departure_date: departureDateInput ? departureDateInput.value : "",
+            return_date: returnDateInput ? returnDateInput.value : "",
+            travellers: parseInt(travCount, 10) || 2,
+            total_days: isNaN(daysCount) || daysCount < 1 ? 5 : daysCount,
+            selected_destinations: selectedIds
+          }));
+        } catch (err) {
+          console.warn("Storage sync error:", err);
+        }
+      }
+
       function resetSelections(e) {
         if (e) e.preventDefault();
         selectedIds = [];
@@ -3068,7 +3144,9 @@
           localStorage.removeItem("desisafar_selected_destinations");
           localStorage.removeItem("desisafar_start_city");
           localStorage.removeItem("desisafar_departure_date");
+          localStorage.removeItem("desisafar_return_date");
           localStorage.removeItem("desisafar_travellers");
+          localStorage.removeItem("desisafar_trip_details");
         } catch (err) { }
         renderSelectedDestinations();
       }
@@ -3077,8 +3155,21 @@
       if (resetTopBtn) resetTopBtn.addEventListener("click", resetSelections);
 
       if (departureDateInput) {
-        departureDateInput.addEventListener("input", renderSelectedDestinations);
-        departureDateInput.addEventListener("change", renderSelectedDestinations);
+        departureDateInput.addEventListener("input", function() {
+          syncTripStateToStorage();
+          renderSelectedDestinations();
+        });
+        departureDateInput.addEventListener("change", function() {
+          syncTripStateToStorage();
+          renderSelectedDestinations();
+        });
+      }
+
+      if (returnDateInput) {
+        returnDateInput.addEventListener("change", function() {
+          syncTripStateToStorage();
+          renderSelectedDestinations();
+        });
       }
 
       const navStep2Link = document.getElementById("navStep2Link");
@@ -3095,12 +3186,7 @@
             if (departureDateInput) departureDateInput.focus();
             return;
           }
-          try {
-            localStorage.setItem("desisafar_selected_destinations", JSON.stringify(selectedIds));
-            localStorage.setItem("desisafar_start_city", startLocationInput ? startLocationInput.value : "");
-            localStorage.setItem("desisafar_departure_date", departureDateInput.value);
-            localStorage.setItem("desisafar_travellers", travellersInput ? travellersInput.value : "4");
-          } catch (err) { }
+          syncTripStateToStorage();
         });
       }
 
@@ -3110,6 +3196,8 @@
           if (selectedIds.length === 0 || !departureDateInput || !departureDateInput.value || !departureDateInput.value.trim()) {
             e.preventDefault();
             alert("Please select destinations and a trip start date first.");
+          } else {
+            syncTripStateToStorage();
           }
         });
       }
@@ -3120,6 +3208,8 @@
           if (selectedIds.length === 0 || !departureDateInput || !departureDateInput.value || !departureDateInput.value.trim()) {
             e.preventDefault();
             alert("Please select destinations and a trip start date first.");
+          } else {
+            syncTripStateToStorage();
           }
         });
       }
@@ -3136,19 +3226,8 @@
             if (departureDateInput) departureDateInput.focus();
             return;
           }
-          const form = document.getElementById("tripConfigForm");
-          if (form) {
-            
-            try {
-              localStorage.setItem("desisafar_selected_destinations", JSON.stringify(selectedIds));
-              localStorage.setItem("desisafar_start_city", startLocationInput ? startLocationInput.value : "");
-              localStorage.setItem("desisafar_departure_date", departureDateInput ? departureDateInput.value : "");
-              localStorage.setItem("desisafar_travellers", travellersInput ? travellersInput.value : "4");
-            } catch (err) { }
-            form.submit();
-          } else {
-            window.location.href = "../../../preference/preference.html";
-          }
+          syncTripStateToStorage();
+          window.location.href = "../../../preference/preference.html";
         });
       }
 
