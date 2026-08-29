@@ -16,7 +16,7 @@
   {% block head %}{% endblock %}
 
   <style>
-    /* Server-rendered Flash Alerts (Zero-JS) */
+    
     .flash-container {
       max-width: 1400px;
       margin: 16px auto 0 auto;
@@ -67,7 +67,7 @@
 <body class="{% block body_class %}{% endblock %}">
 
   {% block header %}
-  <!-- Wizard App Header -->
+  
   <header class="app-header" id="appHeader">
     <div class="header-container">
       <div class="brand-wrapper">
@@ -154,7 +154,6 @@
   </header>
   {% endblock %}
 
-  <!-- Flash Messages Banner -->
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       <div class="flash-container">
@@ -162,7 +161,7 @@
           <div class="flash-alert flash-{{ category if category in ['info', 'warning', 'success'] else 'info' }}" role="alert">
             <div class="flash-alert-content">
               <span class="flash-alert-icon">
-                {% if category == 'warning' %}⚠️{% elif category == 'success' %}✓{% else %}💡{% endif %}
+                {% if category == 'warning' %}{% elif category == 'success' %}{% else %}{% endif %}
               </span>
               <span>{{ message }}</span>
             </div>

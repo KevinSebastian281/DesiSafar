@@ -31,16 +31,16 @@
         {% endfor %}
       </span>
       <div class="context-meta-group">
-        <span>📅 {{ dates_range_display }} ({{ computed_days }} Days)</span>
+        <span> {{ dates_range_display }} ({{ computed_days }} Days)</span>
         <span class="context-dot-divider">•</span>
-        <span>👥 {{ trip_details.travellers }} Travellers</span>
+        <span> {{ trip_details.travellers }} Travellers</span>
         <span class="context-dot-divider">•</span>
-        <span>📍 From {{ trip_details.start_location }}</span>
+        <span> From {{ trip_details.start_location }}</span>
       </div>
     </div>
     <a href="{{ url_for('destinations.list_destinations') }}" class="context-edit-link">
       <span>Edit destinations</span>
-      <span>✎</span>
+      <span></span>
     </a>
   </div>
 
@@ -56,7 +56,7 @@
       <section class="pref-section" id="sectionTravelStyle">
         <div class="section-header">
           <h2 class="section-title">
-            <span>✨</span>
+            <span></span>
             <span>What's your travel vibe?</span>
           </h2>
           <p class="section-subtitle">Pick the vibes that best define your ideal vacation style.</p>
@@ -64,14 +64,14 @@
 
         <div class="cards-grid-4">
           {% set vibes_list = [
-            ('adventure', '🧗', 'Adventure', 'Trekking, outdoor experiences and excitement.'),
-            ('relaxed', '🧘', 'Relaxed', 'Slow mornings, scenic places and downtime.'),
-            ('romantic', '🌅', 'Romantic', 'Sunsets, cafés and intimate experiences.'),
-            ('family', '👨‍👩‍👧‍👦', 'Family', 'Comfortable and family-friendly experiences.'),
-            ('culture', '🏛️', 'Culture', 'History, heritage and local traditions.'),
-            ('nightlife', '🍸', 'Nightlife', 'Entertainment, evenings and social experiences.'),
-            ('foodie', '🍛', 'Foodie', 'Local cuisine, markets and cafés.'),
-            ('explorer', '🧭', 'Explorer', 'Hidden gems, photography and discovery.')
+            ('adventure', '', 'Adventure', 'Trekking, outdoor experiences and excitement.'),
+            ('relaxed', '', 'Relaxed', 'Slow mornings, scenic places and downtime.'),
+            ('romantic', '', 'Romantic', 'Sunsets, cafés and intimate experiences.'),
+            ('family', '‍‍‍', 'Family', 'Comfortable and family-friendly experiences.'),
+            ('culture', '', 'Culture', 'History, heritage and local traditions.'),
+            ('nightlife', '', 'Nightlife', 'Entertainment, evenings and social experiences.'),
+            ('foodie', '', 'Foodie', 'Local cuisine, markets and cafés.'),
+            ('explorer', '', 'Explorer', 'Hidden gems, photography and discovery.')
           ] %}
           {% for code, icon, title, desc in vibes_list %}
             <label class="custom-card-label">
@@ -79,7 +79,7 @@
               <div class="pref-card">
                 <div class="card-top-row">
                   <span class="pref-icon">{{ icon }}</span>
-                  <span class="check-indicator" aria-hidden="true">✓</span>
+                  <span class="check-indicator" aria-hidden="true"></span>
                 </div>
                 <h3 class="pref-card-title">{{ title }}</h3>
                 <p class="pref-card-desc">{{ desc }}</p>
@@ -92,7 +92,7 @@
       <section class="pref-section" id="sectionInterests">
         <div class="section-header">
           <h2 class="section-title">
-            <span>🎯</span>
+            <span></span>
             <span>What do you want to experience?</span>
           </h2>
           <p class="section-subtitle">Select the activities and sights you look forward to most.</p>
@@ -100,20 +100,20 @@
 
         <div class="chips-wrap">
           {% set interests_list = [
-            ('beaches', '🏖️ Beaches'),
-            ('mountains', '🏔️ Mountains'),
-            ('nature', '🌿 Nature'),
-            ('history', '🏛️ History'),
-            ('shopping', '🛍️ Shopping'),
-            ('food', '🍛 Local Food'),
-            ('photography', '📸 Photography'),
-            ('adventure', '🧗 Adventure'),
-            ('nightlife', '🍸 Nightlife'),
-            ('cafes', '☕ Cafés'),
-            ('art', '🎨 Art'),
-            ('wellness', '🧘 Wellness'),
-            ('wildlife', '🐅 Wildlife'),
-            ('culture', '🪔 Local Culture')
+            ('beaches', ' Beaches'),
+            ('mountains', ' Mountains'),
+            ('nature', ' Nature'),
+            ('history', ' History'),
+            ('shopping', ' Shopping'),
+            ('food', ' Local Food'),
+            ('photography', ' Photography'),
+            ('adventure', ' Adventure'),
+            ('nightlife', ' Nightlife'),
+            ('cafes', ' Cafés'),
+            ('art', ' Art'),
+            ('wellness', ' Wellness'),
+            ('wildlife', ' Wildlife'),
+            ('culture', ' Local Culture')
           ] %}
           {% for code, label in interests_list %}
             <label class="chip-label">
@@ -127,7 +127,7 @@
       <section class="pref-section" id="sectionBudget">
         <div class="section-header">
           <h2 class="section-title">
-            <span>💳</span>
+            <span></span>
             <span>What kind of trip fits your budget?</span>
           </h2>
           <p class="section-subtitle">Select a general spending tier for stays, dining, and transit.</p>
@@ -135,10 +135,10 @@
 
         <div class="budget-cards-grid">
           {% set budget_tiers = [
-            ('budget', '🏷️', 'Budget-Friendly', 'Focus on value and affordable choices.'),
-            ('standard', '⭐', 'Standard', 'A balanced travel experience.'),
-            ('premium', '✨', 'Premium', 'More comfort and flexibility.'),
-            ('luxury', '💎', 'Luxury', 'Premium stays and experiences.')
+            ('budget', '', 'Budget Explorer', 'Save money, travel smart with buses, shared autos, and walking.'),
+            ('standard', '', 'Comfort Traveler', 'Balance comfort and cost with autos, cabs, and quality stays.'),
+            ('premium', '', 'Premium Traveler', 'Comfort first, private cabs, 4x4 Jeeps, and fewer compromises.'),
+            ('luxury', '', 'Luxury Explorer', 'Top-tier 5-star heritage stays, chauffeur cabs, and VIP experiences.')
           ] %}
           {% for code, icon, title, desc in budget_tiers %}
             <label class="custom-card-label">
@@ -146,7 +146,7 @@
               <div class="pref-card budget-card">
                 <div class="card-top-row">
                   <span class="pref-icon budget-icon">{{ icon }}</span>
-                  <span class="check-indicator" aria-hidden="true">✓</span>
+                  <span class="check-indicator" aria-hidden="true"></span>
                 </div>
                 <h3 class="pref-card-title">{{ title }}</h3>
                 <p class="pref-card-desc">{{ desc }}</p>
@@ -167,7 +167,7 @@
       <section class="pref-section" id="sectionAccommodation">
         <div class="section-header">
           <h2 class="section-title">
-            <span>🏨</span>
+            <span></span>
             <span>Where would you like to stay?</span>
           </h2>
           <p class="section-subtitle">Choose your preferred lodging category.</p>
@@ -175,11 +175,11 @@
 
         <div class="pill-options-row">
           {% set stays = [
-            ('hostel', '🛏️', 'Hostel'),
-            ('budget_hotel', '🏢', 'Budget Hotel'),
-            ('3_star', '🌟', '3-Star'),
-            ('4_star', '⭐', '4-Star'),
-            ('5_star', '👑', '5-Star')
+            ('hostel', '', 'Hostel'),
+            ('budget_hotel', '', 'Budget Hotel'),
+            ('3_star', '', '3-Star'),
+            ('4_star', '', '4-Star'),
+            ('5_star', '', '5-Star')
           ] %}
           {% for code, icon, label in stays %}
             <label class="option-pill-label">
@@ -196,7 +196,7 @@
       <section class="pref-section" id="sectionFood">
         <div class="section-header">
           <h2 class="section-title">
-            <span>🍽️</span>
+            <span></span>
             <span>Any food preferences?</span>
           </h2>
           <p class="section-subtitle">We will customize restaurant and street food recommendations accordingly.</p>
@@ -204,10 +204,10 @@
 
         <div class="pill-options-row">
           {% set diets = [
-            ('no_preference', '🍽️', 'No Preference'),
-            ('vegetarian', '🥗', 'Vegetarian'),
-            ('non_vegetarian', '🍗', 'Non-Vegetarian'),
-            ('vegan', '🌱', 'Vegan')
+            ('no_preference', '', 'No Preference'),
+            ('vegetarian', '', 'Vegetarian'),
+            ('non_vegetarian', '', 'Non-Vegetarian'),
+            ('vegan', '', 'Vegan')
           ] %}
           {% for code, icon, label in diets %}
             <label class="option-pill-label">
@@ -224,10 +224,10 @@
           <h4 class="subgroup-title">Dining Experiences</h4>
           <div class="chips-wrap">
             {% set dining_options = [
-              ('local_food', '🍛 Local Food'),
-              ('street_food', '🍢 Street Food'),
-              ('fine_dining', '🍷 Fine Dining'),
-              ('cafes', '☕ Cafés')
+              ('local_food', ' Local Food'),
+              ('street_food', ' Street Food'),
+              ('fine_dining', ' Fine Dining'),
+              ('cafes', ' Cafés')
             ] %}
             {% for code, label in dining_options %}
               <label class="chip-label">
@@ -244,13 +244,12 @@
           <span>← Back to Destinations</span>
         </a>
         <button type="submit" class="btn-generate-cta" style="border: none; cursor: pointer;">
-          <span>Generate My Itinerary ✨</span>
+          <span>Generate My Itinerary </span>
         </button>
       </div>
 
     </form>
 
-    <!-- Sticky Summary Aside -->
     <aside class="summary-column" aria-label="Your Journey Summary">
       <div class="sticky-summary-card">
         
@@ -314,7 +313,7 @@
         </div>
 
         <button type="submit" form="preferencesForm" class="btn-generate-cta" style="width: 100%; border: none; cursor: pointer; text-align: center; justify-content: center;">
-          <span>Generate Itinerary ✨</span>
+          <span>Generate My Itinerary &rarr;</span>
         </button>
 
         <a href="{{ url_for('destinations.list_destinations') }}" class="btn-back-secondary">
@@ -372,22 +371,19 @@
     };
 
     function updateLiveEstimates() {
-      // 1. Selected stay
+      
       const stayEl = document.querySelector('input[name="stay"]:checked');
       const selectedStay = stayEl ? stayEl.value : "3_star";
       const stayMult = stayMultipliers[selectedStay] || 1.0;
 
-      // 2. Selected dining options
       const diningChecked = Array.from(document.querySelectorAll('input[name="dining"]:checked')).map(el => el.value);
       let diningMult = 1.0;
       if (diningChecked.includes("fine_dining")) diningMult += 0.12;
       if (diningChecked.includes("street_food")) diningMult -= 0.04;
 
-      // 3. Selected budget tier
       const budgetEl = document.querySelector('input[name="budget"]:checked');
       const selectedBudget = budgetEl ? budgetEl.value : "standard";
 
-      // 4. Selected diet and vibes
       const dietEl = document.querySelector('input[name="diet"]:checked');
       const selectedDiet = dietEl ? dietEl.value : "no_preference";
 
@@ -396,7 +392,6 @@
       let currentTierTotal = 0;
       let currentTierPerson = 0;
 
-      // Update price tag under all 4 budget cards
       Object.keys(tierMultipliers).forEach(tierCode => {
         const tierMult = tierMultipliers[tierCode];
         const compMult = (tierMult * 0.6) + (stayMult * 0.4);
@@ -422,7 +417,6 @@
         }
       });
 
-      // Update Preference Snapshot elements in the sidebar
       const snapVibe = document.getElementById("snapshotVibe");
       if (snapVibe) {
         if (vibeChecked.length > 0) {
@@ -453,14 +447,12 @@
       }
     }
 
-    // Run immediately
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", updateLiveEstimates);
     } else {
       updateLiveEstimates();
     }
 
-    // Event listeners
     document.addEventListener("change", function(e) {
       if (e.target && (e.target.name === "budget" || e.target.name === "stay" || e.target.name === "diet" || e.target.name === "dining" || e.target.name === "vibe" || e.target.name === "interest")) {
         updateLiveEstimates();

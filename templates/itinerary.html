@@ -2,8 +2,8 @@
 
 {% set current_step = 3 %}
 
-{% block title %}Your Travel Itinerary — {{ summary.destinations_display }} | DesiSafar{% endblock %}
-{% block description %}{{ summary.duration_display }} personalized travel itinerary for {{ summary.destinations_display }} with DesiSafar. Plan your journey, budget, and daily activities.{% endblock %}
+{% block title %}Your DesiSafar Plan — {{ summary.destinations_display }} | DesiSafar{% endblock %}
+{% block description %}{{ summary.duration_display }} smart budget-based travel itinerary for {{ summary.destinations_display }} with DesiSafar. Daily timelines, transportation costs, and budget summary.{% endblock %}
 
 {% block head %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles4.css') }}">
@@ -14,213 +14,605 @@
   <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
     <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
   </svg>
-  <span>Back</span>
+  <span>Back to Preferences</span>
 </a>
 {% endblock %}
 
 {% block content %}
-<main>
+<main class="itinerary-page-main">
 
-  <section id="page-header" class="page-header-section">
-    <div class="header-container">
-      <h1 class="page-title">Your Travel Itinerary</h1>
-      <p class="page-subtitle">
-        Custom-tailored for <strong>{{ summary.destinations_display }}</strong> across {{ summary.duration_display }} from {{ summary.start_location }}.
-      </p>
-    </div>
-  </section>
+  <section id="plan-header" class="desi-plan-hero">
+    <div class="plan-hero-container">
+      <span class="plan-hero-eyebrow">✨ Smart Itinerary Synthesized</span>
+      <h1 class="plan-hero-title">Your DesiSafar Plan</h1>
+      
+      <div class="plan-hero-meta-badge">
+        <span class="meta-dest-pill">📍 {{ summary.destinations_display }}</span>
+        <span class="meta-dot">•</span>
+        <span class="meta-info-text">{{ summary.total_days }} Day{% if summary.total_days > 1 %}s{% endif %} • {{ summary.travellers }} Traveler{% if summary.travellers > 1 %}s{% endif %} • {{ summary.trip_type_display }}</span>
+      </div>
 
-  <section id="trip-summary" class="trip-summary-section" aria-labelledby="summary-heading">
-    <div class="summary-container">
-      <h2 id="summary-heading" class="section-title">Trip Summary</h2>
-
-      <div class="summary-cards-grid">
-        <div class="summary-card">
-          <span class="summary-icon">📍</span>
-          <div class="summary-info">
-            <span class="summary-label">Destination(s)</span>
-            <strong class="summary-value">{{ summary.destinations_display }}</strong>
-          </div>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-icon">📅</span>
-          <div class="summary-info">
-            <span class="summary-label">Duration</span>
-            <strong class="summary-value">{{ summary.duration_display }}</strong>
-            <span class="summary-subtext">{{ summary.dates_range_display }}</span>
-          </div>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-icon">👥</span>
-          <div class="summary-info">
-            <span class="summary-label">Travelers</span>
-            <strong class="summary-value">{{ summary.travelers_display }}</strong>
-          </div>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-icon">💰</span>
-          <div class="summary-info">
-            <span class="summary-label">Estimated Budget</span>
-            <strong class="summary-value">{{ summary.estimated_budget_display }}</strong>
-          </div>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-icon">🎒</span>
-          <div class="summary-info">
-            <span class="summary-label">Trip Style</span>
-            <strong class="summary-value">{{ summary.trip_style_display }}</strong>
-          </div>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-icon">🍲</span>
-          <div class="summary-info">
-            <span class="summary-label">Food Preference</span>
-            <strong class="summary-value">{{ summary.food_display }}</strong>
-          </div>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-icon">🏨</span>
-          <div class="summary-info">
-            <span class="summary-label">Hotel Type</span>
-            <strong class="summary-value">{{ summary.hotel_display }}</strong>
-          </div>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-icon">✨</span>
-          <div class="summary-info">
-            <span class="summary-label">Experience Type</span>
-            <strong class="summary-value">{{ summary.experience_display }}</strong>
-          </div>
-        </div>
+      <div class="plan-dates-origin-row">
+        <span>📅 {{ summary.dates_range_display }}</span>
+        <span class="meta-dot">•</span>
+        <span>🚀 Starting from <strong>{{ summary.start_location }}</strong></span>
+        <span class="meta-dot">•</span>
+        <span>🍲 {{ summary.food_display }}</span>
+        <span class="meta-dot">•</span>
+        <span>🏨 {{ summary.hotel_display }}</span>
       </div>
     </div>
   </section>
 
-  <section id="itinerary" class="itinerary-timeline-section" aria-labelledby="itinerary-heading">
-    <div class="itinerary-container">
-      <h2 id="itinerary-heading" class="section-title">Day-by-Day Itinerary</h2>
+  <section class="smart-controls-section">
+    <div class="smart-controls-container">
+      <div class="smart-controls-label">
+        <span class="sparkle-icon">⚡</span>
+        <strong>Smart Itinerary Adjustments:</strong>
+      </div>
 
-      <div class="itinerary-days-list">
+      <form method="POST" action="{{ url_for('itinerary.itinerary_view') }}" class="smart-buttons-form">
+        <button type="submit" name="action" value="cheaper" class="smart-action-btn {% if active_modifier == 'cheaper' %}active-btn{% endif %}" title="Prioritize cheaper transit, buses & economical alternatives">
+          <span></span>
+          <span>💰</span>
+          <span>Make It Cheaper</span>
+        </button>
+
+        <button type="submit" name="action" value="comfortable" class="smart-action-btn {% if active_modifier == 'comfortable' %}active-btn{% endif %}" title="Upgrade selected transit to private autos and direct cabs">
+          <span></span>
+          <span>🚕</span>
+          <span>Make It More Comfortable</span>
+        </button>
+
+        <button type="submit" name="action" value="optimize" class="smart-action-btn {% if active_modifier == 'optimize' %}active-btn{% endif %}" title="Rearrange attractions to reduce travel distance and transportation cost">
+          <span></span>
+          <span>📍</span>
+          <span>Optimize Route</span>
+        </button>
+
+        {% if active_modifier and active_modifier != 'normal' %}
+          <button type="submit" name="action" value="normal" class="smart-action-btn reset-btn" title="Reset to standard plan">
+            <span>↺</span>
+            <span>Reset Settings</span>
+          </button>
+        {% endif %}
+
+        <a href="{{ url_for('preferences.preferences_view') }}" class="smart-action-btn edit-trip-btn" title="Edit trip parameters">
+          <span></span>
+          <span>✎</span>
+          <span>Edit Trip</span>
+        </a>
+      </form>
+    </div>
+  </section>
+
+  {% if budget_summary.protection_active %}
+    <section class="budget-protection-banner" role="alert">
+      <div class="protection-alert-box">
+        <span class="protection-icon">⚠️</span>
+        <div class="protection-content">
+          <strong>Budget Advisory:</strong>
+          <p>{{ budget_summary.protection_msg }}</p>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section id="itinerary-days" class="itinerary-timeline-section" aria-labelledby="timeline-heading">
+    <div class="timeline-wrapper">
+      <h2 id="timeline-heading" class="sr-only">Day by Day Plan</h2>
+
+      <div class="itinerary-days-feed">
         {% for day in days %}
-          <article class="day-card">
-            <header class="day-card-header">
-              <span class="day-badge">Day {{ day.day_num }}</span>
-              <span class="day-date">Day {{ day.day_num }} · {{ day.date_str }}</span>
-              <span class="day-location">📍 {{ day.location_label }}</span>
+          <article class="day-plan-card" id="day-card-{{ day.day_num }}">
+            
+            <header class="day-plan-header">
+              <div class="day-number-pill">
+                <span>Day {{ day.day_num }}</span>
+              </div>
+              <div class="day-header-meta">
+                <span class="day-date-label">Day {{ day.day_num }} • {{ day.date_str }}</span>
+                <span class="day-loc-label">📍 {{ day.location_label }}</span>
+              </div>
+              <h3 class="day-main-title">{{ day.day_title }}</h3>
             </header>
 
-            <div class="day-card-body">
-              <h3 class="day-title">{{ day.day_title }}</h3>
-              <ul class="activity-list">
-                {% for act in day.activities %}
-                  <li class="activity-item">
-                    <span class="activity-time">{{ act.time }}</span>
-                    <span class="activity-text">{{ act.text }}</span>
-                  </li>
-                {% endfor %}
-              </ul>
+            <div class="day-slots-container">
+              {% for slot in day.slots %}
+                <div class="time-slot-block slot-{{ slot.slot_name|lower }}">
 
-              {% if day.suggested_stay or day.suggested_restaurant %}
-                <div class="day-places-recommendations" style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--slate-200); display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
-                  
-                  {% if day.suggested_stay %}
-                    <div class="place-recommendation-box" style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 12px 14px;">
-                      <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
-                        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.05em;">🏨 Suggested Stay</span>
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ {{ day.suggested_stay.rating }}</span>
-                      </div>
-                      <strong style="font-size: 0.875rem; color: var(--navy-900); display: block; margin-bottom: 2px;">{{ day.suggested_stay.name }}</strong>
-                      <span style="font-size: 0.8125rem; color: var(--slate-500); display: flex; align-items: center; gap: 4px;">📍 {{ day.suggested_stay.area }}</span>
-                      {% if day.suggested_stay.phone %}
-                        <div style="margin-top: 6px;">
-                          <a href="tel:{{ day.suggested_stay.phone }}" style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 600; color: var(--primary-saffron); text-decoration: none;">
-                            <span>📞 Call: {{ day.suggested_stay.phone }}</span>
-                          </a>
-                        </div>
+                  <div class="slot-header-bar">
+                    <span class="slot-badge">
+                      {% if slot.slot_name == 'Morning' %}🌅 Morning
+                      {% elif slot.slot_name == 'Afternoon' %}☀️ Afternoon
+                      {% else %}🌆 Evening
                       {% endif %}
+                    </span>
+                    <span class="slot-timing-pill">{{ slot.slot_time }}</span>
+                  </div>
+
+                  <div class="attraction-detail-card">
+                    <div class="attraction-title-row">
+                      <h4 class="attraction-name">{{ slot.attraction_name }}</h4>
+                      <span class="ticket-badge">{{ slot.ticket_display }}</span>
                     </div>
-                  {% endif %}
+                    <p class="attraction-desc">{{ slot.desc }}</p>
 
-                  {% if day.suggested_restaurant %}
-                    <div class="place-recommendation-box" style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 12px 14px;">
-                      <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
-                        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.05em;">🍽️ Suggested Dining</span>
-                        <div style="display: inline-flex; align-items: center; gap: 4px;">
-                          {% if day.suggested_restaurant.price_level %}
-                            <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #d1fae5; padding: 2px 6px; border-radius: 9999px;">
-                              {% for _ in range(day.suggested_restaurant.price_level) %}₹{% endfor %}
-                            </span>
+                    {% if slot.lunch_recommendation %}
+                      <div class="meal-callout-box lunch-box">
+                        <span class="meal-icon">🍽️</span>
+                        <span class="meal-text">{{ slot.lunch_recommendation }}</span>
+                      </div>
+                    {% endif %}
+
+                    {% if slot.dinner_recommendation %}
+                      <div class="meal-callout-box dinner-box">
+                        <span class="meal-icon">🍲</span>
+                        <span class="meal-text">{{ slot.dinner_recommendation }}</span>
+                      </div>
+                    {% endif %}
+                  </div>
+
+                  {% if slot.transit %}
+                    <div class="transit-segment-card {% if slot.transit.mode == 'walking' %}transit-walk{% elif slot.transit.is_special %}transit-special clickable-cab-card{% elif slot.transit.mode == 'cab' %}transit-cab clickable-cab-card{% else %}transit-bus-auto clickable-cab-card{% endif %}"
+                         {% if slot.transit.driver_details %}
+                         data-has-driver="true"
+                         data-driver-name="{{ slot.transit.driver_details.driver_name }}"
+                         data-driver-phone="{{ slot.transit.driver_details.driver_phone }}"
+                         data-driver-rating="{{ slot.transit.driver_details.driver_rating }}"
+                         data-driver-trips="{{ slot.transit.driver_details.driver_trips }}"
+                         data-driver-lang="{{ slot.transit.driver_details.driver_languages }}"
+                         data-driver-exp="{{ slot.transit.driver_details.driver_experience }}"
+                         data-car-model="{{ slot.transit.driver_details.car_model }}"
+                         data-car-plate="{{ slot.transit.driver_details.car_number }}"
+                         data-car-type="{{ slot.transit.driver_details.car_type }}"
+                         data-otp="{{ slot.transit.driver_details.otp }}"
+                         data-route="{{ slot.transit.route_text }}"
+                         data-fare="{{ slot.transit.fare_display }}"
+                         {% endif %}>
+                      <div class="transit-card-left">
+                        <div class="transit-mode-icon-circle">{{ slot.transit.icon }}</div>
+                        <div class="transit-info-group">
+                          <strong class="transit-provider-title">{{ slot.transit.provider }}</strong>
+                          <span class="transit-route-path">{{ slot.transit.route_text }}</span>
+                          {% if slot.transit.driver_details %}
+                            <button type="button" class="btn-view-cab-info btn-cab-trigger">
+                              <span></span>
+                              <span>Vehicle: {{ slot.transit.driver_details.car_number }} · Driver: {{ slot.transit.driver_details.driver_name.split()[0] }} &rarr;</span>
+                            </button>
                           {% endif %}
-                          <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ {{ day.suggested_restaurant.rating }}</span>
                         </div>
                       </div>
-                      <strong style="font-size: 0.875rem; color: var(--navy-900); display: block; margin-bottom: 2px;">{{ day.suggested_restaurant.name }}</strong>
-                      <span style="font-size: 0.8125rem; color: var(--slate-500); display: flex; align-items: center; gap: 4px;">📍 {{ day.suggested_restaurant.area }}</span>
-                      {% if day.suggested_restaurant.phone %}
-                        <div style="margin-top: 6px;">
-                          <a href="tel:{{ day.suggested_restaurant.phone }}" style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 600; color: var(--primary-saffron); text-decoration: none;">
-                            <span>📞 Call: {{ day.suggested_restaurant.phone }}</span>
-                          </a>
+
+                      <div class="transit-card-right">
+                        <div class="transit-fares-block">
+                          <span class="transit-fare-est">Estimated Fare: {{ slot.transit.fare_display }}</span>
+                          <strong class="transit-group-cost">Group Cost: ₹{{ '{:,}'.format(slot.transit.group_cost) }}</strong>
                         </div>
-                      {% endif %}
+                        <span class="transit-tag-pill">{{ slot.transit.tag }}</span>
+                      </div>
                     </div>
                   {% endif %}
 
                 </div>
-              {% endif %}
-
+              {% endfor %}
             </div>
+
+            {% if day.suggested_stay or day.suggested_restaurant %}
+              <div class="day-recommendation-chips-row">
+                {% if day.suggested_stay %}
+                  <div class="place-recommendation-chip">
+                    <div class="chip-top-row">
+                      <span class="chip-label-tag">🏨 Suggested Stay</span>
+                      <span class="rating-badge">★ {{ day.suggested_stay.rating }}</span>
+                    </div>
+                    <strong class="place-name">{{ day.suggested_stay.name }}</strong>
+                    <span class="place-area"> {{ day.suggested_stay.area }}</span>
+                    {% if day.suggested_stay.phone %}
+                      <a href="tel:{{ day.suggested_stay.phone }}" class="phone-link"> {{ day.suggested_stay.phone }}</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if day.suggested_restaurant %}
+                  <div class="place-recommendation-chip">
+                    <div class="chip-top-row">
+                      <span class="chip-label-tag">🍽️ Suggested Dining</span>
+                      <div class="rating-price-group">
+                        {% if day.suggested_restaurant.price_level %}
+                          <span class="price-tier-tag">{% for _ in range(day.suggested_restaurant.price_level) %}₹{% endfor %}</span>
+                        {% endif %}
+                        <span class="rating-badge">★ {{ day.suggested_restaurant.rating }}</span>
+                      </div>
+                    </div>
+                    <strong class="place-name">{{ day.suggested_restaurant.name }}</strong>
+                    <span class="place-area"> {{ day.suggested_restaurant.area }}</span>
+                    {% if day.suggested_restaurant.phone %}
+                      <a href="tel:{{ day.suggested_restaurant.phone }}" class="phone-link"> {{ day.suggested_restaurant.phone }}</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <footer class="day-cost-footer">
+              <div class="day-cost-highlight">
+                <span class="cost-title">Day {{ day.day_num }} Estimated Cost:</span>
+                <strong class="cost-figure">{{ day.day_cost.total_display }}</strong>
+              </div>
+
+              <div class="day-cost-breakdown-chips">
+                <span class="breakdown-chip">🚗 Transport: ₹{{ '{:,}'.format(day.day_cost.transport) }}</span>
+                <span class="breakdown-chip">🍲 Food: ₹{{ '{:,}'.format(day.day_cost.food) }}</span>
+                <span class="breakdown-chip">🎟️ Activities: ₹{{ '{:,}'.format(day.day_cost.activities) }}</span>
+                <span class="breakdown-chip per-person-chip">👤 Per Person: {{ day.day_cost.per_person_display }}</span>
+              </div>
+            </footer>
+
           </article>
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <section id="trip-budget" class="trip-budget-section" aria-labelledby="budget-heading">
-    <div class="budget-container">
-      <h2 id="budget-heading" class="section-title">Trip Budget Overview</h2>
+  {% if destination_insights %}
+    <section id="destination-insights-section" class="dest-insights-section" aria-labelledby="insights-heading">
+      <div class="dest-insights-container">
+        
+        <header class="insights-section-header">
+          <div class="insights-eyebrow-row">
+            <span class="insights-sparkle-pill">✨ Local Secrets &amp; Culinary Treasures</span>
+            <span class="insights-verified-badge">🛡️ DesiSafar Curated</span>
+          </div>
+          <h2 id="insights-heading" class="insights-main-title">
+            Hidden Spots &amp; Famous Food
+          </h2>
+          <p class="insights-subtitle">
+            Uncover secret stepwells, secluded sunrise viewpoints, and authentic regional culinary specialties for your trip.
+          </p>
+        </header>
 
-      <div class="budget-card">
-        <ul class="budget-list">
-          <li class="budget-item">
-            <span class="budget-category">🏨 Stays &amp; Accommodation</span>
-            <span class="budget-cost">~39% of total</span>
-          </li>
-          <li class="budget-item">
-            <span class="budget-category">🚗 Transportation &amp; Transfers</span>
-            <span class="budget-cost">~19% of total</span>
-          </li>
-          <li class="budget-item">
-            <span class="budget-category">🍲 Food &amp; Highway Dhabas</span>
-            <span class="budget-cost">~16% of total</span>
-          </li>
-          <li class="budget-item">
-            <span class="budget-category">🎟️ Activities &amp; Entry Passes</span>
-            <span class="budget-cost">~15% of total</span>
-          </li>
-        </ul>
+        {% for dest in destination_insights %}
+          <div class="dest-insight-card-group" id="insight-dest-{{ dest.slug }}">
+            
+            <div class="dest-insight-header-bar">
+              <span class="dest-insight-loc-badge">📍 {{ dest.name }}, {{ dest.state }}</span>
+              <span class="dest-insight-tagline">Secret Escapes &amp; Must-Eat Flavors</span>
+            </div>
 
-        <div class="budget-total-row">
-          <strong class="total-label">Estimated Total Group Cost:</strong>
-          <strong class="total-amount">{{ summary.estimated_budget_display }}</strong>
+            <div class="dest-insight-dual-grid">
+
+              <div class="insight-column hidden-spots-col">
+                <div class="col-header-pill spots-pill">
+                  <span class="col-icon">💎</span>
+                  <h3>Secret Hidden Spots</h3>
+                </div>
+
+                <div class="spots-list">
+                  {% for spot in dest.hidden_spots %}
+                    <article class="spot-card">
+                      <div class="spot-card-top">
+                        <span class="spot-icon">{{ spot.icon }}</span>
+                        <div class="spot-title-wrap">
+                          <h4 class="spot-name">{{ spot.name }}</h4>
+                          <span class="spot-badge">{{ spot.badge }}</span>
+                        </div>
+                      </div>
+
+                      <p class="spot-desc">{{ spot.description }}</p>
+
+                      <div class="spot-meta-footer">
+                        <div class="spot-meta-row">
+                          <span class="meta-icon">⏰</span>
+                          <span><strong>Best Time:</strong> {{ spot.best_time }}</span>
+                        </div>
+                        <div class="spot-meta-row tip-row">
+                          <span class="meta-icon">💡</span>
+                          <span><strong>Local Tip:</strong> {{ spot.local_tip }}</span>
+                        </div>
+                      </div>
+                    </article>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="insight-column famous-food-col">
+                <div class="col-header-pill food-pill">
+                  <span class="col-icon">🍲</span>
+                  <h3>Famous Food &amp; Must-Try Joints</h3>
+                </div>
+
+                <div class="food-list">
+                  {% for food in dest.famous_food %}
+                    <article class="food-card">
+                      <div class="food-card-top">
+                        <span class="food-icon">{{ food.icon }}</span>
+                        <div class="food-title-wrap">
+                          <h4 class="food-dish-name">{{ food.dish }}</h4>
+                          <span class="food-diet-badge {% if food.diet_type == 'veg' %}badge-veg{% else %}badge-nonveg{% endif %}">
+                            {% if food.diet_type == 'veg' %}🟢 Pure Veg{% else %}🔴 Non-Veg{% endif %}
+                          </span>
+                        </div>
+                      </div>
+
+                      <p class="food-desc">{{ food.description }}</p>
+
+                      <div class="food-meta-footer">
+                        <div class="food-meta-row">
+                          <span class="meta-icon">📍</span>
+                          <span><strong>Famous Spot:</strong> {{ food.famous_spot }}</span>
+                        </div>
+                        <div class="food-meta-row price-row">
+                          <span class="meta-icon">🏷️</span>
+                          <span><strong>Price Range:</strong> {{ food.price_est }}</span>
+                        </div>
+                        <div class="food-meta-row tip-row">
+                          <span class="meta-icon">😋</span>
+                          <span><strong>Foodie Tip:</strong> {{ food.foodie_tip }}</span>
+                        </div>
+                      </div>
+                    </article>
+                  {% endfor %}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </section>
+  {% endif %}
+
+  <section id="budget-summary-card" class="trip-budget-summary-section" aria-labelledby="summary-card-title">
+    <div class="budget-summary-container">
+      
+      <article class="budget-summary-card">
+        <header class="summary-card-header">
+          <div class="header-icon-title">
+            <span class="summary-card-icon">💰</span>
+            <div>
+              <h2 id="summary-card-title" class="summary-card-title">Trip Budget Summary</h2>
+              <p class="summary-card-subtitle">Estimated expenses for {{ summary.travellers }} traveler{% if summary.travellers > 1 %}s{% endif %} across {{ summary.total_days }} days in {{ summary.destinations_display }}</p>
+            </div>
+          </div>
+
+          <div class="budget-status-pill {{ budget_summary.status_class }}">
+            <span>{{ budget_summary.status_label }}</span>
+          </div>
+        </header>
+
+        <div class="budget-categories-grid">
+          <div class="budget-cat-item">
+            <span class="cat-icon-label">🚗 Transportation:</span>
+            <strong class="cat-value">{{ budget_summary.transportation_display }}</strong>
+          </div>
+
+          <div class="budget-cat-item">
+            <span class="cat-icon-label">🍲 Food &amp; Dining:</span>
+            <strong class="cat-value">{{ budget_summary.food_display }}</strong>
+          </div>
+
+          <div class="budget-cat-item">
+            <span class="cat-icon-label">🎟️ Activities &amp; Entry:</span>
+            <strong class="cat-value">{{ budget_summary.activities_display }}</strong>
+          </div>
+
+          <div class="budget-cat-item">
+            <span class="cat-icon-label">💳 Other &amp; Contingency:</span>
+            <strong class="cat-value">{{ budget_summary.other_display }}</strong>
+          </div>
         </div>
+
+        <div class="budget-total-split-block">
+          <div class="total-cost-col">
+            <span class="total-cost-label">Total Estimated Trip Cost:</span>
+            <strong class="total-cost-amount">{{ budget_summary.total_cost_display }}</strong>
+          </div>
+
+          <div class="per-person-split-col">
+            <span class="split-label">Estimated Cost Per Person:</span>
+            <strong class="split-amount">{{ budget_summary.per_person_display }}</strong>
+            <small class="split-note">({{ summary.travellers }} sharing expenses)</small>
+          </div>
+        </div>
+
+        <div class="budget-indicator-footer">
+          <div class="status-indicator-legend">
+            <span class="legend-badge {% if budget_summary.status == 'within' %}active{% endif %}">🟢 Within Budget</span>
+            <span class="legend-badge {% if budget_summary.status == 'slight_above' %}active{% endif %}">🟡 Slightly Above Budget</span>
+            <span class="legend-badge {% if budget_summary.status == 'over' %}active{% endif %}">🔴 Over Budget</span>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+  </section>
+
+  <section class="itinerary-bottom-cta">
+    <div class="bottom-cta-container">
+      <div class="cta-text-group">
+        <h3 class="cta-title">Want to see the full financial breakdown &amp; UPI Kharcha split?</h3>
+        <p class="cta-subtitle">View hotel cost allocation, daily expense charts, and plan comparison tiers.</p>
+      </div>
+
+      <div class="cta-buttons-group">
+        <a href="{{ url_for('budget.budget_view') }}" class="btn-primary-glow">
+          <span>View Detailed Budget &amp; Split (Page 4)</span>
+          <span>&rarr;</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="cta" class="bottom-cta-section">
-    <div class="cta-container">
-      <h2 class="cta-title">Ready for your adventure?</h2>
-      <a href="{{ url_for('budget.budget_view') }}" class="btn btn-primary">View Detailed Budget &amp; Split (Page 4) &rarr;</a>
-    </div>
-  </section>
-
 </main>
+
+<div id="driverModalOverlay" class="driver-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="driverModalTitle">
+  <div class="driver-modal-backdrop" id="driverModalBackdrop"></div>
+  <div class="driver-modal-dialog">
+    <header class="driver-modal-header">
+      <div class="modal-header-text">
+        <span class="modal-eyebrow">🛡️ Verified DesiSafar Chauffeur &amp; Vehicle</span>
+        <h3 id="driverModalTitle" class="modal-title">Assigned Cab &amp; Driver Details</h3>
+      </div>
+      <button type="button" class="driver-modal-close-btn" id="driverModalCloseBtn" aria-label="Close modal">✕</button>
+    </header>
+
+    <div class="driver-modal-body">
+      
+      <div class="driver-profile-section">
+        <div class="driver-avatar-circle" id="mDriverAvatar">‍</div>
+        <div class="driver-details-wrap">
+          <div class="driver-name-row">
+            <h4 class="driver-name" id="mDriverName">Rajesh Kumar Sharma</h4>
+            <span class="driver-verified-tag">✓ Verified Chauffeur</span>
+          </div>
+          <div class="driver-meta-line">
+            <span class="rating-star-badge" id="mDriverRating"> 4.9</span>
+            <span id="mDriverTrips">1,420+ trips completed</span>
+          </div>
+          <p class="driver-meta-line" style="margin-top: 4px;">
+            <span> <strong id="mDriverLang">Hindi, English</strong></span>
+            <span>•</span>
+            <span id="mDriverExp">9 years licensed chauffeur</span>
+          </p>
+          <div class="driver-contact-actions">
+            <a href="#" id="mDriverCallLink" class="btn-call-driver">
+              <span></span>
+              <span>📞</span>
+              <span id="mDriverPhoneBtn">Call +91 98290 41234</span>
+            </a>
+            <a href="#" id="mDriverWaLink" target="_blank" class="btn-whatsapp-driver">
+              <span></span>
+              <span>💬</span>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="vehicle-details-section">
+        <div class="vehicle-section-header">
+          <div>
+            <span class="plate-caption">Vehicle Make &amp; Model</span>
+            <h4 class="vehicle-model-name" id="mCarModel">Maruti Suzuki Dzire AC (White)</h4>
+          </div>
+          <span class="vehicle-type-pill" id="mCarType">4-Seater Premium Sedan</span>
+        </div>
+
+        <div class="number-plate-container">
+          <div class="plate-left-wrap">
+            <span class="plate-icon">🚖</span>
+            <div class="plate-text-wrap">
+              <span class="plate-caption">Car Registration Number:</span>
+              <span class="indian-number-plate-box" id="mCarPlate">RJ 14 TA 8421</span>
+            </div>
+          </div>
+          <div class="plate-otp-wrap">
+            <span class="otp-label">Start Trip PIN</span>
+            <strong class="otp-pin" id="mTripOtp">4821</strong>
+          </div>
+        </div>
+
+        <div>
+          <span class="plate-caption" style="display:block; margin-bottom: 6px;">Vehicle Features &amp; Safety:</span>
+          <div class="features-chips-list">
+            <span class="feature-tag-chip"> Chilled AC</span>
+            <span class="feature-tag-chip"> Fastag Active</span>
+            <span class="feature-tag-chip"> Boot Luggage Space</span>
+            <span class="feature-tag-chip"> GPS Monitored</span>
+            <span class="feature-tag-chip"> Clean Sanitized</span>
+          </div>
+        </div>
+
+        <div style="background: #FAFAF7; border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.8125rem; color: var(--slate-600);">
+          <span><strong>Route Segment:</strong> <span id="mRouteText">Stay → Attraction</span></span><br>
+          <span><strong>Estimated Fare:</strong> <span id="mFareDisp">₹350/cab</span> (Included in Trip Budget)</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="driver-modal-footer">
+      <span class="modal-footer-note">All DesiSafar drivers undergo verified commercial background checks.</span>
+      <button type="button" class="btn-modal-done" id="driverModalDoneBtn">Got It</button>
+    </footer>
+  </div>
+</div>
+
+<script>
+  function openDriverModal(name, phone, rating, trips, lang, exp, carModel, carPlate, carType, capacity, otp, route, fare) {
+    document.getElementById("mDriverName").textContent = name || "Assigned DesiSafar Chauffeur";
+    document.getElementById("mDriverRating").textContent = ` ${rating || '4.9'}`;
+    document.getElementById("mDriverTrips").textContent = trips || "1,200+ trips completed";
+    document.getElementById("mDriverLang").textContent = lang || "Hindi, English, Regional";
+    document.getElementById("mDriverExp").textContent = exp || "Licensed Commercial Chauffeur";
+    
+    const cleanPhone = (phone || "+91 98000 12345").trim();
+    document.getElementById("mDriverPhoneBtn").textContent = `Call ${cleanPhone}`;
+    document.getElementById("mDriverCallLink").href = `tel:${cleanPhone}`;
+    const cleanNumOnly = cleanPhone.replace(/[^0-9]/g, '');
+    document.getElementById("mDriverWaLink").href = `https://wa.me/${cleanNumOnly}?text=Hello%20${encodeURIComponent(name || 'Driver')},%20I%20am%20your%20DesiSafar%20passenger.`;
+
+    document.getElementById("mCarModel").textContent = carModel || "Maruti Suzuki Dzire AC";
+    document.getElementById("mCarPlate").textContent = carPlate || "RJ 14 TA 8421";
+    document.getElementById("mCarType").textContent = carType || "4-Seater Premium Sedan";
+    document.getElementById("mTripOtp").textContent = otp || (carPlate ? carPlate.split(' ').pop() : "4821");
+
+    document.getElementById("mRouteText").textContent = route || "Local Sightseeing Segment";
+    document.getElementById("mFareDisp").textContent = fare || "Estimated Fare";
+
+    const modal = document.getElementById("driverModalOverlay");
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeDriverModal() {
+    const modal = document.getElementById("driverModalOverlay");
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    document.querySelectorAll(".transit-segment-card[data-has-driver='true']").forEach(function(card) {
+      card.addEventListener("click", function() {
+        openDriverModal(
+          card.dataset.driverName,
+          card.dataset.driverPhone,
+          card.dataset.driverRating,
+          card.dataset.driverTrips,
+          card.dataset.driverLang,
+          card.dataset.driverExp,
+          card.dataset.carModel,
+          card.dataset.carPlate,
+          card.dataset.carType,
+          4,
+          card.dataset.otp,
+          card.dataset.route,
+          card.dataset.fare
+        );
+      });
+    });
+
+    const backdrop = document.getElementById("driverModalBackdrop");
+    if (backdrop) backdrop.addEventListener("click", closeDriverModal);
+
+    const closeBtn = document.getElementById("driverModalCloseBtn");
+    if (closeBtn) closeBtn.addEventListener("click", closeDriverModal);
+
+    const doneBtn = document.getElementById("driverModalDoneBtn");
+    if (doneBtn) doneBtn.addEventListener("click", closeDriverModal);
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      closeDriverModal();
+    }
+  });
+</script>
 {% endblock %}
+

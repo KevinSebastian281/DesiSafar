@@ -4,14 +4,14 @@ DesiSafar is an India-focused group trip itinerary planner built with a **pure s
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 1. **Zero JavaScript Architecture**:
    - **No `<script>` tags, no inline `on*` event handlers, and no frontend JavaScript frameworks**.
    - All searching, category filtering, modal detail inspection, destination addition/removal, step progression, dynamic multi-day itinerary generation, and budget calculations are processed **100% server-side**.
 2. **Session-Backed Multi-Step Wizard**:
    - **Step 1: Destinations (`/destinations`)** — Search across 16 curated Indian destinations, filter by category chip (Beaches, Mountains, Heritage, etc.), preview modal details.
-     - **"Where to Stay" & "Where to Eat"**: Every destination modal features curated Google Places listings with ratings (`★ 4.6`), localities, price tiers (`₹₹`), direct `tel:` call links, and a verified date disclaimer.
+     - **"Where to Stay" & "Where to Eat"**: Every destination modal features curated Google Places listings with ratings (` 4.6`), localities, price tiers (`₹₹`), direct `tel:` call links, and a verified date disclaimer.
      - **Dynamic Starting Point**: Defaults to nothing (`""`). The input menu dynamically includes all airports/railway gateways near your selected destinations followed by all-India transit hubs, or allows typing any custom starting location.
      - **Dynamic Dates**: Defaults to nothing (`""`). The user defines their start date, and the end date is automatically calculated based on the suggested duration of the selected destinations (e.g. Goa 4d + Munnar 3d = 7 days).
    - **Step 2: Preferences (`/preferences`)** — Select travel vibes, activity interests, spending tiers (Budget, Standard, Premium, Luxury), lodging categories, and diet preferences.
@@ -23,7 +23,7 @@ DesiSafar is an India-focused group trip itinerary planner built with a **pure s
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Prerequisites
 - Python 3.10+ installed
@@ -58,7 +58,7 @@ python -m pytest -v
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 desisafar/
@@ -93,7 +93,7 @@ desisafar/
 
 ---
 
-## 📊 Data Layer & Pricing Assumptions
+##  Data Layer & Pricing Assumptions
 
 Since the original static prototype did not include a database or live transit API, realistic mock data and lookup heuristics are structured in Python:
 

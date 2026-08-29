@@ -1855,7 +1855,7 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
 }
 
 .modal-highlight-item::before {
-  content: "✦";
+  content: "";
   color: var(--terracotta-500);
   font-weight: bold;
 }

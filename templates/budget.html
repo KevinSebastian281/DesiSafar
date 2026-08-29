@@ -28,16 +28,16 @@
         <span>{{ budget.destinations_display }}</span>
       </span>
       <div class="context-meta-group">
-        <span>📅 {{ budget.date_context_str }}</span>
+        <span> {{ budget.date_context_str }}</span>
         <span class="context-dot-divider">•</span>
-        <span>👥 {{ budget.travellers }} Travellers</span>
+        <span> {{ budget.travellers }} Travellers</span>
         <span class="context-dot-divider">•</span>
         <span class="context-plan-tag">{{ budget.plan_tag_str }}</span>
       </div>
     </div>
     <a href="{{ url_for('preferences.preferences_view') }}" class="context-edit-link">
       <span>Edit Trip</span>
-      <span>✎</span>
+      <span></span>
     </a>
   </div>
 
@@ -91,7 +91,7 @@
       </div>
 
       <p class="range-disclaimer-note">
-        <span>ℹ️</span>
+        <span>ℹ</span>
         <span>Travel prices can vary depending on accommodation, transport, activity availability and seasonal demand.</span>
       </p>
     </div>
@@ -120,7 +120,7 @@
                   <div style="margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px;">
                     {% for stay_item in cat.suggested_stays %}
                       <span style="font-size: 0.75rem; color: var(--navy-800); background: var(--surface-subtle); border: 1px solid var(--border-light); padding: 2px 8px; border-radius: var(--radius-full);">
-                        🏨 <strong>{{ stay_item.dest_name }}:</strong> {{ stay_item.hotel_name }} (★ {{ stay_item.rating }})
+                         <strong>{{ stay_item.dest_name }}:</strong> {{ stay_item.hotel_name }} ( {{ stay_item.rating }})
                       </span>
                     {% endfor %}
                   </div>
@@ -247,15 +247,15 @@
     
     <div class="transparency-box">
       <h3 class="transparency-title">
-        <span class="check-icon">✓</span>
+        <span class="check-icon"></span>
         <span>Your estimate includes</span>
       </h3>
       <ul class="transparency-list">
-        <li><span class="check-icon">✓</span> Accommodation estimate ({{ budget.categories[0].sublabel }})</li>
-        <li><span class="check-icon">✓</span> Local &amp; inter-city transportation estimate</li>
-        <li><span class="check-icon">✓</span> Food &amp; daily dining estimate</li>
-        <li><span class="check-icon">✓</span> Activity &amp; boat entry tickets estimate</li>
-        <li><span class="check-icon">✓</span> Miscellaneous contingency allowance</li>
+        <li><span class="check-icon"></span> Accommodation estimate ({{ budget.categories[0].sublabel }})</li>
+        <li><span class="check-icon"></span> Local &amp; inter-city transportation estimate</li>
+        <li><span class="check-icon"></span> Food &amp; daily dining estimate</li>
+        <li><span class="check-icon"></span> Activity &amp; boat entry tickets estimate</li>
+        <li><span class="check-icon"></span> Miscellaneous contingency allowance</li>
       </ul>
     </div>
 

@@ -1175,10 +1175,6 @@ h6 {
     transform: translateX(3px);
 }
 
-/* ==========================================================================
-   YATRA FULL TRIP MODAL POPUP
-   ========================================================================== */
-
 body.modal-open {
     overflow: hidden !important;
     padding-right: var(--scrollbar-width, 0px);
@@ -1261,7 +1257,6 @@ body.modal-open {
     outline: none;
 }
 
-/* Modal Hero Header */
 .yatra-modal-hero {
     position: relative;
     height: 240px;
@@ -1319,7 +1314,6 @@ body.modal-open {
     font-weight: 500;
 }
 
-/* Modal Scrollable Body */
 .yatra-modal-body {
     padding: 24px 28px;
     overflow-y: auto;
@@ -1330,7 +1324,6 @@ body.modal-open {
     overscroll-behavior: contain;
 }
 
-/* Custom Scrollbar for Modal */
 .yatra-modal-body::-webkit-scrollbar {
     width: 6px;
 }
@@ -1345,7 +1338,6 @@ body.modal-open {
     background: #94A3B8;
 }
 
-/* Fast Info Strip */
 .yatra-insights-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1396,7 +1388,6 @@ body.modal-open {
     color: var(--primary-saffron) !important;
 }
 
-/* Section Blocks inside Modal */
 .modal-section-block {
     background: #FFFFFF;
     border: 1px solid var(--slate-200);
@@ -1447,7 +1438,6 @@ body.modal-open {
     line-height: 1.6;
 }
 
-/* Timeline in Modal */
 .yatra-full-timeline {
     position: relative;
     padding-left: 28px;
@@ -1569,7 +1559,6 @@ body.modal-open {
     border: 1px solid var(--slate-200);
 }
 
-/* Highlights Grid */
 .yatra-highlights-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1590,7 +1579,6 @@ body.modal-open {
     gap: 8px;
 }
 
-/* Kharcha Breakdown Grid */
 .modal-kharcha-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1639,7 +1627,6 @@ body.modal-open {
     color: var(--slate-400);
 }
 
-/* Modal Bottom Action Bar */
 .yatra-modal-footer {
     padding: 16px 28px;
     background: #FFFFFF;
@@ -1684,7 +1671,6 @@ body.modal-open {
     gap: 10px;
 }
 
-/* Modal Media Queries */
 @media (max-width: 768px) {
     .yatra-modal-overlay {
         padding: 12px;
@@ -1742,10 +1728,6 @@ body.modal-open {
         justify-content: center;
     }
 }
-
-/* ==========================================================================
-   WHY DESISAFAR DARK MODAL POPUP
-   ========================================================================== */
 
 .why-modal-overlay {
     position: fixed;
@@ -1994,10 +1976,6 @@ body.modal-open {
         justify-content: center;
     }
 }
-
-/* ==========================================================================
-   CONTACT SUPPORT DARK MODAL POPUP
-   ========================================================================== */
 
 .support-modal-overlay {
     position: fixed;
@@ -2383,10 +2361,6 @@ body.modal-open {
     }
 }
 
-/* ==========================================================================
-   PRIVACY POLICY DARK MODAL POPUP
-   ========================================================================== */
-
 .privacy-modal-overlay {
     position: fixed;
     inset: 0;
@@ -2686,10 +2660,6 @@ body.modal-open {
     }
 }
 
-/* ==========================================================================
-   TERMS OF SERVICE DARK MODAL POPUP
-   ========================================================================== */
-
 .terms-modal-overlay {
     position: fixed;
     inset: 0;
@@ -2866,7 +2836,6 @@ body.modal-open {
     margin: 0;
 }
 
-/* Highlighted Insurance Box */
 .terms-insurance-box {
     background: linear-gradient(135deg, rgba(20, 33, 61, 0.9) 0%, rgba(16, 185, 129, 0.12) 100%);
     border: 1.5px solid rgba(16, 185, 129, 0.45);
@@ -3000,10 +2969,6 @@ body.modal-open {
     }
 }
 
-/* ==========================================================================
-   EXPLORE REGIONS DARK MODAL POPUP
-   ========================================================================== */
-
 .regions-modal-overlay {
     position: fixed;
     inset: 0;
@@ -3111,7 +3076,6 @@ body.modal-open {
     margin: 0 auto;
 }
 
-/* Region Filter Pills */
 .regions-filter-bar {
     display: flex;
     align-items: center;
@@ -3171,7 +3135,6 @@ body.modal-open {
     border-radius: var(--radius-pill);
 }
 
-/* Region Card */
 .region-card-item {
     background: rgba(20, 33, 61, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.08);

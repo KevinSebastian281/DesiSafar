@@ -39,7 +39,7 @@
           </svg>
           <input type="text" name="q" value="{{ search_query }}" class="search-input" placeholder="Search cities, destinations or places (e.g., Goa, Kerala, Mountains)..." autocomplete="off" aria-label="Search destinations">
           {% if search_query %}
-            <a href="{{ url_for('destinations.list_destinations', category=active_category) }}" class="search-clear-btn" title="Clear search">✕</a>
+            <a href="{{ url_for('destinations.list_destinations', category=active_category) }}" class="search-clear-btn" title="Clear search"></a>
           {% endif %}
           <button type="submit" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.8125rem; margin-left: 8px; border-radius: 8px;">Search</button>
         </div>
@@ -70,7 +70,7 @@
 
       {% if destinations|length == 0 %}
         <div class="empty-trip-state" style="background: white; border-radius: 16px; padding: 48px 24px; border: 1px solid var(--border-light);">
-          <div style="font-size: 2.5rem; margin-bottom: 12px;">🔍</div>
+          <div style="font-size: 2.5rem; margin-bottom: 12px;"></div>
           <h3 class="empty-title">No destinations found</h3>
           <p class="empty-desc">Try searching for a different city, landmark, or select "All Destinations".</p>
           <br>
@@ -94,8 +94,8 @@
                 </div>
                 <p class="card-desc">{{ dest.description }}</p>
                 <div class="card-meta-row">
-                  <span class="tag-pill">🌤️ {{ dest.best_time }}</span>
-                  <span class="tag-pill">⏱️ {{ dest.duration }}</span>
+                  <span class="tag-pill"> {{ dest.best_time }}</span>
+                  <span class="tag-pill"> {{ dest.duration }}</span>
                 </div>
                 <div class="card-actions-row">
                   <a href="#modal-{{ dest.slug }}" class="card-btn-view">View Details</a>
@@ -106,7 +106,7 @@
                     <input type="hidden" name="q" value="{{ search_query }}">
                     {% if is_selected %}
                       <button type="submit" class="card-btn-add is-added" title="Click to remove from trip" aria-label="{{ dest.name }} is in trip">
-                        <span class="btn-check">✓</span>
+                        <span class="btn-check"></span>
                         <span>Added</span>
                       </button>
                     {% else %}
@@ -125,7 +125,6 @@
       {% endif %}
     </section>
 
-    <!-- Sidebar Column: Selected Route Configuration -->
     <aside class="trip-builder-column" aria-label="Your Selected Trip Route">
       <div class="trip-card-panel" id="tripCardPanel">
 
@@ -141,7 +140,7 @@
 
           <div class="form-group" id="startingPointGroup">
             <label for="startLocationInput" class="form-label">
-              <span class="label-icon">📍</span>
+              <span class="label-icon"></span>
               <span>Starting Point</span>
             </label>
             <div class="input-with-autocomplete">
@@ -152,7 +151,7 @@
                 {% endfor %}
               </datalist>
             </div>
-            <small class="field-hint">{% if selected_dest_count > 0 %}⭐ Suggested airport & rail hubs near your selected stops prioritized in list.{% else %}Type any custom location or select from major Indian transit hubs.{% endif %}</small>
+            <small class="field-hint">{% if selected_dest_count > 0 %} Suggested airport & rail hubs near your selected stops prioritized in list.{% else %}Type any custom location or select from major Indian transit hubs.{% endif %}</small>
           </div>
 
           <div class="route-builder-section">
@@ -175,7 +174,7 @@
             <div class="selected-destinations-list" id="selectedDestinationsList">
               {% if selected_dest_objects|length == 0 %}
                 <div class="empty-trip-state">
-                  <div style="font-size: 1.8rem; margin-bottom: 6px;">🗺️</div>
+                  <div style="font-size: 1.8rem; margin-bottom: 6px;"></div>
                   <h4 class="empty-title">No destinations added</h4>
                   <p class="empty-desc">Click <strong>+ Add</strong> on any destination card to start building your route.</p>
                 </div>
@@ -194,7 +193,7 @@
                       <span class="dest-item-state">{{ dest.state_full if dest.state_full else dest.state }}</span>
                     </div>
                     <a href="#modal-{{ dest.slug }}" class="dest-item-info-btn" title="View details">ℹ</a>
-                    <button type="submit" name="remove_slug" value="{{ dest.slug }}" formaction="{{ url_for('destinations.remove_destination') }}" class="step-btn-remove" title="Remove stop" style="background: none; border: none; cursor: pointer;">✕</button>
+                    <button type="submit" name="remove_slug" value="{{ dest.slug }}" formaction="{{ url_for('destinations.remove_destination') }}" class="step-btn-remove" title="Remove stop" style="background: none; border: none; cursor: pointer;"></button>
                   </div>
                 {% endfor %}
               {% endif %}
@@ -204,7 +203,7 @@
           <div class="form-row-dates">
             <div class="form-group" id="departureGroup">
               <label for="departureDateInput" class="form-label">
-                <span class="label-icon">📅</span>
+                <span class="label-icon"></span>
                 <span>Departure Date</span>
                 <span class="required-star">*</span>
               </label>
@@ -213,7 +212,7 @@
 
             <div class="form-group" id="returnGroup">
               <label for="returnDateInput" class="form-label">
-                <span class="label-icon">🏁</span>
+                <span class="label-icon"></span>
                 <span>Return Date</span>
               </label>
               <input type="date" id="returnDateInput" name="return_date" class="form-input date-input" value="{{ trip_details.return_date }}" placeholder="Auto-calculated from places">
@@ -221,13 +220,13 @@
           </div>
 
           <div class="trip-duration-display" id="tripDurationDisplay" style="display: flex;">
-            <span class="duration-icon">⏳</span>
+            <span class="duration-icon"></span>
             <span class="duration-text" id="durationText">{% if selected_dest_count == 0 and not trip_details.departure_date and not trip_details.return_date %}Dates flexible · Pick places to compute days{% else %}{{ computed_days }} days · {{ computed_nights }} nights (calculated from places){% endif %}</span>
           </div>
 
           <div class="form-group travellers-counter-group" id="travellersGroup">
             <label class="form-label" for="travellersInput">
-              <span class="label-icon">👥</span>
+              <span class="label-icon"></span>
               <span>Number of Travellers</span>
               <span class="required-star">*</span>
             </label>
@@ -239,7 +238,7 @@
           </div>
 
           <div class="smart-advisory-banner" id="smartAdvisoryBanner" role="note" style="display: flex;">
-            <span class="advisory-icon">💡</span>
+            <span class="advisory-icon"></span>
             <div class="advisory-text">
               <strong>Optimal Route Pace:</strong> 
               {% if selected_dest_count == 0 %}
@@ -321,13 +320,13 @@
 {% endblock %}
 
 {% block modals %}
-<!-- Destination Modals (Pure CSS :target with Server-Injected Data) -->
+
 {% for dest in all_destinations %}
   {% set is_selected = dest.slug in selected_destinations %}
   <div class="modal-backdrop" id="modal-{{ dest.slug }}">
     <a href="#" class="modal-overlay-dismiss" aria-label="Close modal"></a>
     <div class="modal-card">
-      <a href="#" class="modal-close-btn" aria-label="Close destination details">✕</a>
+      <a href="#" class="modal-close-btn" aria-label="Close destination details"></a>
       <div class="modal-image-container">
         <img src="{{ dest.modal_hero_img if dest.modal_hero_img else dest.image_url }}" alt="{{ dest.name }}" class="modal-hero-img">
         <div class="modal-image-gradient"></div>
@@ -348,21 +347,21 @@
         </div>
         <div class="modal-insights-grid">
           <div class="insight-box">
-            <span class="insight-icon">🌤️</span>
+            <span class="insight-icon"></span>
             <div>
               <span class="insight-label">Best Time to Visit</span>
               <span class="insight-value">{{ dest.modal_best_time }}</span>
             </div>
           </div>
           <div class="insight-box">
-            <span class="insight-icon">⏱️</span>
+            <span class="insight-icon"></span>
             <div>
               <span class="insight-label">Suggested Duration</span>
               <span class="insight-value">{{ dest.modal_duration }}</span>
             </div>
           </div>
           <div class="insight-box">
-            <span class="insight-icon">✨</span>
+            <span class="insight-icon"></span>
             <div>
               <span class="insight-label">Vibe & Style</span>
               <span class="insight-value">{{ dest.vibe }}</span>
@@ -381,7 +380,7 @@
         {% if dest.hotels %}
         <div class="modal-section">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-            <h3 class="modal-section-title" style="margin-bottom: 0;">🏨 Where to Stay</h3>
+            <h3 class="modal-section-title" style="margin-bottom: 0;"> Where to Stay</h3>
             <span class="tag-pill" style="font-size: 0.6875rem;">Verified Stays</span>
           </div>
           <div class="places-card-grid">
@@ -390,14 +389,14 @@
                 <div class="place-info-col">
                   <div class="place-name-row">
                     <h4 class="place-name">{{ hotel.name }}</h4>
-                    <span class="place-rating-badge">★ {{ hotel.rating }}</span>
+                    <span class="place-rating-badge"> {{ hotel.rating }}</span>
                   </div>
-                  <p class="place-area"><span class="place-pin-icon">📍</span> {{ hotel.area }}</p>
+                  <p class="place-area"><span class="place-pin-icon"></span> {{ hotel.area }}</p>
                 </div>
                 {% if hotel.phone %}
                   <div class="place-action-col">
                     <a href="tel:{{ hotel.phone }}" class="place-call-btn" title="Call {{ hotel.name }}">
-                      <span class="call-icon">📞</span>
+                      <span class="call-icon"></span>
                       <span>{{ hotel.phone }}</span>
                     </a>
                   </div>
@@ -411,7 +410,7 @@
         {% if dest.restaurants %}
         <div class="modal-section">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-            <h3 class="modal-section-title" style="margin-bottom: 0;">🍽️ Where to Eat</h3>
+            <h3 class="modal-section-title" style="margin-bottom: 0;"> Where to Eat</h3>
             <span class="tag-pill" style="font-size: 0.6875rem;">Local Dining</span>
           </div>
           <div class="places-card-grid">
@@ -426,15 +425,15 @@
                           {% for _ in range(restaurant.price_level) %}₹{% endfor %}
                         </span>
                       {% endif %}
-                      <span class="place-rating-badge">★ {{ restaurant.rating }}</span>
+                      <span class="place-rating-badge"> {{ restaurant.rating }}</span>
                     </div>
                   </div>
-                  <p class="place-area"><span class="place-pin-icon">📍</span> {{ restaurant.area }}</p>
+                  <p class="place-area"><span class="place-pin-icon"></span> {{ restaurant.area }}</p>
                 </div>
                 {% if restaurant.phone %}
                   <div class="place-action-col">
                     <a href="tel:{{ restaurant.phone }}" class="place-call-btn" title="Call {{ restaurant.name }}">
-                      <span class="call-icon">📞</span>
+                      <span class="call-icon"></span>
                       <span>{{ restaurant.phone }}</span>
                     </a>
                   </div>
@@ -444,7 +443,7 @@
           </div>
           {% if dest.disclaimer %}
             <p class="disclaimer-note">
-              ℹ️ {{ dest.disclaimer }}
+              ℹ {{ dest.disclaimer }}
             </p>
           {% endif %}
         </div>
@@ -459,7 +458,7 @@
           <input type="hidden" name="q" value="{{ search_query }}">
           {% if is_selected %}
             <button type="submit" class="btn-primary-cta" style="border: none; cursor: pointer;">
-              <span>✓ Selected in Trip (Click to Remove)</span>
+              <span> Selected in Trip (Click to Remove)</span>
             </button>
           {% else %}
             <button type="submit" class="btn-primary-cta" style="border: none; cursor: pointer;" {% if selected_dest_count >= 5 %}disabled{% endif %}>

@@ -1,261 +1,37 @@
-"""
-DesiSafar — Hotels & Restaurants reference data
-Compiled from live Google Places results (Aug 2026) for the 16 destinations
-already featured on the DesiSafar destinations page.
-
-Structure: STAYS_AND_FOOD[<destination_slug>] = {
-    "hotels": [ {name, area, rating, phone}, ... ],
-    "restaurants": [ {name, area, rating, phone, price_level}, ... ]
-}
-"""
-
-VERIFIED_DATE_DISCLAIMER = "Details last verified Aug 2026 — please confirm before booking"
-
-STAYS_AND_FOOD = {
-    "goa": {
-        "hotels": [
-            {"name": "Hilton Goa Resort", "area": "Candolim, North Goa", "rating": 4.5, "phone": "+91 832 664 9800"},
-            {"name": "Holiday Inn Resort Goa, an IHG Hotel", "area": "Mobor Beach, Cavelossim, South Goa", "rating": 4.7, "phone": "+91 832 662 6000"},
-            {"name": "Bambolim Beach Resort", "area": "Bambolim, Goa", "rating": 4.1, "phone": "+91 832 674 8000"},
-        ],
-        "restaurants": [
-            {"name": "The Second House", "area": "Saligao, Goa", "rating": 4.5, "phone": "+91 85302 66603", "price_level": 4},
-            {"name": "The Fishermans Wharf", "area": "Cavelossim, Goa (riverside seafood)", "rating": 4.5, "phone": "+91 90110 18866", "price_level": None},
-            {"name": "Elephant and Co. Anjuna", "area": "Anjuna, Goa", "rating": 4.7, "phone": "+91 76663 61130", "price_level": None},
-        ],
-    },
-    "munnar": {
-        "hotels": [
-            {"name": "Grand Plaza Munnar", "area": "Moolakadai, Munnar town", "rating": 4.6, "phone": "+91 97464 70119"},
-            {"name": "Blanket Hotel & Spa", "area": "Pallivasal, Munnar", "rating": 4.8, "phone": "+91 82818 06633"},
-            {"name": "Tea County Munnar", "area": "Ikka Nagar, Munnar town", "rating": 4.5, "phone": "+91 4865 230 460"},
-        ],
-        "restaurants": [
-            {"name": "Munnar Samrudhi Restaurant", "area": "Moolakadai, Munnar", "rating": 4.7, "phone": "+91 94965 80200", "price_level": 2},
-            {"name": "Parakkat Spice Merchant Restaurant", "area": "Chithirapuram, Munnar", "rating": 4.8, "phone": "+91 70254 58888", "price_level": 2},
-            {"name": "The Hornbill Restaurant", "area": "Pothamedu, Munnar (Blackberry Hills Resort)", "rating": 4.5, "phone": "+91 85902 40881", "price_level": 2},
-        ],
-    },
-    "manali": {
-        "hotels": [
-            {"name": "Hotel Rio Sol Resort and Villas", "area": "Aleo, Manali", "rating": 4.9, "phone": "+91 98164 02223"},
-            {"name": "Apple Field House", "area": "Old Manali", "rating": 4.7, "phone": "+91 94187 48343"},
-            {"name": "Mountain Top Hotel", "area": "Hadimba Temple Rd, Manali", "rating": 4.1, "phone": "+91 76509 08765"},
-        ],
-        "restaurants": [
-            {"name": "The Lazy Dog Lounge", "area": "Old Manali (riverside)", "rating": 4.3, "phone": "+91 70182 28644", "price_level": None},
-            {"name": "Cafe 1986", "area": "Mall Road, Manali", "rating": 4.6, "phone": "+91 88986 90000", "price_level": None},
-            {"name": "IL Forno", "area": "Hadimba Temple Rd, Manali (Italian)", "rating": 4.4, "phone": "+91 98160 40144", "price_level": 2},
-        ],
-    },
-    "jaipur": {
-        "hotels": [
-            {"name": "Rajasthan Palace — Heritage Boutique Hotel", "area": "Adarsh Nagar, Jaipur", "rating": 4.6, "phone": "+91 70166 62608"},
-            {"name": "WelcomHeritage Kurki Palace", "area": "Nirman Nagar, Jaipur", "rating": 4.6, "phone": "+91 92515 54897"},
-            {"name": "ibis Jaipur City Centre", "area": "Civil Lines, Jaipur", "rating": 4.5, "phone": "+91 141 475 5000"},
-        ],
-        "restaurants": [
-            {"name": "Handi Restaurant", "area": "MI Road, Jaipur (Rajasthani non-veg)", "rating": 4.1, "phone": "+91 98291 74873", "price_level": 2},
-            {"name": "Suvarna Mahal", "area": "Rambagh Palace, Jaipur (fine dining)", "rating": 4.7, "phone": "+91 141 667 1234", "price_level": None},
-            {"name": "Govindam Retreat", "area": "Gangori Bazaar, Jaipur (thali + live Sufi music)", "rating": 4.4, "phone": "+91 99299 49258", "price_level": 2},
-        ],
-    },
-    "kashmir": {
-        "hotels": [
-            {"name": "Zostel Srinagar", "area": "Nishat, Srinagar (near Dal Lake)", "rating": 4.6, "phone": "+91 11 4116 9723"},
-            {"name": "The Stay Villa", "area": "Lal Chowk, Srinagar", "rating": 4.8, "phone": "+91 87130 00025"},
-            {"name": "Four Points by Sheraton Srinagar", "area": "Sonwar Bagh, Srinagar", "rating": 4.2, "phone": "+91 194 246 9000"},
-        ],
-        "restaurants": [
-            {"name": "Stream Restaurant", "area": "Boulevard Rd, Srinagar (Wazwan, Dal Lake view)", "rating": 4.7, "phone": "+91 194 250 0244", "price_level": None},
-            {"name": "Little Persia", "area": "Munawar Link Rd, Srinagar", "rating": 4.4, "phone": "+91 88999 85589", "price_level": None},
-            {"name": "Kake Di Hatti", "area": "Khayam, Srinagar (vegetarian North Indian)", "rating": 4.6, "phone": "+91 88002 81213", "price_level": None},
-        ],
-    },
-    "gokarna": {
-        "hotels": [
-            {"name": "Zostel Gokarna", "area": "Kudle Beach Rd, Gokarna", "rating": 4.5, "phone": "+91 44 4011 5827"},
-            {"name": "Arthigamya Spa & Resort", "area": "Kudle Beach Rd, Gokarna", "rating": 4.0, "phone": "+91 88806 88806"},
-            {"name": "Ocean Breeze Cottage and Cafe", "area": "Main Beach, Gokarna", "rating": 4.3, "phone": "+91 97429 85562"},
-        ],
-        "restaurants": [
-            {"name": "The Coco Leaf", "area": "Main Beach, Gokarna", "rating": 4.5, "phone": "+91 80505 08585", "price_level": None},
-            {"name": "Sunset Cafe Beach Stay", "area": "Main Beach, Gokarna", "rating": 4.5, "phone": "+91 82176 85525", "price_level": None},
-            {"name": "Mantra Cafe", "area": "Kudle Beach Rd, Gokarna (Zostel in-house)", "rating": 4.1, "phone": None, "price_level": 2},
-        ],
-    },
-    "ooty": {
-        "hotels": [
-            {"name": "Hotel Lakeview", "area": "West Mere, Ooty", "rating": 4.0, "phone": "+91 423 244 3580"},
-            {"name": "Silent Valley Farm Resort", "area": "Adasolai Rd, Ooty", "rating": 4.5, "phone": "+91 94878 17756"},
-            {"name": "Al Woodlands Residency", "area": "Bombay Castel, Ooty (opp. Rose Garden)", "rating": 4.5, "phone": "+91 90436 98405"},
-        ],
-        "restaurants": [
-            {"name": "The Periodic Table", "area": "Upper Bazar, Ooty (fine dining)", "rating": 4.5, "phone": "+91 94870 00222", "price_level": 4},
-            {"name": "Earl's Secret", "area": "Pudumund, Ooty (colonial-era heritage restaurant)", "rating": 4.4, "phone": "+91 94870 00222", "price_level": None},
-            {"name": "Angaara Restaurant", "area": "Upper Bazar, Ooty", "rating": 4.3, "phone": None, "price_level": 2},
-        ],
-    },
-    "hampi": {
-        "hotels": [
-            {"name": "Heritage Resort Hampi", "area": "Hosamalapanagudi, Hampi", "rating": 4.4, "phone": "+91 98456 02838"},
-            {"name": "Hampi Delmont Resort", "area": "Hanmanhalli, Hampi (pure vegetarian)", "rating": 4.5, "phone": "+91 63620 92020"},
-            {"name": "Hotel Hampi International", "area": "Station Rd, Hosapete", "rating": 3.9, "phone": "+91 92431 61111"},
-        ],
-        "restaurants": [
-            {"name": "Mango Tree Restaurant", "area": "Old Busstand, Kamalapura, Hampi", "rating": 4.3, "phone": "+91 94487 65213", "price_level": None},
-            {"name": "The Nest — Lakefront Restaurant", "area": "Tirumalapur Village, Hampi (Feathers Resort)", "rating": 4.6, "phone": "+91 76769 86517", "price_level": 2},
-            {"name": "Taste of Brahmins", "area": "Near Virupaksha Temple, Hampi (breakfast)", "rating": 4.8, "phone": "+91 94820 06076", "price_level": 1},
-        ],
-    },
-    "rishikesh": {
-        "hotels": [
-            {"name": "Aloha On The Ganges", "area": "Tapovan, Rishikesh", "rating": 4.4, "phone": "+91 95550 88000"},
-            {"name": "Oslo by Around Stays", "area": "Tapovan, Rishikesh", "rating": 4.3, "phone": "+91 98123 44442"},
-            {"name": "Hotel Shivanta Laxmanjhula", "area": "Laxman Jhula, Rishikesh", "rating": 3.1, "phone": "+91 84396 38175"},
-        ],
-        "restaurants": [
-            {"name": "The Sitting Elephant", "area": "Palika Nagar, Rishikesh (rooftop, Ganga view)", "rating": 4.7, "phone": "+91 79 6580 4730", "price_level": 2},
-            {"name": "Sky Deck Restaurant", "area": "Adarsh Gram, Rishikesh", "rating": 4.8, "phone": "+91 95208 87794", "price_level": 2},
-            {"name": "Jal & Jalebi", "area": "Veerbhadra, Rishikesh (Ganga Kinare, riverside)", "rating": 4.3, "phone": "+91 90155 44000", "price_level": None},
-        ],
-    },
-    "udaipur": {
-        "hotels": [
-            {"name": "Pax Grand Blue", "area": "Shivaji Nagar, Udaipur", "rating": 4.7, "phone": "+91 99911 66775"},
-            {"name": "Udaigarh Udaipur — Heritage Hotel", "area": "Lal Ghat, Old City, Udaipur (lake view rooftop)", "rating": 4.1, "phone": "+91 96600 55500"},
-            {"name": "Hotel Subcity", "area": "Sector 8, Central Area, Udaipur", "rating": 4.8, "phone": "+91 98797 60780"},
-        ],
-        "restaurants": [
-            {"name": "1559 AD", "area": "Near Fateh Sagar Lake, Udaipur", "rating": 4.4, "phone": "+91 73570 41559", "price_level": 2},
-            {"name": "Khamma Ghani Restaurant", "area": "Rang Sagar, Udaipur (lakeside)", "rating": 4.1, "phone": "+91 73406 66622", "price_level": None},
-            {"name": "Ghati Pe", "area": "Ambavgarh, Udaipur (rooftop city view)", "rating": 4.9, "phone": "+91 73000 76035", "price_level": None},
-        ],
-    },
-    "varkala": {
-        "hotels": [
-            {"name": "Skylar Seaview Resort", "area": "South Cliff, Varkala", "rating": 4.6, "phone": "+91 87140 19666"},
-            {"name": "SANDRA Eco Beach Resort", "area": "Odayam Beach, Varkala", "rating": 4.6, "phone": "+91 99957 03366"},
-            {"name": "Varkala Villa", "area": "South Cliff, Varkala (homestay)", "rating": 4.4, "phone": "+91 98952 98300"},
-        ],
-        "restaurants": [
-            {"name": "Cafe Trip is Life", "area": "South Cliff, Varkala", "rating": 4.5, "phone": "+91 79074 83838", "price_level": 2},
-            {"name": "Cafe Sarwaa on the Cliff", "area": "South Cliff, Varkala", "rating": 4.6, "phone": None, "price_level": 2},
-            {"name": "BLG Surf Bistro", "area": "Edava, Varkala", "rating": 4.5, "phone": "+91 62387 96719", "price_level": None},
-        ],
-    },
-    "coorg": {
-        "hotels": [
-            {"name": "Coorg Wilderness Resort & Spa", "area": "Mekeri, Madikeri", "rating": 4.6, "phone": "+91 63646 01941"},
-            {"name": "Silent Brook Resort", "area": "Jodupala, Madikeri", "rating": 4.4, "phone": "+91 77608 72451"},
-            {"name": "Hotel Oxyrich Coorg", "area": "Thalathmane, Madikeri", "rating": 4.5, "phone": "+91 90191 52900"},
-        ],
-        "restaurants": [
-            {"name": "BELLI'S Restaurant", "area": "Stuart Hill, Madikeri (authentic Coorgi)", "rating": 4.3, "phone": "+91 99729 88175", "price_level": None},
-            {"name": "Chimmy's Cafe and Roastery", "area": "Madikeri", "rating": 4.9, "phone": "+91 72599 41441", "price_level": 2},
-            {"name": "Silver Oaks Madikeri", "area": "Bhagavathi Nagar, Madikeri", "rating": 4.6, "phone": None, "price_level": 2},
-        ],
-    },
-    "pondicherry": {
-        "hotels": [
-            {"name": "The Promenade", "area": "White Town, Puducherry (seafront)", "rating": 4.2, "phone": "+91 413 222 7750"},
-            {"name": "Villa Shanti Hotel Restaurant", "area": "White Town, Puducherry", "rating": 4.3, "phone": "+91 413 420 0028"},
-            {"name": "French Rivera (White Town)", "area": "White Town, Puducherry", "rating": 4.7, "phone": "+91 94435 63331"},
-        ],
-        "restaurants": [
-            {"name": "THE SPOT", "area": "White Town, Puducherry (beachfront)", "rating": 4.7, "phone": "+91 63844 40648", "price_level": None},
-            {"name": "Mira", "area": "White Town, Puducherry (Grand Hotel d'Europe)", "rating": 4.7, "phone": "+91 79 6921 9999", "price_level": 3},
-            {"name": "Copper Kitchen", "area": "Ellaipillaichavady, Puducherry", "rating": 4.6, "phone": "+91 99445 49977", "price_level": 2},
-        ],
-    },
-    "mumbai": {
-        "hotels": [
-            {"name": "Fariyas Hotel Mumbai", "area": "Colaba, Mumbai", "rating": 4.0, "phone": "+91 22 6141 6141"},
-            {"name": "Sai Palace Grand Hotel & Restaurant", "area": "Malad West, Mumbai", "rating": 4.3, "phone": "+91 22 6910 8888"},
-            {"name": "Hotel Royal Palace Fort", "area": "Ballard Estate, Fort, Mumbai", "rating": 4.6, "phone": "+91 91378 82540"},
-        ],
-        "restaurants": [
-            {"name": "The Bombay Canteen", "area": "Kamala Mills, Lower Parel, Mumbai", "rating": 4.5, "phone": "+91 88808 02424", "price_level": None},
-            {"name": "Lake View Cafe", "area": "Powai, Mumbai (The Westin, lake view)", "rating": 4.7, "phone": "+91 86574 15264", "price_level": None},
-            {"name": "Native Bombay", "area": "Ballard Estate, Fort, Mumbai", "rating": 4.5, "phone": "+91 96190 66000", "price_level": None},
-        ],
-    },
-    "hyderabad": {
-        "hotels": [
-            {"name": "Hyderabad Marriott Hotel & Convention Centre", "area": "Tank Bund, Hussain Sagar, Hyderabad", "rating": 4.4, "phone": "+91 40 6652 2999"},
-            {"name": "New Hotel Suhail", "area": "Troop Bazaar, Abids, Hyderabad", "rating": 4.3, "phone": "+91 40 2461 0299"},
-            {"name": "Hyatt Hyderabad Gachibowli", "area": "Financial District, Gachibowli, Hyderabad", "rating": 4.3, "phone": "+91 40 4848 1234"},
-        ],
-        "restaurants": [
-            {"name": "Exotica Banjara Hills", "area": "Banjara Hills, Hyderabad", "rating": 4.3, "phone": "+91 96521 15500", "price_level": None},
-            {"name": "Exotica Hitech City", "area": "Madhapur, Hyderabad (rooftop)", "rating": 4.3, "phone": "+91 96520 65500", "price_level": None},
-            {"name": "Jewel Of Nizam", "area": "The Golkonda Hotel, Masab Tank, Hyderabad", "rating": 4.1, "phone": "+91 40 6611 0101", "price_level": 4},
-        ],
-    },
-    "varanasi": {
-        "hotels": [
-            {"name": "HOTEL STAY BANARAS", "area": "Sigra, Varanasi", "rating": 4.4, "phone": "+91 95949 50095"},
-            {"name": "Hotel Nandini", "area": "Godauliya, Varanasi", "rating": 3.7, "phone": None},
-            {"name": "HOTEL VARANASI INN", "area": "Sigra, Varanasi", "rating": 3.9, "phone": "+91 81760 03999"},
-        ],
-        "restaurants": [
-            {"name": "Charcoal Fine Dining", "area": "Sigra, Varanasi", "rating": 4.6, "phone": "+91 93369 29765", "price_level": 2},
-            {"name": "Cupid Roof Multi Cuisine Restaurant", "area": "Akhri Bypass, Varanasi (rooftop city view)", "rating": 4.7, "phone": "+91 73070 49656", "price_level": 2},
-            {"name": "Desi Mandapam Baati Chokha Restaurant", "area": "Durgakund Rd, Varanasi", "rating": 4.9, "phone": "+91 98393 66001", "price_level": 2},
-        ],
-    },
-}
-
+VERIFIED_DATE_DISCLAIMER = 'Details last verified Aug 2026 — please confirm before booking'
+STAYS_AND_FOOD = {'goa': {'hotels': [{'name': 'Hilton Goa Resort', 'area': 'Candolim, North Goa', 'rating': 4.5, 'phone': '+91 832 664 9800'}, {'name': 'Holiday Inn Resort Goa, an IHG Hotel', 'area': 'Mobor Beach, Cavelossim, South Goa', 'rating': 4.7, 'phone': '+91 832 662 6000'}, {'name': 'Bambolim Beach Resort', 'area': 'Bambolim, Goa', 'rating': 4.1, 'phone': '+91 832 674 8000'}], 'restaurants': [{'name': 'The Second House', 'area': 'Saligao, Goa', 'rating': 4.5, 'phone': '+91 85302 66603', 'price_level': 4}, {'name': 'The Fishermans Wharf', 'area': 'Cavelossim, Goa (riverside seafood)', 'rating': 4.5, 'phone': '+91 90110 18866', 'price_level': None}, {'name': 'Elephant and Co. Anjuna', 'area': 'Anjuna, Goa', 'rating': 4.7, 'phone': '+91 76663 61130', 'price_level': None}]}, 'munnar': {'hotels': [{'name': 'Grand Plaza Munnar', 'area': 'Moolakadai, Munnar town', 'rating': 4.6, 'phone': '+91 97464 70119'}, {'name': 'Blanket Hotel & Spa', 'area': 'Pallivasal, Munnar', 'rating': 4.8, 'phone': '+91 82818 06633'}, {'name': 'Tea County Munnar', 'area': 'Ikka Nagar, Munnar town', 'rating': 4.5, 'phone': '+91 4865 230 460'}], 'restaurants': [{'name': 'Munnar Samrudhi Restaurant', 'area': 'Moolakadai, Munnar', 'rating': 4.7, 'phone': '+91 94965 80200', 'price_level': 2}, {'name': 'Parakkat Spice Merchant Restaurant', 'area': 'Chithirapuram, Munnar', 'rating': 4.8, 'phone': '+91 70254 58888', 'price_level': 2}, {'name': 'The Hornbill Restaurant', 'area': 'Pothamedu, Munnar (Blackberry Hills Resort)', 'rating': 4.5, 'phone': '+91 85902 40881', 'price_level': 2}]}, 'manali': {'hotels': [{'name': 'Hotel Rio Sol Resort and Villas', 'area': 'Aleo, Manali', 'rating': 4.9, 'phone': '+91 98164 02223'}, {'name': 'Apple Field House', 'area': 'Old Manali', 'rating': 4.7, 'phone': '+91 94187 48343'}, {'name': 'Mountain Top Hotel', 'area': 'Hadimba Temple Rd, Manali', 'rating': 4.1, 'phone': '+91 76509 08765'}], 'restaurants': [{'name': 'The Lazy Dog Lounge', 'area': 'Old Manali (riverside)', 'rating': 4.3, 'phone': '+91 70182 28644', 'price_level': None}, {'name': 'Cafe 1986', 'area': 'Mall Road, Manali', 'rating': 4.6, 'phone': '+91 88986 90000', 'price_level': None}, {'name': 'IL Forno', 'area': 'Hadimba Temple Rd, Manali (Italian)', 'rating': 4.4, 'phone': '+91 98160 40144', 'price_level': 2}]}, 'jaipur': {'hotels': [{'name': 'Rajasthan Palace — Heritage Boutique Hotel', 'area': 'Adarsh Nagar, Jaipur', 'rating': 4.6, 'phone': '+91 70166 62608'}, {'name': 'WelcomHeritage Kurki Palace', 'area': 'Nirman Nagar, Jaipur', 'rating': 4.6, 'phone': '+91 92515 54897'}, {'name': 'ibis Jaipur City Centre', 'area': 'Civil Lines, Jaipur', 'rating': 4.5, 'phone': '+91 141 475 5000'}], 'restaurants': [{'name': 'Handi Restaurant', 'area': 'MI Road, Jaipur (Rajasthani non-veg)', 'rating': 4.1, 'phone': '+91 98291 74873', 'price_level': 2}, {'name': 'Suvarna Mahal', 'area': 'Rambagh Palace, Jaipur (fine dining)', 'rating': 4.7, 'phone': '+91 141 667 1234', 'price_level': None}, {'name': 'Govindam Retreat', 'area': 'Gangori Bazaar, Jaipur (thali + live Sufi music)', 'rating': 4.4, 'phone': '+91 99299 49258', 'price_level': 2}]}, 'kashmir': {'hotels': [{'name': 'Zostel Srinagar', 'area': 'Nishat, Srinagar (near Dal Lake)', 'rating': 4.6, 'phone': '+91 11 4116 9723'}, {'name': 'The Stay Villa', 'area': 'Lal Chowk, Srinagar', 'rating': 4.8, 'phone': '+91 87130 00025'}, {'name': 'Four Points by Sheraton Srinagar', 'area': 'Sonwar Bagh, Srinagar', 'rating': 4.2, 'phone': '+91 194 246 9000'}], 'restaurants': [{'name': 'Stream Restaurant', 'area': 'Boulevard Rd, Srinagar (Wazwan, Dal Lake view)', 'rating': 4.7, 'phone': '+91 194 250 0244', 'price_level': None}, {'name': 'Little Persia', 'area': 'Munawar Link Rd, Srinagar', 'rating': 4.4, 'phone': '+91 88999 85589', 'price_level': None}, {'name': 'Kake Di Hatti', 'area': 'Khayam, Srinagar (vegetarian North Indian)', 'rating': 4.6, 'phone': '+91 88002 81213', 'price_level': None}]}, 'gokarna': {'hotels': [{'name': 'Zostel Gokarna', 'area': 'Kudle Beach Rd, Gokarna', 'rating': 4.5, 'phone': '+91 44 4011 5827'}, {'name': 'Arthigamya Spa & Resort', 'area': 'Kudle Beach Rd, Gokarna', 'rating': 4.0, 'phone': '+91 88806 88806'}, {'name': 'Ocean Breeze Cottage and Cafe', 'area': 'Main Beach, Gokarna', 'rating': 4.3, 'phone': '+91 97429 85562'}], 'restaurants': [{'name': 'The Coco Leaf', 'area': 'Main Beach, Gokarna', 'rating': 4.5, 'phone': '+91 80505 08585', 'price_level': None}, {'name': 'Sunset Cafe Beach Stay', 'area': 'Main Beach, Gokarna', 'rating': 4.5, 'phone': '+91 82176 85525', 'price_level': None}, {'name': 'Mantra Cafe', 'area': 'Kudle Beach Rd, Gokarna (Zostel in-house)', 'rating': 4.1, 'phone': None, 'price_level': 2}]}, 'ooty': {'hotels': [{'name': 'Hotel Lakeview', 'area': 'West Mere, Ooty', 'rating': 4.0, 'phone': '+91 423 244 3580'}, {'name': 'Silent Valley Farm Resort', 'area': 'Adasolai Rd, Ooty', 'rating': 4.5, 'phone': '+91 94878 17756'}, {'name': 'Al Woodlands Residency', 'area': 'Bombay Castel, Ooty (opp. Rose Garden)', 'rating': 4.5, 'phone': '+91 90436 98405'}], 'restaurants': [{'name': 'The Periodic Table', 'area': 'Upper Bazar, Ooty (fine dining)', 'rating': 4.5, 'phone': '+91 94870 00222', 'price_level': 4}, {'name': "Earl's Secret", 'area': 'Pudumund, Ooty (colonial-era heritage restaurant)', 'rating': 4.4, 'phone': '+91 94870 00222', 'price_level': None}, {'name': 'Angaara Restaurant', 'area': 'Upper Bazar, Ooty', 'rating': 4.3, 'phone': None, 'price_level': 2}]}, 'hampi': {'hotels': [{'name': 'Heritage Resort Hampi', 'area': 'Hosamalapanagudi, Hampi', 'rating': 4.4, 'phone': '+91 98456 02838'}, {'name': 'Hampi Delmont Resort', 'area': 'Hanmanhalli, Hampi (pure vegetarian)', 'rating': 4.5, 'phone': '+91 63620 92020'}, {'name': 'Hotel Hampi International', 'area': 'Station Rd, Hosapete', 'rating': 3.9, 'phone': '+91 92431 61111'}], 'restaurants': [{'name': 'Mango Tree Restaurant', 'area': 'Old Busstand, Kamalapura, Hampi', 'rating': 4.3, 'phone': '+91 94487 65213', 'price_level': None}, {'name': 'The Nest — Lakefront Restaurant', 'area': 'Tirumalapur Village, Hampi (Feathers Resort)', 'rating': 4.6, 'phone': '+91 76769 86517', 'price_level': 2}, {'name': 'Taste of Brahmins', 'area': 'Near Virupaksha Temple, Hampi (breakfast)', 'rating': 4.8, 'phone': '+91 94820 06076', 'price_level': 1}]}, 'rishikesh': {'hotels': [{'name': 'Aloha On The Ganges', 'area': 'Tapovan, Rishikesh', 'rating': 4.4, 'phone': '+91 95550 88000'}, {'name': 'Oslo by Around Stays', 'area': 'Tapovan, Rishikesh', 'rating': 4.3, 'phone': '+91 98123 44442'}, {'name': 'Hotel Shivanta Laxmanjhula', 'area': 'Laxman Jhula, Rishikesh', 'rating': 3.1, 'phone': '+91 84396 38175'}], 'restaurants': [{'name': 'The Sitting Elephant', 'area': 'Palika Nagar, Rishikesh (rooftop, Ganga view)', 'rating': 4.7, 'phone': '+91 79 6580 4730', 'price_level': 2}, {'name': 'Sky Deck Restaurant', 'area': 'Adarsh Gram, Rishikesh', 'rating': 4.8, 'phone': '+91 95208 87794', 'price_level': 2}, {'name': 'Jal & Jalebi', 'area': 'Veerbhadra, Rishikesh (Ganga Kinare, riverside)', 'rating': 4.3, 'phone': '+91 90155 44000', 'price_level': None}]}, 'udaipur': {'hotels': [{'name': 'Pax Grand Blue', 'area': 'Shivaji Nagar, Udaipur', 'rating': 4.7, 'phone': '+91 99911 66775'}, {'name': 'Udaigarh Udaipur — Heritage Hotel', 'area': 'Lal Ghat, Old City, Udaipur (lake view rooftop)', 'rating': 4.1, 'phone': '+91 96600 55500'}, {'name': 'Hotel Subcity', 'area': 'Sector 8, Central Area, Udaipur', 'rating': 4.8, 'phone': '+91 98797 60780'}], 'restaurants': [{'name': '1559 AD', 'area': 'Near Fateh Sagar Lake, Udaipur', 'rating': 4.4, 'phone': '+91 73570 41559', 'price_level': 2}, {'name': 'Khamma Ghani Restaurant', 'area': 'Rang Sagar, Udaipur (lakeside)', 'rating': 4.1, 'phone': '+91 73406 66622', 'price_level': None}, {'name': 'Ghati Pe', 'area': 'Ambavgarh, Udaipur (rooftop city view)', 'rating': 4.9, 'phone': '+91 73000 76035', 'price_level': None}]}, 'varkala': {'hotels': [{'name': 'Skylar Seaview Resort', 'area': 'South Cliff, Varkala', 'rating': 4.6, 'phone': '+91 87140 19666'}, {'name': 'SANDRA Eco Beach Resort', 'area': 'Odayam Beach, Varkala', 'rating': 4.6, 'phone': '+91 99957 03366'}, {'name': 'Varkala Villa', 'area': 'South Cliff, Varkala (homestay)', 'rating': 4.4, 'phone': '+91 98952 98300'}], 'restaurants': [{'name': 'Cafe Trip is Life', 'area': 'South Cliff, Varkala', 'rating': 4.5, 'phone': '+91 79074 83838', 'price_level': 2}, {'name': 'Cafe Sarwaa on the Cliff', 'area': 'South Cliff, Varkala', 'rating': 4.6, 'phone': None, 'price_level': 2}, {'name': 'BLG Surf Bistro', 'area': 'Edava, Varkala', 'rating': 4.5, 'phone': '+91 62387 96719', 'price_level': None}]}, 'coorg': {'hotels': [{'name': 'Coorg Wilderness Resort & Spa', 'area': 'Mekeri, Madikeri', 'rating': 4.6, 'phone': '+91 63646 01941'}, {'name': 'Silent Brook Resort', 'area': 'Jodupala, Madikeri', 'rating': 4.4, 'phone': '+91 77608 72451'}, {'name': 'Hotel Oxyrich Coorg', 'area': 'Thalathmane, Madikeri', 'rating': 4.5, 'phone': '+91 90191 52900'}], 'restaurants': [{'name': "BELLI'S Restaurant", 'area': 'Stuart Hill, Madikeri (authentic Coorgi)', 'rating': 4.3, 'phone': '+91 99729 88175', 'price_level': None}, {'name': "Chimmy's Cafe and Roastery", 'area': 'Madikeri', 'rating': 4.9, 'phone': '+91 72599 41441', 'price_level': 2}, {'name': 'Silver Oaks Madikeri', 'area': 'Bhagavathi Nagar, Madikeri', 'rating': 4.6, 'phone': None, 'price_level': 2}]}, 'pondicherry': {'hotels': [{'name': 'The Promenade', 'area': 'White Town, Puducherry (seafront)', 'rating': 4.2, 'phone': '+91 413 222 7750'}, {'name': 'Villa Shanti Hotel Restaurant', 'area': 'White Town, Puducherry', 'rating': 4.3, 'phone': '+91 413 420 0028'}, {'name': 'French Rivera (White Town)', 'area': 'White Town, Puducherry', 'rating': 4.7, 'phone': '+91 94435 63331'}], 'restaurants': [{'name': 'THE SPOT', 'area': 'White Town, Puducherry (beachfront)', 'rating': 4.7, 'phone': '+91 63844 40648', 'price_level': None}, {'name': 'Mira', 'area': "White Town, Puducherry (Grand Hotel d'Europe)", 'rating': 4.7, 'phone': '+91 79 6921 9999', 'price_level': 3}, {'name': 'Copper Kitchen', 'area': 'Ellaipillaichavady, Puducherry', 'rating': 4.6, 'phone': '+91 99445 49977', 'price_level': 2}]}, 'mumbai': {'hotels': [{'name': 'Fariyas Hotel Mumbai', 'area': 'Colaba, Mumbai', 'rating': 4.0, 'phone': '+91 22 6141 6141'}, {'name': 'Sai Palace Grand Hotel & Restaurant', 'area': 'Malad West, Mumbai', 'rating': 4.3, 'phone': '+91 22 6910 8888'}, {'name': 'Hotel Royal Palace Fort', 'area': 'Ballard Estate, Fort, Mumbai', 'rating': 4.6, 'phone': '+91 91378 82540'}], 'restaurants': [{'name': 'The Bombay Canteen', 'area': 'Kamala Mills, Lower Parel, Mumbai', 'rating': 4.5, 'phone': '+91 88808 02424', 'price_level': None}, {'name': 'Lake View Cafe', 'area': 'Powai, Mumbai (The Westin, lake view)', 'rating': 4.7, 'phone': '+91 86574 15264', 'price_level': None}, {'name': 'Native Bombay', 'area': 'Ballard Estate, Fort, Mumbai', 'rating': 4.5, 'phone': '+91 96190 66000', 'price_level': None}]}, 'hyderabad': {'hotels': [{'name': 'Hyderabad Marriott Hotel & Convention Centre', 'area': 'Tank Bund, Hussain Sagar, Hyderabad', 'rating': 4.4, 'phone': '+91 40 6652 2999'}, {'name': 'New Hotel Suhail', 'area': 'Troop Bazaar, Abids, Hyderabad', 'rating': 4.3, 'phone': '+91 40 2461 0299'}, {'name': 'Hyatt Hyderabad Gachibowli', 'area': 'Financial District, Gachibowli, Hyderabad', 'rating': 4.3, 'phone': '+91 40 4848 1234'}], 'restaurants': [{'name': 'Exotica Banjara Hills', 'area': 'Banjara Hills, Hyderabad', 'rating': 4.3, 'phone': '+91 96521 15500', 'price_level': None}, {'name': 'Exotica Hitech City', 'area': 'Madhapur, Hyderabad (rooftop)', 'rating': 4.3, 'phone': '+91 96520 65500', 'price_level': None}, {'name': 'Jewel Of Nizam', 'area': 'The Golkonda Hotel, Masab Tank, Hyderabad', 'rating': 4.1, 'phone': '+91 40 6611 0101', 'price_level': 4}]}, 'varanasi': {'hotels': [{'name': 'HOTEL STAY BANARAS', 'area': 'Sigra, Varanasi', 'rating': 4.4, 'phone': '+91 95949 50095'}, {'name': 'Hotel Nandini', 'area': 'Godauliya, Varanasi', 'rating': 3.7, 'phone': None}, {'name': 'HOTEL VARANASI INN', 'area': 'Sigra, Varanasi', 'rating': 3.9, 'phone': '+91 81760 03999'}], 'restaurants': [{'name': 'Charcoal Fine Dining', 'area': 'Sigra, Varanasi', 'rating': 4.6, 'phone': '+91 93369 29765', 'price_level': 2}, {'name': 'Cupid Roof Multi Cuisine Restaurant', 'area': 'Akhri Bypass, Varanasi (rooftop city view)', 'rating': 4.7, 'phone': '+91 73070 49656', 'price_level': 2}, {'name': 'Desi Mandapam Baati Chokha Restaurant', 'area': 'Durgakund Rd, Varanasi', 'rating': 4.9, 'phone': '+91 98393 66001', 'price_level': 2}]}, 'bangalore': {'hotels': [{'name': 'The Oberoi Bengaluru', 'area': 'MG Road, Central Bangalore', 'rating': 4.8, 'phone': '+91 80 2558 5858'}, {'name': 'Bloomrooms @ Indiranagar', 'area': '100 Feet Rd, Indiranagar', 'rating': 4.5, 'phone': '+91 80 4658 9000'}, {'name': 'Zostel Bangalore', 'area': 'Koramangala 4th Block', 'rating': 4.6, 'phone': '+91 11 4116 9723'}], 'restaurants': [{'name': 'Vidyarthi Bhavan', 'area': 'Gandhi Bazaar, Basavanagudi (legendary dosas)', 'rating': 4.5, 'phone': '+91 80 2667 7588', 'price_level': 1}, {'name': 'Mavalli Tiffin Room (MTR)', 'area': 'Lalbagh Rd, South Bangalore', 'rating': 4.6, 'phone': '+91 80 2222 0022', 'price_level': 2}, {'name': 'Toit Brewpub', 'area': '100 Feet Rd, Indiranagar', 'rating': 4.7, 'phone': '+91 90197 13388', 'price_level': 3}]}, 'chandigarh': {'hotels': [{'name': 'JW Marriott Hotel Chandigarh', 'area': 'Sector 35B, Chandigarh', 'rating': 4.7, 'phone': '+91 172 455 5555'}, {'name': 'Hotel Mountview', 'area': 'Sector 10, Chandigarh', 'rating': 4.4, 'phone': '+91 172 274 0544'}, {'name': 'Hotel Aquamarine', 'area': 'Sector 22C, Chandigarh', 'rating': 4.2, 'phone': '+91 172 505 5555'}], 'restaurants': [{'name': 'Pal Dhaba', 'area': 'Sector 28D, Chandigarh (authentic Punjabi)', 'rating': 4.3, 'phone': '+91 172 265 6777', 'price_level': 2}, {'name': 'Garg Dhaba', 'area': 'Sector 23C, Chandigarh', 'rating': 4.4, 'phone': '+91 172 270 4555', 'price_level': 1}, {'name': 'Virgin Courtyard', 'area': 'Sector 7C, Chandigarh (fine Italian courtyard)', 'rating': 4.6, 'phone': '+91 86990 00999', 'price_level': 4}]}, 'jodhpur': {'hotels': [{'name': 'RAAS Jodhpur — Luxury Boutique Fort Hotel', 'area': 'Tunwar ji ka Jhalra, Makrana Mohalla', 'rating': 4.8, 'phone': '+91 291 263 6455'}, {'name': 'Haveli Inn Pal', 'area': 'Near Clock Tower, Jodhpur', 'rating': 4.4, 'phone': '+91 291 261 2444'}, {'name': 'Zostel Jodhpur', 'area': 'Old City, Makrana Mohalla', 'rating': 4.6, 'phone': '+91 11 4116 9723'}], 'restaurants': [{'name': 'Gypsy Dining Hall', 'area': 'Sardarpura, Jodhpur (unlimited royal thali)', 'rating': 4.5, 'phone': '+91 291 243 0000', 'price_level': 2}, {'name': 'Shahi Samosa & Jalebi', 'area': 'Clock Tower, Sardar Market', 'rating': 4.6, 'phone': '+91 291 262 5555', 'price_level': 1}, {'name': 'Indique Rooftop Restaurant', 'area': 'Pal Haveli, Gulab Sagar (fort view)', 'rating': 4.4, 'phone': '+91 291 263 8338', 'price_level': 3}]}, 'kerala': {'hotels': [{'name': 'Brunton Boatyard — CGH Earth', 'area': 'Fort Kochi, Cochin', 'rating': 4.7, 'phone': '+91 484 221 5461'}, {'name': 'Fragrant Nature Backwater Resort', 'area': 'Nedungolam, Kollam/Alleppey', 'rating': 4.6, 'phone': '+91 474 251 4000'}, {'name': 'Zostel Kochi', 'area': 'KB Jacob Rd, Fort Kochi', 'rating': 4.5, 'phone': '+91 11 4116 9723'}], 'restaurants': [{'name': 'Grand Hotel Restaurant', 'area': 'MG Road, Ernakulam (Karimeen Pollichathu)', 'rating': 4.5, 'phone': '+91 484 238 2061', 'price_level': 2}, {'name': 'Kashi Art Cafe', 'area': 'Burgher St, Fort Kochi', 'rating': 4.4, 'phone': '+91 484 221 5769', 'price_level': 2}, {'name': 'Dhe Puttu', 'area': 'Edappally, Kochi (traditional Kerala puttu)', 'rating': 4.3, 'phone': '+91 484 280 8484', 'price_level': 2}]}, 'mahabaleshwar': {'hotels': [{'name': 'Le Méridien Mahabaleshwar Resort & Spa', 'area': 'Medha Rd, Mahabaleshwar', 'rating': 4.7, 'phone': '+91 2168 262 222'}, {'name': 'Brightland Resort & Spa', 'area': 'Kates Point Rd, Mahabaleshwar', 'rating': 4.4, 'phone': '+91 2168 260 700'}, {'name': 'Hotel Saket Plaza', 'area': 'Old Mahabaleshwar Rd', 'rating': 4.3, 'phone': '+91 2168 260 583'}], 'restaurants': [{'name': 'Mapro Garden Cafe', 'area': 'Gureghar, Panchgani-Mahabaleshwar Rd', 'rating': 4.6, 'phone': '+91 2168 240 112', 'price_level': 2}, {'name': 'The Grapevine Restaurant', 'area': 'Masjid Rd, Mahabaleshwar town', 'rating': 4.4, 'phone': '+91 2168 260 066', 'price_level': 3}, {'name': 'Bagicha Corner', 'area': 'Panchgani Rd (strawberry cream & corn pattice)', 'rating': 4.3, 'phone': '+91 2168 260 274', 'price_level': 1}]}, 'mussoorie': {'hotels': [{'name': 'Welcomhotel by ITC Hotels, The Savoy', 'area': 'Library Bazaar, Mussoorie', 'rating': 4.7, 'phone': '+91 135 263 7000'}, {'name': 'Rokeby Manor Landour', 'area': 'Landour Cantt, Mussoorie', 'rating': 4.6, 'phone': '+91 135 263 5604'}, {'name': 'Zostel Plus Mussoorie', 'area': 'Kempty Fall Rd, Mussoorie', 'rating': 4.5, 'phone': '+91 11 4116 9723'}], 'restaurants': [{'name': 'Landour Bakehouse', 'area': 'Sisters Bazaar, Landour (colonial bakes)', 'rating': 4.6, 'phone': '+91 135 263 5605', 'price_level': 2}, {'name': 'Kalsang Friends Corner', 'area': 'Mall Road, Mussoorie (Tibetan momos & thukpa)', 'rating': 4.4, 'phone': '+91 135 263 1777', 'price_level': 2}, {'name': 'Char Dukan Cafe', 'area': 'Landour Cantt, Mussoorie (pancakes & chai)', 'rating': 4.5, 'phone': '+91 98970 88888', 'price_level': 1}]}, 'kolkata': {'hotels': [{'name': 'The Oberoi Grand Kolkata', 'area': 'Jawaharlal Nehru Rd, Esplanade', 'rating': 4.8, 'phone': '+91 33 2249 2323'}, {'name': 'The Lalit Great Eastern Kolkata', 'area': 'Old Court House St, Dalhousie Square', 'rating': 4.5, 'phone': '+91 33 4444 7777'}, {'name': 'Hotel Hindusthan International (HHI)', 'area': 'AJC Bose Rd, Elgin', 'rating': 4.2, 'phone': '+91 33 2280 2323'}], 'restaurants': [{'name': 'Peter Cat', 'area': 'Park Street, Kolkata (legendary Chelo Kebab)', 'rating': 4.6, 'phone': '+91 33 2229 8841', 'price_level': 3}, {'name': '6 Ballygunge Place', 'area': 'Ballygunge, Kolkata (authentic Bengali thali)', 'rating': 4.5, 'phone': '+91 33 2460 3922', 'price_level': 2}, {'name': 'Arsalan Restaurant', 'area': 'Park Circus 7 Point, Kolkata (Kolkata Biryani)', 'rating': 4.4, 'phone': '+91 98311 00000', 'price_level': 2}]}, 'andaman-nicobar': {'hotels': [{'name': 'Taj Exotica Resort & Spa, Andamans', 'area': 'Radhanagar Beach, Havelock Island', 'rating': 4.9, 'phone': '+91 3192 283 000'}, {'name': 'Symphony Samudra Beachside Resort', 'area': 'Chidiya Tapu, Port Blair', 'rating': 4.6, 'phone': '+91 3192 216 000'}, {'name': 'SeaShell Port Blair', 'area': 'Marine Hill, Port Blair', 'rating': 4.4, 'phone': '+91 3192 242 770'}], 'restaurants': [{'name': 'Something Different — A Beachside Cafe', 'area': 'Havelock Island (seafood & beach view)', 'rating': 4.6, 'phone': '+91 99332 02222', 'price_level': 3}, {'name': 'Full Moon Cafe', 'area': 'Dive India, Beach 5, Havelock', 'rating': 4.5, 'phone': '+91 99332 54220', 'price_level': 2}, {'name': 'New Lighthouse Restaurant', 'area': 'Marina Park, Port Blair (fresh grilled fish)', 'rating': 4.2, 'phone': '+91 3192 233 456', 'price_level': 2}]}, 'pune': {'hotels': [{'name': 'JW Marriott Hotel Pune', 'area': 'Senapati Bapat Rd, Shivajinagar', 'rating': 4.7, 'phone': '+91 20 6683 3333'}, {'name': 'The Ritz-Carlton, Pune', 'area': 'Golf Course Square, Airport Rd, Yerawada', 'rating': 4.8, 'phone': '+91 20 6767 5000'}, {'name': 'Zostel Pune', 'area': 'Koregaon Park, Pune', 'rating': 4.6, 'phone': '+91 11 4116 9723'}], 'restaurants': [{'name': 'Cafe Goodluck', 'area': 'FC Road, Deccan Gymkhana (Bun Maska Chai & Kheema)', 'rating': 4.4, 'phone': '+91 20 2567 6893', 'price_level': 1}, {'name': 'Vaishali Restaurant', 'area': 'FC Road, Pune (legendary SPDP & Filter Coffee)', 'rating': 4.5, 'phone': '+91 20 2553 1244', 'price_level': 1}, {'name': 'German Bakery', 'area': 'Koregaon Park, Pune (bakes & continental)', 'rating': 4.3, 'phone': '+91 20 2615 6140', 'price_level': 2}]}, 'mysore': {'hotels': [{'name': 'Grand Mercure Mysuru', 'area': 'Nelson Mandela Rd, New Sayyaji Rao Rd', 'rating': 4.6, 'phone': '+91 821 402 1212'}, {'name': 'Royal Orchid Metropole', 'area': 'JLB Rd, Chamarajapuram, Mysore', 'rating': 4.4, 'phone': '+91 821 425 5566'}, {'name': 'Zostel Mysore', 'area': 'Gokulam 3rd Stage, Mysore', 'rating': 4.6, 'phone': '+91 11 4116 9723'}], 'restaurants': [{'name': 'Hotel Original Mylari', 'area': 'Nazarbad Main Rd, Mysore (authentic butter dosa)', 'rating': 4.6, 'phone': '+91 94486 08710', 'price_level': 1}, {'name': 'Guru Sweet Mart', 'area': 'Sayyaji Rao Rd, Devaraja Mohalla (original Mysore Pak)', 'rating': 4.5, 'phone': '+91 821 243 0000', 'price_level': 1}, {'name': 'Gufha Restaurant', 'area': 'Hotel Pai Vista, Bangalore-Nilgiri Rd (themed cave)', 'rating': 4.3, 'phone': '+91 821 252 1111', 'price_level': 2}]}}
 
 def get_stays_and_food(slug):
-    """Retrieve hotels and restaurants list for a destination slug."""
-    return STAYS_AND_FOOD.get(slug, {"hotels": [], "restaurants": []})
+    return STAYS_AND_FOOD.get(slug, {'hotels': [], 'restaurants': []})
 
-
-def get_suggested_stay(slug, budget_tier="standard", stay_type="3_star"):
-    """
-    Select the most suitable hotel recommendation for a destination.
-    Optionally maps user budget / stay preference.
-    """
+def get_suggested_stay(slug, budget_tier='standard', stay_type='3_star'):
     data = get_stays_and_food(slug)
-    hotels = data.get("hotels", [])
+    hotels = data.get('hotels', [])
     if not hotels:
         return None
-
-    # If hostel/budget preference and multiple choices exist, pick accordingly or default to first
-    if stay_type in ["hostel", "budget_hotel"] or budget_tier == "budget":
-        # Look for Zostel / budget hotel if present, otherwise sort by rating/index
+    if stay_type in ['hostel', 'budget_hotel'] or budget_tier == 'budget':
         for h in hotels:
-            if "zostel" in h["name"].lower() or "cottage" in h["name"].lower() or "house" in h["name"].lower():
+            if 'zostel' in h['name'].lower() or 'cottage' in h['name'].lower() or 'house' in h['name'].lower():
                 return h
         return hotels[-1]
-    elif stay_type in ["4_star", "5_star"] or budget_tier in ["premium", "luxury"]:
-        # Pick top resort / luxury if available
+    elif stay_type in ['4_star', '5_star'] or budget_tier in ['premium', 'luxury']:
         for h in hotels:
-            if "resort" in h["name"].lower() or "palace" in h["name"].lower() or "grand" in h["name"].lower():
+            if 'resort' in h['name'].lower() or 'palace' in h['name'].lower() or 'grand' in h['name'].lower():
                 return h
         return hotels[0]
-
     return hotels[0]
 
-
-def get_suggested_restaurant(slug, budget_tier="standard", diet="no_preference"):
-    """
-    Select the most suitable restaurant recommendation for a destination.
-    """
+def get_suggested_restaurant(slug, budget_tier='standard', diet='no_preference'):
     data = get_stays_and_food(slug)
-    restaurants = data.get("restaurants", [])
+    restaurants = data.get('restaurants', [])
     if not restaurants:
         return None
-
-    if diet == "vegetarian":
+    if diet == 'vegetarian':
         for r in restaurants:
-            if "vegetarian" in r.get("area", "").lower() or "thali" in r.get("area", "").lower():
+            if 'vegetarian' in r.get('area', '').lower() or 'thali' in r.get('area', '').lower():
                 return r
-
-    if budget_tier == "luxury":
+    if budget_tier == 'luxury':
         for r in restaurants:
-            if r.get("price_level") == 4 or "fine dining" in r.get("area", "").lower():
+            if r.get('price_level') == 4 or 'fine dining' in r.get('area', '').lower():
                 return r
-
     return restaurants[0]

@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Travel Itinerary - Manali Trip | DesiSafar</title>
+    <title>Your DesiSafar Plan | Smart Budget-Based Itinerary</title>
     <meta name="description"
-        content="5 Days / 4 Nights personalized travel itinerary for Manali, Himachal Pradesh with DesiSfar. Plan your journey, budget, and daily activities.">
+        content="Personalized travel itinerary with DesiSafar. Day-by-day travel sequence, local transportation costs, entry fees, and trip budget summary.">
     <link rel="icon" type="image/png" href="logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="navbar.css">
-
     <link rel="stylesheet" href="styles4.css">
 </head>
 
@@ -30,7 +29,7 @@
                     <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
                     </svg>
-                    <span>Back</span>
+                    <span>Back to Preferences</span>
                 </a>
             </div>
 
@@ -65,147 +64,284 @@
         </div>
     </header>
 
-    <main>
+    <main class="itinerary-page-main">
 
-        <section id="page-header" class="page-header-section">
-            <div class="header-container">
-                <h1 class="page-title">Your Travel Itinerary</h1>
-                <p class="page-subtitle" id="pageSubtitle">
-                    Custom-tailored journey planned with DesiSafar.
-                </p>
-            </div>
-        </section>
+        <section id="plan-header" class="desi-plan-hero">
+            <div class="plan-hero-container">
+                <span class="plan-hero-eyebrow">✨ Smart Itinerary Synthesized</span>
+                <h1 class="plan-hero-title">Your DesiSafar Plan</h1>
+                
+                <div class="plan-hero-meta-badge">
+                    <span class="meta-dest-pill" id="heroDestPill">📍 Jaipur</span>
+                    <span class="meta-dot">•</span>
+                    <span class="meta-info-text" id="heroMetaInfo">3 Days • 4 Travelers • Comfort Traveler</span>
+                </div>
 
-        <section id="trip-summary" class="trip-summary-section" aria-labelledby="summary-heading">
-            <div class="summary-container">
-                <h2 id="summary-heading" class="section-title">Trip Summary</h2>
-
-                <div class="summary-cards-grid">
-                    <div class="summary-card">
-                        <span class="summary-icon">📍</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Destination</span>
-                            <strong class="summary-value" id="summaryDestinations">Goa + Munnar</strong>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <span class="summary-icon">📅</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Duration</span>
-                            <strong class="summary-value" id="summaryDuration">7 Days / 6 Nights</strong>
-                            <span class="summary-subtext" id="summaryDatesRange">Flexible Dates</span>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <span class="summary-icon">👥</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Travelers</span>
-                            <strong class="summary-value" id="summaryTravelers">4 People</strong>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <span class="summary-icon">💰</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Estimated Budget</span>
-                            <strong class="summary-value" id="summaryBudget">₹34,200</strong>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <span class="summary-icon">🎒</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Trip Style</span>
-                            <strong class="summary-value" id="summaryStyle">Adventure &amp; Foodie</strong>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <span class="summary-icon">🍲</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Food Preference</span>
-                            <strong class="summary-value" id="summaryFood">Vegetarian</strong>
-                            <span class="summary-subtext">No Pref · Veg · Non-Veg · Vegan</span>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <span class="summary-icon">🏨</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Hotel Type</span>
-                            <strong class="summary-value" id="summaryHotel">3-Star Hotel</strong>
-                            <span class="summary-subtext">Hostel · Budget · 3★ · 4★ · 5★</span>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <span class="summary-icon">✨</span>
-                        <div class="summary-info">
-                            <span class="summary-label">Experience Type</span>
-                            <strong class="summary-value" id="summaryExperience">Standard Plan</strong>
-                            <span class="summary-subtext">Budget · Standard · Premium · Luxury</span>
-                        </div>
-                    </div>
+                <div class="plan-dates-origin-row">
+                    <span id="heroDates">📅 3 Days · 2 Nights</span>
+                    <span class="meta-dot">•</span>
+                    <span id="heroOrigin">🚀 Starting from <strong>Flexible Starting Hub</strong></span>
+                    <span class="meta-dot">•</span>
+                    <span id="heroDiet">🍲 Vegetarian</span>
+                    <span class="meta-dot">•</span>
+                    <span id="heroStay">🏨 3-Star Hotel</span>
                 </div>
             </div>
         </section>
 
-        <section id="itinerary" class="itinerary-timeline-section" aria-labelledby="itinerary-heading">
-            <div class="itinerary-container">
-                <h2 id="itinerary-heading" class="section-title">Day-by-Day Itinerary</h2>
+        <section class="smart-controls-section">
+            <div class="smart-controls-container">
+                <div class="smart-controls-label">
+                    <span class="sparkle-icon">⚡</span>
+                    <strong>Smart Itinerary Adjustments:</strong>
+                </div>
 
-                <div class="itinerary-days-list" id="itineraryDaysList">
-                    <!-- Dynamically rendered via client-side JavaScript from saved preferences/destinations -->
+                <div class="smart-buttons-form">
+                    <button type="button" id="btnCheaper" class="smart-action-btn" title="Prioritize cheaper transit, buses & economical alternatives">
+                        <span></span>
+                        <span>💰</span>
+                        <span>Make It Cheaper</span>
+                    </button>
+
+                    <button type="button" id="btnComfortable" class="smart-action-btn" title="Upgrade selected transit to private autos and direct cabs">
+                        <span></span>
+                        <span>🚕</span>
+                        <span>Make It More Comfortable</span>
+                    </button>
+
+                    <button type="button" id="btnOptimize" class="smart-action-btn" title="Rearrange attractions to reduce travel distance and transportation cost">
+                        <span></span>
+                        <span>📍</span>
+                        <span>Optimize Route</span>
+                    </button>
+
+                    <button type="button" id="btnReset" class="smart-action-btn reset-btn" style="display: none;" title="Reset to standard plan">
+                        <span>↺</span>
+                        <span>Reset Settings</span>
+                    </button>
+
+                    <a href="../preference/preference.html" class="smart-action-btn edit-trip-btn" title="Edit trip parameters">
+                        <span></span>
+                        <span>✎</span>
+                        <span>Edit Trip</span>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="trip-budget" class="trip-budget-section" aria-labelledby="budget-heading">
-            <div class="budget-container">
-                <h2 id="budget-heading" class="section-title">Trip Budget Overview</h2>
+        <section id="budgetProtectionBanner" class="budget-protection-banner" style="display: none;" role="alert">
+            <div class="protection-alert-box">
+                <span class="protection-icon">⚠️</span>
+                <div class="protection-content">
+                    <strong>Budget Advisory:</strong>
+                    <p id="protectionMsg">Your selected budget may not be sufficient for this itinerary. We have created the closest affordable plan with budget buses & public transport, and highlighted where additional spending may be required.</p>
+                </div>
+            </div>
+        </section>
 
-                <div class="budget-card">
-                    <ul class="budget-list" id="budgetList">
-                        <li class="budget-item">
-                            <span class="budget-category">🏨 Stays &amp; Accommodation</span>
-                            <span class="budget-cost" id="bCostStay">~39% of total</span>
-                        </li>
-                        <li class="budget-item">
-                            <span class="budget-category">🚗 Transportation &amp; Transfers</span>
-                            <span class="budget-cost" id="bCostTransit">~19% of total</span>
-                        </li>
-                        <li class="budget-item">
-                            <span class="budget-category">🍜 Food &amp; Local Dining</span>
-                            <span class="budget-cost" id="bCostFood">~16% of total</span>
-                        </li>
-                        <li class="budget-item">
-                            <span class="budget-category">🎟️ Activities &amp; Sightseeing</span>
-                            <span class="budget-cost" id="bCostActivities">~15% of total</span>
-                        </li>
-                        <li class="budget-item">
-                            <span class="budget-category">🛡️ Miscellaneous &amp; Buffer</span>
-                            <span class="budget-cost" id="bCostMisc">~11% of total</span>
-                        </li>
-                    </ul>
+        <section id="itinerary-days" class="itinerary-timeline-section" aria-labelledby="timeline-heading">
+            <div class="timeline-wrapper">
+                <h2 id="timeline-heading" class="sr-only">Day by Day Plan</h2>
 
-                    <div class="budget-total-row">
-                        <strong class="total-label">Total Estimated Cost:</strong>
-                        <strong class="total-amount" id="budgetTotalCost">₹34,200</strong>
+                <div class="itinerary-days-feed" id="itineraryDaysFeed">
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="destination-insights-section" class="dest-insights-section" aria-labelledby="insights-heading">
+            <div class="dest-insights-container">
+                <header class="insights-section-header">
+                    <div class="insights-eyebrow-row">
+                        <span class="insights-sparkle-pill">✨ Local Secrets &amp; Culinary Treasures</span>
+                        <span class="insights-verified-badge">🛡️ DesiSafar Curated</span>
                     </div>
+                    <h2 id="insights-heading" class="insights-main-title">
+                        Hidden Spots &amp; Famous Food
+                    </h2>
+                    <p class="insights-subtitle">
+                        Uncover secret stepwells, secluded sunrise viewpoints, and authentic regional culinary specialties for your trip.
+                    </p>
+                </header>
+
+                <div id="destInsightsFeed" class="dest-insights-feed">
+                    
                 </div>
             </div>
         </section>
 
-        <section id="cta" class="bottom-cta-section">
-            <div class="cta-container">
-                <h2 class="cta-title">Ready for your adventure?</h2>
-                <a href="../budget/budget.html" class="btn btn-primary">View Detailed Budget &amp; Split (Page 4) &rarr;</a>
+        <section id="budget-summary-card" class="trip-budget-summary-section" aria-labelledby="summary-card-title">
+            <div class="budget-summary-container">
+                <article class="budget-summary-card">
+                    <header class="summary-card-header">
+                        <div class="header-icon-title">
+                            <span class="summary-card-icon">💰</span>
+                            <div>
+                                <h2 id="summary-card-title" class="summary-card-title">Trip Budget Summary</h2>
+                                <p class="summary-card-subtitle" id="budgetCardSubtitle">Estimated expenses for travelers</p>
+                            </div>
+                        </div>
+
+                        <div class="budget-status-pill status-green" id="budgetStatusPill">
+                            <span id="budgetStatusLabel">🟢 Within Budget</span>
+                        </div>
+                    </header>
+
+                    <div class="budget-categories-grid">
+                        <div class="budget-cat-item">
+                            <span class="cat-icon-label">🚗 Transportation:</span>
+                            <strong class="cat-value" id="bSummTransit">₹0</strong>
+                        </div>
+
+                        <div class="budget-cat-item">
+                            <span class="cat-icon-label">🍲 Food &amp; Dining:</span>
+                            <strong class="cat-value" id="bSummFood">₹0</strong>
+                        </div>
+
+                        <div class="budget-cat-item">
+                            <span class="cat-icon-label">🎟️ Activities &amp; Entry:</span>
+                            <strong class="cat-value" id="bSummActivities">₹0</strong>
+                        </div>
+
+                        <div class="budget-cat-item">
+                            <span class="cat-icon-label">💳 Other &amp; Contingency:</span>
+                            <strong class="cat-value" id="bSummOther">₹0</strong>
+                        </div>
+                    </div>
+
+                    <div class="budget-total-split-block">
+                        <div class="total-cost-col">
+                            <span class="total-cost-label">Total Estimated Trip Cost:</span>
+                            <strong class="total-cost-amount" id="bSummTotal">₹0</strong>
+                        </div>
+
+                        <div class="per-person-split-col">
+                            <span class="split-label">Estimated Cost Per Person:</span>
+                            <strong class="split-amount" id="bSummPerPerson">₹0</strong>
+                            <small class="split-note" id="bSummSplitNote">(4 sharing expenses)</small>
+                        </div>
+                    </div>
+
+                    <div class="budget-indicator-footer">
+                        <div class="status-indicator-legend">
+                            <span class="legend-badge active" id="legWithin">🟢 Within Budget</span>
+                            <span class="legend-badge" id="legSlight">🟡 Slightly Above Budget</span>
+                            <span class="legend-badge" id="legOver">🔴 Over Budget</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="itinerary-bottom-cta">
+            <div class="bottom-cta-container">
+                <div class="cta-text-group">
+                    <h3 class="cta-title">Want to see the full financial breakdown &amp; UPI Kharcha split?</h3>
+                    <p class="cta-subtitle">View hotel cost allocation, daily expense charts, and plan comparison tiers.</p>
+                </div>
+
+                <div class="cta-buttons-group">
+                    <a href="../budget/budget.html" class="btn-primary-glow">
+                        <span>View Detailed Budget &amp; Split (Page 4)</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
             </div>
         </section>
 
     </main>
+
+    <div id="driverModalOverlay" class="driver-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="driverModalTitle">
+        <div class="driver-modal-backdrop" id="driverModalBackdrop"></div>
+        <div class="driver-modal-dialog">
+            <header class="driver-modal-header">
+                <div class="modal-header-text">
+                    <span class="modal-eyebrow">🛡️ Verified DesiSafar Chauffeur &amp; Vehicle</span>
+                    <h3 id="driverModalTitle" class="modal-title">Assigned Vehicle &amp; Driver Details</h3>
+                </div>
+                <button type="button" class="driver-modal-close-btn" id="driverModalCloseBtn" aria-label="Close modal">✕</button>
+            </header>
+
+            <div class="driver-modal-body">
+                
+                <div class="driver-profile-section">
+                    <div class="driver-avatar-circle" id="mDriverAvatar">‍</div>
+                    <div class="driver-details-wrap">
+                        <div class="driver-name-row">
+                            <h4 class="driver-name" id="mDriverName">Rajesh Kumar Sharma</h4>
+                            <span class="driver-verified-tag">✓ Verified Chauffeur</span>
+                        </div>
+                        <div class="driver-meta-line">
+                            <span class="rating-star-badge" id="mDriverRating"> 4.9</span>
+                            <span id="mDriverTrips">1,420+ trips completed</span>
+                        </div>
+                        <p class="driver-meta-line" style="margin-top: 4px;">
+                            <span> <strong id="mDriverLang">Hindi, English</strong></span>
+                            <span>•</span>
+                            <span id="mDriverExp">9 years licensed chauffeur</span>
+                        </p>
+                        <div class="driver-contact-actions">
+                            <a href="#" id="mDriverCallLink" class="btn-call-driver">
+                                <span></span>
+                                <span>📞</span>
+                                <span id="mDriverPhoneBtn">Call +91 98290 41234</span>
+                            </a>
+                            <a href="#" id="mDriverWaLink" target="_blank" class="btn-whatsapp-driver">
+                                <span></span>
+                                <span>💬</span>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vehicle-details-section">
+                    <div class="vehicle-section-header">
+                        <div>
+                            <span class="plate-caption">Vehicle Make &amp; Model</span>
+                            <h4 class="vehicle-model-name" id="mCarModel">Maruti Suzuki Dzire AC (White)</h4>
+                        </div>
+                        <span class="vehicle-type-pill" id="mCarType">4-Seater Premium Sedan</span>
+                    </div>
+
+                    <div class="number-plate-container">
+                        <div class="plate-left-wrap">
+                            <span class="plate-icon">🚖</span>
+                            <div class="plate-text-wrap">
+                                <span class="plate-caption">Vehicle Registration Plate:</span>
+                                <span class="indian-number-plate-box" id="mCarPlate">RJ 14 TA 8421</span>
+                            </div>
+                        </div>
+                        <div class="plate-otp-wrap">
+                            <span class="otp-label">Start Trip PIN</span>
+                            <strong class="otp-pin" id="mTripOtp">4821</strong>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="plate-caption" style="display:block; margin-bottom: 6px;">Vehicle Features &amp; Safety:</span>
+                        <div class="features-chips-list">
+                            <span class="feature-tag-chip"> Chilled AC</span>
+                            <span class="feature-tag-chip"> Fastag Active</span>
+                            <span class="feature-tag-chip"> Boot Luggage Space</span>
+                            <span class="feature-tag-chip"> GPS Monitored</span>
+                            <span class="feature-tag-chip"> Clean Sanitized</span>
+                        </div>
+                    </div>
+
+                    <div style="background: #FAFAF7; border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.8125rem; color: var(--slate-600);">
+                        <span><strong>Route Segment:</strong> <span id="mRouteText">Stay → Attraction</span></span><br>
+                        <span><strong>Estimated Fare:</strong> <span id="mFareDisp">₹350/cab</span> (Included in Trip Budget)</span>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="driver-modal-footer">
+                <span class="modal-footer-note">All DesiSafar drivers undergo verified commercial background checks.</span>
+                <button type="button" class="btn-modal-done" id="driverModalDoneBtn">Got It</button>
+            </footer>
+        </div>
+    </div>
 
     <footer id="footer" class="site-footer">
         <div class="footer-container">
@@ -237,229 +373,881 @@
     </footer>
 
     <script>
-      (function initStaticItinerary() {
-        const DESTINATIONS_DB = {
+      
+      function openDriverModal(driverDataOrName, phone, rating, trips, lang, exp, carModel, carPlate, carType, capacity, otp, route, fare) {
+        let d = {};
+        if (typeof driverDataOrName === 'object' && driverDataOrName !== null) {
+          d = driverDataOrName;
+        } else {
+          d = {
+            driver_name: driverDataOrName,
+            driver_phone: phone,
+            driver_rating: rating,
+            driver_trips: trips,
+            driver_languages: lang,
+            driver_experience: exp,
+            car_model: carModel,
+            car_number: carPlate,
+            car_type: carType,
+            otp: otp,
+            route: route,
+            fare: fare
+          };
+        }
+
+        const name = d.driver_name || d.name || "Rajesh Kumar Sharma";
+        const pPhone = d.driver_phone || d.phone || "+91 98290 41234";
+        const pRating = d.driver_rating || d.rating || "4.9";
+        const pTrips = d.driver_trips || d.trips || "1,420+ trips completed";
+        const pLang = d.driver_languages || d.lang || "Hindi, English, Regional";
+        const pExp = d.driver_experience || d.exp || "Licensed Commercial Chauffeur";
+        const pCar = d.car_model || d.car || "Maruti Suzuki Dzire AC (White)";
+        const pPlate = d.car_number || d.plate || "RJ 14 TA 8421";
+        const pType = d.car_type || d.type || "4-Seater Premium Vehicle";
+        const pOtp = d.otp || (pPlate ? pPlate.split(' ').pop() : "4821");
+        const pRoute = d.route || d.route_text || "Local Sightseeing Segment";
+        const pFare = d.fare || d.fare_display || d.fareDisp || "Included in Plan";
+
+        document.getElementById("mDriverName").textContent = name;
+        document.getElementById("mDriverRating").textContent = ` ${pRating}`;
+        document.getElementById("mDriverTrips").textContent = pTrips;
+        document.getElementById("mDriverLang").textContent = pLang;
+        document.getElementById("mDriverExp").textContent = pExp;
+        
+        const cleanPhone = String(pPhone).trim();
+        document.getElementById("mDriverPhoneBtn").textContent = `Call ${cleanPhone}`;
+        document.getElementById("mDriverCallLink").href = `tel:${cleanPhone}`;
+        const cleanNumOnly = cleanPhone.replace(/[^0-9]/g, '');
+        document.getElementById("mDriverWaLink").href = `https://wa.me/${cleanNumOnly}?text=Hello%20${encodeURIComponent(name)},%20I%20am%20your%20DesiSafar%20passenger.`;
+
+        document.getElementById("mCarModel").textContent = pCar;
+        document.getElementById("mCarPlate").textContent = pPlate;
+        document.getElementById("mCarType").textContent = pType;
+        document.getElementById("mTripOtp").textContent = pOtp;
+
+        document.getElementById("mRouteText").textContent = pRoute;
+        document.getElementById("mFareDisp").textContent = pFare;
+
+        const modal = document.getElementById("driverModalOverlay");
+        if (modal) {
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function handleTransitCardClick(cardEl) {
+        if (!cardEl) return;
+        const encoded = cardEl.getAttribute("data-driver-encoded");
+        if (encoded) {
+          try {
+            const data = JSON.parse(decodeURIComponent(encoded));
+            openDriverModal(data);
+            return;
+          } catch(e) {
+            console.warn("Could not decode driver data:", e);
+          }
+        }
+        openDriverModal({});
+      }
+
+      function closeDriverModal() {
+        const modal = document.getElementById("driverModalOverlay");
+        if (modal) {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const backdrop = document.getElementById("driverModalBackdrop");
+        if (backdrop) backdrop.addEventListener("click", closeDriverModal);
+
+        const closeBtn = document.getElementById("driverModalCloseBtn");
+        if (closeBtn) closeBtn.addEventListener("click", closeDriverModal);
+
+        const doneBtn = document.getElementById("driverModalDoneBtn");
+        if (doneBtn) doneBtn.addEventListener("click", closeDriverModal);
+      });
+
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeDriverModal();
+      });
+
+      (function initDesiSafarSmartItinerary() {
+        
+        const FULL_DESTINATIONS = {
+          "jaipur": {
+            name: "Jaipur", state: "Rajasthan", slug: "jaipur",
+            transport: {
+              bus: { name: "JCTSL Local Bus", fare: 30, unit: "person", capacity: 40, icon: "", tag: "Budget Friendly" },
+              auto: { name: "Heritage Auto Rickshaw", fare: 120, unit: "vehicle", capacity: 3, icon: "", tag: "Direct Auto" },
+              cab: { name: "Pink City Private Cab", fare: 350, unit: "vehicle", capacity: 4, icon: "", tag: "Comfortable Cab" },
+              walk: { name: "Old City Heritage Walk", fare: 0, unit: "person", capacity: 1, icon: "", tag: "Pedestrian Walk" }
+            },
+            attractions: [
+              { name: "City Palace & Mubarak Mahal", slot: "morning", desc: "Lavish courtyards, Peacock Gate, and museum of royal costumes.", ticket: 300, cluster: "old_city", walkTo: ["Jantar Mantar Royal Observatory"] },
+              { name: "Jantar Mantar Royal Observatory", slot: "afternoon", desc: "UNESCO world heritage astronomical stone observatory built by Sawai Jai Singh II.", ticket: 200, cluster: "old_city", walkTo: ["Hawa Mahal (Palace of Winds)"] },
+              { name: "Hawa Mahal & Bapu Bazaar", slot: "evening", desc: "Intricate 953 honeycomb windows and lively evening shopping for juttis and textiles.", ticket: 50, cluster: "old_city" },
+              { name: "Amer Fort & Maota Lake", slot: "morning", desc: "Majestic hilltop fort with Sheesh Mahal and panoramic Aravalli views.", ticket: 100, cluster: "amer", walkTo: ["Panna Meena Ka Kund"] },
+              { name: "Panna Meena Ka Kund Stepwell", slot: "afternoon", desc: "Geometrical symmetrical stepwell perfect for photography and heritage strolls.", ticket: 0, cluster: "amer" },
+              { name: "Nahargarh Fort Sunset Point", slot: "evening", desc: "Rooftop fortification offering unmatched golden-hour vistas over Jaipur city.", ticket: 50, cluster: "amer" }
+            ],
+            hotels: [{ name: "Samode Haveli", area: "Gangapole", rating: 4.7, phone: "+91 141 263 2407" }],
+            restaurants: [{ name: "LMB (Laxmi Misthan Bhandar)", area: "Johari Bazar", rating: 4.5, phone: "+91 141 256 5844", price_level: 2 }],
+            driver: { driver_name: "Rajesh Kumar Sharma", driver_phone: "+91 98290 41234", driver_rating: 4.9, driver_trips: "1,420+ trips", driver_languages: "Hindi, English, Rajasthani", driver_experience: "9 years licensed chauffeur", car_model: "Maruti Suzuki Dzire AC (White)", car_number: "RJ 14 TA 8421", car_type: "4-Seater Premium Sedan", otp: "8421" },
+            hidden_spots: [
+              { name: "Panna Meena Ka Kund Stepwell", badge: "Heritage Stepwell", icon: "🏛️", description: "An 8-story 16th-century geometrical symmetrical stepwell with criss-crossing stairs, hidden just behind Amer Fort.", best_time: "07:00 AM – 09:00 AM", local_tip: "Walk 5 mins down the village path behind Amer Fort for crowd-free morning symmetry shots." },
+              { name: "Galta Ji (Sun Temple) Gorge Trail", badge: "Sacred Ravine", icon: "🪔", description: "Ancient temple complex built into a narrow mountain pass with sacred natural springs and sunset viewpoints.", best_time: "04:30 PM – 06:30 PM", local_tip: "Take the ridge path to the top Surya Mandir for panoramic 360° views across Jaipur." },
+              { name: "Chandlai Lake Flamingo Sanctuary", badge: "Bird Sanctuary", icon: "🦩", description: "A quiet 140-year-old freshwater lake on the outskirts where migratory flamingos congregate in thousands.", best_time: "06:30 AM – 08:30 AM (Nov–Feb)", local_tip: "Bring binoculars or camera zoom; enjoy fresh morning chai on the bund." }
+            ],
+            famous_food: [
+              { dish: "Crispy Pyaaz Kachori & Mawa Kachori", diet_type: "veg", icon: "🥟", description: "Golden flaky pastry stuffed with spicy caramelised onions, paired with sweet khoya-filled dessert kachori.", famous_spot: "Rawat Misthan Bhandar (Station Road)", price_est: "₹50 – ₹90 per piece", foodie_tip: "Eat it piping hot with spicy coriander chutney and sweet tamarind saunth!" },
+              { dish: "Royal Dal Baati Churma with Ghee", diet_type: "veg", icon: "🍲", description: "Traditional baked whole-wheat dumplings crushed in pure desi ghee, served with panchmel dal and sweet churma.", famous_spot: "Govindam Retreat & LMB", price_est: "₹280 – ₹450 per thali", foodie_tip: "Pour extra desi ghee over the baati and mix garlic chutney into the dal." },
+              { dish: "Creamy Thick Kulhad Lassi", diet_type: "veg", icon: "🥛", description: "Ultra-thick, churned curd served in rustic earthen cups with a thick layer of clotted malai.", famous_spot: "Lassiwala (Shop 312, MI Road — Since 1944)", price_est: "₹50 – ₹80", foodie_tip: "Visit before 2:00 PM as original Shop 312 runs out of fresh daily batches!" }
+            ]
+          },
           "goa": {
-            name: "Goa", state: "Goa", baseRate: 3500, days: 4,
-            highlights: ["Baga & Anjuna beach hopping", "Old Goa Portuguese churches & Fontainhas", "Sunset cruise on Mandovi River"],
-            hotels: [{ name: "Hilton Goa Resort", area: "Candolim", rating: 4.5, phone: "+91 832 664 9800" }, { name: "Holiday Inn Resort Goa", area: "Cavelossim", rating: 4.5, phone: "+91 832 662 6000" }],
-            restaurants: [{ name: "The Second House", area: "Saligao", rating: 4.6, phone: "+91 91122 91144", price_level: 3 }, { name: "Copperleaf", area: "Porvorim", rating: 4.4, phone: "+91 832 241 7899", price_level: 2 }]
+            name: "Goa", state: "Goa", slug: "goa",
+            transport: {
+              bus: { name: "Kadamba AC Shuttle", fare: 40, unit: "person", capacity: 40, icon: "🚍", tag: "Budget Transit" },
+              auto: { name: "Beach Auto Rickshaw", fare: 150, unit: "vehicle", capacity: 3, icon: "🛺", tag: "Beach Auto" },
+              cab: { name: "Goa Miles Tourist Cab", fare: 450, unit: "vehicle", capacity: 4, icon: "🚕", tag: "Tourist Cab" },
+              walk: { name: "Fontainhas Latin Promenade", fare: 0, unit: "person", capacity: 1, icon: "🚶", tag: "Heritage Walk" }
+            },
+            attractions: [
+              { name: "Fort Aguada & Lighthouse", slot: "morning", desc: "17th-century Portuguese fortress overlooking Sinquerim beach.", ticket: 50, cluster: "north_coast" },
+              { name: "Anjuna & Vagator Cliff View", slot: "afternoon", desc: "Red laterite cliffs, Chapora fort view, and coastal shacks.", ticket: 0, cluster: "north_coast" },
+              { name: "Baga Beach Sunset & Night Market", slot: "evening", desc: "Lively beach shacks, candlelight seafood, and music.", ticket: 0, cluster: "north_coast" }
+            ],
+            hotels: [{ name: "Hilton Goa Resort", area: "Candolim", rating: 4.5, phone: "+91 832 664 9800" }],
+            restaurants: [{ name: "The Second House", area: "Saligao", rating: 4.6, phone: "+91 91122 91144", price_level: 3 }],
+            driver: { driver_name: "Anthony D'Souza", driver_phone: "+91 98221 67890", driver_rating: 4.8, driver_trips: "1,850+ trips", driver_languages: "Konkani, English, Hindi", driver_experience: "14 years tourist cab veteran", car_model: "Toyota Etios AC (Pearl White)", car_number: "GA 03 T 4912", car_type: "4-Seater Coastal Sedan", otp: "4912" },
+            hidden_spots: [
+              { name: "Butterfly Beach & Secluded Cove", badge: "Secret Beach", icon: "🏖️", description: "A semi-circular secluded cove surrounded by dense green hillocks, accessible via a short forest trek or boat.", best_time: "08:00 AM – 11:00 AM", local_tip: "Hire a local fisherman's boat from Palolem for a 10-minute coastal ride with dolphin sightings." },
+              { name: "Harvalem Rock-Cut Caves & Waterfall", badge: "Heritage & Nature", icon: "🌿", description: "6th-century ancient laterite Buddhist rock-cut caves set alongside roaring waterfalls in North-East Goa.", best_time: "09:00 AM – 01:00 PM", local_tip: "Visit the nearby Rudreshwar temple where priests perform centuries-old Vedic rituals." },
+              { name: "Cabo de Rama Secret Cliff Viewpoint", badge: "Panoramic Cliff", icon: "🏰", description: "Wild, untamed coastal cliffs below Portuguese fort ruins overlooking the deep blue Arabian Sea.", best_time: "05:00 PM – 06:45 PM", local_tip: "Grab a fresh tender coconut and head to the western cliff edge for an unforgettable sunset." }
+            ],
+            famous_food: [
+              { dish: "Authentic Goan Fish Curry Thali", diet_type: "non-veg", icon: "🍛", description: "Fresh Kingfish/Surmai simmered in fresh ground coconut, fiery Kashmiri red chilies, and kokum, with red rice.", famous_spot: "Ritz Classic (Panaji) & Anand Seafood (Anjuna)", price_est: "₹220 – ₹380 per thali", foodie_tip: "Ask for 'Kismur' (dried prawn and coconut relish) and fresh sol kadhi to complete your meal." },
+              { dish: "Pork / Chicken Vindaloo with Poi Bread", diet_type: "non-veg", icon: "🥘", description: "Traditional Portuguese-Goan spiced preparation infused with toddy vinegar, garlic, and whole spices.", famous_spot: "Mum's Kitchen (Panaji) & Martin's Corner", price_est: "₹320 – ₹480", foodie_tip: "Eat with crusty wood-fired Goan Poi bread." },
+              { dish: "Layered Bebinca & Cashew Feni", diet_type: "veg", icon: "🍰", description: "The Queen of Goan desserts — a rich 7-layer coconut milk pudding baked with ghee and nutmeg.", famous_spot: "Confeitaria 31 de Janeiro (Fontainhas)", price_est: "₹120 – ₹200 per slice", foodie_tip: "Warm the bebinca slightly and top with a scoop of vanilla ice cream." }
+            ]
+          },
+          "rishikesh": {
+            name: "Rishikesh", state: "Uttarakhand", slug: "rishikesh",
+            transport: {
+              bus: { name: "Vikram Shared E-Rickshaw", fare: 20, unit: "person", capacity: 6, icon: "🛺", tag: "Shared Vikram" },
+              auto: { name: "Ganga Auto Rickshaw", fare: 100, unit: "vehicle", capacity: 3, icon: "🛺", tag: "Local Auto" },
+              cab: { name: "Valley Tourist Taxi", fare: 400, unit: "vehicle", capacity: 4, icon: "🚕", tag: "Hill Cab" },
+              walk: { name: "Ram Jhula to Laxman Jhula Footbridge Walk", fare: 0, unit: "person", capacity: 1, icon: "🚶", tag: "Scenic Walk" }
+            },
+            attractions: [
+              { name: "Triveni Ghat & Holy Sangam", slot: "morning", desc: "Sacred sangam ghat of holy Ganga, Yamuna, and Saraswati.", ticket: 0, cluster: "town" },
+              { name: "Beatles Ashram (Chaurasi Kutia)", slot: "afternoon", desc: "Iconic meditation domes and vibrant graffiti murals in Rajaji forest.", ticket: 150, cluster: "swargashram" },
+              { name: "Parmarth Niketan Ganga Sunset Aarti", slot: "evening", desc: "Soul-stirring Vedic chants, glowing diyas, and riverside prayers.", ticket: 0, cluster: "swargashram" }
+            ],
+            hotels: [{ name: "Aloha On The Ganges", area: "Tapovan", rating: 4.6, phone: "+91 135 242 6000" }],
+            restaurants: [{ name: "The Sitting Elephant", area: "Badrinath Rd", rating: 4.6, phone: "+91 135 244 4444", price_level: 2 }],
+            driver: { driver_name: "Surendra Singh Rawat", driver_phone: "+91 98972 55120", driver_rating: 4.9, driver_trips: "980+ trips", driver_languages: "Hindi, Garhwali, English", driver_experience: "11 years hill terrain expert", car_model: "Toyota Innova Crysta AC (Silver)", car_number: "UK 07 TA 3180", car_type: "6-Seater Mountain MPV", otp: "3180" },
+            hidden_spots: [
+              { name: "Patna Secret Waterfall & Limestone Caves", badge: "Hidden Waterfall", icon: "🌊", description: "A tranquil multi-tiered waterfall cascading through natural mossy limestone caves inside Rajaji forest.", best_time: "08:00 AM – 11:00 AM", local_tip: "A short 1.5 km uphill forest trail from Neelkanth road leads directly to the plunge pool." },
+              { name: "Vashishta Gufa (Ancient Meditation Cave)", badge: "Spiritual Cave", icon: "🪔", description: "Sacred riverbank cave of Sage Vashishta, with oil lamps and pin-drop silence right on the Ganga.", best_time: "09:00 AM – 12:00 PM", local_tip: "Walk down from the cave to the private white-sand Ganga beach below for river meditation." },
+              { name: "Kunjapuri Sunrise Ridge (1,676m)", badge: "Himalayan Sunrise", icon: "🏔️", description: "Hilltop temple ridge offering unobstructed 360° panoramas of snow-capped Himalayan peaks.", best_time: "05:15 AM – 06:45 AM", local_tip: "Hire a shared cab early at 04:30 AM from Tapovan to reach before the first dawn rays." }
+            ],
+            famous_food: [
+              { dish: "Garhwali Kafuli & Jhangore Ki Kheer", diet_type: "veg", icon: "🍲", description: "Wholesome spinach and fenugreek leaf curry cooked in iron pots with aromatic mountain spices.", famous_spot: "Sitting Elephant & Tapovan Kitchens", price_est: "₹180 – ₹300", foodie_tip: "Pair with hot Mandua (finger millet) roti and Himalayan rhododendron tea." },
+              { dish: "Classic Aloo Puri & Chana Breakfast", diet_type: "veg", icon: "🥟", description: "Fluffy golden puris served with spicy hing-infused potato gravy and sweet sooji halwa.", famous_spot: "Chotiwala (Swargashram — Since 1958)", price_est: "₹110 – ₹180 per plate", foodie_tip: "Sit near Ram Jhula ghat to enjoy the breakfast overlooking the river." },
+              { dish: "Wood-Fired Neapolitan Pizza & Herbal Teas", diet_type: "veg", icon: "🍕", description: "Authentic sourdough crust pizza with fresh basil, paired with Himalayan lemongrass herbal tea.", famous_spot: "Little Buddha Cafe & Beatles Cafe", price_est: "₹250 – ₹420", foodie_tip: "Grab a balcony seat at Little Buddha Cafe overlooking the bridge for sunset." }
+            ]
           },
           "munnar": {
-            name: "Munnar", state: "Kerala", baseRate: 2800, days: 3,
-            highlights: ["Tea plantation safari & museum", "Eravikulam National Park Nilgiri Tahr", "Mattupetty Dam boat ride"],
-            hotels: [{ name: "Blanket Hotel & Spa", area: "Attukad Waterfalls Road", rating: 4.8, phone: "+91 4865 263 500" }, { name: "Grand Plaza Munnar", area: "Old Munnar", rating: 4.3, phone: "+91 4865 232 201" }],
-            restaurants: [{ name: "Munnar Samrudhi Restaurant", area: "Nullatanni", rating: 4.7, phone: "+91 94472 23344", price_level: 1 }, { name: "Saravana Bhavan", area: "Munnar Town", rating: 4.1, phone: "+91 4865 230 484", price_level: 1 }]
+            name: "Munnar", state: "Kerala", slug: "munnar",
+            transport: {
+              bus: { name: "KSRTC Hill Bus", fare: 25, unit: "person", capacity: 40, icon: "🚍", tag: "Hill Bus" },
+              auto: { name: "Munnar Tea Town Auto", fare: 120, unit: "vehicle", capacity: 3, icon: "🛺", tag: "Tea Auto" },
+              cab: { name: "Private Tourist Cab", fare: 400, unit: "vehicle", capacity: 4, icon: "🚕", tag: "Valley Cab" },
+              jeep: { name: "Kolukkumalai 4x4 Off-Road Jeep", fare: 2500, unit: "vehicle", capacity: 6, icon: "🚙", tag: "4x4 Mountain Jeep", is_special: true },
+              walk: { name: "Tea Estate Walking Trail", fare: 0, unit: "person", capacity: 1, icon: "🚶", tag: "Estate Walk" }
+            },
+            attractions: [
+              { name: "Tata Tea Museum & Nallathanni Factory", slot: "morning", desc: "Live tea processing demonstrations and historic machinery.", ticket: 125, cluster: "nullatanni" },
+              { name: "Mattupetty Dam & Eco Point", slot: "afternoon", desc: "Serene reservoir surrounded by rolling tea plantations and boating.", ticket: 50, cluster: "mattupetty" },
+              { name: "Top Station Cloud Viewpoint", slot: "evening", desc: "World's highest tea plantation viewpoint overlooking clouds.", ticket: 50, cluster: "high_ranges", specialTransport: "jeep" }
+            ],
+            hotels: [{ name: "Blanket Hotel & Spa", area: "Attukad Waterfalls Road", rating: 4.8, phone: "+91 4865 263 500" }],
+            restaurants: [{ name: "Munnar Samrudhi Restaurant", area: "Nullatanni", rating: 4.7, phone: "+91 94472 23344", price_level: 1 }],
+            driver: { driver_name: "Jomon Joseph", driver_phone: "+91 94471 28940", driver_rating: 4.9, driver_trips: "1,150+ trips", driver_languages: "Malayalam, Tamil, Hindi", driver_experience: "12 years tea valley specialist", car_model: "Mahindra Thar 4x4 (Forest Green)", car_number: "KL 06 H 4920", car_type: "6-Seater 4x4 Mountain Jeep", otp: "4920" },
+            hidden_spots: [
+              { name: "Kolukkumalai Cloud Sunrise Point", badge: "Highest Tea Estate", icon: "", description: "World's highest organic tea estate (7,130 ft) where you stand above floating carpets of white clouds.", best_time: "05:00 AM – 07:30 AM", local_tip: "Requires a 4x4 jeep through rugged tea trails; arrange departure early from Suryanelli." },
+              { name: "Lockhart Gap Secret Valley Trail", badge: "Scenic Gorge", icon: "🌿", description: "A natural gap between two peaks offering panoramic views of cardamom forests and tea hills.", best_time: "03:30 PM – 05:30 PM", local_tip: "Spot wild bison and Nilgiri langurs grazing peacefully along the tea slopes." },
+              { name: "Kundala Lake Cherry Blossom Banks", badge: "Serene Lake", icon: "🌸", description: "Asia's first arch dam lake where Neela Kurinji and cherry blossom trees bloom along calm waters.", best_time: "09:30 AM – 01:00 PM", local_tip: "Rent a traditional wooden Shikara boat for a serene ride away from the crowds." }
+            ],
+            famous_food: [
+              { dish: "Kerala Appam with Vegetable / Chicken Stew", diet_type: "veg", icon: "🍲", description: "Lacy fermented rice pancakes with aromatic coconut milk stew loaded with fresh spices.", famous_spot: "Munnar Samrudhi Restaurant & Saravana Bhavan", price_est: "₹120 – ₹240", foodie_tip: "Tear the fluffy center of the appam and dunk it into the creamy stew." },
+              { dish: "Malabar Flaky Parotta with Egg / Beef Roast", diet_type: "non-veg", icon: "🫓", description: "Layered, flaky flatbread served with slow-roasted caramelized onion masala.", famous_spot: "Rapsy Restaurant (Main Bazaar)", price_est: "₹140 – ₹260", foodie_tip: "Crush the hot parotta between your palms to loosen the crisp flaky layers." },
+              { dish: "Fresh Cardamom Masala Chai & Banana Fritters", diet_type: "veg", icon: "☕", description: "Steaming tea brewed with freshly harvested Munnar cardamom pods, paired with Pazham Pori fritters.", famous_spot: "Tata Tea Museum Lounge & Lockhart Stalls", price_est: "₹20 – ₹40", foodie_tip: "Buy freshly harvested first-grade green cardamom pods directly from the estate counters." }
+            ]
           },
-          "manali": {
-            name: "Manali", state: "Himachal Pradesh", baseRate: 3200, days: 4,
-            highlights: ["Solang Valley paragliding & zorbing", "Hadimba Devi Temple & cedar woods", "Old Manali cafés & Mall Road"],
-            hotels: [{ name: "Hotel Rio Sol Resort and Villas", area: "Prini", rating: 4.9, phone: "+91 98160 54321" }, { name: "The Himalayan", area: "Hadimba Road", rating: 4.5, phone: "+91 1902 250 999" }],
-            restaurants: [{ name: "The Lazy Dog Lounge", area: "Old Manali", rating: 4.4, phone: "+91 98055 97775", price_level: 3 }, { name: "Johnson's Bar & Restaurant", area: "Circuit House Road", rating: 4.3, phone: "+91 1902 251 523", price_level: 3 }]
+          "mumbai": {
+            name: "Mumbai", state: "Maharashtra", slug: "mumbai",
+            transport: {
+              bus: { name: "Mumbai Local / BEST AC Bus", fare: 20, unit: "person", capacity: 50, icon: "", tag: "City Transit" },
+              auto: { name: "Suburban Auto Rickshaw", fare: 80, unit: "vehicle", capacity: 3, icon: "", tag: "Metered Auto" },
+              cab: { name: "Kali-Peeli / Premier Cab", fare: 250, unit: "vehicle", capacity: 4, icon: "", tag: "Direct Cab" },
+              walk: { name: "Marine Drive Promenade Walk", fare: 0, unit: "person", capacity: 1, icon: "", tag: "Seafront Walk" }
+            },
+            attractions: [
+              { name: "Gateway of India & Colaba Causeway", slot: "morning", desc: "Iconic arch overlooking Mumbai Harbour and vibrant street market.", ticket: 0, cluster: "south_mumbai" },
+              { name: "Chhatrapati Shivaji Maharaj Vastu Museum", slot: "afternoon", desc: "Indo-Saracenic museum with ancient sculptures and mini paintings.", ticket: 150, cluster: "south_mumbai" },
+              { name: "Marine Drive (Queen's Necklace) Sunset", slot: "evening", desc: "3.6 km crescent promenade with glittering street lamps.", ticket: 0, cluster: "south_mumbai" }
+            ],
+            hotels: [{ name: "The Taj Mahal Palace", area: "Colaba", rating: 4.9, phone: "+91 22 6665 3366" }],
+            restaurants: [{ name: "Britannia & Co. Restaurant", area: "Ballard Estate", rating: 4.5, phone: "+91 22 2261 5264", price_level: 2 }],
+            driver: { driver_name: "Santosh Vasant Patil", driver_phone: "+91 98200 77334", driver_rating: 4.8, driver_trips: "2,200+ trips", driver_languages: "Marathi, Hindi, Gujarati", driver_experience: "10 years Mumbai city specialist", car_model: "Hyundai Aura AC (Silver)", car_number: "MH 01 DK 9204", car_type: "4-Seater City Sedan", otp: "9204" },
+            hidden_spots: [
+              { name: "Banganga Sacred Water Tank (Walkeshwar)", badge: "Heritage Oasis", icon: "🪔", description: "A tranquil 12th-century freshwater tank surrounded by centuries-old temples in the heart of Malabar Hill.", best_time: "07:30 AM – 10:00 AM", local_tip: "Stroll down the temple lanes to see ancient samadhis and brass bell workshops." },
+              { name: "Gilbert Hill 66-Million-Year Basalt Monolith", badge: "Geological Wonder", icon: "🪨", description: "A colossal 200-foot vertical column of frozen volcanic basalt rock from the Mesozoic Era.", best_time: "04:30 PM – 06:15 PM", local_tip: "Climb the stone stairs to the top for a spectacular vantage point of the Mumbai skyline." },
+              { name: "Sewri Mudflats Pink Flamingo Sanctuary", badge: "Wildlife Wonder", icon: "🦩", description: "Coastal mudflats near Sewri Fort where over 100,000 pink flamingos migrate every winter.", best_time: "Low tide hours during Dec–May", local_tip: "Check the Mumbai tide chart before visiting; low tide brings flamingos closest to the jetty." }
+            ],
+            famous_food: [
+              { dish: "Iconic Mumbai Vada Pav & Chutney", diet_type: "veg", icon: "🍔", description: "Spiced potato dumpling battered in gram flour, deep fried and served in a fresh pav with garlic chutney.", famous_spot: "Ashok Vada Pav (Dadar) & Aaram (CST)", price_est: "₹25 – ₹40", foodie_tip: "Ask for 'Choora' (crispy gram flour crunchy bits) sprinkled inside your pav." },
+              { dish: "Buttery Pav Bhaji & Bun Maska Irani Chai", diet_type: "veg", icon: "🍲", description: "Mashed spiced vegetable curry dripping with Amul butter, alongside sweet bakery buns slathered with butter.", famous_spot: "Sardar Pav Bhaji & Kyani & Co. (Since 1904)", price_est: "₹60 – ₹240", foodie_tip: "Dip the warm Bun Maska into hot cutting chai until the butter melts slightly into the tea." },
+              { dish: "Bombil (Bombay Duck) Fry & Crab Masala", diet_type: "non-veg", icon: "🐟", description: "Crisp semolina-crusted tender Bombay duck fish fried to perfection, served with spicy red masala.", famous_spot: "Gajalee (Vile Parle) & Trishna (Fort)", price_est: "₹320 – ₹650", foodie_tip: "Eat Bombil fry immediately while the semolina crust is crackling hot." }
+            ]
           },
-          "jaipur": {
-            name: "Jaipur", state: "Rajasthan", baseRate: 3000, days: 3,
-            highlights: ["Amer Fort elephant ride & Hawa Mahal", "City Palace & Jantar Mantar", "Johari Bazaar gems & street food"],
-            hotels: [{ name: "Samode Haveli", area: "Gangapole", rating: 4.7, phone: "+91 141 263 2407" }, { name: "ITC Rajputana", area: "Gopalbari", rating: 4.6, phone: "+91 141 405 1600" }],
-            restaurants: [{ name: "1135 AD", area: "Amer Fort", rating: 4.4, phone: "+91 141 253 0100", price_level: 4 }, { name: "LMB (Laxmi Misthan Bhandar)", area: "Johari Bazar", rating: 4.0, phone: "+91 141 256 5844", price_level: 2 }]
+          "bangalore": {
+            name: "Bangalore", state: "Karnataka", slug: "bangalore",
+            transport: {
+              bus: { name: "BMTC Volvo AC Bus", fare: 35, unit: "person", capacity: 40, icon: "", tag: "Volvo Bus" },
+              auto: { name: "Namma Auto", fare: 100, unit: "vehicle", capacity: 3, icon: "", tag: "City Auto" },
+              cab: { name: "City Chauffeur Cab", fare: 380, unit: "vehicle", capacity: 4, icon: "", tag: "Direct Cab" },
+              walk: { name: "Cubbon Park Green Walk", fare: 0, unit: "person", capacity: 1, icon: "", tag: "Park Walk" }
+            },
+            attractions: [
+              { name: "Bangalore Palace & Royal Grounds", slot: "morning", desc: "Tudor-style castle with vintage photos and wooden carvings.", ticket: 250, cluster: "central" },
+              { name: "Lalbagh Botanical Gardens & Glass House", slot: "afternoon", desc: "240-acre botanical garden with century-old trees and lake.", ticket: 30, cluster: "south" },
+              { name: "Church Street & MG Road Evening Walk", slot: "evening", desc: "Vibrant bookshops, indie cafes, and lively street music.", ticket: 0, cluster: "cbd" }
+            ],
+            hotels: [{ name: "The Oberoi Bengaluru", area: "MG Road", rating: 4.9, phone: "+91 80 2558 5858" }],
+            restaurants: [{ name: "MTR (Mavalli Tiffin Room)", area: "Lalbagh", rating: 4.7, phone: "+91 80 2222 0022", price_level: 1 }],
+            driver: { driver_name: "Manjunath Gowda", driver_phone: "+91 98450 11223", driver_rating: 4.9, driver_trips: "1,600+ trips", driver_languages: "Kannada, Telugu, Hindi, English", driver_experience: "8 years Silicon City navigator", car_model: "Maruti Suzuki Ertiga AC (Silky Silver)", car_number: "KA 05 AF 7721", car_type: "6-Seater Family MPV", otp: "7721" },
+            hidden_spots: [
+              { name: "Turahalli Forest Viewpoint", badge: "Urban Forest", icon: "", description: "Bangalore's only surviving natural dry-deciduous forest with rocky boulders and panoramic city views.", best_time: "06:30 AM – 09:00 AM", local_tip: "Great for cycling or early morning birdwatching away from traffic." },
+              { name: "Dodda Alada Mara (400-Year-Old Banyan Tree)", badge: "Botanical Wonder", icon: "", description: "A gigantic 3-acre single banyan tree with thousands of aerial roots forming a natural leafy roof.", best_time: "08:30 AM – 11:30 AM", local_tip: "Combine with a visit to the nearby Manchanabele reservoir." }
+            ],
+            famous_food: [
+              { dish: "Crispy Benne Masala Dosa & Filter Coffee", diet_type: "veg", icon: "", description: "Golden butter dosa with spicy red garlic chutney and potato masala, served with coconut chutney.", famous_spot: "CTR (Shri Sagar, Malleshwaram) & Vidyarthi Bhavan", price_est: "₹70 – ₹130", foodie_tip: "Drink strong South Indian filter coffee poured from high brass dabarah." },
+              { dish: "Bisi Bele Bath & Mysore Pak", diet_type: "veg", icon: "", description: "Rich spiced rice-lentil-vegetable stew cooked with tamarind and ghee, topped with crunchy boondi.", famous_spot: "MTR (Lalbagh — Since 1924)", price_est: "₹100 – ₹180", foodie_tip: "Eat at MTR near Lalbagh right after a morning botanical walk." }
+            ]
           },
-          "kashmir": {
-            name: "Kashmir (Srinagar)", state: "Jammu & Kashmir", baseRate: 4200, days: 5,
-            highlights: ["Dal Lake Shikara & Houseboat", "Gulmarg Gondola snow ride", "Pahalgam Betaab Valley"],
-            hotels: [{ name: "The Lalit Grand Palace", area: "Gupkar Road", rating: 4.5, phone: "+91 194 250 1001" }, { name: "Vivanta Dal View", area: "Kralsangri", rating: 4.6, phone: "+91 194 246 1111" }],
-            restaurants: [{ name: "Ahdoos Restaurant", area: "Residency Road", rating: 4.3, phone: "+91 194 247 2593", price_level: 2 }, { name: "Mughal Darbar", area: "Residency Road", rating: 4.1, phone: "+91 194 247 5284", price_level: 2 }]
+          "varanasi": {
+            name: "Varanasi", state: "Uttar Pradesh", slug: "varanasi",
+            transport: {
+              bus: { name: "City Electric Bus", fare: 25, unit: "person", capacity: 40, icon: "", tag: "Electric Bus" },
+              auto: { name: "Ghat E-Rickshaw", fare: 70, unit: "vehicle", capacity: 3, icon: "", tag: "Ghat Auto" },
+              cab: { name: "Kashi Tourist Cab", fare: 300, unit: "vehicle", capacity: 4, icon: "", tag: "Kashi Cab" },
+              walk: { name: "Ancient Ghats Walking Trail", fare: 0, unit: "person", capacity: 1, icon: "", tag: "Ghat Walk" }
+            },
+            attractions: [
+              { name: "Kashi Vishwanath Corridor & Temple", slot: "morning", desc: "Sacred Jyotirlinga and newly restored grand riverfront corridor.", ticket: 0, cluster: "corridor" },
+              { name: "Sarnath Buddhist Stupas & Deer Park", slot: "afternoon", desc: "Historic Dhamek Stupa where Lord Buddha delivered his first sermon.", ticket: 25, cluster: "sarnath" },
+              { name: "Dashashwamedh Ghat Grand Ganga Aarti", slot: "evening", desc: "Mesmerizing multi-tiered brass lamp ritual on the sacred river.", ticket: 0, cluster: "ghats" }
+            ],
+            hotels: [{ name: "BrijRama Palace", area: "Darbhanga Ghat", rating: 4.8, phone: "+91 542 245 1234" }],
+            restaurants: [{ name: "Keshari Restaurant", area: "Godowlia", rating: 4.5, phone: "+91 542 245 4321", price_level: 1 }],
+            driver: { driver_name: "Manoj Kumar Pandey", driver_phone: "+91 94152 44332", driver_rating: 4.9, driver_trips: "1,500+ trips", driver_languages: "Hindi, Bhojpuri, English", driver_experience: "10 years Kashi specialist", car_model: "Maruti Suzuki Dzire AC (Silver)", car_number: "UP 65 BT 2914", car_type: "4-Seater Clean Sedan", otp: "2914" },
+            hidden_spots: [
+              { name: "Chet Singh Fort Riverside Ramparts", badge: "Fortified Ghat", icon: "🏰", description: "An imposing 18th-century stone fortress with battlements right on the Ganga where Raja Chet Singh resisted British forces.", best_time: "06:00 AM – 08:30 AM", local_tip: "Hire a hand-rowed wooden boat at dawn to admire the fortified facade from the water." },
+              { name: "Lolark Kund (Ancient Sun Well)", badge: "Ancient Stepwell", icon: "☀️", description: "One of the oldest sun-worship sites in India with a 50-foot stepped reservoir dedicated to Lord Surya.", best_time: "08:00 AM – 11:00 AM", local_tip: "Tucked away near Tulsi Ghat; offers tranquil ancient stonework." },
+              { name: "Panchganga Ghat Subterranean Shrines", badge: "Sacred Sangam", icon: "🪔", description: "A quiet historic ghat where five rivers are believed to meet, crowned by underground riverside shrines.", best_time: "05:30 PM – 07:00 PM", local_tip: "Climb the stone stairs towards the old town for a serene view of floating oil lamps." }
+            ],
+            famous_food: [
+              { dish: "Tamatar Chaat & Palak Patta Chaat", diet_type: "veg", icon: "🍲", description: "Hot mashed tomatoes cooked with hing, cumin, and cashew nuts, topped with sugar syrup and crispy namkeen.", famous_spot: "Kashi Chaat Bhandar & Deena Chaat", price_est: "₹50 – ₹90 per clay bowl", foodie_tip: "Unique to Banaras; eat it steaming hot in a rustic clay kulhad!" },
+              { dish: "Malaiyo (Winter Saffron Dew Foam)", diet_type: "veg", icon: "🍨", description: "Airy, cloud-like saffron milk foam left out under night winter dew to aerate naturally.", famous_spot: "Thatheri Bazaar Sweetshops (Nov–Feb)", price_est: "₹40 – ₹70 per cup", foodie_tip: "Dissolves on your tongue within seconds; available exclusively in morning winter hours." },
+              { dish: "Banarasi Meetha Paan & Morning Kachori Sabzi", diet_type: "veg", icon: "🍃", description: "Magahi betel leaf wrapped with gulkand, preceded by morning urad dal kachoris with potato curry.", famous_spot: "Keshav Tambool (Lanka) & Ram Bhandar", price_est: "₹30 – ₹60", foodie_tip: "Ram Bhandar serves fresh hot kachoris only until 10:30 AM — arrive early!" }
+            ]
           },
-          "gokarna": {
-            name: "Gokarna", state: "Karnataka", baseRate: 2400, days: 3,
-            highlights: ["Om Beach & Kudle Beach trekking", "Mahabaleshwar Temple darshan", "Half Moon Beach cliff sunset"],
-            hotels: [{ name: "Kahani Paradise", area: "Bada", rating: 4.8, phone: "+91 94801 12000" }, { name: "Kudle Beach View Resort", area: "Kudle Beach", rating: 4.2, phone: "+91 8386 257 588" }],
-            restaurants: [{ name: "Chez Christophe", area: "Middle Beach", rating: 4.5, phone: "+91 94803 27768", price_level: 2 }, { name: "Mantra Cafe", area: "Kudle Beach", rating: 4.3, phone: "+91 8386 257 232", price_level: 2 }]
+          "kerala": {
+            name: "Kerala Backwaters", state: "Kerala", slug: "kerala",
+            transport: {
+              bus: { name: "KSRTC Fast Passenger", fare: 35, unit: "person", capacity: 40, icon: "", tag: "State Bus" },
+              auto: { name: "Coastal Auto", fare: 100, unit: "vehicle", capacity: 3, icon: "", tag: "Local Auto" },
+              cab: { name: "Backwater Tourist Cab", fare: 450, unit: "vehicle", capacity: 4, icon: "", tag: "Tourist Cab" },
+              walk: { name: "Canal Bank Promenade", fare: 0, unit: "person", capacity: 1, icon: "", tag: "Canal Walk" }
+            },
+            attractions: [
+              { name: "Fort Kochi Chinese Fishing Nets", slot: "morning", desc: "Iconic 14th-century cantilevered sea nets and colonial streets.", ticket: 0, cluster: "kochi" },
+              { name: "Alleppey Backwater Shikara Cruise", slot: "afternoon", desc: "Peaceful hand-rowed canoe through quiet palm-lined backwater canals.", ticket: 200, cluster: "alleppey" },
+              { name: "Marari Beach Sunset Walk", slot: "evening", desc: "Golden sands, coconut groves, and fresh seafood shacks.", ticket: 0, cluster: "marari" }
+            ],
+            hotels: [{ name: "Coconut Lagoon Heritage Resort", area: "Kumarakom", rating: 4.8, phone: "+91 481 252 5834" }],
+            restaurants: [{ name: "Karimeen House", area: "Alleppey", rating: 4.6, phone: "+91 477 224 5678", price_level: 2 }],
+            driver: { driver_name: "Mohamed Shafi", driver_phone: "+91 94470 33455", driver_rating: 4.9, driver_trips: "1,300+ trips", driver_languages: "Malayalam, Tamil, Hindi", driver_experience: "10 years Backwater chauffeur", car_model: "Toyota Innova Crysta (Pearl White)", car_number: "KL 07 CD 8812", car_type: "6-Seater Luxury MPV", otp: "8812" },
+            hidden_spots: [
+              { name: "Kakkathuruthu (Island of Crows)", badge: "Secret Island", icon: "🏝️", description: "A secluded, car-free island in Vembanad Lake celebrated for world-class sunset reflections.", best_time: "04:30 PM – 06:45 PM", local_tip: "Accessible only by small country rowboats; take a 5-minute ferry from the mainland." },
+              { name: "Marari Secluded Fisherman Beach", badge: "Quiet Coastline", icon: "🏖️", description: "Unspoiled white sand beach lined with leaning coconut palms and colorful fishing boats.", best_time: "07:00 AM – 10:00 AM", local_tip: "Great for calm walks away from tourist crowds; order fresh tender coconut." }
+            ],
+            famous_food: [
+              { dish: "Karimeen Pollichathu (Pearl Spot Fish)", diet_type: "non-veg", icon: "🐟", description: "Fresh Pearl Spot fish marinated in shallot-ginger masala, wrapped in banana leaf and slow-roasted.", famous_spot: "Karimeen House (Alleppey) & Grand Hotel (Kochi)", price_est: "₹350 – ₹550", foodie_tip: "Unwrap the charred banana leaf to release the aromatic spiced steam and pair with hot appams." },
+              { dish: "Puttu & Kadala Curry with Steamed Bananas", diet_type: "veg", icon: "🥥", description: "Steamed cylinders of ground rice layered with grated coconut, served with spicy black chickpea gravy.", famous_spot: "Dhe Puttu (Kochi) & Local Toddy Shops", price_est: "₹110 – ₹200", foodie_tip: "Mix a ripe yellow Kerala banana into the puttu and kadala curry for the authentic local sweet-savory blend." }
+            ]
           }
         };
 
-        let selectedSlugs = ["goa", "munnar"];
+        function getDestData(slug) {
+          const s = String(slug || "jaipur").toLowerCase().trim();
+          if (FULL_DESTINATIONS[s]) return FULL_DESTINATIONS[s];
+          const name = s.charAt(0).toUpperCase() + s.slice(1);
+          return {
+            name: name,
+            slug: s,
+            state: "India",
+            transport: {
+              bus: { name: `${name} Local Bus`, fare: 25, unit: "person", capacity: 40, icon: "", tag: "Budget Bus" },
+              auto: { name: `${name} Auto Rickshaw`, fare: 100, unit: "vehicle", capacity: 3, icon: "", tag: "Direct Auto" },
+              cab: { name: `${name} Private Cab`, fare: 350, unit: "vehicle", capacity: 4, icon: "", tag: "Comfortable Cab" },
+              walk: { name: "Heritage Town Walk", fare: 0, unit: "person", capacity: 1, icon: "", tag: "Walking" }
+            },
+            attractions: [
+              { name: `${name} Heritage Palace & Fort`, slot: "morning", desc: "Ancient historical architecture and museum collections.", ticket: 100, cluster: "center" },
+              { name: `${name} Botanical Garden & Lake`, slot: "afternoon", desc: "Serene lakeside garden with local handicrafts and photo spots.", ticket: 50, cluster: "center" },
+              { name: `${name} Sunset Point & Bazaar`, slot: "evening", desc: "Golden-hour panoramic vistas, evening bazaar, and local food.", ticket: 0, cluster: "center" }
+            ],
+            hotels: [{ name: `Grand ${name} Boutique Stay`, area: "City Center", rating: 4.6, phone: "+91 98000 12345" }],
+            restaurants: [{ name: `${name} Traditional Kitchen`, area: "Main Market", rating: 4.5, phone: "+91 98000 54321", price_level: 2 }],
+            driver: { driver_name: "Virendra Sharma", driver_phone: "+91 98110 55432", driver_rating: 4.9, driver_trips: "1,180+ trips", driver_languages: "Hindi, English, Regional", driver_experience: "8+ years licensed chauffeur", car_model: "Maruti Suzuki Dzire AC (White)", car_number: "DL 1Z B 9342", car_type: "4-Seater Premium Sedan", otp: "9342" },
+            hidden_spots: [
+              { name: `Secret ${name} Heritage Valley Viewpoint`, badge: "Secret Viewpoint", icon: "", description: `A tranquil, off-the-beaten-path viewpoint offering panoramic vistas of ${name}.`, best_time: "07:00 AM – 09:00 AM", local_tip: "Ask local tea vendors for the quiet cobblestone path leading up to the old watchtower." },
+              { name: `${name} Botanical Forest Trail`, badge: "Nature Escape", icon: "", description: `Serene walking trail surrounded by native greenery and peaceful birdlife.`, best_time: "04:30 PM – 06:30 PM", local_tip: "Ideal for relaxing afternoon walks and quiet nature photos." }
+            ],
+            famous_food: [
+              { dish: `Authentic ${name} Regional Thali`, diet_type: "veg", icon: "", description: `Traditional assortment of slow-cooked lentils, seasonal curries, and handmade breads.`, famous_spot: `Old Town Market, ${name}`, price_est: "₹150 – ₹300 per thali", foodie_tip: "Pair with fresh local buttermilk and handmade regional chutneys." },
+              { dish: `Traditional Spiced Sweets & Fresh Chai`, diet_type: "veg", icon: "", description: `Rich heritage sweets prepared with pure desi ghee, served with piping hot cardamom tea.`, famous_spot: `Main Bazaar Sweets Center, ${name}`, price_est: "₹40 – ₹100", foodie_tip: "Enjoy tea in earthen clay kulhad cups for natural aroma." }
+            ]
+          };
+        }
+
+        let selectedSlugs = ["jaipur", "rishikesh"];
         try {
           const stored = localStorage.getItem("desisafar_selected_destinations");
           if (stored) {
-            const parsed = JSON.parse(stored);
-            if (Array.isArray(parsed) && parsed.length > 0) {
-              selectedSlugs = parsed.map(s => String(s).toLowerCase().trim());
+            const p = JSON.parse(stored);
+            if (Array.isArray(p) && p.length > 0) {
+              const cleaned = p.map(s => String(s).toLowerCase().trim()).filter(Boolean);
+              if (cleaned.length > 0) selectedSlugs = cleaned;
             }
           }
         } catch(e) {}
 
-        let startLocation = "Mumbai, Maharashtra";
-        let depDate = "";
-        let retDate = "";
+        let startLocation = "Delhi / Flexible Starting Hub";
         let travellers = 4;
+        let datesDisplay = "3 Days · 2 Nights";
+
         try {
+          const storedCity = localStorage.getItem("desisafar_start_city");
+          if (storedCity && storedCity.trim()) startLocation = storedCity.trim();
+
+          const storedTrav = localStorage.getItem("desisafar_travellers");
+          if (storedTrav && parseInt(storedTrav) > 0) travellers = parseInt(storedTrav);
+
+          const storedDep = localStorage.getItem("desisafar_departure_date");
+          if (storedDep && storedDep.trim()) {
+            datesDisplay = `Starting ${storedDep.trim()}`;
+          }
+
           const dt = localStorage.getItem("desisafar_trip_details");
           if (dt) {
             const d = JSON.parse(dt);
             if (d.start_location) startLocation = d.start_location;
-            if (d.departure_date) depDate = d.departure_date;
-            if (d.return_date) retDate = d.return_date;
-            if (d.travellers) travellers = parseInt(d.travellers) || 4;
+            if (d.travellers && parseInt(d.travellers) > 0) travellers = parseInt(d.travellers);
+            if (d.departure_date && d.return_date) {
+              datesDisplay = `${d.departure_date} to ${d.return_date}`;
+            }
           }
-          const stCity = localStorage.getItem("desisafar_start_city");
-          if (stCity) startLocation = stCity;
-          const stTrav = localStorage.getItem("desisafar_travellers");
-          if (stTrav) travellers = parseInt(stTrav) || 4;
         } catch(e) {}
 
-        let budgetTier = "standard";
+        let budgetTier = "comfort";
         let stayType = "3_star";
         let diet = "vegetarian";
-        let vibes = ["adventure", "foodie"];
-        let dining = ["local_food", "cafes"];
+        let currentModifier = "normal";
+
         try {
           const pref = localStorage.getItem("desisafar_preferences");
           if (pref) {
             const p = JSON.parse(pref);
-            if (p.budget_tier) budgetTier = p.budget_tier;
+            if (p.budget_tier) budgetTier = p.budget_tier.toLowerCase();
             if (p.stay_type) stayType = p.stay_type;
             if (p.diet) diet = p.diet;
-            if (p.vibes && p.vibes.length) vibes = p.vibes;
-            if (p.dining && p.dining.length) dining = p.dining;
           }
         } catch(e) {}
 
-        const destObjs = selectedSlugs.map(slug => DESTINATIONS_DB[slug] || {
-          name: slug.charAt(0).toUpperCase() + slug.slice(1),
-          state: "India", baseRate: 3000, days: 3,
-          highlights: ["Scenic viewpoints", "Historic monuments", "Authentic dining"],
-          hotels: [{ name: "Boutique Heritage Hotel", area: "City Center", rating: 4.5, phone: "+91 98000 12345" }],
-          restaurants: [{ name: "Local Flavor Kitchen", area: "Main Bazaar", rating: 4.4, phone: "+91 98000 54321", price_level: 2 }]
-        });
+        if (budgetTier === "standard") budgetTier = "comfort";
 
-        const totalDays = destObjs.reduce((acc, d) => acc + (d.days || 3), 0);
-        const totalNights = Math.max(1, totalDays - 1);
+        function renderDestinationInsights(destObjs) {
+          const feed = document.getElementById("destInsightsFeed");
+          if (!feed) return;
+          feed.innerHTML = "";
 
-        // Update Top Summary Block
-        const destDisplay = destObjs.map(d => d.name).join(" + ");
-        document.getElementById("summaryDestinations").textContent = destDisplay;
-        document.getElementById("pageSubtitle").innerHTML = `Custom-tailored for <strong>${destDisplay}</strong> across ${totalDays} Days / ${totalNights} Nights from ${startLocation}.`;
-        document.getElementById("summaryDuration").textContent = `${totalDays} Days / ${totalNights} Nights`;
-        document.getElementById("summaryTravelers").textContent = `${travellers} People`;
-        document.getElementById("summaryStyle").textContent = vibes.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(" & ");
-        document.getElementById("summaryFood").textContent = diet.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+          destObjs.forEach(dest => {
+            const spots = dest.hidden_spots || [
+              { name: `Secret ${dest.name} Viewpoint`, badge: "Secret Viewpoint", icon: "", description: `Peaceful, off-beat viewpoint overlooking ${dest.name}.`, best_time: "07:00 AM – 09:00 AM", local_tip: "Ask locals for the cobblestone staircase." }
+            ];
+            const foods = dest.famous_food || [
+              { dish: `Authentic ${dest.name} Thali`, diet_type: "veg", icon: "", description: `Traditional regional thali with seasonal vegetables and handmade breads.`, famous_spot: `Old Town Market, ${dest.name}`, price_est: "₹150 – ₹300", foodie_tip: "Pair with fresh buttermilk." }
+            ];
 
-        const stayNames = { hostel: "Hostel", budget_hotel: "Budget Hotel", "3_star": "3-Star Hotel", "4_star": "4-Star Resort", "5_star": "5-Star Luxury" };
-        document.getElementById("summaryHotel").textContent = stayNames[stayType] || "3-Star Hotel";
+            const group = document.createElement("div");
+            group.className = "dest-insight-card-group";
+            group.id = `insight-dest-${dest.slug}`;
 
-        const tierNames = { budget: "Budget-Friendly", standard: "Standard Plan", premium: "Premium Plan", luxury: "Luxury Plan" };
-        document.getElementById("summaryExperience").textContent = tierNames[budgetTier] || "Standard Plan";
-
-        // Calculate Cost
-        const avgBaseRate = destObjs.reduce((acc, d) => acc + d.baseRate, 0) / destObjs.length;
-        const tierMults = { budget: 0.75, standard: 1.0, premium: 1.35, luxury: 2.1 };
-        const stayMults = { hostel: 0.7, budget_hotel: 0.85, "3_star": 1.0, "4_star": 1.4, "5_star": 2.2 };
-        const diningMult = 1.0 + (dining.includes("fine_dining") ? 0.12 : 0) - (dining.includes("street_food") ? 0.04 : 0);
-        const compMult = ((tierMults[budgetTier] || 1.0) * 0.6) + ((stayMults[stayType] || 1.0) * 0.4);
-        const totalCost = Math.max(5000, Math.round((avgBaseRate * totalDays * travellers * compMult * diningMult) / 100) * 100);
-
-        document.getElementById("summaryBudget").textContent = `₹${totalCost.toLocaleString('en-IN')}`;
-        document.getElementById("budgetTotalCost").textContent = `₹${totalCost.toLocaleString('en-IN')}`;
-        document.getElementById("bCostStay").textContent = `₹${Math.round(totalCost * 0.39).toLocaleString('en-IN')} (39%)`;
-        document.getElementById("bCostTransit").textContent = `₹${Math.round(totalCost * 0.19).toLocaleString('en-IN')} (19%)`;
-        document.getElementById("bCostFood").textContent = `₹${Math.round(totalCost * 0.16).toLocaleString('en-IN')} (16%)`;
-        document.getElementById("bCostActivities").textContent = `₹${Math.round(totalCost * 0.15).toLocaleString('en-IN')} (15%)`;
-        document.getElementById("bCostMisc").textContent = `₹${Math.round(totalCost * 0.11).toLocaleString('en-IN')} (11%)`;
-
-        // Render Day-by-Day Itinerary Cards
-        const daysList = document.getElementById("itineraryDaysList");
-        daysList.innerHTML = "";
-
-        let currentDay = 1;
-        destObjs.forEach((dest, destIdx) => {
-          const destDays = dest.days || 3;
-          const hotel = dest.hotels[0];
-          const rest = dest.restaurants[0];
-
-          for (let d = 1; d <= destDays; d++) {
-            const isFirst = (currentDay === 1);
-            const isLast = (currentDay === totalDays);
-            const isDestFirst = (d === 1 && !isFirst);
-
-            let dayTitle = isFirst ? `Arrival & ${dest.name} Exploration` : isLast ? `${dest.name} Farewell & Departure` : isDestFirst ? `Scenic Transit to ${dest.name} & Check-in` : `Deep Dive: ${dest.highlights[0] || dest.name}`;
-            let locLabel = isLast ? `${dest.name} & Transit` : `${dest.name} · ${dest.state}`;
-
-            let acts = [];
-            if (isFirst) {
-              acts = [
-                { time: "10:00 AM", text: `Arrive in ${dest.name} from ${startLocation} & check in` },
-                { time: "11:30 AM", text: `Freshen up at ${hotel.name} (${hotel.area})` },
-                { time: "02:00 PM", text: `Welcome lunch at ${rest.name} (${rest.area})` },
-                { time: "04:30 PM", text: dest.highlights[0] || "Local sightseeing" },
-                { time: "07:30 PM", text: "Evening stroll and authentic night bazaar exploration" }
-              ];
-            } else if (isLast) {
-              acts = [
-                { time: "08:30 AM", text: `Breakfast at ${hotel.name} & morning walk` },
-                { time: "10:30 AM", text: "Check-out and souvenir shopping for authentic local specialties" },
-                { time: "01:00 PM", text: `Farewell lunch at ${rest.name}` },
-                { time: "03:30 PM", text: `Transit departure towards ${startLocation}` }
-              ];
-            } else if (isDestFirst) {
-              acts = [
-                { time: "08:00 AM", text: `Morning scenic transfer to ${dest.name}` },
-                { time: "12:00 PM", text: `Arrive in ${dest.name} & check-in at ${hotel.name} (${hotel.area})` },
-                { time: "01:30 PM", text: `Welcome lunch at ${rest.name}` },
-                { time: "04:00 PM", text: dest.highlights[0] || "Signature sight" },
-                { time: "07:30 PM", text: `Dinner and relaxing evening in ${dest.name}` }
-              ];
-            } else {
-              acts = [
-                { time: "08:30 AM", text: "Hearty breakfast with fresh local flavors" },
-                { time: "10:00 AM", text: `Signature experience: ${dest.highlights[1] || dest.highlights[0]}` },
-                { time: "01:00 PM", text: `Mid-day culinary stop at ${rest.name}` },
-                { time: "03:30 PM", text: `Afternoon adventure: ${dest.highlights[2] || "Cultural trail"}` },
-                { time: "07:00 PM", text: "Golden hour sunset & relaxing dinner" }
-              ];
-            }
-
-            const card = document.createElement("article");
-            card.className = "day-card";
-            card.innerHTML = `
-              <header class="day-card-header">
-                <span class="day-badge">Day ${currentDay}</span>
-                <span class="day-date">Day ${currentDay} of ${totalDays}</span>
-                <span class="day-location">📍 ${locLabel}</span>
-              </header>
-              <div class="day-card-body">
-                <h3 class="day-title">${dayTitle}</h3>
-                <ul class="activity-list">
-                  ${acts.map(a => `<li class="activity-item"><span class="activity-time">${a.time}</span><span class="activity-text">${a.text}</span></li>`).join('')}
-                </ul>
-                <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed #cbd5e1; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
-                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 14px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
-                      <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b;">🏨 Suggested Stay</span>
-                      <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ ${hotel.rating}</span>
-                    </div>
-                    <strong style="font-size: 0.875rem; color: #0b132b; display: block; margin-bottom: 2px;">${hotel.name}</strong>
-                    <span style="font-size: 0.8125rem; color: #64748b; display: block;">📍 ${hotel.area}</span>
-                    ${hotel.phone ? `<div style="margin-top: 6px;"><a href="tel:${hotel.phone}" style="font-size: 0.75rem; font-weight: 600; color: #ff5a1f;">📞 Call: ${hotel.phone}</a></div>` : ''}
+            const spotsHTML = spots.map(s => `
+              <article class="spot-card">
+                <div class="spot-card-top">
+                  <span class="spot-icon">${s.icon || ''}</span>
+                  <div class="spot-title-wrap">
+                    <h4 class="spot-name">${s.name}</h4>
+                    <span class="spot-badge">${s.badge || 'Hidden Gem'}</span>
                   </div>
-                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 14px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
-                      <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b;">🍽️ Suggested Dining</span>
-                      <div style="display: inline-flex; align-items: center; gap: 4px;">
-                        <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #d1fae5; padding: 2px 6px; border-radius: 9999px;">${'₹'.repeat(rest.price_level || 2)}</span>
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ ${rest.rating}</span>
-                      </div>
-                    </div>
-                    <strong style="font-size: 0.875rem; color: #0b132b; display: block; margin-bottom: 2px;">${rest.name}</strong>
-                    <span style="font-size: 0.8125rem; color: #64748b; display: block;">📍 ${rest.area}</span>
-                    ${rest.phone ? `<div style="margin-top: 6px;"><a href="tel:${rest.phone}" style="font-size: 0.75rem; font-weight: 600; color: #ff5a1f;">📞 Call: ${rest.phone}</a></div>` : ''}
+                </div>
+                <p class="spot-desc">${s.description}</p>
+                <div class="spot-meta-footer">
+                  <div class="spot-meta-row">
+                    <span class="meta-icon"></span>
+                    <span><strong>Best Time:</strong> ${s.best_time || 'Morning'}</span>
                   </div>
+                  <div class="spot-meta-row tip-row">
+                    <span class="meta-icon"></span>
+                    <span><strong>Local Tip:</strong> ${s.local_tip || 'Visit during early morning.'}</span>
+                  </div>
+                </div>
+              </article>
+            `).join("");
+
+            const foodsHTML = foods.map(f => `
+              <article class="food-card">
+                <div class="food-card-top">
+                  <span class="food-icon">${f.icon || ''}</span>
+                  <div class="food-title-wrap">
+                    <h4 class="food-dish-name">${f.dish}</h4>
+                    <span class="food-diet-badge ${f.diet_type === 'veg' ? 'badge-veg' : 'badge-nonveg'}">
+                      ${f.diet_type === 'veg' ? 'Pure Veg' : 'Non-Veg'}
+                    </span>
+                  </div>
+                </div>
+                <p class="food-desc">${f.description}</p>
+                <div class="food-meta-footer">
+                  <div class="food-meta-row">
+                    <span class="meta-icon"></span>
+                    <span><strong>Famous Spot:</strong> ${f.famous_spot}</span>
+                  </div>
+                  <div class="food-meta-row price-row">
+                    <span class="meta-icon"></span>
+                    <span><strong>Price Range:</strong> ${f.price_est}</span>
+                  </div>
+                  <div class="food-meta-row tip-row">
+                    <span class="meta-icon"></span>
+                    <span><strong>Foodie Tip:</strong> ${f.foodie_tip}</span>
+                  </div>
+                </div>
+              </article>
+            `).join("");
+
+            group.innerHTML = `
+              <div class="dest-insight-header-bar">
+                <span class="dest-insight-loc-badge">📍 ${dest.name}, ${dest.state}</span>
+                <span class="dest-insight-tagline">Secret Escapes &amp; Must-Eat Flavors</span>
+              </div>
+              <div class="dest-insight-dual-grid">
+                <div class="insight-column hidden-spots-col">
+                  <div class="col-header-pill spots-pill">
+                    <span class="col-icon"></span>
+                    <h3>Secret Hidden Spots</h3>
+                  </div>
+                  <div class="spots-list">${spotsHTML}</div>
+                </div>
+                <div class="insight-column famous-food-col">
+                  <div class="col-header-pill food-pill">
+                    <span class="col-icon"></span>
+                    <h3>Famous Food &amp; Must-Try Joints</h3>
+                  </div>
+                  <div class="food-list">${foodsHTML}</div>
                 </div>
               </div>
             `;
-            daysList.appendChild(card);
-            currentDay++;
+            feed.appendChild(group);
+          });
+        }
+
+        function renderSmartItinerary() {
+          const destObjs = selectedSlugs.map(s => getDestData(s));
+          const totalDays = destObjs.length * 3;
+          const destNames = destObjs.map(d => d.name).join(" + ");
+
+          document.getElementById("heroDestPill").textContent = ` ${destNames}`;
+          const tierLabels = { budget: "Budget Explorer", comfort: "Comfort Traveler", premium: "Premium Traveler", luxury: "Luxury Experience" };
+          document.getElementById("heroMetaInfo").textContent = `${totalDays} Days • ${travellers} Traveler${travellers > 1 ? 's' : ''} • ${tierLabels[budgetTier] || 'Comfort Traveler'}`;
+          document.getElementById("heroDates").textContent = ` ${datesDisplay}`;
+          document.getElementById("heroOrigin").innerHTML = ` Starting from <strong>${startLocation}</strong>`;
+          document.getElementById("heroDiet").textContent = ` ${diet.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}`;
+
+          const stayLabels = { hostel: "Hostel", budget_hotel: "Budget Hotel", "3_star": "3-Star Hotel", "4_star": "4-Star Resort", "5_star": "5-Star Luxury" };
+          document.getElementById("heroStay").textContent = ` ${stayLabels[stayType] || '3-Star Hotel'}`;
+
+          let dailyFoodPP = (budgetTier === "budget") ? 400 : (budgetTier === "premium" ? 1500 : 800);
+          if (currentModifier === "cheaper") dailyFoodPP = Math.max(300, dailyFoodPP - 150);
+          if (currentModifier === "comfortable") dailyFoodPP += 200;
+          const dailyFoodGroup = dailyFoodPP * travellers;
+
+          const feed = document.getElementById("itineraryDaysFeed");
+          feed.innerHTML = "";
+
+          let tripTransport = 0;
+          let tripFood = 0;
+          let tripActivities = 0;
+          let dayCount = 1;
+
+          destObjs.forEach(dest => {
+            const driverInfo = dest.driver || {
+              driver_name: "Virendra Sharma", driver_phone: "+91 98110 55432", driver_rating: 4.9, driver_trips: "1,180+ trips",
+              driver_languages: "Hindi, English", driver_experience: "8+ years licensed chauffeur",
+              car_model: "Maruti Suzuki Dzire AC (White)", car_number: "DL 1Z B 9342", car_type: "4-Seater Sedan", otp: "9342"
+            };
+
+            for (let d = 1; d <= 3; d++) {
+              const hotel = (dest.hotels && dest.hotels[0]) ? dest.hotels[0] : { name: "Boutique Heritage Stay", area: dest.name, rating: 4.7, phone: "+91 98000 12345" };
+              const rest = (dest.restaurants && dest.restaurants[0]) ? dest.restaurants[0] : { name: "Traditional Flavors", area: dest.name, rating: 4.5, phone: "+91 98000 54321", price_level: 2 };
+
+              const attList = dest.attractions || [
+                { name: `${dest.name} Landmark Monument`, desc: "Historic attraction.", ticket: 100 },
+                { name: `${dest.name} Cultural Center`, desc: "Local arts and culture.", ticket: 50 },
+                { name: `${dest.name} Sunset Promenade`, desc: "Evening viewpoint.", ticket: 0 }
+              ];
+              const a1 = attList[((d - 1) * 3) % attList.length];
+              const a2 = attList[((d - 1) * 3 + 1) % attList.length];
+              const a3 = attList[((d - 1) * 3 + 2) % attList.length];
+
+              function getTransit(fromP, toP, targetAtt, isWalk) {
+                const routeText = `${fromP} → ${toP}`;
+                if (targetAtt && targetAtt.specialTransport === "jeep" && dest.transport.jeep) {
+                  const j = dest.transport.jeep;
+                  const count = Math.max(1, Math.ceil(travellers / j.capacity));
+                  const cost = j.fare * count;
+                  return { mode: "special", icon: j.icon, provider: j.name, route: routeText, fareDisp: `₹${j.fare}/Jeep (up to ${j.capacity} seats)`, groupCost: cost, tag: j.tag, driver: driverInfo };
+                }
+
+                if (isWalk || (currentModifier === "cheaper" && Math.random() > 0.6)) {
+                  return { mode: "walking", icon: "", provider: "Pedestrian Walk", route: routeText, fareDisp: "Free (Walkable)", groupCost: 0, tag: "Eco & Walkable", driver: null };
+                }
+
+                let effectiveTier = budgetTier;
+                if (currentModifier === "cheaper") effectiveTier = "budget";
+                if (currentModifier === "comfortable") effectiveTier = "premium";
+
+                if (effectiveTier === "budget") {
+                  const b = dest.transport.bus || dest.transport.auto;
+                  const cost = b.unit === "person" ? (b.fare * travellers) : (b.fare * Math.max(1, Math.ceil(travellers / b.capacity)));
+                  const fareStr = b.unit === "person" ? `₹${b.fare}/person` : `₹${b.fare} (up to ${b.capacity} seats)`;
+                  return { mode: "bus", icon: b.icon, provider: b.name, route: routeText, fareDisp: fareStr, groupCost: cost, tag: b.tag, driver: driverInfo };
+                } else if (effectiveTier === "comfort") {
+                  if (travellers >= 3 && dest.transport.cab) {
+                    const c = dest.transport.cab;
+                    const vehicles = Math.max(1, Math.ceil(travellers / c.capacity));
+                    const cost = c.fare * vehicles;
+                    return { mode: "cab", icon: c.icon, provider: c.name, route: routeText, fareDisp: `₹${c.fare}/cab (up to ${c.capacity} seats)`, groupCost: cost, tag: "Group Cab", driver: driverInfo };
+                  } else {
+                    const a = dest.transport.auto || dest.transport.cab;
+                    const vehicles = Math.max(1, Math.ceil(travellers / a.capacity));
+                    const cost = a.fare * vehicles;
+                    return { mode: "auto", icon: a.icon, provider: a.name, route: routeText, fareDisp: `₹${a.fare}/auto (up to ${a.capacity} seats)`, groupCost: cost, tag: a.tag, driver: driverInfo };
+                  }
+                } else {
+                  const c = dest.transport.cab;
+                  const vehicles = Math.max(1, Math.ceil(travellers / c.capacity));
+                  const cost = c.fare * vehicles;
+                  return { mode: "cab", icon: c.icon, provider: c.name, route: routeText, fareDisp: `₹${c.fare}/cab (up to ${c.capacity} seats)`, groupCost: cost, tag: "Dedicated Cab", driver: driverInfo };
+                }
+              }
+
+              const t1 = getTransit(hotel.name, a1.name, a1, false);
+              const t2 = getTransit(a1.name, a2.name, a2, (a1.walkTo && a1.walkTo.includes(a2.name)));
+              const t3 = getTransit(a2.name, a3.name, a3, false);
+
+              const ticket1 = (a1.ticket || 0) * travellers;
+              const ticket2 = (a2.ticket || 0) * travellers;
+              const ticket3 = (a3.ticket || 0) * travellers;
+              const dayTickets = ticket1 + ticket2 + ticket3;
+
+              const dayTransit = t1.groupCost + t2.groupCost + t3.groupCost;
+              const dayTotal = dayTransit + dailyFoodGroup + dayTickets;
+
+              tripTransport += dayTransit;
+              tripFood += dailyFoodGroup;
+              tripActivities += dayTickets;
+
+              function renderTransitHTML(t) {
+                const isVehicle = t.mode !== 'walking' && t.driver;
+                const drv = t.driver || {
+                  driver_name: "Rajesh Kumar Sharma",
+                  driver_phone: "+91 98290 41234",
+                  driver_rating: 4.9,
+                  driver_trips: "1,420+ trips completed",
+                  driver_languages: "Hindi, English, Regional",
+                  driver_experience: "9 years licensed chauffeur",
+                  car_model: "Maruti Suzuki Dzire AC (White)",
+                  car_number: "RJ 14 TA 8421",
+                  car_type: "4-Seater Premium Vehicle",
+                  otp: "8421",
+                  route: t.route,
+                  fare: t.fareDisp
+                };
+                drv.route = t.route;
+                drv.fare = t.fareDisp;
+
+                const jsonStr = encodeURIComponent(JSON.stringify(drv));
+
+                return `
+                  <div class="transit-segment-card ${t.mode === 'walking' ? 'transit-walk' : t.mode === 'cab' ? 'transit-cab clickable-cab-card' : t.mode === 'special' ? 'transit-special clickable-cab-card' : 'transit-bus-auto ' + (isVehicle ? 'clickable-cab-card' : '')}"
+                       ${isVehicle ? `data-driver-encoded="${jsonStr}" onclick="handleTransitCardClick(this)"` : ''}
+                       title="${isVehicle ? 'Click to view vehicle & driver details' : ''}">
+                    <div class="transit-card-left">
+                      <div class="transit-mode-icon-circle">${t.icon}</div>
+                      <div class="transit-info-group">
+                        <strong class="transit-provider-title">${t.provider}</strong>
+                        <span class="transit-route-path">${t.route}</span>
+                        ${isVehicle ? `
+                          <button type="button" class="btn-view-cab-info" onclick="event.stopPropagation(); handleTransitCardClick(this.closest('.transit-segment-card'))">
+                            <span></span>
+                            <span>Vehicle: ${drv.car_number || drv.plate} · Driver: ${(drv.driver_name || drv.name || 'Chauffeur').split(' ')[0]} &rarr;</span>
+                          </button>
+                        ` : ''}
+                      </div>
+                    </div>
+                    <div class="transit-card-right">
+                      <div class="transit-fares-block">
+                        <span class="transit-fare-est">Estimated Fare: ${t.fareDisp}</span>
+                        <strong class="transit-group-cost">Group Cost: ₹${t.groupCost.toLocaleString('en-IN')}</strong>
+                      </div>
+                      <span class="transit-tag-pill">${t.tag}</span>
+                    </div>
+                  </div>
+                `;
+              }
+
+              const card = document.createElement("article");
+              card.className = "day-plan-card";
+              card.innerHTML = `
+                <header class="day-plan-header">
+                  <div class="day-number-pill"><span>Day ${dayCount}</span></div>
+                  <div class="day-header-meta">
+                    <span class="day-date-label">Day ${dayCount} of ${totalDays}</span>
+                    <span class="day-loc-label"> ${dest.name}, ${dest.state}</span>
+                  </div>
+                  <h3 class="day-main-title">${d === 1 ? `Arrival & ${dest.name} Discovery` : `${a1.name} & ${a3.name}`}</h3>
+                </header>
+
+                <div class="day-slots-container">
+                  
+                  <div class="time-slot-block slot-morning">
+                    <div class="slot-header-bar">
+                      <span class="slot-badge"> Morning</span>
+                      <span class="slot-timing-pill">09:00 AM – 12:30 PM</span>
+                    </div>
+                    <div class="attraction-detail-card">
+                      <div class="attraction-title-row">
+                        <h4 class="attraction-name">${a1.name}</h4>
+                        <span class="ticket-badge">${(a1.ticket || 0) > 0 ? `₹${a1.ticket}/person (Group: ₹${ticket1})` : 'Free Entry'}</span>
+                      </div>
+                      <p class="attraction-desc">${a1.desc}</p>
+                    </div>
+                    ${renderTransitHTML(t1)}
+                  </div>
+
+                  <div class="time-slot-block slot-afternoon">
+                    <div class="slot-header-bar">
+                      <span class="slot-badge"> Afternoon</span>
+                      <span class="slot-timing-pill">01:00 PM – 04:30 PM</span>
+                    </div>
+                    <div class="attraction-detail-card">
+                      <div class="attraction-title-row">
+                        <h4 class="attraction-name">${a2.name}</h4>
+                        <span class="ticket-badge">${(a2.ticket || 0) > 0 ? `₹${a2.ticket}/person (Group: ₹${ticket2})` : 'Free Entry'}</span>
+                      </div>
+                      <p class="attraction-desc">${a2.desc}</p>
+                      <div class="meal-callout-box lunch-box">
+                        <span class="meal-icon"></span>
+                        <span class="meal-text">Lunch at ${rest.name} (${rest.area}): Authentic regional specialties</span>
+                      </div>
+                    </div>
+                    ${renderTransitHTML(t2)}
+                  </div>
+
+                  <div class="time-slot-block slot-evening">
+                    <div class="slot-header-bar">
+                      <span class="slot-badge"> Evening</span>
+                      <span class="slot-timing-pill">05:00 PM – 08:30 PM</span>
+                    </div>
+                    <div class="attraction-detail-card">
+                      <div class="attraction-title-row">
+                        <h4 class="attraction-name">${a3.name}</h4>
+                        <span class="ticket-badge">${(a3.ticket || 0) > 0 ? `₹${a3.ticket}/person (Group: ₹${ticket3})` : 'Free Entry'}</span>
+                      </div>
+                      <p class="attraction-desc">${a3.desc}</p>
+                      <div class="meal-callout-box dinner-box">
+                        <span class="meal-icon"></span>
+                        <span class="meal-text">Dinner & relaxing sunset stroll in ${dest.name}</span>
+                      </div>
+                    </div>
+                    ${renderTransitHTML(t3)}
+                  </div>
+                </div>
+
+                <div class="day-recommendation-chips-row">
+                  <div class="place-recommendation-chip">
+                    <div class="chip-top-row">
+                      <span class="chip-label-tag"> Suggested Stay</span>
+                      <span class="rating-badge"> ${hotel.rating}</span>
+                    </div>
+                    <strong class="place-name">${hotel.name}</strong>
+                    <span class="place-area"> ${hotel.area}</span>
+                    ${hotel.phone ? `<a href="tel:${hotel.phone}" class="phone-link"> ${hotel.phone}</a>` : ''}
+                  </div>
+                  <div class="place-recommendation-chip">
+                    <div class="chip-top-row">
+                      <span class="chip-label-tag"> Suggested Dining</span>
+                      <span class="rating-badge"> ${rest.rating}</span>
+                    </div>
+                    <strong class="place-name">${rest.name}</strong>
+                    <span class="place-area"> ${rest.area}</span>
+                    ${rest.phone ? `<a href="tel:${rest.phone}" class="phone-link"> ${rest.phone}</a>` : ''}
+                  </div>
+                </div>
+
+                <footer class="day-cost-footer">
+                  <div class="day-cost-highlight">
+                    <span class="cost-title">Day ${dayCount} Estimated Cost:</span>
+                    <strong class="cost-figure">₹${dayTotal.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div class="day-cost-breakdown-chips">
+                    <span class="breakdown-chip">🚗 Transport: ₹${dayTransit.toLocaleString('en-IN')}</span>
+                    <span class="breakdown-chip">🍲 Food: ₹${dailyFoodGroup.toLocaleString('en-IN')}</span>
+                    <span class="breakdown-chip">🎟️ Activities: ₹${dayTickets.toLocaleString('en-IN')}</span>
+                    <span class="breakdown-chip per-person-chip">👤 Per Person: ₹${Math.round(dayTotal / travellers).toLocaleString('en-IN')}</span>
+                  </div>
+                </footer>
+              `;
+              feed.appendChild(card);
+              dayCount++;
+            }
+          });
+
+          renderDestinationInsights(destObjs);
+
+          const tripOther = Math.max(100, Math.round((tripTransport + tripFood + tripActivities) * 0.10));
+          const tripTotal = tripTransport + tripFood + tripActivities + tripOther;
+          const tripPP = Math.round(tripTotal / Math.max(1, travellers));
+
+          document.getElementById("bSummTransit").textContent = `₹${tripTransport.toLocaleString('en-IN')}`;
+          document.getElementById("bSummFood").textContent = `₹${tripFood.toLocaleString('en-IN')}`;
+          document.getElementById("bSummActivities").textContent = `₹${tripActivities.toLocaleString('en-IN')}`;
+          document.getElementById("bSummOther").textContent = `₹${tripOther.toLocaleString('en-IN')}`;
+          document.getElementById("bSummTotal").textContent = `₹${tripTotal.toLocaleString('en-IN')}`;
+          document.getElementById("bSummPerPerson").textContent = `₹${tripPP.toLocaleString('en-IN')}`;
+          document.getElementById("bSummSplitNote").textContent = `(${travellers} sharing expenses)`;
+          document.getElementById("budgetCardSubtitle").textContent = `Estimated expenses for ${travellers} travelers across ${totalDays} days in ${destNames}`;
+
+          const benchmarkRate = (budgetTier === "budget") ? 1600 : (budgetTier === "premium" ? 5200 : 2800);
+          const expectedTarget = benchmarkRate * totalDays * travellers;
+          const ratio = tripTotal / Math.max(1, expectedTarget);
+
+          const pill = document.getElementById("budgetStatusPill");
+          const lbl = document.getElementById("budgetStatusLabel");
+          const legW = document.getElementById("legWithin");
+          const legS = document.getElementById("legSlight");
+          const legO = document.getElementById("legOver");
+
+          if (legW && legS && legO && pill && lbl) {
+            legW.classList.remove("active");
+            legS.classList.remove("active");
+            legO.classList.remove("active");
+            pill.className = "budget-status-pill";
+
+            if (ratio <= 1.05) {
+              pill.classList.add("status-green");
+              lbl.textContent = "Within Budget";
+              legW.classList.add("active");
+            } else if (ratio <= 1.25) {
+              pill.classList.add("status-yellow");
+              lbl.textContent = "Slightly Above Budget";
+              legS.classList.add("active");
+            } else {
+              pill.classList.add("status-red");
+              lbl.textContent = "Over Budget";
+              legO.classList.add("active");
+            }
           }
-        });
+
+          const protBanner = document.getElementById("budgetProtectionBanner");
+          if (protBanner) {
+            if (budgetTier === "budget" && ratio > 1.20) {
+              protBanner.style.display = "block";
+            } else {
+              protBanner.style.display = "none";
+            }
+          }
+        }
+
+        const btnC = document.getElementById("btnCheaper");
+        const btnComf = document.getElementById("btnComfortable");
+        const btnOpt = document.getElementById("btnOptimize");
+        const btnRes = document.getElementById("btnReset");
+
+        if (btnC) {
+          btnC.addEventListener("click", () => {
+            currentModifier = "cheaper";
+            btnC.classList.add("active-btn");
+            if (btnComf) btnComf.classList.remove("active-btn");
+            if (btnOpt) btnOpt.classList.remove("active-btn");
+            if (btnRes) btnRes.style.display = "inline-flex";
+            renderSmartItinerary();
+          });
+        }
+
+        if (btnComf) {
+          btnComf.addEventListener("click", () => {
+            currentModifier = "comfortable";
+            btnComf.classList.add("active-btn");
+            if (btnC) btnC.classList.remove("active-btn");
+            if (btnOpt) btnOpt.classList.remove("active-btn");
+            if (btnRes) btnRes.style.display = "inline-flex";
+            renderSmartItinerary();
+          });
+        }
+
+        if (btnOpt) {
+          btnOpt.addEventListener("click", () => {
+            currentModifier = "optimize";
+            btnOpt.classList.add("active-btn");
+            if (btnC) btnC.classList.remove("active-btn");
+            if (btnComf) btnComf.classList.remove("active-btn");
+            if (btnRes) btnRes.style.display = "inline-flex";
+            renderSmartItinerary();
+          });
+        }
+
+        if (btnRes) {
+          btnRes.addEventListener("click", () => {
+            currentModifier = "normal";
+            if (btnC) btnC.classList.remove("active-btn");
+            if (btnComf) btnComf.classList.remove("active-btn");
+            if (btnOpt) btnOpt.classList.remove("active-btn");
+            btnRes.style.display = "none";
+            renderSmartItinerary();
+          });
+        }
+
+        renderSmartItinerary();
       })();
     </script>
 </body>
