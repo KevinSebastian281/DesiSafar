@@ -50,11 +50,11 @@ def run_e2e_flow():
     print("[PASS] Destination search (shikara -> Kashmir) verified.")
 
     print("\n--- 5. Adding Destinations (Goa + Munnar) & Verifying Nearby Hubs ---")
-    res = session.post(f"{BASE_URL}/destinations/toggle", data={"slug": "goa"})
+    res = session.post(f"{BASE_URL}/destinations/toggle", data={"slug": "goa"}, allow_redirects=True)
     assert res.status_code == 200
     assert "Added Goa to your trip!" in res.text
 
-    res = session.post(f"{BASE_URL}/destinations/toggle", data={"slug": "munnar"})
+    res = session.post(f"{BASE_URL}/destinations/toggle", data={"slug": "munnar"}, allow_redirects=True)
     assert res.status_code == 200
     assert "Added Munnar to your trip!" in res.text
     assert "Goa (Dabolim Airport), Goa" in res.text or "Goa (Mopa Airport), Goa" in res.text

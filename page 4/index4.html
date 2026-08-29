@@ -70,8 +70,8 @@
         <section id="page-header" class="page-header-section">
             <div class="header-container">
                 <h1 class="page-title">Your Travel Itinerary</h1>
-                <p class="page-subtitle">
-                    Plan your journey, explore new places and make every day memorable.
+                <p class="page-subtitle" id="pageSubtitle">
+                    Custom-tailored journey planned with DesiSafar.
                 </p>
             </div>
         </section>
@@ -85,7 +85,7 @@
                         <span class="summary-icon">📍</span>
                         <div class="summary-info">
                             <span class="summary-label">Destination</span>
-                            <strong class="summary-value">Manali, Himachal Pradesh</strong>
+                            <strong class="summary-value" id="summaryDestinations">Goa + Munnar</strong>
                         </div>
                     </div>
 
@@ -93,7 +93,8 @@
                         <span class="summary-icon">📅</span>
                         <div class="summary-info">
                             <span class="summary-label">Duration</span>
-                            <strong class="summary-value">5 Days / 4 Nights</strong>
+                            <strong class="summary-value" id="summaryDuration">7 Days / 6 Nights</strong>
+                            <span class="summary-subtext" id="summaryDatesRange">Flexible Dates</span>
                         </div>
                     </div>
 
@@ -101,7 +102,7 @@
                         <span class="summary-icon">👥</span>
                         <div class="summary-info">
                             <span class="summary-label">Travelers</span>
-                            <strong class="summary-value">2 People</strong>
+                            <strong class="summary-value" id="summaryTravelers">4 People</strong>
                         </div>
                     </div>
 
@@ -109,7 +110,7 @@
                         <span class="summary-icon">💰</span>
                         <div class="summary-info">
                             <span class="summary-label">Estimated Budget</span>
-                            <strong class="summary-value">₹25,000</strong>
+                            <strong class="summary-value" id="summaryBudget">₹34,200</strong>
                         </div>
                     </div>
 
@@ -117,7 +118,7 @@
                         <span class="summary-icon">🎒</span>
                         <div class="summary-info">
                             <span class="summary-label">Trip Style</span>
-                            <strong class="summary-value">Adventure &amp; Leisure</strong>
+                            <strong class="summary-value" id="summaryStyle">Adventure &amp; Foodie</strong>
                         </div>
                     </div>
 
@@ -125,7 +126,7 @@
                         <span class="summary-icon">🍲</span>
                         <div class="summary-info">
                             <span class="summary-label">Food Preference</span>
-                            <strong class="summary-value">Vegetarian</strong>
+                            <strong class="summary-value" id="summaryFood">Vegetarian</strong>
                             <span class="summary-subtext">No Pref · Veg · Non-Veg · Vegan</span>
                         </div>
                     </div>
@@ -134,7 +135,7 @@
                         <span class="summary-icon">🏨</span>
                         <div class="summary-info">
                             <span class="summary-label">Hotel Type</span>
-                            <strong class="summary-value">3-Star Hotel</strong>
+                            <strong class="summary-value" id="summaryHotel">3-Star Hotel</strong>
                             <span class="summary-subtext">Hostel · Budget · 3★ · 4★ · 5★</span>
                         </div>
                     </div>
@@ -143,7 +144,7 @@
                         <span class="summary-icon">✨</span>
                         <div class="summary-info">
                             <span class="summary-label">Experience Type</span>
-                            <strong class="summary-value">Standard</strong>
+                            <strong class="summary-value" id="summaryExperience">Standard Plan</strong>
                             <span class="summary-subtext">Budget · Standard · Premium · Luxury</span>
                         </div>
                     </div>
@@ -155,201 +156,43 @@
             <div class="itinerary-container">
                 <h2 id="itinerary-heading" class="section-title">Day-by-Day Itinerary</h2>
 
-                <div class="itinerary-days-list">
-
-                    <article class="day-card">
-                        <header class="day-card-header">
-                            <span class="day-badge">Day 1</span>
-                            <span class="day-date">Day 1 · Date Placeholder</span>
-                            <span class="day-location">📍 Mall Road &amp; Hadimba Temple</span>
-                        </header>
-
-                        <div class="day-card-body">
-                            <h3 class="day-title">Arrival &amp; Local Exploration</h3>
-                            <ul class="activity-list">
-                                <li class="activity-item">
-                                    <span class="activity-time">10:00 AM</span>
-                                    <span class="activity-text">Arrive in Manali</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">11:30 AM</span>
-                                    <span class="activity-text">Check-in at hotel</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">02:00 PM</span>
-                                    <span class="activity-text">Explore Mall Road</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">04:30 PM</span>
-                                    <span class="activity-text">Visit Hadimba Temple</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">07:00 PM</span>
-                                    <span class="activity-text">Evening at Mall Road</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="day-card">
-                        <header class="day-card-header">
-                            <span class="day-badge">Day 2</span>
-                            <span class="day-date">Day 2 · Date Placeholder</span>
-                            <span class="day-location">📍 Solang Valley</span>
-                        </header>
-
-                        <div class="day-card-body">
-                            <h3 class="day-title">Solang Valley</h3>
-                            <ul class="activity-list">
-                                <li class="activity-item">
-                                    <span class="activity-time">08:00 AM</span>
-                                    <span class="activity-text">Breakfast</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">09:30 AM</span>
-                                    <span class="activity-text">Visit Solang Valley</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">11:30 AM</span>
-                                    <span class="activity-text">Adventure activities</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">02:00 PM</span>
-                                    <span class="activity-text">Local café/lunch</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">05:30 PM</span>
-                                    <span class="activity-text">Return to hotel</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="day-card">
-                        <header class="day-card-header">
-                            <span class="day-badge">Day 3</span>
-                            <span class="day-date">Day 3 · Date Placeholder</span>
-                            <span class="day-location">📍 Old Manali</span>
-                        </header>
-
-                        <div class="day-card-body">
-                            <h3 class="day-title">Old Manali</h3>
-                            <ul class="activity-list">
-                                <li class="activity-item">
-                                    <span class="activity-time">09:30 AM</span>
-                                    <span class="activity-text">Explore Old Manali</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">11:00 AM</span>
-                                    <span class="activity-text">Visit Manu Temple</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">01:30 PM</span>
-                                    <span class="activity-text">Explore local markets</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">04:00 PM</span>
-                                    <span class="activity-text">Café hopping</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">06:30 PM</span>
-                                    <span class="activity-text">Evening walk</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="day-card">
-                        <header class="day-card-header">
-                            <span class="day-badge">Day 4</span>
-                            <span class="day-date">Day 4 · Date Placeholder</span>
-                            <span class="day-location">📍 Rohtang Pass / Snow Point</span>
-                        </header>
-
-                        <div class="day-card-body">
-                            <h3 class="day-title">Rohtang / Snow Point</h3>
-                            <ul class="activity-list">
-                                <li class="activity-item">
-                                    <span class="activity-time">07:00 AM</span>
-                                    <span class="activity-text">Morning departure</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">10:00 AM</span>
-                                    <span class="activity-text">Visit snow point</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">01:00 PM</span>
-                                    <span class="activity-text">Enjoy scenic views</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">05:00 PM</span>
-                                    <span class="activity-text">Return in evening</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="day-card">
-                        <header class="day-card-header">
-                            <span class="day-badge">Day 5</span>
-                            <span class="day-date">Day 5 · Date Placeholder</span>
-                            <span class="day-location">📍 Manali &amp; Departure</span>
-                        </header>
-
-                        <div class="day-card-body">
-                            <h3 class="day-title">Departure</h3>
-                            <ul class="activity-list">
-                                <li class="activity-item">
-                                    <span class="activity-time">08:30 AM</span>
-                                    <span class="activity-text">Breakfast</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">10:30 AM</span>
-                                    <span class="activity-text">Check-out</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">12:00 PM</span>
-                                    <span class="activity-text">Last-minute shopping</span>
-                                </li>
-                                <li class="activity-item">
-                                    <span class="activity-time">03:00 PM</span>
-                                    <span class="activity-text">Departure</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-
+                <div class="itinerary-days-list" id="itineraryDaysList">
+                    <!-- Dynamically rendered via client-side JavaScript from saved preferences/destinations -->
                 </div>
             </div>
         </section>
 
         <section id="trip-budget" class="trip-budget-section" aria-labelledby="budget-heading">
             <div class="budget-container">
-                <h2 id="budget-heading" class="section-title">Trip Budget</h2>
+                <h2 id="budget-heading" class="section-title">Trip Budget Overview</h2>
 
                 <div class="budget-card">
-                    <ul class="budget-list">
+                    <ul class="budget-list" id="budgetList">
                         <li class="budget-item">
-                            <span class="budget-category">🏨 Stay</span>
-                            <span class="budget-cost">₹10,000</span>
+                            <span class="budget-category">🏨 Stays &amp; Accommodation</span>
+                            <span class="budget-cost" id="bCostStay">~39% of total</span>
                         </li>
                         <li class="budget-item">
-                            <span class="budget-category">🍲 Food</span>
-                            <span class="budget-cost">₹6,000</span>
+                            <span class="budget-category">🚗 Transportation &amp; Transfers</span>
+                            <span class="budget-cost" id="bCostTransit">~19% of total</span>
                         </li>
                         <li class="budget-item">
-                            <span class="budget-category">🚗 Transportation</span>
-                            <span class="budget-cost">₹5,000</span>
+                            <span class="budget-category">🍜 Food &amp; Local Dining</span>
+                            <span class="budget-cost" id="bCostFood">~16% of total</span>
                         </li>
                         <li class="budget-item">
-                            <span class="budget-category">🎟️ Activities</span>
-                            <span class="budget-cost">₹4,000</span>
+                            <span class="budget-category">🎟️ Activities &amp; Sightseeing</span>
+                            <span class="budget-cost" id="bCostActivities">~15% of total</span>
+                        </li>
+                        <li class="budget-item">
+                            <span class="budget-category">🛡️ Miscellaneous &amp; Buffer</span>
+                            <span class="budget-cost" id="bCostMisc">~11% of total</span>
                         </li>
                     </ul>
 
                     <div class="budget-total-row">
                         <strong class="total-label">Total Estimated Cost:</strong>
-                        <strong class="total-amount">₹25,000</strong>
+                        <strong class="total-amount" id="budgetTotalCost">₹34,200</strong>
                     </div>
                 </div>
             </div>
@@ -393,6 +236,232 @@
         </div>
     </footer>
 
+    <script>
+      (function initStaticItinerary() {
+        const DESTINATIONS_DB = {
+          "goa": {
+            name: "Goa", state: "Goa", baseRate: 3500, days: 4,
+            highlights: ["Baga & Anjuna beach hopping", "Old Goa Portuguese churches & Fontainhas", "Sunset cruise on Mandovi River"],
+            hotels: [{ name: "Hilton Goa Resort", area: "Candolim", rating: 4.5, phone: "+91 832 664 9800" }, { name: "Holiday Inn Resort Goa", area: "Cavelossim", rating: 4.5, phone: "+91 832 662 6000" }],
+            restaurants: [{ name: "The Second House", area: "Saligao", rating: 4.6, phone: "+91 91122 91144", price_level: 3 }, { name: "Copperleaf", area: "Porvorim", rating: 4.4, phone: "+91 832 241 7899", price_level: 2 }]
+          },
+          "munnar": {
+            name: "Munnar", state: "Kerala", baseRate: 2800, days: 3,
+            highlights: ["Tea plantation safari & museum", "Eravikulam National Park Nilgiri Tahr", "Mattupetty Dam boat ride"],
+            hotels: [{ name: "Blanket Hotel & Spa", area: "Attukad Waterfalls Road", rating: 4.8, phone: "+91 4865 263 500" }, { name: "Grand Plaza Munnar", area: "Old Munnar", rating: 4.3, phone: "+91 4865 232 201" }],
+            restaurants: [{ name: "Munnar Samrudhi Restaurant", area: "Nullatanni", rating: 4.7, phone: "+91 94472 23344", price_level: 1 }, { name: "Saravana Bhavan", area: "Munnar Town", rating: 4.1, phone: "+91 4865 230 484", price_level: 1 }]
+          },
+          "manali": {
+            name: "Manali", state: "Himachal Pradesh", baseRate: 3200, days: 4,
+            highlights: ["Solang Valley paragliding & zorbing", "Hadimba Devi Temple & cedar woods", "Old Manali cafés & Mall Road"],
+            hotels: [{ name: "Hotel Rio Sol Resort and Villas", area: "Prini", rating: 4.9, phone: "+91 98160 54321" }, { name: "The Himalayan", area: "Hadimba Road", rating: 4.5, phone: "+91 1902 250 999" }],
+            restaurants: [{ name: "The Lazy Dog Lounge", area: "Old Manali", rating: 4.4, phone: "+91 98055 97775", price_level: 3 }, { name: "Johnson's Bar & Restaurant", area: "Circuit House Road", rating: 4.3, phone: "+91 1902 251 523", price_level: 3 }]
+          },
+          "jaipur": {
+            name: "Jaipur", state: "Rajasthan", baseRate: 3000, days: 3,
+            highlights: ["Amer Fort elephant ride & Hawa Mahal", "City Palace & Jantar Mantar", "Johari Bazaar gems & street food"],
+            hotels: [{ name: "Samode Haveli", area: "Gangapole", rating: 4.7, phone: "+91 141 263 2407" }, { name: "ITC Rajputana", area: "Gopalbari", rating: 4.6, phone: "+91 141 405 1600" }],
+            restaurants: [{ name: "1135 AD", area: "Amer Fort", rating: 4.4, phone: "+91 141 253 0100", price_level: 4 }, { name: "LMB (Laxmi Misthan Bhandar)", area: "Johari Bazar", rating: 4.0, phone: "+91 141 256 5844", price_level: 2 }]
+          },
+          "kashmir": {
+            name: "Kashmir (Srinagar)", state: "Jammu & Kashmir", baseRate: 4200, days: 5,
+            highlights: ["Dal Lake Shikara & Houseboat", "Gulmarg Gondola snow ride", "Pahalgam Betaab Valley"],
+            hotels: [{ name: "The Lalit Grand Palace", area: "Gupkar Road", rating: 4.5, phone: "+91 194 250 1001" }, { name: "Vivanta Dal View", area: "Kralsangri", rating: 4.6, phone: "+91 194 246 1111" }],
+            restaurants: [{ name: "Ahdoos Restaurant", area: "Residency Road", rating: 4.3, phone: "+91 194 247 2593", price_level: 2 }, { name: "Mughal Darbar", area: "Residency Road", rating: 4.1, phone: "+91 194 247 5284", price_level: 2 }]
+          },
+          "gokarna": {
+            name: "Gokarna", state: "Karnataka", baseRate: 2400, days: 3,
+            highlights: ["Om Beach & Kudle Beach trekking", "Mahabaleshwar Temple darshan", "Half Moon Beach cliff sunset"],
+            hotels: [{ name: "Kahani Paradise", area: "Bada", rating: 4.8, phone: "+91 94801 12000" }, { name: "Kudle Beach View Resort", area: "Kudle Beach", rating: 4.2, phone: "+91 8386 257 588" }],
+            restaurants: [{ name: "Chez Christophe", area: "Middle Beach", rating: 4.5, phone: "+91 94803 27768", price_level: 2 }, { name: "Mantra Cafe", area: "Kudle Beach", rating: 4.3, phone: "+91 8386 257 232", price_level: 2 }]
+          }
+        };
+
+        let selectedSlugs = ["goa", "munnar"];
+        try {
+          const stored = localStorage.getItem("desisafar_selected_destinations");
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              selectedSlugs = parsed.map(s => String(s).toLowerCase().trim());
+            }
+          }
+        } catch(e) {}
+
+        let startLocation = "Mumbai, Maharashtra";
+        let depDate = "";
+        let retDate = "";
+        let travellers = 4;
+        try {
+          const dt = localStorage.getItem("desisafar_trip_details");
+          if (dt) {
+            const d = JSON.parse(dt);
+            if (d.start_location) startLocation = d.start_location;
+            if (d.departure_date) depDate = d.departure_date;
+            if (d.return_date) retDate = d.return_date;
+            if (d.travellers) travellers = parseInt(d.travellers) || 4;
+          }
+          const stCity = localStorage.getItem("desisafar_start_city");
+          if (stCity) startLocation = stCity;
+          const stTrav = localStorage.getItem("desisafar_travellers");
+          if (stTrav) travellers = parseInt(stTrav) || 4;
+        } catch(e) {}
+
+        let budgetTier = "standard";
+        let stayType = "3_star";
+        let diet = "vegetarian";
+        let vibes = ["adventure", "foodie"];
+        let dining = ["local_food", "cafes"];
+        try {
+          const pref = localStorage.getItem("desisafar_preferences");
+          if (pref) {
+            const p = JSON.parse(pref);
+            if (p.budget_tier) budgetTier = p.budget_tier;
+            if (p.stay_type) stayType = p.stay_type;
+            if (p.diet) diet = p.diet;
+            if (p.vibes && p.vibes.length) vibes = p.vibes;
+            if (p.dining && p.dining.length) dining = p.dining;
+          }
+        } catch(e) {}
+
+        const destObjs = selectedSlugs.map(slug => DESTINATIONS_DB[slug] || {
+          name: slug.charAt(0).toUpperCase() + slug.slice(1),
+          state: "India", baseRate: 3000, days: 3,
+          highlights: ["Scenic viewpoints", "Historic monuments", "Authentic dining"],
+          hotels: [{ name: "Boutique Heritage Hotel", area: "City Center", rating: 4.5, phone: "+91 98000 12345" }],
+          restaurants: [{ name: "Local Flavor Kitchen", area: "Main Bazaar", rating: 4.4, phone: "+91 98000 54321", price_level: 2 }]
+        });
+
+        const totalDays = destObjs.reduce((acc, d) => acc + (d.days || 3), 0);
+        const totalNights = Math.max(1, totalDays - 1);
+
+        // Update Top Summary Block
+        const destDisplay = destObjs.map(d => d.name).join(" + ");
+        document.getElementById("summaryDestinations").textContent = destDisplay;
+        document.getElementById("pageSubtitle").innerHTML = `Custom-tailored for <strong>${destDisplay}</strong> across ${totalDays} Days / ${totalNights} Nights from ${startLocation}.`;
+        document.getElementById("summaryDuration").textContent = `${totalDays} Days / ${totalNights} Nights`;
+        document.getElementById("summaryTravelers").textContent = `${travellers} People`;
+        document.getElementById("summaryStyle").textContent = vibes.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(" & ");
+        document.getElementById("summaryFood").textContent = diet.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+        const stayNames = { hostel: "Hostel", budget_hotel: "Budget Hotel", "3_star": "3-Star Hotel", "4_star": "4-Star Resort", "5_star": "5-Star Luxury" };
+        document.getElementById("summaryHotel").textContent = stayNames[stayType] || "3-Star Hotel";
+
+        const tierNames = { budget: "Budget-Friendly", standard: "Standard Plan", premium: "Premium Plan", luxury: "Luxury Plan" };
+        document.getElementById("summaryExperience").textContent = tierNames[budgetTier] || "Standard Plan";
+
+        // Calculate Cost
+        const avgBaseRate = destObjs.reduce((acc, d) => acc + d.baseRate, 0) / destObjs.length;
+        const tierMults = { budget: 0.75, standard: 1.0, premium: 1.35, luxury: 2.1 };
+        const stayMults = { hostel: 0.7, budget_hotel: 0.85, "3_star": 1.0, "4_star": 1.4, "5_star": 2.2 };
+        const diningMult = 1.0 + (dining.includes("fine_dining") ? 0.12 : 0) - (dining.includes("street_food") ? 0.04 : 0);
+        const compMult = ((tierMults[budgetTier] || 1.0) * 0.6) + ((stayMults[stayType] || 1.0) * 0.4);
+        const totalCost = Math.max(5000, Math.round((avgBaseRate * totalDays * travellers * compMult * diningMult) / 100) * 100);
+
+        document.getElementById("summaryBudget").textContent = `₹${totalCost.toLocaleString('en-IN')}`;
+        document.getElementById("budgetTotalCost").textContent = `₹${totalCost.toLocaleString('en-IN')}`;
+        document.getElementById("bCostStay").textContent = `₹${Math.round(totalCost * 0.39).toLocaleString('en-IN')} (39%)`;
+        document.getElementById("bCostTransit").textContent = `₹${Math.round(totalCost * 0.19).toLocaleString('en-IN')} (19%)`;
+        document.getElementById("bCostFood").textContent = `₹${Math.round(totalCost * 0.16).toLocaleString('en-IN')} (16%)`;
+        document.getElementById("bCostActivities").textContent = `₹${Math.round(totalCost * 0.15).toLocaleString('en-IN')} (15%)`;
+        document.getElementById("bCostMisc").textContent = `₹${Math.round(totalCost * 0.11).toLocaleString('en-IN')} (11%)`;
+
+        // Render Day-by-Day Itinerary Cards
+        const daysList = document.getElementById("itineraryDaysList");
+        daysList.innerHTML = "";
+
+        let currentDay = 1;
+        destObjs.forEach((dest, destIdx) => {
+          const destDays = dest.days || 3;
+          const hotel = dest.hotels[0];
+          const rest = dest.restaurants[0];
+
+          for (let d = 1; d <= destDays; d++) {
+            const isFirst = (currentDay === 1);
+            const isLast = (currentDay === totalDays);
+            const isDestFirst = (d === 1 && !isFirst);
+
+            let dayTitle = isFirst ? `Arrival & ${dest.name} Exploration` : isLast ? `${dest.name} Farewell & Departure` : isDestFirst ? `Scenic Transit to ${dest.name} & Check-in` : `Deep Dive: ${dest.highlights[0] || dest.name}`;
+            let locLabel = isLast ? `${dest.name} & Transit` : `${dest.name} · ${dest.state}`;
+
+            let acts = [];
+            if (isFirst) {
+              acts = [
+                { time: "10:00 AM", text: `Arrive in ${dest.name} from ${startLocation} & check in` },
+                { time: "11:30 AM", text: `Freshen up at ${hotel.name} (${hotel.area})` },
+                { time: "02:00 PM", text: `Welcome lunch at ${rest.name} (${rest.area})` },
+                { time: "04:30 PM", text: dest.highlights[0] || "Local sightseeing" },
+                { time: "07:30 PM", text: "Evening stroll and authentic night bazaar exploration" }
+              ];
+            } else if (isLast) {
+              acts = [
+                { time: "08:30 AM", text: `Breakfast at ${hotel.name} & morning walk` },
+                { time: "10:30 AM", text: "Check-out and souvenir shopping for authentic local specialties" },
+                { time: "01:00 PM", text: `Farewell lunch at ${rest.name}` },
+                { time: "03:30 PM", text: `Transit departure towards ${startLocation}` }
+              ];
+            } else if (isDestFirst) {
+              acts = [
+                { time: "08:00 AM", text: `Morning scenic transfer to ${dest.name}` },
+                { time: "12:00 PM", text: `Arrive in ${dest.name} & check-in at ${hotel.name} (${hotel.area})` },
+                { time: "01:30 PM", text: `Welcome lunch at ${rest.name}` },
+                { time: "04:00 PM", text: dest.highlights[0] || "Signature sight" },
+                { time: "07:30 PM", text: `Dinner and relaxing evening in ${dest.name}` }
+              ];
+            } else {
+              acts = [
+                { time: "08:30 AM", text: "Hearty breakfast with fresh local flavors" },
+                { time: "10:00 AM", text: `Signature experience: ${dest.highlights[1] || dest.highlights[0]}` },
+                { time: "01:00 PM", text: `Mid-day culinary stop at ${rest.name}` },
+                { time: "03:30 PM", text: `Afternoon adventure: ${dest.highlights[2] || "Cultural trail"}` },
+                { time: "07:00 PM", text: "Golden hour sunset & relaxing dinner" }
+              ];
+            }
+
+            const card = document.createElement("article");
+            card.className = "day-card";
+            card.innerHTML = `
+              <header class="day-card-header">
+                <span class="day-badge">Day ${currentDay}</span>
+                <span class="day-date">Day ${currentDay} of ${totalDays}</span>
+                <span class="day-location">📍 ${locLabel}</span>
+              </header>
+              <div class="day-card-body">
+                <h3 class="day-title">${dayTitle}</h3>
+                <ul class="activity-list">
+                  ${acts.map(a => `<li class="activity-item"><span class="activity-time">${a.time}</span><span class="activity-text">${a.text}</span></li>`).join('')}
+                </ul>
+                <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed #cbd5e1; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
+                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 14px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+                      <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b;">🏨 Suggested Stay</span>
+                      <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ ${hotel.rating}</span>
+                    </div>
+                    <strong style="font-size: 0.875rem; color: #0b132b; display: block; margin-bottom: 2px;">${hotel.name}</strong>
+                    <span style="font-size: 0.8125rem; color: #64748b; display: block;">📍 ${hotel.area}</span>
+                    ${hotel.phone ? `<div style="margin-top: 6px;"><a href="tel:${hotel.phone}" style="font-size: 0.75rem; font-weight: 600; color: #ff5a1f;">📞 Call: ${hotel.phone}</a></div>` : ''}
+                  </div>
+                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 14px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+                      <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #64748b;">🍽️ Suggested Dining</span>
+                      <div style="display: inline-flex; align-items: center; gap: 4px;">
+                        <span style="font-size: 0.75rem; font-weight: 800; color: #047857; background: #d1fae5; padding: 2px 6px; border-radius: 9999px;">${'₹'.repeat(rest.price_level || 2)}</span>
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 9999px;">★ ${rest.rating}</span>
+                      </div>
+                    </div>
+                    <strong style="font-size: 0.875rem; color: #0b132b; display: block; margin-bottom: 2px;">${rest.name}</strong>
+                    <span style="font-size: 0.8125rem; color: #64748b; display: block;">📍 ${rest.area}</span>
+                    ${rest.phone ? `<div style="margin-top: 6px;"><a href="tel:${rest.phone}" style="font-size: 0.75rem; font-weight: 600; color: #ff5a1f;">📞 Call: ${rest.phone}</a></div>` : ''}
+                  </div>
+                </div>
+              </div>
+            `;
+            daysList.appendChild(card);
+            currentDay++;
+          }
+        });
+      })();
+    </script>
 </body>
 
 </html>

@@ -290,6 +290,14 @@
                 </div>
                 <h3 class="pref-card-title">Budget-Friendly</h3>
                 <p class="pref-card-desc">Focus on value and affordable choices.</p>
+                <div class="budget-card-price-tag" style="margin-top: 12px; padding: 8px 10px; background: #fff8f5; border: 1px solid #ffd8c7; border-radius: 8px; width: 100%; text-align: left; box-sizing: border-box;">
+                  <span class="budget-price-range" id="price-range-budget" style="display: block; font-size: 0.8125rem; font-weight: 800; color: #ff5a1f; letter-spacing: -0.01em;">
+                    ~ ₹18,400 – ₹24,100
+                  </span>
+                  <span class="budget-price-person" id="price-person-budget" style="display: block; font-size: 0.6875rem; color: #475569; font-weight: 600; margin-top: 2px;">
+                    ₹4,600 / person
+                  </span>
+                </div>
               </div>
             </label>
 
@@ -302,6 +310,14 @@
                 </div>
                 <h3 class="pref-card-title">Standard</h3>
                 <p class="pref-card-desc">A balanced travel experience.</p>
+                <div class="budget-card-price-tag" style="margin-top: 12px; padding: 8px 10px; background: #fff8f5; border: 1px solid #ffd8c7; border-radius: 8px; width: 100%; text-align: left; box-sizing: border-box;">
+                  <span class="budget-price-range" id="price-range-standard" style="display: block; font-size: 0.8125rem; font-weight: 800; color: #ff5a1f; letter-spacing: -0.01em;">
+                    ~ ₹24,600 – ₹32,200
+                  </span>
+                  <span class="budget-price-person" id="price-person-standard" style="display: block; font-size: 0.6875rem; color: #475569; font-weight: 600; margin-top: 2px;">
+                    ₹6,150 / person
+                  </span>
+                </div>
               </div>
             </label>
 
@@ -314,6 +330,14 @@
                 </div>
                 <h3 class="pref-card-title">Premium</h3>
                 <p class="pref-card-desc">More comfort and flexibility.</p>
+                <div class="budget-card-price-tag" style="margin-top: 12px; padding: 8px 10px; background: #fff8f5; border: 1px solid #ffd8c7; border-radius: 8px; width: 100%; text-align: left; box-sizing: border-box;">
+                  <span class="budget-price-range" id="price-range-premium" style="display: block; font-size: 0.8125rem; font-weight: 800; color: #ff5a1f; letter-spacing: -0.01em;">
+                    ~ ₹33,200 – ₹43,400
+                  </span>
+                  <span class="budget-price-person" id="price-person-premium" style="display: block; font-size: 0.6875rem; color: #475569; font-weight: 600; margin-top: 2px;">
+                    ₹8,300 / person
+                  </span>
+                </div>
               </div>
             </label>
 
@@ -326,6 +350,14 @@
                 </div>
                 <h3 class="pref-card-title">Luxury</h3>
                 <p class="pref-card-desc">Premium stays and experiences.</p>
+                <div class="budget-card-price-tag" style="margin-top: 12px; padding: 8px 10px; background: #fff8f5; border: 1px solid #ffd8c7; border-radius: 8px; width: 100%; text-align: left; box-sizing: border-box;">
+                  <span class="budget-price-range" id="price-range-luxury" style="display: block; font-size: 0.8125rem; font-weight: 800; color: #ff5a1f; letter-spacing: -0.01em;">
+                    ~ ₹51,600 – ₹67,500
+                  </span>
+                  <span class="budget-price-person" id="price-person-luxury" style="display: block; font-size: 0.6875rem; color: #475569; font-weight: 600; margin-top: 2px;">
+                    ₹12,900 / person
+                  </span>
+                </div>
               </div>
             </label>
           </div>
@@ -462,19 +494,19 @@
           </div>
 
           <div class="summary-destinations-block">
-            <h3 class="summary-route-name">Goa + Gokarna</h3>
+            <h3 class="summary-route-name" id="summaryRouteName">Goa + Gokarna</h3>
             <div class="summary-details-list">
               <div class="summary-detail-row">
                 <span class="detail-label">Dates</span>
-                <span class="detail-val">12–17 Oct (6 Days)</span>
+                <span class="detail-val" id="summaryDates">12–17 Oct (6 Days)</span>
               </div>
               <div class="summary-detail-row">
                 <span class="detail-label">Travellers</span>
-                <span class="detail-val">4 Travellers</span>
+                <span class="detail-val" id="summaryTravellers">4 Travellers</span>
               </div>
               <div class="summary-detail-row">
                 <span class="detail-label">Route Origin</span>
-                <span class="detail-val">Kochi, Kerala</span>
+                <span class="detail-val" id="summaryOrigin">Flexible / Custom</span>
               </div>
             </div>
           </div>
@@ -484,19 +516,25 @@
             <div class="snapshot-items-list">
               <div class="snapshot-row">
                 <span class="snapshot-prop">Vibe</span>
-                <span class="snapshot-tag">Adventure & Explorer</span>
+                <span class="snapshot-tag" id="snapshotVibe">Adventure & Explorer</span>
               </div>
               <div class="snapshot-row">
                 <span class="snapshot-prop">Budget</span>
-                <span class="snapshot-tag">Standard</span>
+                <span class="snapshot-tag" id="snapshotBudget">Standard</span>
               </div>
               <div class="snapshot-row">
                 <span class="snapshot-prop">Stay</span>
-                <span class="snapshot-tag">3-Star Stays</span>
+                <span class="snapshot-tag" id="snapshotStay">3-Star</span>
               </div>
               <div class="snapshot-row">
                 <span class="snapshot-prop">Diet</span>
-                <span class="snapshot-tag">No Preference</span>
+                <span class="snapshot-tag" id="snapshotDiet">No Preference</span>
+              </div>
+              <div class="snapshot-row" style="background: rgba(255, 90, 31, 0.08); padding: 8px 10px; border-radius: var(--radius-md); margin-top: 4px;">
+                <span class="snapshot-prop" style="font-weight: 700; color: var(--navy-900);">Est. Trip Cost</span>
+                <span class="snapshot-tag" id="snapshotCost" style="font-weight: 800; color: #ff5a1f; background: #fff; border: 1px solid #ffd8c7;">
+                  ₹28,400 (₹7,100/p)
+                </span>
               </div>
             </div>
           </div>
@@ -516,5 +554,214 @@
 
   </main>
 
+  <script>
+    (function initStaticPreferences() {
+      // 1. Try reading saved trip details from localStorage if available
+      let destNames = ["Goa", "Gokarna"];
+      let totalDays = 6;
+      let travellers = 4;
+      let startLocation = "Flexible / Custom";
+      let avgBaseRate = 3200;
+
+      const destTitleMap = {
+        "goa": "Goa", "munnar": "Munnar", "manali": "Manali", "jaipur": "Jaipur",
+        "kashmir": "Kashmir", "gokarna": "Gokarna", "ooty": "Ooty", "hampi": "Hampi",
+        "rishikesh": "Rishikesh", "udaipur": "Udaipur", "varkala": "Varkala", "coorg": "Coorg",
+        "pondicherry": "Pondicherry", "mumbai": "Mumbai", "hyderabad": "Hyderabad", "varanasi": "Varanasi"
+      };
+
+      try {
+        const storedDests = localStorage.getItem("desisafar_selected_destinations");
+        if (storedDests) {
+          const parsed = JSON.parse(storedDests);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            destNames = parsed.map(s => destTitleMap[String(s).toLowerCase()] || (String(s).charAt(0).toUpperCase() + String(s).slice(1)));
+          }
+        }
+        const storedCity = localStorage.getItem("desisafar_start_city");
+        if (storedCity && storedCity.trim()) startLocation = storedCity.trim();
+
+        const storedTrav = localStorage.getItem("desisafar_travellers");
+        if (storedTrav) travellers = parseInt(storedTrav) || 4;
+
+        const storedDetails = localStorage.getItem("desisafar_trip_details");
+        if (storedDetails) {
+          const d = JSON.parse(storedDetails);
+          if (d.travellers) travellers = parseInt(d.travellers) || travellers;
+          if (d.start_location) startLocation = d.start_location;
+          if (d.total_days) totalDays = parseInt(d.total_days) || totalDays;
+        }
+      } catch (e) {
+        console.warn("Could not read localStorage:", e);
+      }
+
+      // Update Trip Summary aside if elements exist
+      const routeEl = document.getElementById("summaryRouteName");
+      if (routeEl) routeEl.textContent = destNames.join(" + ");
+
+      const travEl = document.getElementById("summaryTravellers");
+      if (travEl) travEl.textContent = travellers + " Travellers";
+
+      const origEl = document.getElementById("summaryOrigin");
+      if (origEl) origEl.textContent = startLocation;
+
+      const stayMultipliers = {
+        "hostel": 0.7,
+        "budget_hotel": 0.85,
+        "3_star": 1.0,
+        "4_star": 1.4,
+        "5_star": 2.2
+      };
+
+      const tierMultipliers = {
+        "budget": 0.75,
+        "standard": 1.0,
+        "premium": 1.35,
+        "luxury": 2.1
+      };
+
+      const tierTitles = {
+        "budget": "Budget-Friendly",
+        "standard": "Standard",
+        "premium": "Premium",
+        "luxury": "Luxury"
+      };
+
+      const stayTitles = {
+        "hostel": "Hostel",
+        "budget_hotel": "Budget Hotel",
+        "3_star": "3-Star",
+        "4_star": "4-Star",
+        "5_star": "5-Star"
+      };
+
+      const dietTitles = {
+        "no_preference": "No Preference",
+        "vegetarian": "Vegetarian",
+        "non_vegetarian": "Non-Vegetarian",
+        "vegan": "Vegan"
+      };
+
+      function updateLiveEstimates() {
+        const stayEl = document.querySelector('input[name="stay"]:checked');
+        const selectedStay = stayEl ? stayEl.value : "3_star";
+        const stayMult = stayMultipliers[selectedStay] || 1.0;
+
+        const diningChecked = Array.from(document.querySelectorAll('input[name="dining"]:checked')).map(el => el.value);
+        let diningMult = 1.0;
+        if (diningChecked.includes("fine_dining")) diningMult += 0.12;
+        if (diningChecked.includes("street_food")) diningMult -= 0.04;
+
+        const budgetEl = document.querySelector('input[name="budget"]:checked');
+        const selectedBudget = budgetEl ? budgetEl.value : "standard";
+
+        const dietEl = document.querySelector('input[name="diet"]:checked');
+        const selectedDiet = dietEl ? dietEl.value : "no_preference";
+
+        const vibeChecked = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(el => el.value);
+
+        let currentTierTotal = 0;
+        let currentTierPerson = 0;
+
+        Object.keys(tierMultipliers).forEach(tierCode => {
+          const tierMult = tierMultipliers[tierCode];
+          const compMult = (tierMult * 0.6) + (stayMult * 0.4);
+          const rawTotal = avgBaseRate * totalDays * travellers * compMult * diningMult;
+          const tCost = Math.max(5000, Math.round(rawTotal / 100) * 100);
+          const tLower = Math.round((tCost * 0.88) / 100) * 100;
+          const tUpper = Math.round((tCost * 1.15) / 100) * 100;
+          const tPerson = Math.round(tCost / travellers);
+
+          if (tierCode === selectedBudget) {
+            currentTierTotal = tCost;
+            currentTierPerson = tPerson;
+          }
+
+          const rangeEl = document.getElementById("price-range-" + tierCode);
+          const personEl = document.getElementById("price-person-" + tierCode);
+
+          if (rangeEl) {
+            rangeEl.textContent = `~ ₹${tLower.toLocaleString('en-IN')} – ₹${tUpper.toLocaleString('en-IN')}`;
+          }
+          if (personEl) {
+            personEl.textContent = `₹${tPerson.toLocaleString('en-IN')} / person`;
+          }
+        });
+
+        const snapVibe = document.getElementById("snapshotVibe");
+        if (snapVibe) {
+          if (vibeChecked.length > 0) {
+            snapVibe.textContent = vibeChecked.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(" & ");
+          } else {
+            snapVibe.textContent = "Explorer";
+          }
+        }
+
+        const snapBudget = document.getElementById("snapshotBudget");
+        if (snapBudget) snapBudget.textContent = tierTitles[selectedBudget] || "Standard";
+
+        const snapStay = document.getElementById("snapshotStay");
+        if (snapStay) snapStay.textContent = stayTitles[selectedStay] || "3-Star";
+
+        const snapDiet = document.getElementById("snapshotDiet");
+        if (snapDiet) snapDiet.textContent = dietTitles[selectedDiet] || "No Preference";
+
+        const snapCost = document.getElementById("snapshotCost");
+        if (snapCost) {
+          snapCost.textContent = `₹${currentTierTotal.toLocaleString('en-IN')} (₹${currentTierPerson.toLocaleString('en-IN')}/p)`;
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", updateLiveEstimates);
+      } else {
+        updateLiveEstimates();
+      }
+
+      document.addEventListener("change", function(e) {
+        if (e.target && (e.target.name === "budget" || e.target.name === "stay" || e.target.name === "diet" || e.target.name === "dining" || e.target.name === "vibe" || e.target.name === "interest")) {
+          updateLiveEstimates();
+        }
+      });
+
+      document.addEventListener("click", function(e) {
+        if (e.target && e.target.tagName === "INPUT" && (e.target.type === "radio" || e.target.type === "checkbox")) {
+          setTimeout(updateLiveEstimates, 10);
+        }
+      });
+
+      // Save preferences to localStorage on Generate Itinerary CTA click
+      document.querySelectorAll(".btn-generate-cta").forEach(function(btn) {
+        btn.addEventListener("click", function(e) {
+          e.preventDefault();
+          const budgetEl = document.querySelector('input[name="budget"]:checked');
+          const budget = budgetEl ? budgetEl.value : "standard";
+
+          const stayEl = document.querySelector('input[name="stay"]:checked');
+          const stay = stayEl ? stayEl.value : "3_star";
+
+          const dietEl = document.querySelector('input[name="diet"]:checked');
+          const diet = dietEl ? dietEl.value : "no_preference";
+
+          const vibes = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(function(el) { return el.value; });
+          const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(function(el) { return el.value; });
+          const dining = Array.from(document.querySelectorAll('input[name="dining"]:checked')).map(function(el) { return el.value; });
+
+          try {
+            localStorage.setItem("desisafar_preferences", JSON.stringify({
+              budget_tier: budget,
+              stay_type: stay,
+              diet: diet,
+              vibes: vibes,
+              interests: interests,
+              dining: dining
+            }));
+          } catch(err) {}
+
+          window.location.href = "../page 4/index4.html";
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

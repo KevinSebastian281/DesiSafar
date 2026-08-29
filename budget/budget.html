@@ -68,17 +68,15 @@
     <div class="trip-context-banner" role="region" aria-label="Current Journey Summary">
       <div class="trip-context-left">
         <span class="context-tag-badge">Planned Trip</span>
-        <span class="context-route-title">
-          <span>Goa</span>
-          <span class="context-dot-divider">+</span>
-          <span>Gokarna</span>
+        <span class="context-route-title" id="contextRouteTitle">
+          Goa + Munnar
         </span>
-        <div class="context-meta-group">
-          <span>📅 12–17 October 2026 (6 Days · 5 Nights)</span>
+        <div class="context-meta-group" id="contextMetaGroup">
+          <span id="metaDates">📅 12–18 October 2026 (7 Days · 6 Nights)</span>
           <span class="context-dot-divider">•</span>
-          <span>👥 4 Travellers</span>
+          <span id="metaTravellers">👥 4 Travellers</span>
           <span class="context-dot-divider">•</span>
-          <span class="context-plan-tag">Standard Plan</span>
+          <span class="context-plan-tag" id="metaPlanTag">Standard Plan</span>
         </div>
       </div>
       <a href="../preference/preference.html" class="context-edit-link">
@@ -98,14 +96,14 @@
         <div class="cost-card-heading-group">
           <span class="cost-card-eyebrow">Total Estimated Cost</span>
           <div class="cost-total-amount">
-            <span>₹62,000</span>
-            <span class="cost-traveller-label">for 4 travellers</span>
+            <span id="costTotalAmount">₹34,200</span>
+            <span class="cost-traveller-label" id="costTravellerLabel">for 4 travellers</span>
           </div>
         </div>
 
         <div class="per-person-hero-badge">
           <div class="per-person-badge-label">Per Person Share</div>
-          <div class="per-person-badge-value">₹15,500</div>
+          <div class="per-person-badge-value" id="perPersonValue">₹8,550</div>
         </div>
       </div>
 
@@ -119,19 +117,19 @@
 
           <div class="range-pin low">
             <span class="range-pin-dot"></span>
-            <span class="range-pin-val">₹55,000</span>
+            <span class="range-pin-val" id="pinLowVal">₹30,000</span>
             <span class="range-pin-label">Lower Estimate</span>
           </div>
 
           <div class="range-pin expected">
             <span class="range-pin-dot"></span>
-            <span class="range-pin-val">₹62,000</span>
+            <span class="range-pin-val" id="pinExpVal">₹34,200</span>
             <span class="range-pin-label">Expected Estimate</span>
           </div>
 
           <div class="range-pin high">
             <span class="range-pin-dot"></span>
-            <span class="range-pin-val">₹70,000</span>
+            <span class="range-pin-val" id="pinHighVal">₹39,000</span>
             <span class="range-pin-label">Upper Estimate</span>
           </div>
         </div>
@@ -161,12 +159,13 @@
               <div class="category-icon-box">🏨</div>
               <div>
                 <h3 class="category-name">Accommodation</h3>
-                <span class="category-sublabel">5 Nights (3-Star & Coastal Resorts)</span>
+                <span class="category-sublabel" id="catStaySub">6 Nights (3-Star Hotel)</span>
+                <div id="catStayHotels" style="margin-top: 4px; font-size: 0.8125rem; color: #64748b;"></div>
               </div>
             </div>
             <div class="category-right">
-              <div class="category-amount">₹24,000</div>
-              <div class="category-percentage">39% • ₹6,000 / person</div>
+              <div class="category-amount" id="catStayAmt">₹13,300</div>
+              <div class="category-percentage" id="catStayPct">39% • ₹3,325 / person</div>
             </div>
           </div>
 
@@ -175,12 +174,12 @@
               <div class="category-icon-box">🚗</div>
               <div>
                 <h3 class="category-name">Transportation</h3>
-                <span class="category-sublabel">Cabs, Inter-city Transit & Fuel</span>
+                <span class="category-sublabel" id="catTransitSub">Cabs, Inter-city Transit &amp; Fuel</span>
               </div>
             </div>
             <div class="category-right">
-              <div class="category-amount">₹12,000</div>
-              <div class="category-percentage">19% • ₹3,000 / person</div>
+              <div class="category-amount" id="catTransitAmt">₹6,500</div>
+              <div class="category-percentage" id="catTransitPct">19% • ₹1,625 / person</div>
             </div>
           </div>
 
@@ -188,13 +187,13 @@
             <div class="category-left">
               <div class="category-icon-box">🍜</div>
               <div>
-                <h3 class="category-name">Food & Dining</h3>
-                <span class="category-sublabel">Breakfasts, Beach Shacks & Local Dining</span>
+                <h3 class="category-name">Food &amp; Dining</h3>
+                <span class="category-sublabel" id="catFoodSub">Breakfasts, Cafés &amp; Local Dining</span>
               </div>
             </div>
             <div class="category-right">
-              <div class="category-amount">₹10,000</div>
-              <div class="category-percentage">16% • ₹2,500 / person</div>
+              <div class="category-amount" id="catFoodAmt">₹5,500</div>
+              <div class="category-percentage" id="catFoodPct">16% • ₹1,375 / person</div>
             </div>
           </div>
 
@@ -202,13 +201,13 @@
             <div class="category-left">
               <div class="category-icon-box">🎟️</div>
               <div>
-                <h3 class="category-name">Activities & Sightseeing</h3>
-                <span class="category-sublabel">Entry Passes, Boat Cruise & Water Sports</span>
+                <h3 class="category-name">Activities &amp; Sightseeing</h3>
+                <span class="category-sublabel" id="catActSub">Entry Passes, Boat Rides &amp; Safaris</span>
               </div>
             </div>
             <div class="category-right">
-              <div class="category-amount">₹9,000</div>
-              <div class="category-percentage">15% • ₹2,250 / person</div>
+              <div class="category-amount" id="catActAmt">₹5,100</div>
+              <div class="category-percentage" id="catActPct">15% • ₹1,275 / person</div>
             </div>
           </div>
 
@@ -216,13 +215,13 @@
             <div class="category-left">
               <div class="category-icon-box">💳</div>
               <div>
-                <h3 class="category-name">Miscellaneous & Buffer</h3>
-                <span class="category-sublabel">Tolls, Parking, Tips & Emergency Contingency</span>
+                <h3 class="category-name">Miscellaneous &amp; Buffer</h3>
+                <span class="category-sublabel" id="catMiscSub">Tolls, Parking, Tips &amp; Contingency</span>
               </div>
             </div>
             <div class="category-right">
-              <div class="category-amount">₹7,000</div>
-              <div class="category-percentage">11% • ₹1,750 / person</div>
+              <div class="category-amount" id="catMiscAmt">₹3,800</div>
+              <div class="category-percentage" id="catMiscPct">11% • ₹950 / person</div>
             </div>
           </div>
 
@@ -260,10 +259,10 @@
         <div class="share-metric-card">
           <div>
             <div class="share-metric-label">Per Person Total</div>
-            <div class="share-metric-value">₹15,500</div>
+            <div class="share-metric-value" id="shareTotalVal">₹8,550</div>
           </div>
-          <div class="share-subtext">
-            <span>₹62,000 total</span><br>
+          <div class="share-subtext" id="shareSubtext">
+            <span>₹34,200 total</span><br>
             <span>÷ 4 travellers</span>
           </div>
         </div>
@@ -271,34 +270,34 @@
         <div class="per-person-list">
           <div class="per-person-item">
             <span class="per-person-name">🏨 Accommodation</span>
-            <span class="per-person-val">₹6,000 / person</span>
+            <span class="per-person-val" id="shareStayVal">₹3,325 / person</span>
           </div>
           <div class="per-person-item">
             <span class="per-person-name">🚗 Transportation</span>
-            <span class="per-person-val">₹3,000 / person</span>
+            <span class="per-person-val" id="shareTransitVal">₹1,625 / person</span>
           </div>
           <div class="per-person-item">
-            <span class="per-person-name">🍜 Food & Dining</span>
-            <span class="per-person-val">₹2,500 / person</span>
+            <span class="per-person-name">🍜 Food &amp; Dining</span>
+            <span class="per-person-val" id="shareFoodVal">₹1,375 / person</span>
           </div>
           <div class="per-person-item">
             <span class="per-person-name">🎟️ Activities</span>
-            <span class="per-person-val">₹2,250 / person</span>
+            <span class="per-person-val" id="shareActVal">₹1,275 / person</span>
           </div>
           <div class="per-person-item">
             <span class="per-person-name">💳 Miscellaneous</span>
-            <span class="per-person-val">₹1,750 / person</span>
+            <span class="per-person-val" id="shareMiscVal">₹950 / person</span>
           </div>
         </div>
 
         <div class="daily-avg-box">
           <div class="daily-avg-left">
             <span class="daily-avg-title">Average Daily Cost</span>
-            <span class="daily-avg-formula">₹62,000 ÷ 6 days</span>
+            <span class="daily-avg-formula" id="dailyFormula">₹34,200 ÷ 7 days</span>
           </div>
           <div class="daily-avg-amounts">
-            <div class="daily-total-rate">₹10,333 / day</div>
-            <div class="daily-per-person-rate">₹2,583 / person / day</div>
+            <div class="daily-total-rate" id="dailyTotalRate">₹4,886 / day</div>
+            <div class="daily-per-person-rate" id="dailyPersonRate">₹1,221 / person / day</div>
           </div>
         </div>
 
@@ -310,72 +309,12 @@
       <div class="panel-header">
         <div>
           <h2 class="panel-title" id="headingDaily">Cost by day</h2>
-          <span class="panel-subtitle">Estimated daily spending across your 6-day itinerary</span>
+          <span class="panel-subtitle" id="dailySubtitle">Estimated daily spending across your itinerary</span>
         </div>
       </div>
 
-      <div class="day-spend-grid">
-        
-        <div class="day-spend-card">
-          <div class="day-spend-header">
-            <span class="day-tag">Day 1</span>
-            <span class="day-location">North Goa</span>
-          </div>
-          <div class="day-cost-val">₹8,500</div>
-          <div class="day-bar-bg"><div class="day-bar-fill" style="width: 68%;"></div></div>
-          <p class="day-activity-snippet">Airport pickup, beach check-in & shack dinner</p>
-        </div>
-
-        <div class="day-spend-card">
-          <div class="day-spend-header">
-            <span class="day-tag">Day 2</span>
-            <span class="day-location">Old Goa</span>
-          </div>
-          <div class="day-cost-val">₹11,200</div>
-          <div class="day-bar-bg"><div class="day-bar-fill" style="width: 90%;"></div></div>
-          <p class="day-activity-snippet">Fontainhas heritage trail, spices & Goan thali</p>
-        </div>
-
-        <div class="day-spend-card">
-          <div class="day-spend-header">
-            <span class="day-tag">Day 3</span>
-            <span class="day-location">South Goa</span>
-          </div>
-          <div class="day-cost-val">₹9,800</div>
-          <div class="day-bar-bg"><div class="day-bar-fill" style="width: 78%;"></div></div>
-          <p class="day-activity-snippet">Palolem watersports & Mandovi sunset cruise</p>
-        </div>
-
-        <div class="day-spend-card">
-          <div class="day-spend-header">
-            <span class="day-tag">Day 4</span>
-            <span class="day-location">Transit</span>
-          </div>
-          <div class="day-cost-val">₹12,400</div>
-          <div class="day-bar-bg"><div class="day-bar-fill" style="width: 100%;"></div></div>
-          <p class="day-activity-snippet">Scenic drive to Gokarna, cliff stay check-in</p>
-        </div>
-
-        <div class="day-spend-card">
-          <div class="day-spend-header">
-            <span class="day-tag">Day 5</span>
-            <span class="day-location">Gokarna</span>
-          </div>
-          <div class="day-cost-val">₹10,100</div>
-          <div class="day-bar-bg"><div class="day-bar-fill" style="width: 81%;"></div></div>
-          <p class="day-activity-snippet">Om Beach cliff trek, temple visit & seafood</p>
-        </div>
-
-        <div class="day-spend-card">
-          <div class="day-spend-header">
-            <span class="day-tag">Day 6</span>
-            <span class="day-location">Departure</span>
-          </div>
-          <div class="day-cost-val">₹10,000</div>
-          <div class="day-bar-bg"><div class="day-bar-fill" style="width: 80%;"></div></div>
-          <p class="day-activity-snippet">Souvenir bazaar, café brunch & return transit</p>
-        </div>
-
+      <div class="day-spend-grid" id="daySpendGrid">
+        <!-- Dynamically rendered per itinerary days -->
       </div>
     </section>
 
@@ -387,37 +326,8 @@
         </div>
       </div>
 
-      <div class="plan-comparison-grid">
-        
-        <div class="plan-card">
-          <h3 class="plan-title">Budget-Friendly</h3>
-          <div class="plan-price">₹48,000</div>
-          <div class="plan-per-person">₹12,000 / person</div>
-          <p class="plan-desc">Focus on essentials, hostels/guesthouses, and shared public transit.</p>
-        </div>
-
-        <div class="plan-card is-active-plan">
-          <span class="plan-badge-pill">Your Plan</span>
-          <h3 class="plan-title">Standard</h3>
-          <div class="plan-price">₹62,000</div>
-          <div class="plan-per-person">₹15,500 / person</div>
-          <p class="plan-desc">Balanced comfort, boutique 3-star stays, private rental cabs, and top experiences.</p>
-        </div>
-
-        <div class="plan-card">
-          <h3 class="plan-title">Premium</h3>
-          <div class="plan-price">₹85,000</div>
-          <div class="plan-per-person">₹21,250 / person</div>
-          <p class="plan-desc">4-star beachfront stays, dedicated chauffeur cab, fine dining, and guided activities.</p>
-        </div>
-
-        <div class="plan-card">
-          <h3 class="plan-title">Luxury</h3>
-          <div class="plan-price">₹1,35,000</div>
-          <div class="plan-per-person">₹33,750 / person</div>
-          <p class="plan-desc">5-star heritage villas, luxury SUV chauffeur, private boat charters & VIP trails.</p>
-        </div>
-
+      <div class="plan-comparison-grid" id="planCompGrid">
+        <!-- Dynamically rendered for Budget, Standard, Premium, Luxury -->
       </div>
     </section>
     <div class="transparency-grid">
@@ -428,10 +338,10 @@
           <span>Your estimate includes</span>
         </h3>
         <ul class="transparency-list">
-          <li><span class="check-icon">✓</span> Accommodation estimate (3-star coastal stays)</li>
+          <li><span class="check-icon">✓</span> Accommodation estimate (based on chosen lodging tier)</li>
           <li><span class="check-icon">✓</span> Local &amp; inter-city transportation estimate</li>
           <li><span class="check-icon">✓</span> Food &amp; daily dining estimate</li>
-          <li><span class="check-icon">✓</span> Activity &amp; boat entry tickets estimate</li>
+          <li><span class="check-icon">✓</span> Activity &amp; sightseeing entry tickets estimate</li>
           <li><span class="check-icon">✓</span> Miscellaneous contingency allowance</li>
         </ul>
       </div>
@@ -480,5 +390,216 @@
 
   </main>
 
+  <script>
+    (function initStaticBudget() {
+      const DESTINATIONS_DB = {
+        "goa": {
+          name: "Goa", state: "Goa", baseRate: 3500, days: 4,
+          hotels: [{ name: "Hilton Goa Resort", area: "Candolim" }, { name: "Holiday Inn Resort Goa", area: "Cavelossim" }]
+        },
+        "munnar": {
+          name: "Munnar", state: "Kerala", baseRate: 2800, days: 3,
+          hotels: [{ name: "Blanket Hotel & Spa", area: "Attukad Waterfalls Road" }, { name: "Grand Plaza Munnar", area: "Old Munnar" }]
+        },
+        "manali": {
+          name: "Manali", state: "Himachal Pradesh", baseRate: 3200, days: 4,
+          hotels: [{ name: "Hotel Rio Sol Resort and Villas", area: "Prini" }, { name: "The Himalayan", area: "Hadimba Road" }]
+        },
+        "jaipur": {
+          name: "Jaipur", state: "Rajasthan", baseRate: 3000, days: 3,
+          hotels: [{ name: "Samode Haveli", area: "Gangapole" }, { name: "ITC Rajputana", area: "Gopalbari" }]
+        },
+        "kashmir": {
+          name: "Kashmir (Srinagar)", state: "Jammu & Kashmir", baseRate: 4200, days: 5,
+          hotels: [{ name: "The Lalit Grand Palace", area: "Gupkar Road" }, { name: "Vivanta Dal View", area: "Kralsangri" }]
+        },
+        "gokarna": {
+          name: "Gokarna", state: "Karnataka", baseRate: 2400, days: 3,
+          hotels: [{ name: "Kahani Paradise", area: "Bada" }, { name: "Kudle Beach View Resort", area: "Kudle Beach" }]
+        }
+      };
+
+      let selectedSlugs = ["goa", "munnar"];
+      try {
+        const stored = localStorage.getItem("desisafar_selected_destinations");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            selectedSlugs = parsed.map(s => String(s).toLowerCase().trim());
+          }
+        }
+      } catch(e) {}
+
+      let travellers = 4;
+      let depDate = "";
+      let retDate = "";
+      try {
+        const dt = localStorage.getItem("desisafar_trip_details");
+        if (dt) {
+          const d = JSON.parse(dt);
+          if (d.travellers) travellers = parseInt(d.travellers) || 4;
+          if (d.departure_date) depDate = d.departure_date;
+          if (d.return_date) retDate = d.return_date;
+        }
+        const stTrav = localStorage.getItem("desisafar_travellers");
+        if (stTrav) travellers = parseInt(stTrav) || 4;
+      } catch(e) {}
+
+      let budgetTier = "standard";
+      let stayType = "3_star";
+      let dining = ["local_food", "cafes"];
+      try {
+        const pref = localStorage.getItem("desisafar_preferences");
+        if (pref) {
+          const p = JSON.parse(pref);
+          if (p.budget_tier) budgetTier = p.budget_tier;
+          if (p.stay_type) stayType = p.stay_type;
+          if (p.dining && p.dining.length) dining = p.dining;
+        }
+      } catch(e) {}
+
+      const destObjs = selectedSlugs.map(slug => DESTINATIONS_DB[slug] || {
+        name: slug.charAt(0).toUpperCase() + slug.slice(1),
+        state: "India", baseRate: 3000, days: 3,
+        hotels: [{ name: "Boutique Heritage Hotel", area: "City Center" }]
+      });
+
+      const totalDays = destObjs.reduce((acc, d) => acc + (d.days || 3), 0);
+      const totalNights = Math.max(1, totalDays - 1);
+
+      // Context Banner
+      const destTitle = destObjs.map(d => d.name).join(" + ");
+      document.getElementById("contextRouteTitle").textContent = destTitle;
+      const tierDisplayNames = { budget: "Budget-Friendly", standard: "Standard Plan", premium: "Premium Plan", luxury: "Luxury Plan" };
+      const stayDisplayNames = { hostel: "Hostels / Backpacker", budget_hotel: "Budget Hotels", "3_star": "3-Star Hotels", "4_star": "4-Star Resorts", "5_star": "5-Star Luxury" };
+      
+      document.getElementById("metaDates").textContent = `📅 ${totalDays} Days · ${totalNights} Nights`;
+      document.getElementById("metaTravellers").textContent = `👥 ${travellers} Travellers`;
+      document.getElementById("metaPlanTag").textContent = tierDisplayNames[budgetTier] || "Standard Plan";
+
+      // Price Calculations
+      const avgBaseRate = destObjs.reduce((acc, d) => acc + d.baseRate, 0) / destObjs.length;
+      const tierMults = { budget: 0.75, standard: 1.0, premium: 1.35, luxury: 2.1 };
+      const stayMults = { hostel: 0.7, budget_hotel: 0.85, "3_star": 1.0, "4_star": 1.4, "5_star": 2.2 };
+      const diningMult = 1.0 + (dining.includes("fine_dining") ? 0.12 : 0) - (dining.includes("street_food") ? 0.04 : 0);
+
+      function calcTierTotal(t) {
+        const cm = ((tierMults[t] || 1.0) * 0.6) + ((stayMults[stayType] || 1.0) * 0.4);
+        return Math.max(5000, Math.round((avgBaseRate * totalDays * travellers * cm * diningMult) / 100) * 100);
+      }
+
+      const totalCost = calcTierTotal(budgetTier);
+      const perPerson = Math.round(totalCost / travellers);
+      const lowCost = Math.round(totalCost * 0.88);
+      const highCost = Math.round(totalCost * 1.15);
+
+      document.getElementById("costTotalAmount").textContent = `₹${totalCost.toLocaleString('en-IN')}`;
+      document.getElementById("costTravellerLabel").textContent = `for ${travellers} travellers`;
+      document.getElementById("perPersonValue").textContent = `₹${perPerson.toLocaleString('en-IN')}`;
+
+      document.getElementById("pinLowVal").textContent = `₹${lowCost.toLocaleString('en-IN')}`;
+      document.getElementById("pinExpVal").textContent = `₹${totalCost.toLocaleString('en-IN')}`;
+      document.getElementById("pinHighVal").textContent = `₹${highCost.toLocaleString('en-IN')}`;
+
+      // Category breakdown
+      const stayAmt = Math.round(totalCost * 0.39);
+      const transitAmt = Math.round(totalCost * 0.19);
+      const foodAmt = Math.round(totalCost * 0.16);
+      const actAmt = Math.round(totalCost * 0.15);
+      const miscAmt = Math.round(totalCost * 0.11);
+
+      document.getElementById("catStaySub").textContent = `${totalNights} Nights (${stayDisplayNames[stayType] || '3-Star Hotel'})`;
+      document.getElementById("catStayAmt").textContent = `₹${stayAmt.toLocaleString('en-IN')}`;
+      document.getElementById("catStayPct").textContent = `39% • ₹${Math.round(stayAmt / travellers).toLocaleString('en-IN')} / person`;
+
+      // Hotel suggestions tags
+      const hotelListHtml = destObjs.map(d => `<span style="display: inline-block; background: #f1f5f9; padding: 2px 8px; border-radius: 6px; margin-right: 6px; margin-top: 3px;">🏨 ${d.name}: <strong>${d.hotels[0].name}</strong></span>`).join("");
+      document.getElementById("catStayHotels").innerHTML = hotelListHtml;
+
+      document.getElementById("catTransitAmt").textContent = `₹${transitAmt.toLocaleString('en-IN')}`;
+      document.getElementById("catTransitPct").textContent = `19% • ₹${Math.round(transitAmt / travellers).toLocaleString('en-IN')} / person`;
+
+      document.getElementById("catFoodAmt").textContent = `₹${foodAmt.toLocaleString('en-IN')}`;
+      document.getElementById("catFoodPct").textContent = `16% • ₹${Math.round(foodAmt / travellers).toLocaleString('en-IN')} / person`;
+
+      document.getElementById("catActAmt").textContent = `₹${actAmt.toLocaleString('en-IN')}`;
+      document.getElementById("catActPct").textContent = `15% • ₹${Math.round(actAmt / travellers).toLocaleString('en-IN')} / person`;
+
+      document.getElementById("catMiscAmt").textContent = `₹${miscAmt.toLocaleString('en-IN')}`;
+      document.getElementById("catMiscPct").textContent = `11% • ₹${Math.round(miscAmt / travellers).toLocaleString('en-IN')} / person`;
+
+      // Per Person share
+      document.getElementById("shareTotalVal").textContent = `₹${perPerson.toLocaleString('en-IN')}`;
+      document.getElementById("shareSubtext").innerHTML = `<span>₹${totalCost.toLocaleString('en-IN')} total</span><br><span>÷ ${travellers} travellers</span>`;
+      document.getElementById("shareStayVal").textContent = `₹${Math.round(stayAmt / travellers).toLocaleString('en-IN')} / person`;
+      document.getElementById("shareTransitVal").textContent = `₹${Math.round(transitAmt / travellers).toLocaleString('en-IN')} / person`;
+      document.getElementById("shareFoodVal").textContent = `₹${Math.round(foodAmt / travellers).toLocaleString('en-IN')} / person`;
+      document.getElementById("shareActVal").textContent = `₹${Math.round(actAmt / travellers).toLocaleString('en-IN')} / person`;
+      document.getElementById("shareMiscVal").textContent = `₹${Math.round(miscAmt / travellers).toLocaleString('en-IN')} / person`;
+
+      // Daily Average
+      const dailyRate = Math.round(totalCost / totalDays);
+      const dailyPerson = Math.round(dailyRate / travellers);
+      document.getElementById("dailyFormula").textContent = `₹${totalCost.toLocaleString('en-IN')} ÷ ${totalDays} days`;
+      document.getElementById("dailyTotalRate").textContent = `₹${dailyRate.toLocaleString('en-IN')} / day`;
+      document.getElementById("dailyPersonRate").textContent = `₹${dailyPerson.toLocaleString('en-IN')} / person / day`;
+
+      // Daily Spend Grid
+      const dayGrid = document.getElementById("daySpendGrid");
+      dayGrid.innerHTML = "";
+      let currentDay = 1;
+      destObjs.forEach(dest => {
+        const destDays = dest.days || 3;
+        for (let d = 1; d <= destDays; d++) {
+          const isFirst = (currentDay === 1);
+          const isLast = (currentDay === totalDays);
+          const isDestFirst = (d === 1 && !isFirst);
+
+          let dayCost = Math.round((totalCost / totalDays) * (isFirst || isLast ? 0.9 : isDestFirst ? 1.2 : 1.05));
+          let pctWidth = Math.min(100, Math.round((dayCost / (totalCost / totalDays * 1.25)) * 100));
+          let snippet = isFirst ? `Arrival in ${dest.name}, hotel check-in & welcome dinner` : isLast ? `Check-out, farewell lunch & return transit` : isDestFirst ? `Scenic transfer to ${dest.name} & sightseeing` : `Signature sightseeing, highlights & culinary trail`;
+
+          const card = document.createElement("div");
+          card.className = "day-spend-card";
+          card.innerHTML = `
+            <div class="day-spend-header">
+              <span class="day-tag">Day ${currentDay}</span>
+              <span class="day-location">${dest.name}</span>
+            </div>
+            <div class="day-cost-val">₹${dayCost.toLocaleString('en-IN')}</div>
+            <div class="day-bar-bg"><div class="day-bar-fill" style="width: ${pctWidth}%;"></div></div>
+            <p class="day-activity-snippet">${snippet}</p>
+          `;
+          dayGrid.appendChild(card);
+          currentDay++;
+        }
+      });
+
+      // Budget Plan Comparison Grid
+      const planCompGrid = document.getElementById("planCompGrid");
+      const tiers = [
+        { key: "budget", title: "Budget-Friendly", desc: "Focus on essentials, hostels/guesthouses, and shared public transit." },
+        { key: "standard", title: "Standard", desc: "Balanced comfort, boutique 3-star stays, private rental cabs, and top experiences." },
+        { key: "premium", title: "Premium", desc: "4-star stays/resorts, dedicated chauffeur cab, fine dining, and guided activities." },
+        { key: "luxury", title: "Luxury", desc: "5-star luxury heritage villas, private chauffeur, boat charters & VIP trails." }
+      ];
+
+      planCompGrid.innerHTML = tiers.map(t => {
+        const tTotal = calcTierTotal(t.key);
+        const tPer = Math.round(tTotal / travellers);
+        const isActive = (t.key === budgetTier);
+        return `
+          <div class="plan-card ${isActive ? 'is-active-plan' : ''}">
+            ${isActive ? '<span class="plan-badge-pill">Your Plan</span>' : ''}
+            <h3 class="plan-title">${t.title}</h3>
+            <div class="plan-price">₹${tTotal.toLocaleString('en-IN')}</div>
+            <div class="plan-per-person">₹${tPer.toLocaleString('en-IN')} / person</div>
+            <p class="plan-desc">${t.desc}</p>
+          </div>
+        `;
+      }).join("");
+
+    })();
+  </script>
 </body>
 </html>

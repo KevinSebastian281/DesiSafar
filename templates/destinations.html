@@ -152,7 +152,7 @@
                 {% endfor %}
               </datalist>
             </div>
-            <small class="field-hint">Type any custom location or select a suggested airport/rail hub near your stops.</small>
+            <small class="field-hint">{% if selected_dest_count > 0 %}⭐ Suggested airport & rail hubs near your selected stops prioritized in list.{% else %}Type any custom location or select from major Indian transit hubs.{% endif %}</small>
           </div>
 
           <div class="route-builder-section">
@@ -168,7 +168,7 @@
               </div>
               <div class="hub-info">
                 <span class="hub-type">STARTING POINT</span>
-                <span class="hub-name" id="displayStartCity">{{ trip_details.start_location if trip_details.start_location else 'Flexible / Custom Starting Point' }}</span>
+                <span class="hub-name" id="displayStartCity">{{ trip_details.start_location if trip_details.start_location else 'Flexible / Select Starting Point' }}</span>
               </div>
             </div>
 
@@ -221,7 +221,7 @@
 
           <div class="trip-duration-display" id="tripDurationDisplay" style="display: flex;">
             <span class="duration-icon">⏳</span>
-            <span class="duration-text" id="durationText">{{ computed_days }} days · {{ computed_nights }} nights (calculated from places)</span>
+            <span class="duration-text" id="durationText">{% if selected_dest_count == 0 and not trip_details.departure_date and not trip_details.return_date %}Dates flexible · Pick places to compute days{% else %}{{ computed_days }} days · {{ computed_nights }} nights (calculated from places){% endif %}</span>
           </div>
 
           <div class="form-group travellers-counter-group" id="travellersGroup">
