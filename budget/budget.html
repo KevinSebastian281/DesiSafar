@@ -6,23 +6,18 @@
   <title>DesiSafar — Trip Budget & Cost Estimate</title>
   <meta name="description" content="Detailed trip budget and cost breakdown for your Indian journey with DesiSafar. Understand total costs, per-person splits, and daily averages.">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Shared Navbar Stylesheet -->
   <link rel="stylesheet" href="navbar.css">
 
-  <!-- Main Stylesheet (Pure CSS) -->
   <link rel="stylesheet" href="budget.css">
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
   <header class="app-header" id="appHeader">
     <div class="header-container">
       <div class="brand-wrapper">
@@ -37,7 +32,6 @@
         </a>
       </div>
 
-      <!-- Trip Progress Stepper -->
       <nav class="trip-progress-nav" aria-label="Trip Planning Stages">
         <ol class="progress-steps">
           <li class="step-item step-done">
@@ -69,10 +63,8 @@
     </div>
   </header>
 
-  <!-- Main Layout -->
   <main class="main-layout" id="mainContent">
 
-    <!-- Trip Context Summary Banner -->
     <div class="trip-context-banner" role="region" aria-label="Current Journey Summary">
       <div class="trip-context-left">
         <span class="context-tag-badge">Planned Trip</span>
@@ -95,13 +87,11 @@
       </a>
     </div>
 
-    <!-- Hero Introduction -->
     <section class="hero-section">
       <h1 class="hero-heading">What will your trip cost?</h1>
       <p class="hero-subtitle">Here's your estimated trip budget, split by category and per traveller.</p>
     </section>
 
-    <!-- 1. Dominant Central Cost Card -->
     <article class="main-cost-card" aria-label="Total Estimated Trip Cost">
       
       <div class="cost-card-top-row">
@@ -119,7 +109,6 @@
         </div>
       </div>
 
-      <!-- Cost Range Bar -->
       <div class="cost-range-section">
         <div class="range-header-row">
           <span class="range-title">Estimated Range</span>
@@ -128,21 +117,18 @@
         <div class="range-bar-track" aria-hidden="true">
           <div class="range-bar-fill"></div>
 
-          <!-- Lower Pin -->
           <div class="range-pin low">
             <span class="range-pin-dot"></span>
             <span class="range-pin-val">₹55,000</span>
             <span class="range-pin-label">Lower Estimate</span>
           </div>
 
-          <!-- Expected Pin -->
           <div class="range-pin expected">
             <span class="range-pin-dot"></span>
             <span class="range-pin-val">₹62,000</span>
             <span class="range-pin-label">Expected Estimate</span>
           </div>
 
-          <!-- Upper Pin -->
           <div class="range-pin high">
             <span class="range-pin-dot"></span>
             <span class="range-pin-val">₹70,000</span>
@@ -158,10 +144,8 @@
 
     </article>
 
-    <!-- 2. Two-Column Breakdown Grid -->
     <div class="dashboard-grid-2col">
 
-      <!-- Left Panel: Where Your Money Goes -->
       <section class="dash-panel" aria-labelledby="headingBreakdown">
         <div class="panel-header">
           <div>
@@ -172,7 +156,6 @@
 
         <div class="expense-category-list">
           
-          <!-- Accommodation -->
           <div class="category-row-card">
             <div class="category-left">
               <div class="category-icon-box">🏨</div>
@@ -187,7 +170,6 @@
             </div>
           </div>
 
-          <!-- Transportation -->
           <div class="category-row-card">
             <div class="category-left">
               <div class="category-icon-box">🚗</div>
@@ -202,7 +184,6 @@
             </div>
           </div>
 
-          <!-- Food & Dining -->
           <div class="category-row-card">
             <div class="category-left">
               <div class="category-icon-box">🍜</div>
@@ -217,7 +198,6 @@
             </div>
           </div>
 
-          <!-- Activities & Sightseeing -->
           <div class="category-row-card">
             <div class="category-left">
               <div class="category-icon-box">🎟️</div>
@@ -232,7 +212,6 @@
             </div>
           </div>
 
-          <!-- Miscellaneous & Buffer -->
           <div class="category-row-card">
             <div class="category-left">
               <div class="category-icon-box">💳</div>
@@ -249,7 +228,6 @@
 
         </div>
 
-        <!-- Pure CSS Distribution Bar Chart -->
         <div class="distribution-chart-block">
           <div class="chart-title">Visual Budget Distribution</div>
           <div class="stacked-distribution-bar" role="img" aria-label="Budget distribution bar chart">
@@ -271,7 +249,6 @@
 
       </section>
 
-      <!-- Right Panel: Your Share & Daily Averages -->
       <section class="dash-panel" aria-labelledby="headingShare">
         <div class="panel-header">
           <div>
@@ -280,7 +257,6 @@
           </div>
         </div>
 
-        <!-- Metric Highlight Banner -->
         <div class="share-metric-card">
           <div>
             <div class="share-metric-label">Per Person Total</div>
@@ -292,7 +268,6 @@
           </div>
         </div>
 
-        <!-- Per Person Category Breakdown -->
         <div class="per-person-list">
           <div class="per-person-item">
             <span class="per-person-name">🏨 Accommodation</span>
@@ -316,7 +291,6 @@
           </div>
         </div>
 
-        <!-- Average Daily Cost Metric Box -->
         <div class="daily-avg-box">
           <div class="daily-avg-left">
             <span class="daily-avg-title">Average Daily Cost</span>
@@ -332,7 +306,6 @@
 
     </div>
 
-    <!-- 3. Day-Wise Spending Timeline -->
     <section class="full-width-panel" aria-labelledby="headingDaily">
       <div class="panel-header">
         <div>
@@ -343,7 +316,6 @@
 
       <div class="day-spend-grid">
         
-        <!-- Day 1 -->
         <div class="day-spend-card">
           <div class="day-spend-header">
             <span class="day-tag">Day 1</span>
@@ -354,7 +326,6 @@
           <p class="day-activity-snippet">Airport pickup, beach check-in & shack dinner</p>
         </div>
 
-        <!-- Day 2 -->
         <div class="day-spend-card">
           <div class="day-spend-header">
             <span class="day-tag">Day 2</span>
@@ -365,7 +336,6 @@
           <p class="day-activity-snippet">Fontainhas heritage trail, spices & Goan thali</p>
         </div>
 
-        <!-- Day 3 -->
         <div class="day-spend-card">
           <div class="day-spend-header">
             <span class="day-tag">Day 3</span>
@@ -376,7 +346,6 @@
           <p class="day-activity-snippet">Palolem watersports & Mandovi sunset cruise</p>
         </div>
 
-        <!-- Day 4 -->
         <div class="day-spend-card">
           <div class="day-spend-header">
             <span class="day-tag">Day 4</span>
@@ -387,7 +356,6 @@
           <p class="day-activity-snippet">Scenic drive to Gokarna, cliff stay check-in</p>
         </div>
 
-        <!-- Day 5 -->
         <div class="day-spend-card">
           <div class="day-spend-header">
             <span class="day-tag">Day 5</span>
@@ -398,7 +366,6 @@
           <p class="day-activity-snippet">Om Beach cliff trek, temple visit & seafood</p>
         </div>
 
-        <!-- Day 6 -->
         <div class="day-spend-card">
           <div class="day-spend-header">
             <span class="day-tag">Day 6</span>
@@ -412,7 +379,6 @@
       </div>
     </section>
 
-    <!-- 4. Budget Plan Comparison -->
     <section class="full-width-panel" aria-labelledby="headingPlanComp">
       <div class="panel-header">
         <div>
@@ -423,7 +389,6 @@
 
       <div class="plan-comparison-grid">
         
-        <!-- Tier 1: Budget-Friendly -->
         <div class="plan-card">
           <h3 class="plan-title">Budget-Friendly</h3>
           <div class="plan-price">₹48,000</div>
@@ -431,7 +396,6 @@
           <p class="plan-desc">Focus on essentials, hostels/guesthouses, and shared public transit.</p>
         </div>
 
-        <!-- Tier 2: Standard (Active Plan) -->
         <div class="plan-card is-active-plan">
           <span class="plan-badge-pill">Your Plan</span>
           <h3 class="plan-title">Standard</h3>
@@ -440,7 +404,6 @@
           <p class="plan-desc">Balanced comfort, boutique 3-star stays, private rental cabs, and top experiences.</p>
         </div>
 
-        <!-- Tier 3: Premium -->
         <div class="plan-card">
           <h3 class="plan-title">Premium</h3>
           <div class="plan-price">₹85,000</div>
@@ -448,7 +411,6 @@
           <p class="plan-desc">4-star beachfront stays, dedicated chauffeur cab, fine dining, and guided activities.</p>
         </div>
 
-        <!-- Tier 4: Luxury -->
         <div class="plan-card">
           <h3 class="plan-title">Luxury</h3>
           <div class="plan-price">₹1,35,000</div>
@@ -458,10 +420,8 @@
 
       </div>
     </section>
-    <!-- 6. What's Included & Not Included -->
     <div class="transparency-grid">
       
-      <!-- Included Box -->
       <div class="transparency-box">
         <h3 class="transparency-title">
           <span class="check-icon">✓</span>
@@ -476,7 +436,6 @@
         </ul>
       </div>
 
-      <!-- Not Included Box -->
       <div class="transparency-box">
         <h3 class="transparency-title">
           <span class="circle-icon">○</span>
@@ -492,12 +451,10 @@
 
     </div>
 
-    <!-- 7. Subtle Disclaimer -->
     <div class="estimate-disclaimer-bar">
       <span>Estimate only: Actual prices may vary based on season, availability, booking timing and individual choices.</span>
     </div>
 
-    <!-- 8. Final Action Buttons -->
     <div class="final-actions-wrapper">
       <div class="actions-left-group">
         <a href="../page 4/index4.html" class="btn-ghost-action">
@@ -509,7 +466,6 @@
       </div>
     </div>
 
-    <!-- 9. Closing Emotional Journey Banner -->
     <section class="closing-journey-banner" aria-label="Journey Closing Message">
       <div class="closing-eyebrow">Everything Planned</div>
       <h2 class="closing-title">Now all that's left is the journey.</h2>

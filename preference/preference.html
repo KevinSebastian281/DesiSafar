@@ -6,23 +6,18 @@
   <title>DesiSafar — Trip Preferences & Travel Style</title>
   <meta name="description" content="Personalize your Indian journey with DesiSafar. Choose your travel vibe, budget, accommodation, and food preferences.">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Shared Navbar Stylesheet -->
   <link rel="stylesheet" href="navbar.css">
 
-  <!-- Main Stylesheet (Pure CSS) -->
   <link rel="stylesheet" href="preference.css">
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
   <header class="app-header" id="appHeader">
     <div class="header-container">
       <div class="brand-wrapper">
@@ -37,7 +32,6 @@
         </a>
       </div>
 
-      <!-- Trip Progress Stepper -->
       <nav class="trip-progress-nav" aria-label="Trip Planning Stages">
         <ol class="progress-steps">
           <li class="step-item step-done">
@@ -69,10 +63,8 @@
     </div>
   </header>
 
-  <!-- Main Layout -->
   <main class="main-layout" id="mainContent">
 
-    <!-- Trip Context Banner (From Step 1 Selection) -->
     <div class="trip-context-banner" role="region" aria-label="Current Trip Route">
       <div class="trip-context-left">
         <span class="context-tag-badge">Selected Route</span>
@@ -93,19 +85,15 @@
       </a>
     </div>
 
-    <!-- Hero Introduction -->
     <section class="hero-section">
       <h1 class="hero-heading">What kind of trip are you imagining?</h1>
       <p class="hero-subtitle">Tell us how you like to travel and we'll shape the journey around you.</p>
     </section>
 
-    <!-- Two-Column Interactive Workspace -->
     <div class="preferences-workspace-grid">
 
-      <!-- Left Column: Preference Form Controls -->
       <form class="preferences-form-column" action="../page 4/index4.html" method="GET">
 
-        <!-- 1. Travel Style (Vibe) -->
         <section class="pref-section" id="sectionTravelStyle">
           <div class="section-header">
             <h2 class="section-title">
@@ -116,7 +104,6 @@
           </div>
 
           <div class="cards-grid-4">
-            <!-- 1. Adventure -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="adventure" class="sr-only-input" checked>
               <div class="pref-card">
@@ -129,7 +116,6 @@
               </div>
             </label>
 
-            <!-- 2. Relaxed -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="relaxed" class="sr-only-input">
               <div class="pref-card">
@@ -142,7 +128,6 @@
               </div>
             </label>
 
-            <!-- 3. Romantic -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="romantic" class="sr-only-input">
               <div class="pref-card">
@@ -155,7 +140,6 @@
               </div>
             </label>
 
-            <!-- 4. Family -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="family" class="sr-only-input">
               <div class="pref-card">
@@ -168,7 +152,6 @@
               </div>
             </label>
 
-            <!-- 5. Culture -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="culture" class="sr-only-input">
               <div class="pref-card">
@@ -181,7 +164,6 @@
               </div>
             </label>
 
-            <!-- 6. Nightlife -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="nightlife" class="sr-only-input">
               <div class="pref-card">
@@ -194,7 +176,6 @@
               </div>
             </label>
 
-            <!-- 7. Foodie -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="foodie" class="sr-only-input" checked>
               <div class="pref-card">
@@ -207,7 +188,6 @@
               </div>
             </label>
 
-            <!-- 8. Explorer -->
             <label class="custom-card-label">
               <input type="checkbox" name="vibe" value="explorer" class="sr-only-input" checked>
               <div class="pref-card">
@@ -222,7 +202,6 @@
           </div>
         </section>
 
-        <!-- 2. Interests Chips -->
         <section class="pref-section" id="sectionInterests">
           <div class="section-header">
             <h2 class="section-title">
@@ -292,7 +271,6 @@
           </div>
         </section>
 
-        <!-- 3. Budget Style -->
         <section class="pref-section" id="sectionBudget">
           <div class="section-header">
             <h2 class="section-title">
@@ -303,7 +281,6 @@
           </div>
 
           <div class="budget-cards-grid">
-            <!-- 1. Budget-Friendly -->
             <label class="custom-card-label">
               <input type="radio" name="budget" value="budget" class="sr-only-input">
               <div class="pref-card budget-card">
@@ -316,7 +293,6 @@
               </div>
             </label>
 
-            <!-- 2. Standard (Default) -->
             <label class="custom-card-label">
               <input type="radio" name="budget" value="standard" class="sr-only-input" checked>
               <div class="pref-card budget-card">
@@ -329,7 +305,6 @@
               </div>
             </label>
 
-            <!-- 3. Premium -->
             <label class="custom-card-label">
               <input type="radio" name="budget" value="premium" class="sr-only-input">
               <div class="pref-card budget-card">
@@ -342,7 +317,6 @@
               </div>
             </label>
 
-            <!-- 4. Luxury -->
             <label class="custom-card-label">
               <input type="radio" name="budget" value="luxury" class="sr-only-input">
               <div class="pref-card budget-card">
@@ -357,7 +331,6 @@
           </div>
         </section>
 
-        <!-- 4. Accommodation -->
         <section class="pref-section" id="sectionAccommodation">
           <div class="section-header">
             <h2 class="section-title">
@@ -406,7 +379,6 @@
           </div>
         </section>
 
-        <!-- 5. Food Preference -->
         <section class="pref-section" id="sectionFood">
           <div class="section-header">
             <h2 class="section-title">
@@ -416,7 +388,6 @@
             <p class="section-subtitle">We will customize restaurant and street food recommendations accordingly.</p>
           </div>
 
-          <!-- Primary Dietary Style -->
           <div class="pill-options-row">
             <label class="option-pill-label">
               <input type="radio" name="diet" value="no_preference" class="sr-only-input" checked>
@@ -448,7 +419,6 @@
             </label>
           </div>
 
-          <!-- Optional Dining Style Chips -->
           <div class="food-subgroup">
             <h4 class="subgroup-title">Dining Experiences</h4>
             <div class="chips-wrap">
@@ -472,7 +442,6 @@
           </div>
         </section>
 
-        <!-- Bottom Actions Row -->
         <div class="bottom-actions-bar">
           <a href="../destinations_page/destinations.html" class="back-link">
             <span>← Back to Destinations</span>
@@ -484,7 +453,6 @@
 
       </form>
 
-      <!-- Right Column: Sticky Trip Summary Panel -->
       <aside class="summary-column" aria-label="Your Journey Summary">
         <div class="sticky-summary-card">
           
@@ -511,7 +479,6 @@
             </div>
           </div>
 
-          <!-- Preferences Snapshot -->
           <div class="preferences-snapshot-block">
             <div class="snapshot-heading">Preference Snapshot</div>
             <div class="snapshot-items-list">
@@ -534,7 +501,6 @@
             </div>
           </div>
 
-          <!-- Action Button -->
           <a href="../page 4/index4.html" class="btn-generate-cta">
             <span>Generate Itinerary ✨</span>
           </a>

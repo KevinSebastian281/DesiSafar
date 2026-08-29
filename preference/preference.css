@@ -1,13 +1,4 @@
-/* ==========================================================================
-   DESISAFAR — PAGE 3: TRIP PREFERENCES STYLESHEET (PURE CSS)
-   Design Language: Modern Travel-Tech & Premium Editorial Aesthetic
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. Design Tokens & CSS Custom Properties
-   -------------------------------------------------------------------------- */
 :root {
-  /* Brand Palette */
   --navy-950: #060e18;
   --navy-900: #0a1626;
   --navy-800: #112338;
@@ -19,25 +10,21 @@
   --terracotta-700: #b54a13;
   --terracotta-600: #c95717;
   --terracotta-500: #df6924;
-  /* Primary Accent */
   --terracotta-400: #ea8245;
   --terracotta-100: #fdeee5;
   --terracotta-50: #fff8f5;
 
-  /* Neutrals & Surfaces */
   --canvas-bg: #f8fafc;
   --surface-white: #ffffff;
   --surface-subtle: #f1f5f9;
   --surface-alt: #f8fafc;
 
-  /* Typography */
   --text-main: #0f172a;
   --text-secondary: #334155;
   --text-muted: #64748b;
   --text-light: #94a3b8;
   --text-inverse: #ffffff;
 
-  /* Borders & Radii */
   --border-light: #e2e8f0;
   --border-subtle: #cbd5e1;
   --radius-xs: 4px;
@@ -47,25 +34,19 @@
   --radius-xl: 20px;
   --radius-full: 9999px;
 
-  /* Shadows */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
   --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 20px 40px rgba(10, 22, 38, 0.12);
 
-  /* Dimensions */
   --header-height: 72px;
   --max-content-width: 1240px;
 
-  /* Transitions */
   --trans-fast: 0.15s ease;
   --trans-base: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset & Global Base
-   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -115,7 +96,6 @@ textarea {
   color: inherit;
 }
 
-/* Screen Reader Accessible Hidden Input */
 .sr-only-input {
   position: absolute;
   width: 1px;
@@ -128,9 +108,6 @@ textarea {
   border: 0;
 }
 
-/* --------------------------------------------------------------------------
-   3. Header Navigation & Stepper
-   -------------------------------------------------------------------------- */
 .app-header {
   position: sticky;
   top: 0;
@@ -189,7 +166,6 @@ textarea {
   height: 16px;
 }
 
-/* Stepper */
 .progress-steps {
   display: flex;
   align-items: center;
@@ -215,7 +191,6 @@ textarea {
   color: var(--text-muted);
 }
 
-/* Completed Step */
 .step-item.step-done {
   color: var(--text-secondary);
 }
@@ -225,7 +200,6 @@ textarea {
   color: var(--navy-800);
 }
 
-/* Active Step */
 .step-item.step-active {
   color: var(--terracotta-600);
 }
@@ -239,16 +213,12 @@ textarea {
   opacity: 0.45;
 }
 
-/* --------------------------------------------------------------------------
-   4. Main Content Layout
-   -------------------------------------------------------------------------- */
 .main-layout {
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 24px 24px 80px 24px;
 }
 
-/* Trip Context Summary Banner */
 .trip-context-banner {
   display: flex;
   align-items: center;
@@ -319,7 +289,6 @@ textarea {
   color: var(--terracotta-700);
 }
 
-/* Hero Section */
 .hero-section {
   margin-bottom: 32px;
 }
@@ -337,9 +306,6 @@ textarea {
   color: var(--text-secondary);
 }
 
-/* --------------------------------------------------------------------------
-   5. Two-Column Workspace Grid
-   -------------------------------------------------------------------------- */
 .preferences-workspace-grid {
   display: grid;
   grid-template-columns: 1fr 340px;
@@ -354,9 +320,6 @@ textarea {
   min-width: 0;
 }
 
-/* --------------------------------------------------------------------------
-   6. Reusable Section Modules
-   -------------------------------------------------------------------------- */
 .pref-section {
   background: var(--surface-white);
   border: 1px solid var(--border-light);
@@ -384,9 +347,6 @@ textarea {
   margin-top: 4px;
 }
 
-/* --------------------------------------------------------------------------
-   7. Travel Style Cards (Section 1)
-   -------------------------------------------------------------------------- */
 .cards-grid-4 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -423,7 +383,6 @@ textarea {
   outline-offset: 2px;
 }
 
-/* Selected Card State */
 .sr-only-input:checked+.pref-card {
   border-color: var(--terracotta-500);
   background: var(--terracotta-50);
@@ -477,9 +436,6 @@ textarea {
   line-height: 1.4;
 }
 
-/* --------------------------------------------------------------------------
-   8. Interests Selectable Chips (Section 2)
-   -------------------------------------------------------------------------- */
 .chips-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -518,7 +474,6 @@ textarea {
   outline-offset: 2px;
 }
 
-/* Selected Chip */
 .sr-only-input:checked+.pref-chip {
   background: var(--navy-800);
   color: var(--text-inverse);
@@ -526,9 +481,6 @@ textarea {
   box-shadow: 0 3px 8px rgba(17, 35, 56, 0.2);
 }
 
-/* --------------------------------------------------------------------------
-   9. Budget Style Cards (Section 3)
-   -------------------------------------------------------------------------- */
 .budget-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -546,9 +498,6 @@ textarea {
   margin-bottom: 8px;
 }
 
-/* --------------------------------------------------------------------------
-   10. Compact Radio Options (Accommodation)
-   -------------------------------------------------------------------------- */
 .pill-options-row {
   display: flex;
   flex-wrap: wrap;
@@ -594,9 +543,6 @@ textarea {
   box-shadow: 0 0 0 1.5px var(--terracotta-500);
 }
 
-/* --------------------------------------------------------------------------
-   11. Food Preference Modules (Section 5)
-   -------------------------------------------------------------------------- */
 .food-subgroup {
   margin-top: 18px;
   padding-top: 16px;
@@ -612,9 +558,6 @@ textarea {
   margin-bottom: 10px;
 }
 
-/* --------------------------------------------------------------------------
-   12. Right Column: Sticky Trip Summary Card
-   -------------------------------------------------------------------------- */
 .summary-column {
   position: sticky;
   top: calc(var(--header-height) + 20px);
@@ -768,9 +711,6 @@ textarea {
   text-decoration: underline;
 }
 
-/* --------------------------------------------------------------------------
-   13. Bottom Global Actions Row
-   -------------------------------------------------------------------------- */
 .bottom-actions-bar {
   display: flex;
   align-items: center;
@@ -780,9 +720,6 @@ textarea {
   border-top: 1px solid var(--border-light);
 }
 
-/* --------------------------------------------------------------------------
-   14. Responsive Breakpoints
-   -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .preferences-workspace-grid {
     grid-template-columns: 1fr 300px;
@@ -801,7 +738,6 @@ textarea {
 
   .progress-steps {
     display: none;
-    /* Mobile navigation simplicity */
   }
 
   .main-layout {
@@ -825,7 +761,6 @@ textarea {
   .summary-column {
     position: static;
     order: -1;
-    /* Show summary near top on mobile */
     margin-bottom: 24px;
   }
 

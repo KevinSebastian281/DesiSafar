@@ -1,13 +1,4 @@
-/* ==========================================================================
-   DESISAFAR — PAGE 5: BUDGET & COST ESTIMATION STYLESHEET (PURE CSS)
-   Design Language: Travel + Finance + Premium SaaS
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. Design Tokens & CSS Custom Properties
-   -------------------------------------------------------------------------- */
 :root {
-  /* Brand Navy Palette */
   --navy-950: #060e18;
   --navy-900: #0a1626;
   --navy-800: #112338;
@@ -16,7 +7,6 @@
   --navy-100: #e8eef6;
   --navy-50: #f4f7fb;
 
-  /* Terracotta Primary Accent */
   --terracotta-700: #b54a13;
   --terracotta-600: #c95717;
   --terracotta-500: #df6924;
@@ -24,7 +14,6 @@
   --terracotta-100: #fdeee5;
   --terracotta-50: #fff8f5;
 
-  /* Financial Accent Colors */
   --emerald-700: #047857;
   --emerald-600: #059669;
   --emerald-500: #10b981;
@@ -38,20 +27,17 @@
   --amber-600: #d97706;
   --amber-50: #fffbeb;
 
-  /* Neutrals & Surfaces */
   --canvas-bg: #f8fafc;
   --surface-white: #ffffff;
   --surface-subtle: #f1f5f9;
   --surface-alt: #f8fafc;
 
-  /* Text Colors */
   --text-main: #0f172a;
   --text-secondary: #334155;
   --text-muted: #64748b;
   --text-light: #94a3b8;
   --text-inverse: #ffffff;
 
-  /* Borders & Radii */
   --border-light: #e2e8f0;
   --border-subtle: #cbd5e1;
   --radius-xs: 4px;
@@ -62,25 +48,19 @@
   --radius-2xl: 24px;
   --radius-full: 9999px;
 
-  /* Shadows */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
   --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 20px 40px rgba(10, 22, 38, 0.1);
 
-  /* Layout Dimensions */
   --header-height: 72px;
   --max-content-width: 1200px;
 
-  /* Transitions */
   --trans-fast: 0.15s ease;
   --trans-base: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset & Global Base
-   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -129,9 +109,6 @@ button {
   background: none;
 }
 
-/* --------------------------------------------------------------------------
-   3. Header Navigation & Stepper
-   -------------------------------------------------------------------------- */
 .app-header {
   position: sticky;
   top: 0;
@@ -190,7 +167,6 @@ button {
   height: 16px;
 }
 
-/* Progress Stepper */
 .progress-steps {
   display: flex;
   align-items: center;
@@ -216,7 +192,6 @@ button {
   color: var(--text-muted);
 }
 
-/* Completed Steps */
 .step-item.step-done {
   color: var(--text-secondary);
 }
@@ -226,7 +201,6 @@ button {
   color: var(--navy-800);
 }
 
-/* Active Final Step */
 .step-item.step-active {
   color: var(--terracotta-600);
 }
@@ -236,16 +210,12 @@ button {
   color: var(--text-inverse);
 }
 
-/* --------------------------------------------------------------------------
-   4. Main Content Layout
-   -------------------------------------------------------------------------- */
 .main-layout {
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 28px 24px 80px 24px;
 }
 
-/* Trip Context Summary Banner */
 .trip-context-banner {
   display: flex;
   align-items: center;
@@ -326,7 +296,6 @@ button {
   color: var(--terracotta-700);
 }
 
-/* Hero Section */
 .hero-section {
   margin-bottom: 28px;
 }
@@ -344,9 +313,6 @@ button {
   color: var(--text-secondary);
 }
 
-/* --------------------------------------------------------------------------
-   5. Dominant Hero Cost Card (Section 9 & 10)
-   -------------------------------------------------------------------------- */
 .main-cost-card {
   background: var(--surface-white);
   border: 1.5px solid var(--border-light);
@@ -434,7 +400,6 @@ button {
   color: var(--terracotta-700);
 }
 
-/* Range Bar Visualization */
 .cost-range-section {
   padding-top: 24px;
   border-top: 1px solid var(--border-light);
@@ -562,9 +527,6 @@ button {
   gap: 8px;
 }
 
-/* --------------------------------------------------------------------------
-   6. Two-Column Dashboard Grid Layout
-   -------------------------------------------------------------------------- */
 .dashboard-grid-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -601,9 +563,6 @@ button {
   color: var(--text-muted);
 }
 
-/* --------------------------------------------------------------------------
-   7. Category Expense Breakdown (Section 12 & 13)
-   -------------------------------------------------------------------------- */
 .expense-category-list {
   display: flex;
   flex-direction: column;
@@ -676,7 +635,6 @@ button {
   color: var(--text-muted);
 }
 
-/* Pure CSS Distribution Bar Chart */
 .distribution-chart-block {
   padding-top: 20px;
   border-top: 1px solid var(--border-light);
@@ -757,9 +715,6 @@ button {
 .dot-activity { background: #9333ea; }
 .dot-misc { background: #64748b; }
 
-/* --------------------------------------------------------------------------
-   8. Per-Person Breakdown & Daily Averages (Section 14 & 15)
-   -------------------------------------------------------------------------- */
 .share-metric-card {
   background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
   border-radius: var(--radius-lg);
@@ -864,9 +819,6 @@ button {
   color: var(--emerald-600);
 }
 
-/* --------------------------------------------------------------------------
-   9. Day-Wise Spending Timeline (Section 16)
-   -------------------------------------------------------------------------- */
 .full-width-panel {
   background: var(--surface-white);
   border: 1px solid var(--border-light);
@@ -946,9 +898,6 @@ button {
   line-height: 1.3;
 }
 
-/* --------------------------------------------------------------------------
-   10. Budget Plan Comparison (Section 17)
-   -------------------------------------------------------------------------- */
 .plan-comparison-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -973,7 +922,6 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
-/* Active Selected Plan */
 .plan-card.is-active-plan {
   border-color: var(--terracotta-500);
   background: var(--terracotta-50);
@@ -1023,9 +971,6 @@ button {
   margin-top: auto;
 }
 
-/* --------------------------------------------------------------------------
-   11. Smart Saving Recommendation Card (Section 18)
-   -------------------------------------------------------------------------- */
 .smart-saving-card {
   background: linear-gradient(135deg, var(--emerald-50) 0%, #f0fdf4 100%);
   border: 1.5px solid #a7f3d0;
@@ -1085,9 +1030,6 @@ button {
   line-height: 1.5;
 }
 
-/* --------------------------------------------------------------------------
-   12. What's Included & Disclaimer (Section 19 & 20)
-   -------------------------------------------------------------------------- */
 .transparency-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1145,9 +1087,6 @@ button {
   margin-bottom: 36px;
 }
 
-/* --------------------------------------------------------------------------
-   13. Final Actions & Emotional Closing CTA (Section 21 & 22)
-   -------------------------------------------------------------------------- */
 .final-actions-wrapper {
   display: flex;
   align-items: center;
@@ -1207,7 +1146,6 @@ button {
   color: var(--navy-900);
 }
 
-/* Closing Emotional Banner */
 .closing-journey-banner {
   background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-800) 100%);
   border-radius: var(--radius-2xl);
@@ -1276,9 +1214,6 @@ button {
   transform: translateY(-2px);
 }
 
-/* --------------------------------------------------------------------------
-   14. Responsive Breakpoints
-   -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .dashboard-grid-2col {
     grid-template-columns: 1fr;

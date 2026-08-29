@@ -1,13 +1,4 @@
-/* ==========================================================================
-   DESISAFAR — PAGE 2: DESTINATION SELECTION & TRIP BUILDER STYLESHEET
-   Design Language: Premium + Editorial + Modern Travel SaaS with Indian Soul
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. CSS Custom Properties / Design Tokens
-   -------------------------------------------------------------------------- */
 :root {
-  /* Brand Colors */
   --navy-900: #0a1626;
   --navy-800: #112338;
   --navy-700: #1a324f;
@@ -18,30 +9,25 @@
   --terracotta-700: #b54a13;
   --terracotta-600: #c95717;
   --terracotta-500: #df6924;
-  /* Primary Brand Accent */
   --terracotta-400: #ea8245;
   --terracotta-100: #fdeee5;
   --terracotta-50: #fff8f5;
 
-  /* Neutrals & Surfaces */
   --canvas-bg: #f8fafc;
   --surface-white: #ffffff;
   --surface-subtle: #f1f5f9;
   --surface-alt: #f8fafc;
 
-  /* Typography Colors */
   --text-main: #0f172a;
   --text-secondary: #334155;
   --text-muted: #64748b;
   --text-light: #94a3b8;
   --text-inverse: #ffffff;
 
-  /* Borders & Dividers */
   --border-light: #e2e8f0;
   --border-subtle: #cbd5e1;
   --border-focus: #df6924;
 
-  /* Functional / Status */
   --success-bg: #ecfdf5;
   --success-border: #a7f3d0;
   --success-text: #065f46;
@@ -52,7 +38,6 @@
   --advisory-border: #bae6fd;
   --advisory-text: #0369a1;
 
-  /* Shadows */
   --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
@@ -61,7 +46,6 @@
   --shadow-card: 0 2px 8px rgba(17, 35, 56, 0.06);
   --shadow-hover: 0 12px 28px rgba(17, 35, 56, 0.12);
 
-  /* Radius */
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -69,20 +53,15 @@
   --radius-xl: 20px;
   --radius-full: 9999px;
 
-  /* Transitions */
   --trans-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --trans-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --trans-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Layout Consts */
   --header-height: 72px;
   --bottom-bar-height: 80px;
   --max-width: 1400px;
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset & Global Base
-   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -146,15 +125,11 @@ img {
   display: block;
 }
 
-/* Accessibility Focus */
 :focus-visible {
   outline: 2px solid var(--terracotta-500);
   outline-offset: 2px;
 }
 
-/* --------------------------------------------------------------------------
-   3. Top Navigation Header
-   -------------------------------------------------------------------------- */
 .app-header {
   position: sticky;
   top: 0;
@@ -225,7 +200,6 @@ img {
   height: 16px;
 }
 
-/* Trip Progress Stepper */
 .trip-progress-nav {
   display: flex;
   align-items: center;
@@ -275,7 +249,6 @@ img {
   opacity: 0.6;
 }
 
-/* Header Actions */
 .header-actions {
   display: flex;
   align-items: center;
@@ -304,9 +277,6 @@ img {
   height: 14px;
 }
 
-/* --------------------------------------------------------------------------
-   4. Hero & Discovery Section
-   -------------------------------------------------------------------------- */
 .main-layout {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -349,7 +319,6 @@ img {
   margin: 0 auto 28px auto;
 }
 
-/* Search & Filters Container */
 .search-filter-wrapper {
   display: flex;
   flex-direction: column;
@@ -419,7 +388,6 @@ img {
   color: var(--text-main);
 }
 
-/* Autocomplete Dropdown */
 .search-dropdown-menu {
   position: absolute;
   top: calc(100% + 6px);
@@ -488,7 +456,6 @@ img {
   color: var(--text-secondary);
 }
 
-/* Category Filter Chips */
 .category-filters-container {
   max-width: 900px;
   margin: 0 auto;
@@ -541,7 +508,6 @@ img {
   box-shadow: 0 2px 6px rgba(17, 35, 56, 0.2);
 }
 
-/* Pure CSS Category Filtering via :has() */
 body:has(#filter-beaches:checked) .destination-card:not([data-category*="beaches"]),
 body:has(#filter-mountains:checked) .destination-card:not([data-category*="mountains"]),
 body:has(#filter-nature:checked) .destination-card:not([data-category*="nature"]),
@@ -553,9 +519,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   display: none;
 }
 
-/* --------------------------------------------------------------------------
-   5. Interactive Workspace Grid (Two Columns)
-   -------------------------------------------------------------------------- */
 .trip-workspace-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -563,9 +526,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   align-items: start;
 }
 
-/* --------------------------------------------------------------------------
-   6. Left Column: Destination Explorer & Grid
-   -------------------------------------------------------------------------- */
 .explorer-column {
   min-width: 0;
 }
@@ -606,14 +566,12 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   border-radius: var(--radius-full);
 }
 
-/* Destination Cards Grid */
 .destinations-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* Destination Card */
 .destination-card {
   position: relative;
   background: var(--surface-white);
@@ -633,7 +591,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   border-color: var(--border-subtle);
 }
 
-/* Selected Card Highlight */
 .destination-card.is-selected {
   border-color: var(--terracotta-500);
   box-shadow: 0 0 0 2px var(--terracotta-500), var(--shadow-md);
@@ -835,7 +792,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   box-shadow: none;
 }
 
-/* Empty Search Results */
 .empty-results-state {
   text-align: center;
   padding: 60px 24px;
@@ -882,9 +838,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   background: var(--navy-100);
 }
 
-/* --------------------------------------------------------------------------
-   7. Right Column: "Your Trip" Route Builder Panel
-   -------------------------------------------------------------------------- */
 .trip-builder-column {
   position: sticky;
   top: calc(var(--header-height) + 16px);
@@ -931,7 +884,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   border-radius: var(--radius-full);
 }
 
-/* Form Controls */
 .trip-config-form {
   display: flex;
   flex-direction: column;
@@ -998,7 +950,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   color: var(--text-light);
 }
 
-/* Starting City Autocomplete */
 .start-city-suggestions {
   position: absolute;
   top: calc(100% + 4px);
@@ -1037,9 +988,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   border-radius: var(--radius-xs);
 }
 
-/* --------------------------------------------------------------------------
-   8. Route Builder Sequence & Reordering
-   -------------------------------------------------------------------------- */
 .route-builder-section {
   display: flex;
   flex-direction: column;
@@ -1070,7 +1018,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   color: var(--text-muted);
 }
 
-/* Start Hub Node */
 .start-hub-node {
   display: flex;
   align-items: center;
@@ -1114,7 +1061,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   color: var(--navy-800);
 }
 
-/* Selected Destinations List */
 .selected-destinations-list {
   display: flex;
   flex-direction: column;
@@ -1230,7 +1176,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   cursor: not-allowed;
 }
 
-/* Selected Destination Item Cards */
 .selected-dest-item {
   display: flex;
   align-items: center;
@@ -1346,7 +1291,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   color: #dc2626;
 }
 
-/* Empty Trip State */
 .empty-trip-state {
   text-align: center;
   padding: 24px 16px;
@@ -1371,9 +1315,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   line-height: 1.4;
 }
 
-/* --------------------------------------------------------------------------
-   9. Travel Dates & Duration
-   -------------------------------------------------------------------------- */
 .form-row-dates {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1412,9 +1353,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   }
 }
 
-/* --------------------------------------------------------------------------
-   10. Travellers Stepper
-   -------------------------------------------------------------------------- */
 .travellers-counter-group {
   margin-top: 4px;
 }
@@ -1471,9 +1409,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   margin-left: 6px;
 }
 
-/* --------------------------------------------------------------------------
-   11. Smart Advisory Banner
-   -------------------------------------------------------------------------- */
 .smart-advisory-banner {
   display: flex;
   align-items: flex-start;
@@ -1493,9 +1428,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   flex-shrink: 0;
 }
 
-/* --------------------------------------------------------------------------
-   12. Route Summary & Reset Action
-   -------------------------------------------------------------------------- */
 .route-summary-box {
   display: flex;
   align-items: center;
@@ -1549,9 +1481,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   color: #dc2626;
 }
 
-/* --------------------------------------------------------------------------
-   13. Sticky Bottom Action Bar
-   -------------------------------------------------------------------------- */
 .sticky-action-bar {
   position: fixed;
   bottom: 0;
@@ -1629,7 +1558,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   color: var(--text-muted);
 }
 
-/* Primary Action CTA */
 .btn-primary-cta {
   display: inline-flex;
   align-items: center;
@@ -1665,9 +1593,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   transform: translateX(4px);
 }
 
-/* --------------------------------------------------------------------------
-   14. Destination Detail Preview Modal
-   -------------------------------------------------------------------------- */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1901,9 +1826,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   color: var(--navy-800);
 }
 
-/* --------------------------------------------------------------------------
-   15. Toast Notifications
-   -------------------------------------------------------------------------- */
 .toast-container {
   position: fixed;
   top: 24px;
@@ -1967,11 +1889,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   }
 }
 
-/* --------------------------------------------------------------------------
-   16. Responsive Media Queries
-   -------------------------------------------------------------------------- */
-
-/* 1024px Tablets & Laptops */
 @media (max-width: 1024px) {
   .trip-workspace-grid {
     grid-template-columns: 1fr 340px;
@@ -1987,7 +1904,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   }
 }
 
-/* 900px Tablet Stacking */
 @media (max-width: 900px) {
   .trip-workspace-grid {
     grid-template-columns: 1fr;
@@ -2007,7 +1923,6 @@ body:has(#filter-spiritual:checked) .destination-card:not([data-category*="spiri
   }
 }
 
-/* 640px Mobile Viewports */
 @media (max-width: 640px) {
   :root {
     --header-height: 64px;
